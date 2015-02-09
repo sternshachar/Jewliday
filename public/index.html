@@ -8,8 +8,9 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Gurajada' rel='stylesheet' type='text/css'>
 	<script>
-		angular.module("jewApp",[]);
+		angular.module("jewApp",["ngAnimate"]);
 	</script>
+	<script src="ngmodules/angular-animate.js"></script>
 	<script src="controllers.js"></script>
 </head>
 <body ng-controller="mainCtrl">
@@ -38,6 +39,9 @@
 	</div><!-- end navbar -->
 
 	<div class="jumbotron">
+		<img class="slide" src="images/mountain.jpg" ng-if="picture[0].active">
+		<img class="slide" src="images/street.jpg" ng-if="picture[1].active">
+		<img class="slide" src="images/beach.jpg" ng-if="picture[2].active">
 		<h1>HOME IS EVERYWHERE</h1>
 		<p>Exchange homes with other jewish families from around the world</p>
 		<div class="form-group">
