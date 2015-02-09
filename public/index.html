@@ -6,17 +6,19 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Gurajada' rel='stylesheet' type='text/css'>
 	<script>
 		angular.module("jewApp",[]);
 	</script>
 	<script src="controllers.js"></script>
 </head>
 <body ng-controller="mainCtrl">
-	<div class="navbar navbar-fixed-top">
+
+	<div class="navbar">
 		<div class="container">
 			<div class="navbar-brand">
 				<a href><img src="">
-					<img src="images/logo.jpg" alt="Jewliday">
+					<img src="images/logo_white.png" alt="Jewliday">
 				</a>
 			</div>
 
@@ -34,5 +36,14 @@
 			</ul>
 		</div><!-- end container -->
 	</div><!-- end navbar -->
+
+	<div class="jumbotron">
+		<h1>HOME IS EVERYWHERE</h1>
+		<p>Exchange homes with other jewish families from around the world</p>
+		<div class="form-group">
+			<input class="form-control" type="text" name="destination" ng-model="destination" placeholder="  Where are you traveling to?">
+		</div>
+	</div><!-- end jumbotron -->
+
 </body>
 </html>

@@ -1,4 +1,8 @@
 /* ------ navbar ---------*/
+.navbar{
+	position: absolute;
+	z-index: +1;
+}
 .navbar-brand {
 	padding-top: 0;
 	padding-bottom: 0;
@@ -6,4 +10,56 @@
 .navbar-brand img{
 	height: 50px;
 }
+
+.navbar > div > ul > li > a{
+	color: white;
+	text-decoration: none;
+	font-size: 16px;
+} 
+
 /* ------ end navbar -----*/
+
+/* ----- jumbotron -------*/
+.jumbotron{
+	height: 600px;
+
+	background-image: url('../images/mountain.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+
+	font-family: 'Gurajada';
+	color: white;
+	text-align: center;
+
+	padding-bottom: 200px;
+	padding-top: 200px;
+}
+
+.jumbotron h1{
+	height: 60px;
+	font-size: 70px;
+	margin-top: 0;
+}
+
+.jumbotron p{
+	padding-top: 0;
+	margin-top: 0;
+
+	font-size: 30px;
+}
+.jumbotron input{
+	width: 300px;
+	margin-right: auto;
+	margin-left: auto;
+	/*height: 30px;
+	border-radius: 5px;*/
+
+/*	color: black;
+	font-size: 20px;*/
+}
+
+::-webkit-input-placeholder {
+   padding-bottom: 7px;
+   font-size: 23px;
+}
+/* --- end jumbotron -----*/
