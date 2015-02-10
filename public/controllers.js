@@ -6,6 +6,7 @@ angular.module("jewApp")
 	$scope.user = {};
 	var url = "http://ec2-54-149-245-194.us-west-2.compute.amazonaws.com:8080";
 	$scope.signUp = function(){
+		console.log($scope.user);
 		$http.post(url + '/signup',$scope.user)
 			.success(function(data){
 				console.log(data);
