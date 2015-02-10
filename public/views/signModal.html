@@ -23,7 +23,8 @@
 				      <input ng-model="user.agree" type="checkbox" required> I agree to Jewliday's Terms of service, private policy.
 				    </label>
 				  </div>
-				  <button ng-click="signUp()" type="submit" class="btn btn-primary btn-block"  ng-disabled="signForm.$invalid">Sign Up</button>
+				  <p style="color: red;font-size:10px;" ng-show="(user.password != user.password2)">Password confirm don't match</p>
+				  <button ng-click="signUp()" type="submit" class="btn btn-primary btn-block"  ng-disabled="signForm.$invalid || (user.password != user.password2)">Sign Up</button>
 				</form>
 				<hr>
 				<p class="text-muted">I have an account - <span class="text-danger"><a href ng-click="openModal('login')">Sign In!</a></span></p>
