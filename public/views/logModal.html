@@ -14,7 +14,7 @@
 				      <input type="checkbox" ng-model="userLog.remember"> Remember me
 				    </label>
 				  </div>
-				  <button type="submit" class="btn btn-primary btn-block" ng-disabled="loginForm.$invalid">Log in</button>
+				  <button ng-click="logIn()" type="submit" class="btn btn-primary btn-block" ng-disabled="loginForm.$invalid">Log in</button>
 				</form>
 				<hr>
 				<p class="text-muted">I don't have an account - <span class="text-danger"><a href ng-click="openModal('sign')">Sign Up!</a></span></p>
