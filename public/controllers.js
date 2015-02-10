@@ -9,7 +9,6 @@ angular.module("jewApp")
 	$scope.userLog = {};
 	var url = "http://ec2-54-149-245-194.us-west-2.compute.amazonaws.com:8080";
 	$scope.signUp = function(){
-		console.log($scope.user);
 		$http.post(url + '/signup',$scope.user)
 			.success(function(data){
 				$scope.login();
@@ -17,6 +16,7 @@ angular.module("jewApp")
 	}
 
 	$scope.logIn = function(){
+		console.log($scope.userLog);
 		$http.post(url + "/login",$scope.userLog)
 			.success(function(data){
 				$scope.isAuth = data.isAuthenticated;
