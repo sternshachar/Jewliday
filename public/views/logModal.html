@@ -1,0 +1,23 @@
+	<div class="myModal" ng-if="modal">
+		<div class="modal-content">
+			<a href ng-click="closeModal()" class="pull-right">x</a>
+			<div class="modal-body">
+				<form name="loginForm" novalidate>
+				  <div class="form-group">
+				    <input ng-model="userLog.email" type="email" class="form-control" id="email" placeholder="Enter email" required>
+				  </div>
+				  <div class="form-group">
+				    <input ng-model="userLog.password" type="password" class="form-control" id="password" placeholder="Password" required>
+				  </div>
+				  <div class="checkbox">
+				    <label>
+				      <input type="checkbox" ng-model="userLog.remember"> Remember me
+				    </label>
+				  </div>
+				  <button type="submit" class="btn btn-primary btn-block" ng-disabled="loginForm.$invalid">Log in</button>
+				</form>
+				<hr>
+				<p class="text-muted">I don't have an account - <span class="text-danger"><a href ng-click="openModal('sign')">Sign Up!</a></span></p>
+			</div><!-- end modal-body -->
+		</div><!-- end modal-content -->
+	</div><!-- end logModal -->

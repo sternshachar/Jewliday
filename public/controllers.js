@@ -1,6 +1,16 @@
 angular.module("jewApp")
 
-.controller("mainCtrl",function($scope,$interval){
+.controller("mainCtrl",function($scope,$interval,$http){
+	$scope.sign = false;
+	$scope.login = true;
+	$scope.user = {};
+	var url = "http://ec2-54-149-245-194.us-west-2.compute.amazonaws.com:8080";
+	$scope.signUp = function(){
+		$http.post(url + '/signup',$scope.user)
+			.success(function(data){
+				console.log(data);
+			})
+	}
 
 })
 
@@ -21,19 +31,42 @@ angular.module("jewApp")
 							$scope.images[i].active = false
 							if(i === ($scope.images.length - 1)){
 								$scope.images[0].active = true;
-								console.log($scope.images[0].active)
 								break;
 							} else {
 								$scope.images[i + 1].active = true;
-								console.log($scope.images[i+1].active)
 								break;
 							}
 						}
 					};
-					console.log($scope.images);
 				}
 
 				$interval($scope.changePic,7000);
 		}
 	}
-});
+})
+
+.directive("logModal",function(){
+	return{
+		restrict: 'E',
+
+		templateUrl: function(element, attrs){
+			return attrs['modal'] == 'sign' ? 'views/signModal.html' : 'views/logModal.html';
+		},
+		controller: function($scope){
+				$scope.openModal = function(modalName){
+					$scope.modal = true;
+					if(modalName == 'sign'){
+						$scope.sign = true;
+						$scope.login = false;
+
+					} else {
+						$scope.sign = false;
+						$scope.login = true;	
+					}
+				};
+				$scope.closeModal = function(){
+					$scope.modal = false;
+				}
+					}
+				}
+})

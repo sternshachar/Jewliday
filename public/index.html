@@ -17,26 +17,28 @@
 
 	<div class="navbar">
 			<div class="navbar-brand">
-				<a href><img src="">
+				<a href>
 					<img src="images/logo_white.png" alt="Jewliday">
 				</a>
 			</div>
 
 			<ul class="nav navbar-nav pull-right">
 				<li>
-					<a href >
+					<a href ng-click="openModal('login')" >
 						<span class="glyphicon glyphicon-user" ></span> Log In
 					</a>
 				</li>
 				<li>
-					<a href >
+					<a href ng-click="openModal('sign')">
 						<span class="glyphicon glyphicon-pencil"></span> Sign Up
 					</a>
 				</li>
 			</ul>
 	</div><!-- end navbar -->
 
-	<jumbotron>
+	<jumbotron></jumbotron>
+	<log-modal ng-attr-modal="sign" ng-show="sign" class="sign"></log-modal>
+	<log-modal ng-attr-modal="log" ng-show="login" class="login"></log-modal>
 
 </body>
 </html>
