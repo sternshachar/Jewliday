@@ -26,7 +26,7 @@ passport.deserializeUser(function(id,done){
 	console.log('deserial works');
 	User.findOne({"_id": id},function(err,user){
 		if(err) return console.error(err);
-		done(null, {id: id, name: user.name});
+		done(null, {id: id, name: user.first_name});
 	});
 });
 
