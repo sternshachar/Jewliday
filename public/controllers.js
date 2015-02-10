@@ -32,9 +32,7 @@ angular.module("jewApp")
 					};
 					console.log($scope.images);
 				}
-				$scope.changePic();
-				$scope.changePic();
-				$scope.changePic();
+
 				$interval($scope.changePic,7000);
 		}
 	}
