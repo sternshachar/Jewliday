@@ -62,11 +62,12 @@
 	background-color: rgba(0,0,0,0.5);
 	padding: 5px 0 5px 0;
 	position: relative;
+	width: 100%;
 }
 .jumbotron input{
 	width: 350px;
 	margin-right: auto;
-	margin-left: auto;
+	margin-left: 35%;
 	font-family: arial;
 	position: relative;
 }
@@ -75,6 +76,15 @@
    padding-bottom: 7px;
    font-size: 16px;
    font-family: arial;
+}
+
+.input-group-btn{
+	padding: 0;	
+}
+
+.input-group-btn .btn{
+	font-size: 20px;
+	padding: 2px 12px 2px 12px;
 }
 
 .slide.ng-enter { transition:1s linear all; opacity: 0;}        /* starting animations for enter */

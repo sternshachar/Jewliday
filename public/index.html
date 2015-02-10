@@ -16,7 +16,6 @@
 <body ng-controller="mainCtrl">
 
 	<div class="navbar">
-
 			<div class="navbar-brand">
 				<a href><img src="">
 					<img src="images/logo_white.png" alt="Jewliday">
@@ -43,8 +42,11 @@
 		<img class="slide" src="images/beach.jpg" ng-if="picture[2].active">
 		<h1>HOME IS EVERYWHERE</h1>
 		<p>Exchange homes with other jewish families from around the world</p>
-		<div class="form-group">
-			<input class="form-control" type="text" name="destination" ng-model="destination" placeholder="Where are you traveling to?">
+		<div class="form-group row">
+			<input class="form-control col-sm-10" type="text" name="destination" ng-model="destination" placeholder="Where are you traveling to?">
+			<span class="input-group-btn col-sm-2">
+        		<button class="btn btn-default" type="button">Go!</button>
+      		</span>
 		</div>
 	</div><!-- end jumbotron -->
 
