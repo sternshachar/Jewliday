@@ -15,6 +15,7 @@ angular.module("jewApp")
 
 	$scope.logIn = function(){
 		console.log('login');
+		$scope.closeModal();
 	}
 
 })
