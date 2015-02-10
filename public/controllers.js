@@ -21,7 +21,7 @@ angular.module("jewApp")
 			.success(function(data){
 				$scope.isAuth = data.isAuthenticated;
 				$scope.closeModal();
-				console.log($scope.username);
+				console.log($scope.isAuth);
 			});	
 	}
 })
