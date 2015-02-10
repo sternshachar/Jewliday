@@ -4,7 +4,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
-var passport = require('./public/autheticate')
+var passport = require('./public/authenticate')
 app.use(express.static('public'));
 app.listen(8080);
 /* --- express server setup --- */
