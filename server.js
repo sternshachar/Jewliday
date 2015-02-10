@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 app.use(express.static('public'));
 app.listen(8080);
 /* --- express server setup --- */
-
+app.use(bodyParser());
 app.post('/signup',function(req,res){
 	var user = req.body;
 	console.log(user)
