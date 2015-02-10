@@ -8,5 +8,6 @@ app.listen(8080);
 
 app.post('/signup',function(req,res){
 	var user = req.body;
+	console.log(user)
 	res.json(user);
 });
