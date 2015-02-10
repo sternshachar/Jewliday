@@ -22,7 +22,7 @@ angular.module("jewApp")
 				$scope.isAuth = data.isAuthenticated;
 				$scope.username = data.name;
 				$scope.closeModal();
-				console.log($scope.isAuth);
+				console.log($scope.username);
 			});	
 	}
 })
