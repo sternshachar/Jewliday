@@ -13,7 +13,7 @@ mongoose.connect('mongodb://localhost/jewliday');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console,'connection error: '));
 /* --- end of connect to mongoDB --- */
-
+console.log('Connected to mongoDB!')
 var usersSchema = [];
 db.once('open',function(callback){
 	usersSchema = mongoose.Schema({first_name: String, last_name: String, email: String, password: String, agree: Boolean},{collection:'users'});
