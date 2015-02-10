@@ -2,10 +2,23 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var expressSession = require('express-session');
+var passport = require('./public/autheticate')
 app.use(express.static('public'));
 app.listen(8080);
 /* --- express server setup --- */
+
 app.use(bodyParser());
+app.use(cookieParser());
+app.use(expressSession({
+ 	secret: process.env.SESSION_SECRET || 'secret',
+ 	resave: false,
+ 	saveUninitialized: false
+}));
+app.use(bodyParser());
+app.use(passport.initialize());
+app.use(passport.session());
 
 /* --- connect to mongoDB --- */
 var mongoose = require('mongoose');
@@ -30,3 +43,22 @@ app.post('/signup',function(req,res){
 	})
 	res.status(201).json(newUser);
 });
+
+
+app.post('/login',passport.authenticate('local'), function(request,response){
+		//console.log(request.body);
+		response.json(
+			{
+				isAuthenticated: request.isAuthenticated(),
+				user: request.user
+			}
+		);
+	})
+	.get(function(request,response){
+		response.json(
+			{
+				isAuthenticated: request.isAuthenticated(),
+				user: request.user || ''
+			}
+		);
+	});

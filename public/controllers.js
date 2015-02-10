@@ -1,6 +1,8 @@
 angular.module("jewApp")
 
 .controller("mainCtrl",function($scope,$interval,$http){
+	$scope.username = "";
+	$scope.isAuth = false;
 	$scope.sign = false;
 	$scope.login = true;
 	$scope.user = {};
@@ -14,10 +16,14 @@ angular.module("jewApp")
 	}
 
 	$scope.logIn = function(){
-		console.log('login');
-		$scope.closeModal();
+		$http.post(url + "/login",$scope.userLog)
+			.success(function(data){
+				$scope.isAuth = data.isAuthenticated;
+				$scope.username = data.user.name;
+				$scope.closeModal();
+				console.log($scope.username);
+			});	
 	}
-
 })
 
 .directive("jumbotron",function(){
