@@ -9,8 +9,12 @@ angular.module("jewApp")
 		console.log($scope.user);
 		$http.post(url + '/signup',$scope.user)
 			.success(function(data){
-				console.log(data);
+				$scope.login();
 			})
+	}
+
+	$scope.logIn = function(){
+		console.log('login');
 	}
 
 })
