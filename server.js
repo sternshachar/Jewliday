@@ -36,12 +36,13 @@ db.once('open',function(callback){
 
 app.post('/signup',function(req,res){
 	var user = req.body;
+	console.log('Recieved' + user);
 	var newUser = new User(user);
 	newUser.save(function(err,newUser){
 		if(err) return console.error(err);
 		console.log(newUser);
 	})
-	res.status(201).json(newUser);
+	res.status(201).json('added to DB' + newUser);
 });
 
 
