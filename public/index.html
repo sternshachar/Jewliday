@@ -25,7 +25,7 @@
 				</a>
 			</div>
 
-			<ul class="nav navbar-nav pull-right" ng-hide="isAuth">
+			<ul class="nav navbar-nav pull-right" ng-if="!isAuth">
 				<li>
 					<a href ng-click="openModal('login')" >
 						<span class="glyphicon glyphicon-user" ></span> Log In
@@ -37,7 +37,7 @@
 					</a>
 				</li>
 			</ul>
-			<ul class="nav navbar-nav pull-right" ng-hide="!isAuth">
+			<ul class="nav navbar-nav pull-right" ng-if="isAuth">
 				<li>
 					<a href ng-click="logOut()" >
 						<span class="glyphicon glyphicon-user" ></span> Log Out
