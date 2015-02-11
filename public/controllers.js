@@ -29,7 +29,7 @@ angular.module("jewApp")
 				$scope.isAuth = data.isAuthenticated;
 				$scope.username = data.user.name;
 				$scope.closeModal();
-				console.log($scope.username);
+				console.log($scope.isAuth);
 					$http.get(url + '/login').
 						success(function(data){
 							console.log(data);
