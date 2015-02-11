@@ -59,7 +59,7 @@ app.post('/signup',function(req,res){
 		if(err) return console.error(err);
 		console.log(newUser);
 	})
-	res.status(201).json('added to DB' + newUser);
+	return res.status(201).json('added to DB' + newUser);
 });
 
 app.get('/login', function(request,response){
