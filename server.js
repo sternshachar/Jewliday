@@ -48,7 +48,7 @@ app.post('/signup',function(req,res){
 	res.status(201).json('added to DB' + newUser);
 });
 
-app.get('/login', function(request,response){
+app.get('/login', passport.authenticate('local'),function(request,response){
 		response.json(
 			{
 				isAuthenticated: request.isAuthenticated(),
