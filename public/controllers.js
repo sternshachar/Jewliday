@@ -27,13 +27,15 @@ angular.module("jewApp")
 			.success(function(data){
 				if(data.message){
 					$scope.signMessage = data.message;
+					$scope.user.email = "";
 				} else {
 					$scope.userLog.password = $scope.user.password;
 					$scope.userLog.username = $scope.user.email;
 					$scope.signMessage = "Enter email";
 					$scope.logIn();
+					$scope.user = {};
 				}
-				$scope.user = {};
+				
 
 
 			})
