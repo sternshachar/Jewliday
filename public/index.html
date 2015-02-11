@@ -8,7 +8,10 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Gurajada' rel='stylesheet' type='text/css'>
 	<script>
-		angular.module("jewApp",["ngAnimate"]);
+		angular.module("jewApp",["ngAnimate"])
+		.config(function($httpProvider) {
+		 	$httpProvider.defaults.withCredentials = true;
+		});
 	</script>
 	<script src="ngmodules/angular-animate.js"></script>
 	<script src="controllers.js"></script>
