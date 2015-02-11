@@ -48,18 +48,21 @@ app.post('/signup',function(req,res){
 			return res.json(
 				{
 					isAuthenticated: req.isAuthenticated(),
-					// message: 'User with this email already signed up'
+					message: 'User with this email already signed up'
 				}
 			);
+		} else {
+
+			var newUser = new User(user);
+			newUser.save(function(err,newUser){
+				if(err) return console.error(err);
+				console.log(newUser);
+			});
+			res.status(201).json('added to DB' + newUser);
 		}
 	});
 
-	var newUser = new User(user);
-	newUser.save(function(err,newUser){
-		if(err) return console.error(err);
-		console.log(newUser);
-	})
-	return res.status(201).json('added to DB' + newUser);
+
 });
 
 app.get('/login', function(request,response){
