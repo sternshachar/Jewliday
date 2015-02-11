@@ -14,10 +14,9 @@ app.use(cookieParser());
 app.use(expressSession({
  	secret: process.env.SESSION_SECRET || 'secret',
  	resave: false,
- 	secure: false,
  	saveUninitialized: false
 }));
-app.use(bodyParser());
+
 app.use(passport.initialize());
 app.use(passport.session());
 
