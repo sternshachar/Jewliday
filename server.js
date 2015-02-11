@@ -14,8 +14,11 @@ app.use(cookieParser());
 app.use(expressSession({
  	secret: process.env.SESSION_SECRET || 'secret',
  	resave: true,
+ 	cookie: { secure: true, maxAge: new Date(Date.now() + 3600000) }, key:'connect.sid' })),
  	saveUninitialized: true
 }));
+
+setTimeout(function(){}, 1000);
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -53,7 +56,6 @@ db.once('open',function(callback){
 	usersSchema = mongoose.Schema({first_name: String, last_name: String, email: String, password: String, agree: Boolean},{collection:'users'});
 	User = mongoose.model('users',usersSchema);
 });
-
 
 app.post('/signup',function(req,res){
 	var user = req.body;
