@@ -113,6 +113,7 @@ angular.module("jewApp")
 				};
 				$scope.closeModal = function(){
 					$scope.modal = false;
+					$scope.signMessage = "Enter email";
 				}
 					}
 				}
