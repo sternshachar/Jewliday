@@ -13,8 +13,8 @@ app.use(bodyParser());
 app.use(cookieParser());
 app.use(expressSession({
  	secret: process.env.SESSION_SECRET || 'secret',
- 	resave: false,
- 	saveUninitialized: false
+ 	resave: true,
+ 	saveUninitialized: true
 }));
 
 app.use(passport.initialize());
@@ -67,7 +67,7 @@ app.post('/signup',function(req,res){
 });
 
 
-app.post('/login',passport.authenticate('local-login'), function(request,response){
+app.post('/login',passport.authenticate('local'), function(request,response){
 		console.log(request.user);
 		response.json(
 			{
