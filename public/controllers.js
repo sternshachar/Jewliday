@@ -51,7 +51,7 @@ angular.module("jewApp")
 					$scope.userLog = {};
 				} else {
 					$scope.isAuth = data.isAuthenticated;
-					$scope.username = data.user.name;
+					$scope.username = data.user.firstName;
 					$scope.closeModal();
 					console.log($scope.isAuth);
 					$scope.userLog = {};
