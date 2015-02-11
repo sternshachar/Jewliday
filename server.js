@@ -13,12 +13,12 @@ app.use(bodyParser());
 app.use(cookieParser());
 app.use(expressSession({
  	secret: process.env.SESSION_SECRET || 'secret',
- 	resave: true,
+ 	resave: false,
  	cookie: { 
- 		secure: true, maxAge: new Date(Date.now() + 3600000) 
+ 		secure: false, maxAge: new Date(Date.now() + 3600000) 
  		},
  	key:'connect.sid' ,
- 	saveUninitialized: true
+ 	saveUninitialized: false
 }));
 
 app.use(passport.initialize());
