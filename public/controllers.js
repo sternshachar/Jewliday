@@ -40,6 +40,7 @@ angular.module("jewApp")
 				if(data.message){
 					$scope.message = data.message;
 					console.log(data.message);
+					$scope.userLog = {};
 				} else {
 					$scope.isAuth = data.isAuthenticated;
 					$scope.username = data.user.name;
