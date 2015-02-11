@@ -46,6 +46,7 @@ angular.module("jewApp")
 					$scope.closeModal();
 					console.log($scope.isAuth);
 					$scope.userLog = {};
+					$scope.message = {};
 
 				}
 
