@@ -60,6 +60,7 @@ app.get('/login', function(request,response){
 
 app.post('/login',passport.authenticate('local'), function(request,response){
 		console.log(request.user);
+		console.log(request.messege);
 		response.json(
 			{
 				isAuthenticated: request.isAuthenticated(),
