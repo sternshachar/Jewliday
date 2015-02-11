@@ -7,6 +7,7 @@ angular.module("jewApp")
 	$scope.login = true;
 	$scope.user = {};
 	$scope.userLog = {};
+	$scope.signMessage = "Enter email";
 	var url = "http://ec2-54-149-52-21.us-west-2.compute.amazonaws.com:8080";
 	
 	$http.get(url + '/login').
@@ -29,7 +30,7 @@ angular.module("jewApp")
 				} else {
 					$scope.userLog.password = $scope.user.password;
 					$scope.userLog.username = $scope.user.email;
-					$scope.signMessage = {};
+					$scope.signMessage = "Enter email";
 					$scope.logIn();
 				}
 				$scope.user = {};
