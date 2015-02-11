@@ -37,7 +37,7 @@ angular.module("jewApp")
 		console.log($scope.userLog);
 		$http.post(url + "/login",$scope.userLog)
 			.success(function(data){
-				if(message){
+				if(data.message){
 					console.log(data.message);
 				} else {
 					$scope.isAuth = data.isAuthenticated;
