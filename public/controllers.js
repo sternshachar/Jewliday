@@ -14,6 +14,12 @@ angular.module("jewApp")
 			console.log(data);
 		});
 
+	$scope.logOut = function(){
+		$http.get(url + '/logout')
+			.success(function(data){
+				$scope.isAuth = data.isAuthenticated;
+			})
+	}
 	$scope.signUp = function(){
 		console.log('sending: ' + $scope.user.firstName + $scope.user.lastName)
 		$http.post(url + '/signup',$scope.user)
@@ -22,6 +28,7 @@ angular.module("jewApp")
 				$scope.userLog.password = $scope.user.password;
 				$scope.userLog.username = $scope.user.email;
 				$scope.logIn();
+				$scope.user = {};
 
 			})
 	}

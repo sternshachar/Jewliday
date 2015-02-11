@@ -75,3 +75,10 @@ app.post('/login',passport.authenticate('local'), function(request,response){
 			}
 		);
 	});
+
+app.get("/logout" ,function(request,response){
+	request.logout();
+	response.json(
+		{isAuthenticated: request.isAuthenticated()}
+	);
+});
