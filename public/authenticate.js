@@ -8,6 +8,7 @@ passport.use(new passportLocal(function(username,password,done){
 		if(err) return console.error(err);
 		if(!(user == undefined) && user.password == password){
 			console.log('found');
+			console.log(username);
 			done(null,{id: user._id ,name: username});
 		} else{
 			console.log('not found');
