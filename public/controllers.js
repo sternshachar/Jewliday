@@ -15,7 +15,7 @@ angular.module("jewApp")
 		});
 
 	$scope.signUp = function(){
-		console.log('sending: ' + $scope.user.firstName)
+		console.log('sending: ' + $scope.user)
 		$http.post(url + '/signup',$scope.user)
 			.success(function(data){
 				console.log('signed');
