@@ -24,11 +24,16 @@ angular.module("jewApp")
 		console.log('sending: ' + $scope.user.firstName + $scope.user.lastName)
 		$http.post(url + '/signup',$scope.user)
 			.success(function(data){
-				console.log('signed');
-				$scope.userLog.password = $scope.user.password;
-				$scope.userLog.username = $scope.user.email;
-				$scope.logIn();
+				if(data.message){
+					$scope.signMessage = data.message;
+				} else {
+					$scope.userLog.password = $scope.user.password;
+					$scope.userLog.username = $scope.user.email;
+					$scope.signMessage = {};
+					$scope.logIn();
+				}
 				$scope.user = {};
+
 
 			})
 	}
