@@ -86,7 +86,7 @@ app.post('/login', function(req, res, next) {
 	      return res.json(
 			{
 				isAuthenticated: req.isAuthenticated(),
-				user: req.user
+				user: user
 			}
 		);
 	    });
