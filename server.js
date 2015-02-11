@@ -11,7 +11,11 @@ app.listen(8080);
 
 app.use(bodyParser());
 app.use(cookieParser());
-app.use(expressSession());
+app.use(expressSession({
+ 	secret: process.env.SESSION_SECRET || 'secret',
+ 	resave: false,
+ 	saveUninitialized: false
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());
