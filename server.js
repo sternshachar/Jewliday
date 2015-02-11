@@ -33,7 +33,7 @@ db.on('error', console.error.bind(console,'connection error: '));
 console.log('Connected to mongoDB!')
 var usersSchema = [];
 db.once('open',function(callback){
-	usersSchema = mongoose.Schema({first_name: String, last_name: String, email: String, password: String, agree: Boolean},{collection:'users'});
+	usersSchema = mongoose.Schema({firstName: String, lastName: String, email: String, password: String, agree: Boolean},{collection:'users'});
 	User = mongoose.model('users',usersSchema);
 });
 
