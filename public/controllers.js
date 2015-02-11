@@ -5,7 +5,6 @@ angular.module("jewApp")
 	$scope.isAuth = false;
 	$scope.sign = false;
 	$scope.login = true;
-	$scope.user = null;
 	$scope.userLog = {};
 	var url = "http://ec2-54-149-52-21.us-west-2.compute.amazonaws.com:8080";
 	
