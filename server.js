@@ -24,19 +24,6 @@ app.use(expressSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(function(req, res, next) {
-
-    console.log('-- session --');
-    console.dir(req.session);
-    console.log('-------------');
-    console.log('-- cookies --');
-    console.dir(req.cookies);
-    console.log('-------------');
-    console.log('-- signed cookies --');
-    console.dir(req.signedCookies);
-    console.log('-------------');
-    next()
-  });
 /* --- connect to mongoDB --- */
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/jewliday');
@@ -60,6 +47,15 @@ app.post('/signup',function(req,res){
 	})
 	res.status(201).json('added to DB' + newUser);
 });
+
+app.get('/login', function(request,response){
+		response.json(
+			{
+				isAuthenticated: request.isAuthenticated(),
+				user: request.user || ''
+			}
+		);
+	});
 
 
 app.post('/login',passport.authenticate('local'), function(request,response){
