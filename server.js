@@ -14,7 +14,10 @@ app.use(cookieParser());
 app.use(expressSession({
  	secret: process.env.SESSION_SECRET || 'secret',
  	resave: true,
- 	cookie: { secure: true, maxAge: new Date(Date.now() + 3600000) }, key:'connect.sid' })),
+ 	cookie: { 
+ 		secure: true, maxAge: new Date(Date.now() + 3600000) 
+ 		},
+ 	key:'connect.sid' ,
  	saveUninitialized: true
 }));
 
