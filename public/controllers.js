@@ -13,7 +13,7 @@ angular.module("jewApp")
 		console.log('sending: ' + $scope.user.firstName)
 		$http.post(url + '/signup',$scope.user)
 			.success(function(data){
-				$scope.logIn();
+				console.log('signed');
 			})
 	}
 
