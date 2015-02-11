@@ -67,7 +67,7 @@ app.post('/signup',function(req,res){
 
 
 app.post('/login',passport.authenticate('local'), function(request,response){
-		//console.log(request.body);
+		console.log(request);
 		response.json(
 			{
 				isAuthenticated: request.isAuthenticated(),
