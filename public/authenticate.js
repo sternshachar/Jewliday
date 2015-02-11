@@ -19,7 +19,6 @@ passport.use(new passportLocal(function(email,password,done){
 
 passport.serializeUser(function(user,done){
 	console.log('serial works');
-	console.log(user.id);
 	done(null, user.id);
 });
 
