@@ -58,9 +58,12 @@ app.get('/login', function(request,response){
 	});
 
 
-app.post('/login',passport.authenticate('local'), function(request,response){
-		console.log(request.user);
-		console.log(request.messege);
+app.post('/login',passport.authenticate('local', function(err,user,info){
+	    if (! user) {
+	    	console.log(info)
+      		return res.send({ success : false, message : 'authentication failed' });
+    	}
+}), function(request,response){
 		response.json(
 			{
 				isAuthenticated: request.isAuthenticated(),
