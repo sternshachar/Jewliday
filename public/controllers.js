@@ -22,9 +22,9 @@ angular.module("jewApp")
 		$http.post(url + "/login",$scope.userLog)
 			.success(function(data){
 				$scope.isAuth = data.isAuthenticated;
-				$scope.username = data.name;
+				$scope.username = data.email;
 				$scope.closeModal();
-				console.log($scope.isAuth);
+				console.log($scope.username);
 			});	
 	}
 })
