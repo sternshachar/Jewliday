@@ -2,6 +2,7 @@
 		<div class="modal-content">
 			<a href ng-click="closeModal()" class="pull-right">x</a>
 			<div class="modal-body">
+				{{user.firstName}} {{user.lastName}}
 				<form name="signForm" novalidate>
 				  <div class="form-group">
 				    <input ng-model="user.firstName" type="text" class="form-control" id="firstName" placeholder="First name" required>
