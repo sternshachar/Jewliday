@@ -61,7 +61,7 @@ angular.module("jewApp")
 	}
 
 	$scope.redAlert = function(){
-		return $scope.signMessage == "Enter email" ? 'red-alert' : ' ';
+		return $scope.signMessage == "Enter email" ? ' ' : 'red-alert';
 	}
 })
 

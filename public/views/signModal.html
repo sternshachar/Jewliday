@@ -10,10 +10,10 @@
 				    <input ng-model="user.lastName" type="text" class="form-control" id="lastName" placeholder="Last name" required>
 				  </div>
 				  <div class="form-group">
-				    <input ng-model="user.email" type="email" class="form-control" id="email" placeholder="{{signMessage}}" required>
+				    <input ng-class="redAlert()" ng-model="user.email" type="email" class="form-control" id="email" placeholder="{{signMessage}}" required>
 				  </div>
 				  <div class="form-group">
-				    <input ng-class="redAlert()" ng-model="user.password" type="password" class="form-control" id="password" placeholder="Password" required>
+				    <input ng-model="user.password" type="password" class="form-control" id="password" placeholder="Password" required>
 				  </div>
 				  <div class="form-group">
 				    <input ng-model="user.password2" type="password" class="form-control" id="password2" placeholder="Confim Password" required>
