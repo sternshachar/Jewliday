@@ -24,7 +24,7 @@ app.use(expressSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-/* --- connect to mongoDB --- */
+/* ---- connect to mongoDB --- */
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/jewliday');
 var db = mongoose.connection;
