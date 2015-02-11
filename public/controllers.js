@@ -30,6 +30,10 @@ angular.module("jewApp")
 				$scope.username = data.user.name;
 				$scope.closeModal();
 				console.log($scope.username);
+					$http.get(url + '/login').
+						success(function(data){
+							console.log(data);
+						});
 			});	
 	}
 })
