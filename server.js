@@ -60,15 +60,20 @@ app.get('/login', function(request,response){
 	});
 
 
-app.post('/login',passport.authenticate('local',{failureFlash: true}), function(request,response){
-		console.log(request.user);
-		console.log(request.flash())
-		response.json(
+app.post('/login', function(req, res, next) {
+	  passport.authenticate('local', function(err, user, info) {
+	    if (err) { return next(err); }
+	    if (!user) { return res.json(info); }
+	    req.logIn(user, function(err) {
+	      if (err) { return next(err); }
+	      return res.json(
 			{
 				isAuthenticated: request.isAuthenticated(),
 				user: request.user
 			}
 		);
+	    });
+	  })(req, res, next);
 	})
 	.get(function(request,response){
 		response.json(

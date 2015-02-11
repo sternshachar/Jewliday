@@ -45,9 +45,9 @@ angular.module("jewApp")
 
 			})
 			.error(function(error){
-				$scope.message = error.message;
+				$scope.message = error;
 				console.log(error);
-				console.log($scope.error);
+				console.log($scope.message);
 			})
 	}
 })
