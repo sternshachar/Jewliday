@@ -13,7 +13,9 @@
 				    <label>
 				      <input type="checkbox" ng-model="userLog.remember"> Remember me
 				    </label>
-				    <p class="pull-right" style="color: red;font-size:10px; display: inline-block;">{{message}}</p>
+				    <p class="pull-right" style="color: red;font-size:10px; display: inline-block;">
+				    	{{message}}
+				    </p>
 				  </div>
 				  <button ng-click="logIn()" type="submit" class="btn btn-primary btn-block" ng-disabled="loginForm.$invalid">Log in</button>
 				</form>

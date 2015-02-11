@@ -42,6 +42,18 @@ db.once('open',function(callback){
 app.post('/signup',function(req,res){
 	var user = req.body;
 	console.log('Recieved' + user.firstName);
+
+	User.findOne({"email": req.body.email}, function(err,oldUser){
+		if(user.email == oldUser.email){
+			response.json(
+				{
+					isAuthenticated: request.isAuthenticated(),
+					message: 'User with this email already signed up'
+				}
+			);
+		}
+	};
+
 	var newUser = new User(user);
 	newUser.save(function(err,newUser){
 		if(err) return console.error(err);
