@@ -62,6 +62,7 @@ app.get('/login', function(request,response){
 
 app.post('/login',passport.authenticate('local',{failureFlash: true}), function(request,response){
 		console.log(request.user);
+		console.log(request.session.messages)
 		response.json(
 			{
 				isAuthenticated: request.isAuthenticated(),
