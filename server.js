@@ -58,7 +58,7 @@ app.get('/login', function(request,response){
 	});
 
 
-app.post('/login',passport.authenticate('local'), function(request,response){
+app.post('/login',passport.authenticate('local',{failureFlash: true}), function(request,response){
 		console.log(request.user);
 		response.json(
 			{
