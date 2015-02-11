@@ -1,12 +1,10 @@
 /* --- setting up an express server --- */
 var express = require('express');
 var app = express();
-var passport = require('passport');
-var passportLocal = require('passport-local').Strategy;
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
-// var passport = require('./public/authenticate')
+var passport = require('./public/authenticate')
 app.use(express.static('public'));
 app.listen(8080);
 /* --- express server setup --- */
@@ -19,37 +17,21 @@ app.use(expressSession({
  	saveUninitialized: false
 }));
 
+app.use(function(req, res, next) {
+    console.log('-- session --');
+    console.dir(req.session);
+    console.log('-------------');
+    console.log('-- cookies --');
+    console.dir(req.cookies);
+    console.log('-------------');
+    console.log('-- signed cookies --');
+    console.dir(req.signedCookies);
+    console.log('-------------');
+    next()
+  });
+
 app.use(passport.initialize());
 app.use(passport.session());
-
-
-passport.use(new passportLocal(function(email,password,done){
-	User.findOne({"email": email },function(err,user){
-		console.log(user);
-		if(err) return console.error(err);
-		if(!(user == undefined) && user.password == password){
-			console.log('found');
-			done(null,{id: user._id ,name: email});
-		} else{
-			console.log('not found');
-			done(null,null);
-		}
-	});
-
-}));
-
-passport.serializeUser(function(user,done){
-	console.log('serial works');
-	done(null, user.id);
-});
-
-passport.deserializeUser(function(id,done){
-	console.log(id);
-	User.findOne({"_id": id},function(err,user){
-		if(err) return console.error(err);
-		done(null, {id: id, name: user.email});
-	});
-});
 
 /* --- connect to mongoDB --- */
 var mongoose = require('mongoose');
