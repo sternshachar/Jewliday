@@ -43,7 +43,12 @@ angular.module("jewApp")
 				console.log($scope.isAuth);
 				$scope.userLog = {};
 
-			});	
+			})
+			.error(function(error){
+				$scope.message = error.message;
+				console.log(error);
+				console.log($scope.error);
+			})
 	}
 })
 
