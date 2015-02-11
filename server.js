@@ -58,14 +58,16 @@ app.get('/login', function(request,response){
 	});
 
 
-app.post('/login',passport.authenticate('local'), function(request,response){
-		console.log(request);
-		response.json(
-			{
-				isAuthenticated: request.isAuthenticated(),
-				user: request.user
-			}
-		);
+app.post('/login', function(request,response){
+		passport.authenticate('local', function(err, user, info) {
+			console.log(info);
+			response.json(
+				{
+					isAuthenticated: request.isAuthenticated(),
+					user: request.user
+				}
+			);
+		});
 	})
 	.get(function(request,response){
 		response.json(

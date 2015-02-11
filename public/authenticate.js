@@ -4,7 +4,7 @@ var passportLocal = require('passport-local').Strategy;
 
 passport.use(new passportLocal(function(username,password,done){
 	User.findOne({"email": username },function(err,user){
-		console.log(user);
+		// console.log(user);
 		if(err) return console.error(err);
 		if(!user) return done(null, false, { message: 'Wrong email.' });
 		if(!(user == undefined) && user.password == password){
