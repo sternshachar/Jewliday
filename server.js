@@ -48,7 +48,7 @@ app.post('/signup',function(req,res){
 			return res.json(
 				{
 					isAuthenticated: req.isAuthenticated(),
-					message: 'User with this email already signed up'
+					// message: 'User with this email already signed up'
 				}
 			);
 		}
