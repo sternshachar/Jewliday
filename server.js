@@ -39,7 +39,7 @@ db.once('open',function(callback){
 
 app.post('/signup',function(req,res){
 	var user = req.body;
-	console.log('Recieved' + user);
+	console.log('Recieved' + user.firstName);
 	var newUser = new User(user);
 	newUser.save(function(err,newUser){
 		if(err) return console.error(err);
