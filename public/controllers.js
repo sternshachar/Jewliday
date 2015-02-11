@@ -37,12 +37,15 @@ angular.module("jewApp")
 		console.log($scope.userLog);
 		$http.post(url + "/login",$scope.userLog)
 			.success(function(data){
-				console.log(data.message);
-				$scope.isAuth = data.isAuthenticated;
-				$scope.username = data.user.name;
-				$scope.closeModal();
-				console.log($scope.isAuth);
-				$scope.userLog = {};
+				if(message){
+					console.log(data.message);
+				} else {
+					$scope.isAuth = data.isAuthenticated;
+					$scope.username = data.user.name;
+					$scope.closeModal();
+					console.log($scope.isAuth);
+					$scope.userLog = {};
+				}
 
 			});
 	}
