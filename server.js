@@ -11,11 +11,7 @@ app.listen(8080);
 
 app.use(bodyParser());
 app.use(cookieParser());
-app.use(expressSession({
- 	secret: 'secret',
- 	resave: false,
- 	saveUninitialized: false
-}));
+app.use(expressSession());
 
 app.use(passport.initialize());
 app.use(passport.session());
