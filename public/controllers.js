@@ -50,10 +50,15 @@ angular.module("jewApp")
 					console.log(data.message);
 					$scope.userLog = {};
 				} else {
-					$scope.isAuth = data.isAuthenticated;
-					$scope.username = data.user.name;
+
+						$http.get(url + '/login').
+							success(function(data){
+								$scope.isAuth = data.isAuthenticated;
+								$scope.username = data.user.firstName;
+								console.log(data);
+							});
+
 					$scope.closeModal();
-					console.log($scope.isAuth);
 					$scope.userLog = {};
 					$scope.message = {};
 
