@@ -45,9 +45,9 @@ app.post('/signup',function(req,res){
 
 	User.findOne({"email": req.body.email}, function(err,oldUser){
 		if(user.email == oldUser.email){
-			response.json(
+			res.json(
 				{
-					isAuthenticated: request.isAuthenticated(),
+					isAuthenticated: req.isAuthenticated(),
 					message: 'User with this email already signed up'
 				}
 			);
