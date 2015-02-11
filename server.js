@@ -2,7 +2,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
+// var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
 var passport = require('./public/authenticate')
 app.use(express.static('public'));
@@ -10,7 +10,7 @@ app.listen(8080);
 /* --- express server setup --- */
 
 app.use(bodyParser());
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(expressSession({
  	secret: process.env.SESSION_SECRET || 'secret',
  	resave: true,
