@@ -44,7 +44,7 @@ app.post('/signup',function(req,res){
 	console.log('Recieved' + user.firstName);
 
 	User.findOne({"email": user.email}, function(err,oldUser){
-		if(user.email == oldUser.email){
+		if( oldUser.email ){
 			console.log('same email')
 			return res.json(
 				{
