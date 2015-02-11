@@ -32,7 +32,7 @@ angular.module("jewApp")
 				console.log($scope.isAuth);
 					$http.get(url + '/login').
 						success(function(data){
-							console.log(data);
+							console.log(data.user);
 						});
 			});	
 	}
