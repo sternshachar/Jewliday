@@ -82,7 +82,7 @@ app.post('/login', function(req, res, next) {
 	    if (!user) { return res.json(info); }
 	    req.logIn(user, function(err) {
 	      if (err) { return next(err); }
-	      console.log(req.user);
+	      console.log(user);
 	      return res.json(
 			{
 				isAuthenticated: req.isAuthenticated(),
