@@ -67,7 +67,7 @@ app.post('/signup',function(req,res){
 });
 
 
-app.post('/login',passport.authenticate('local'), function(request,response){
+app.post('/login',passport.authenticate('local-login'), function(request,response){
 		console.log(request.user);
 		response.json(
 			{
