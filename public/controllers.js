@@ -38,6 +38,7 @@ angular.module("jewApp")
 		$http.post(url + "/login",$scope.userLog)
 			.success(function(data){
 				if(data.message){
+					$scope.message = data.message;
 					console.log(data.message);
 				} else {
 					$scope.isAuth = data.isAuthenticated;
@@ -45,6 +46,7 @@ angular.module("jewApp")
 					$scope.closeModal();
 					console.log($scope.isAuth);
 					$scope.userLog = {};
+
 				}
 
 			});
