@@ -1,4 +1,5 @@
 /* --- setting up an express server --- */
+var flash = require('connect-flash');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
