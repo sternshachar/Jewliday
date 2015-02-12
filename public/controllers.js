@@ -141,3 +141,10 @@ angular.module("jewApp")
 					}
 				}
 })
+
+.directive('navigationBar', function(){
+	return {
+		restrict: 'E',
+		templateUrl: 'views/navigationBar.html'
+	}
+})

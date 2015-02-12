@@ -19,45 +19,8 @@
 </head>
 <body ng-controller="mainCtrl">
 
-	<div class="navbar">
-			<div class="navbar-brand">
-				<a href>
-					<img src="images/logo_white.png" alt="Jewliday">
-				</a>
-			</div>
 
-			<ul class="nav navbar-nav pull-right" ng-if="!isAuth">
-				<li>
-					<a href ng-click="openModal('login')" >
-						<span class="glyphicon glyphicon-user" ></span> Log In
-					</a>
-				</li>
-				<li>
-					<a href ng-click="openModal('sign')">
-						<span class="glyphicon glyphicon-pencil"></span> Sign Up
-					</a>
-				</li>
-			</ul>
-			<ul class="nav navbar-nav pull-right" ng-if="isAuth">
-				    <li class="dropdown" dropdown on-toggle="toggled(open)" >
-					    <a href class="dropdown-toggle" dropdown-toggle>
-					        Hello {{username}}<span class="caret">
-					    </a>
-					    <ul class="dropdown-menu">
-					        <li ng-repeat="choice in items">
-					          <a href>{{choice}}</a>
-					          <li class="divider" ng-if="$index == 2"></li>
-					        </li>
-					    </ul>
-				    </li>
-				<li>
-					<a href ng-click="logOut()" >
-						<span class="glyphicon glyphicon-off" ></span> Log Out
-					</a>
-				</li>
-			</ul>
-	</div><!-- end navbar -->
-
+	<navigation-bar></navigation-bar>
 	<jumbotron></jumbotron>
 	<log-modal ng-attr-modal="sign" ng-show="sign" class="sign"></log-modal>
 	<log-modal ng-attr-modal="log" ng-show="login" class="login"></log-modal>

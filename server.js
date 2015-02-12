@@ -29,7 +29,7 @@ app.use(flash());
 
 app.post('/signup',function(req,res){
 	var user = req.body;
-	console.log('Recieved' + user.firstName);
+	console.log('Recieved ' + user.firstName);
 
 	mongoose.model('users').findOne({"email": user.email}, function(err,oldUser){
 		if( oldUser ){
@@ -47,7 +47,7 @@ app.post('/signup',function(req,res){
 				if(err) return console.error(err);
 				console.log(newUser);
 			});
-			res.status(201).json('added to DB' + newUser);
+			res.status(201).json('added to DB ' + newUser);
 		}
 	});
 
