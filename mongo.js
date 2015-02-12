@@ -15,3 +15,4 @@ db.once('open',function(callback){
 	User = mongoose.model('users',usersSchema);
 });
 
+module.exports = mongoose;
