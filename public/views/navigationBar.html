@@ -15,8 +15,8 @@
 /* ------ end navbar -----*/
 
 	</style>
-
-	<div class="navbar">
+<div class="row">
+	<div class="navbar col-sm-12">
 			<div class="navbar-brand">
 				<a href>
 					<img ng-src="images/{{logo}}" alt="Jewliday">
@@ -53,10 +53,11 @@
 				</li>
 			</ul>
 	</div><!-- end navbar -->
-	<div class="navbar navar-inverse" ng-if="logo == 'logo.jpg'">
+	<div class="navbar navar col-sm-12" ng-if="logo == 'logo.jpg'">
 		<ul class="nav navbar-nav"> 
 			<li>Profile</li>
 			<li>Your Home</li>
 			<li>Inbox</li>
 		</ul>
 	</div>
+</div>
