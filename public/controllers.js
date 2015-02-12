@@ -8,6 +8,7 @@ angular.module("jewApp")
 	$scope.user = {};
 	$scope.userLog = {};
 	$scope.signMessage = "Enter email";
+	$scope.inbox ={state: false};
 	var url = "http://ec2-54-149-52-21.us-west-2.compute.amazonaws.com:8080";
 	
 	$http.get(url + '/login').
@@ -190,6 +191,10 @@ angular.module("jewApp")
 					for (var i = 0; i < $scope.tabs.length; i++) {
 						if($scope.tabs[i].name == tab){
 							$scope.tabs[i].active = true;
+							if(tab == 'inbox')
+								$scope.inbox.state = true;
+							else
+								$scope.inbox.state = false;
 						} else {
 							console.log(tab + ' ' + $scope.tabs[i].name);
 							$scope.tabs[i].active = false;
