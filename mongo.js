@@ -7,5 +7,11 @@ db.on('error', console.error.bind(console,'connection error: '));
 /* --- end of connect to mongoDB --- */
 console.log('Connected to mongoDB!')
 
-module.exports = mongoose;
-module.exports = timestamps;
+var usersSchema = [];
+db.once('open',function(callback){
+	usersSchema = mongoose.Schema({firstName: String, lastName: String, email: String, password: String, agree: Boolean },{collection:'users'});
+	usersSchema.plugin(timestamps);
+	User = mongoose.model('users',usersSchema);
+});
+
+module.exports = User;

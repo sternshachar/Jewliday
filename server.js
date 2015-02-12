@@ -5,7 +5,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
-var passport = require('./auth')
+var passport = require('./auth');
+var User = require('./mongo');
 app.use(express.static('public'));
 app.listen(8080);
 /* --- express server setup --- */
@@ -25,14 +26,6 @@ app.use(expressSession({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-
-
-var usersSchema = [];
-db.once('open',function(callback){
-	usersSchema = mongoose.Schema({firstName: String, lastName: String, email: String, password: String, agree: Boolean },{collection:'users'});
-	usersSchema.plugin(timestamps);
-	User = mongoose.model('users',usersSchema);
-});
 
 app.post('/signup',function(req,res){
 	var user = req.body;
