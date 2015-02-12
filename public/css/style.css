@@ -1,6 +1,7 @@
 /* ------ inbox tabs ---------*/
 .tabs{
-	border-right: 1px solid grey; 
+	border-right: 1px solid grey;
+	height: 600px; 
 }
 
 /* ------ end inbox tabs ---------*/
