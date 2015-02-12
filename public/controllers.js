@@ -86,9 +86,9 @@ angular.module("jewApp")
 
 .controller("inboxCtrl",function($scope){
 	$scope.tabs = [
-		{name: "incoming"; active: true},
-		{name: "sent"; active: false},
-		{name: "saved"; active: false}
+		{name: "incoming", active: true},
+		{name: "sent", active: false},
+		{name: "saved", active: false}
 	];
 
 	$scope.pickInboxTab = function(tab){
