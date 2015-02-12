@@ -1,5 +1,9 @@
 /* ------ inbox tabs ---------*/
 .tabs{
+
+}
+
+.tabs > div{
 	border-right: 1px solid grey;
 	height: 600px; 
 }
