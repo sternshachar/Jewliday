@@ -1,5 +1,6 @@
 var passport = require('passport');
 var passportLocal = require('passport-local').Strategy;
+var User = require('./mongo').User;
 
 
 passport.use(new passportLocal(function(username,password,done){
