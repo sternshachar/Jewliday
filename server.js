@@ -10,7 +10,7 @@ var passport = require('./auth');
 app.use(express.static('public'));
 app.listen(8080);
 /* --- express server setup --- */
-var User = mongoose.model('users');
+
 app.use(bodyParser());
 app.use(cookieParser());
 app.use(expressSession({
@@ -41,7 +41,7 @@ app.post('/signup',function(req,res){
 				}
 			);
 		} else {
-
+			var User = mongoose.model('users');
 			var newUser = new User(user);
 			newUser.save(function(err,newUser){
 				if(err) return console.error(err);
