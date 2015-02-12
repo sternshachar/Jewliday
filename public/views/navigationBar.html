@@ -35,7 +35,7 @@
 					</a>
 				</li>
 			</ul>
-			<ul class="nav navbar-nav pull-right" ng-if="isAuth">
+			<ul class="nav navbar-nav pull-right" ng-if="isAuth" ng-hide="logo == 'logo.jpg'">
 				    <li class="dropdown" dropdown on-toggle="toggled(open)" >
 					    <a href class="dropdown-toggle" dropdown-toggle>
 					        Hello {{username}}<span class="caret">
@@ -69,6 +69,23 @@
 				<li>
 					<a href>
 						<span class="glyphicon glyphicon-envelope"></span> Inbox
+					</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav pull-right" ng-if="isAuth">
+				    <li class="dropdown" dropdown on-toggle="toggled(open)" >
+					    <a href class="dropdown-toggle" dropdown-toggle>
+					        Hello {{username}}<span class="caret">
+					    </a>
+					    <ul class="dropdown-menu">
+					        <li ng-repeat="choice in items">
+					          <a href>{{choice}}</a>
+					        </li>
+					    </ul>
+				    </li>
+				<li>
+					<a href ng-click="logOut()" >
+						<span class="glyphicon glyphicon-off" ></span> Log Out
 					</a>
 				</li>
 			</ul>
