@@ -21,7 +21,7 @@ angular.module("jewApp")
 		$http.get(url + '/logout')
 			.success(function(data){
 				$scope.isAuth = data.isAuthenticated;
-				$location.url('/');
+				$location.url('/lk');
 			})
 	}
 	$scope.signUp = function(){
