@@ -63,7 +63,7 @@ angular.module("jewApp")
 
 					$scope.closeModal();
 					$scope.userLog = {};
-					$scope.message = {};
+					$scope.message = '';
 
 				}
 
