@@ -75,19 +75,13 @@ angular.module("jewApp")
 	$scope.redAlert = function(){
 		return $scope.signMessage == "Enter email" ? ' ' : 'red-alert';
 	}
-})
 
-.controller('DropdownCtrl', function ($scope) {
-  $scope.items = [
-    'Profile',
-    'Inbox',
-    'Your Home',
-    'Log Out'
-  ];
-
-  $scope.status = {
-    isopen: false
-  };
+	  $scope.items = [
+	    'Profile',
+	    'Inbox',
+	    'Your Home',
+	    'Log Out'
+	  ];
 })
 
 .directive("jumbotron",function(){
