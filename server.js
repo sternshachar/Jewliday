@@ -31,7 +31,7 @@ app.post('/signup',function(req,res){
 	var user = req.body;
 	console.log('Recieved' + user.firstName);
 
-	User.findOne({"email": user.email}, function(err,oldUser){
+	mongoose.model('users').findOne({"email": user.email}, function(err,oldUser){
 		if( oldUser ){
 			console.log('same email')
 			return res.json(
