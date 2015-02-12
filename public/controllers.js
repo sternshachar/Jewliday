@@ -84,6 +84,34 @@ angular.module("jewApp")
 	  ];
 })
 
+.controller("inboxCtrl",function($scope){
+	$scope.tabs = [
+		{name: "incoming"; active: true},
+		{name: "sent"; active: false},
+		{name: "saved"; active: false}
+	];
+
+	$scope.pickInboxTab = function(tab){
+		for (var i = 0; i < $scope.tabs.length; i++) {
+			if($scope.tabs[i].name == tab){
+				$scope.tabs[i].active = true;
+			} else {
+				$scope.tabs[i].active = false;
+			}
+		};
+	}
+
+	$scope.activeInboxTab = function(tab){
+		for (var i = 0; i < $scope.tabs.length; i++) {
+			if($scope.tabs[i].active == true && $scope.tabs[i].name == tab)
+				return 'active';
+
+		};
+		return ' ';
+	}
+	
+})
+
 .directive("jumbotron",function(){
 	return{
 		restrict: 'E',

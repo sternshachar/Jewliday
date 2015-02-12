@@ -20,29 +20,32 @@
 }
 .inbox-tabs{
 	border: 1px solid lightgrey;
+}
 
+.active{
+	background-color: grey; 
 }
 
 </style>
 
 <navigation-bar logo="logo.jpg"></navigation-bar>
-<div class="row tabs">
+<div class="row tabs" ng-controller="inboxCtrl">
 
 	<div class="col-sm-2">
 		<div class="navbar navbar-side" ng-if="logo == 'logo.jpg'">
 			<ul class="nav navbar-nav row">
-				<li class="col-sm-12 inbox-tabs">
-					<a href>
+				<li class="col-sm-12 inbox-tabs" ng-class="activeInboxTab(incoming)">
+					<a href ng-click="pickInboxTab(incoming)">
 						<span class="glyphicon glyphicon-inbox" ></span> Incoming
 					</a>
 				</li>
-				<li class="col-sm-12 inbox-tabs">
-					<a href>
+				<li class="col-sm-12 inbox-tabs" ng-class="activeInboxTab(sent)">
+					<a href ng-click="pickInboxTab(sent)">
 						<span class="glyphicon glyphicon-ok"></span> Sent
 					</a>
 				</li>
-				<li class="col-sm-12 inbox-tabs">
-					<a href>
+				<li class="col-sm-12 inbox-tabs" ng-class="activeInboxTab(saved)">
+					<a href ng-click="pickInboxTab(saved)" >
 						<span class="glyphicon glyphicon-send"></span> Saved
 					</a>
 				</li>
