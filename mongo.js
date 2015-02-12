@@ -11,7 +11,7 @@ var usersSchema = [];
 db.once('open',function(callback){
 	usersSchema = mongoose.Schema({firstName: String, lastName: String, email: String, password: String, agree: Boolean },{collection:'users'});
 	usersSchema.plugin(timestamps);
-	User = mongoose.model('users',usersSchema);
+	var User = mongoose.model('users',usersSchema);
 });
 
 module.exports = User;
