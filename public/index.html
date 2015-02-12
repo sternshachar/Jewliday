@@ -39,9 +39,9 @@
 				</li>
 			</ul>
 			<ul class="nav navbar-nav pull-right" ng-if="isAuth">
-				<ul ng-controller="DropdownCtrl">
+				<div ng-controller="DropdownCtrl">
 				    <span class="dropdown" dropdown on-toggle="toggled(open)" >
-					    <a href class="dropdown-toggle" dropdown-toggle>
+					    <a href class="dropdown-toggle" dropdown-toggle ng-click="staus = !status">
 					        Hello {{username}}<span class="caret">
 					    </a>
 					    <ul class="dropdown-menu">
@@ -51,7 +51,7 @@
 					        </li>
 					    </ul>
 				    </span>
-			   </ul>
+			   </div>
 				<li>
 					<a href ng-click="logOut()" >
 						<span class="glyphicon glyphicon-off" ></span> Log Out
