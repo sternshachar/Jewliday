@@ -92,7 +92,7 @@ angular.module("jewApp")
 	];
 
 	$scope.pickInboxTab = function(tab){
-		console.log($scope.tab);
+		console.log($scope.tabs);
 		for (var i = 0; i < $scope.tabs.length; i++) {
 			if($scope.tabs[i].name == tab){
 				$scope.tabs[i].active = true;
