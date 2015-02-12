@@ -1,7 +1,7 @@
 var passport = require('passport');
 var passportLocal = require('passport-local').Strategy;
 var User = require('./mongo').User();
-
+console.log(User);
 
 passport.use(new passportLocal(function(username,password,done){
 	User.findOne({"email": username },function(err,user){
