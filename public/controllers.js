@@ -149,5 +149,8 @@ angular.module("jewApp")
 		scope: {
 			logo: "=logo"
 		}
+		controller: function($scope){
+			console.log($scope.log);
+		}
 	}
 })
