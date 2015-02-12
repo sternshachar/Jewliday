@@ -56,9 +56,21 @@
 	<div class="navbar navbar-inverse" ng-if="logo == 'logo.jpg'" style = "width: 100%;margin-top: 50px;">
 
 			<ul class="nav navbar-nav pull-left" ng-if="!isAuth">
-				<li>Profile</li>
-				<li>Your Home</li>
-				<li>Inbox</li>
+				<li>
+					<a href>
+						<span class="glyphicon glyphicon-user" ></span> Profile
+					</a>
+				</li>
+				<li>
+					<a href>
+						<span class="glyphicon glyphicon-home"></span> Your Home
+					</a>
+				</li>
+				<li>
+					<a href>
+						<span class="glyphicon glyphicon-envelope"></span> Inbox
+					</a>
+				</li>
 			</ul>
 			<ul class="nav navbar-nav pull-right" ng-if="isAuth">
 				    <li class="dropdown" dropdown on-toggle="toggled(open)" >
