@@ -4,8 +4,9 @@
 }
 
 .tabs > div{
-	border-right: 1px solid grey;
+	border-right: 1px solid lightgrey;
 	height: 600px; 
+	background-color: #eeeeee; 
 }
 
 /* ------ end inbox tabs ---------*/
