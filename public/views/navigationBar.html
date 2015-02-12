@@ -56,18 +56,18 @@
 	<div class="navbar navbar-low" ng-if="logo == 'logo.jpg'">
 		<div class="container">
 			<ul class="nav navbar-nav pull-left">
-				<li>
-					<a href>
+				<li ng-class="activeTab('profile')">
+					<a href ng-click="pickTab('profile')">
 						<span class="glyphicon glyphicon-user" ></span> Profile
 					</a>
 				</li>
-				<li>
-					<a href>
+				<li ng-class="activeTab('home')">
+					<a href ng-click="pickTab('home')">
 						<span class="glyphicon glyphicon-home"></span> Your Home
 					</a>
 				</li>
-				<li>
-					<a href>
+				<li ng-class="activeTab('inbox')">
+					<a href ng-click="pickTab('inbox')">
 						<span class="glyphicon glyphicon-envelope"></span> Inbox
 					</a>
 				</li>

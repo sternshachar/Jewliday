@@ -178,6 +178,33 @@ angular.module("jewApp")
 		templateUrl: 'views/navigationBar.html',
         controller: function($scope, $element, $attrs){
         	$scope.logo = $attrs.logo;
+
+        		$scope.tabs = [
+					{name: "pofile", active: true},
+					{name: "inbox", active: false},
+					{name: "home", active: false}
+				];
+
+				$scope.pickTab = function(tab){
+					console.log($scope.tabs);
+					for (var i = 0; i < $scope.tabs.length; i++) {
+						if($scope.tabs[i].name == tab){
+							$scope.tabs[i].active = true;
+						} else {
+							console.log(tab + ' ' + $scope.tabs[i].name);
+							$scope.tabs[i].active = false;
+						}
+					};
+				}
+
+				$scope.activeTab = function(tab){
+					for (var i = 0; i < $scope.tabs.length; i++) {
+						if($scope.tabs[i].active == true && $scope.tabs[i].name == tab)
+							return 'active';
+
+					};
+					return ' ';
+				}
         }
 	}
 })
