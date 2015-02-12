@@ -14,4 +14,4 @@ db.once('open',function(callback){
 	var User = mongoose.model('users',usersSchema);
 });
 
-module.exports = User;
+module.exports.myObj = User;
