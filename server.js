@@ -67,6 +67,7 @@ app.post('/signup',function(req,res){
 });
 
 app.get('/login', function(request,response){
+
 		response.json(
 			{
 				isAuthenticated: request.isAuthenticated(),
@@ -102,7 +103,5 @@ app.post('/login', function(req, res, next) {
 
 app.get("/logout" ,function(request,response){
 	request.logout();
-	response.json(
-		{isAuthenticated: request.isAuthenticated()}
-	);
+	res.redirect('/');
 });
