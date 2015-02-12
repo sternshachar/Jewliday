@@ -77,6 +77,26 @@ angular.module("jewApp")
 	}
 })
 
+.controller('DropdownCtrl', function ($scope) {
+  $scope.items = [
+    'Profile',
+    'Inbox',
+    'Your Home',
+    'Log Out'
+  ];
+
+  $scope.status = {
+    isopen: false
+  };
+
+
+  $scope.toggleDropdown = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.status.isopen = !$scope.status.isopen;
+  };
+})
+
 .directive("jumbotron",function(){
 	return{
 		restrict: 'E',

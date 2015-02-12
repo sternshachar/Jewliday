@@ -14,6 +14,7 @@
 		});
 	</script>
 	<script src="ngmodules/angular-animate.js"></script>
+	<script src="ngmodules/ui-bootstrap-tpls-0.12.0.js"></script>
 	<script src="controllers.js"></script>
 </head>
 <body ng-controller="mainCtrl">
@@ -38,7 +39,19 @@
 				</li>
 			</ul>
 			<ul class="nav navbar-nav pull-right" ng-if="isAuth">
-				<li><a href>Hello {{username}}<span class="caret"></span></a><li>
+				<div ng-controller="DropdownCtrl">
+				    <span class="dropdown" dropdown on-toggle="toggled(open)" >
+					    <a href class="dropdown-toggle" dropdown-toggle>
+					        Hello {{username}}<span class="caret">
+					    </a>
+					    <ul class="dropdown-menu">
+					        <li ng-repeat="choice in items">
+					          <a href>{{choice}}</a>
+					          <li class="divider" ng-if="$index == 2"></li>
+					        </li>
+					    </ul>
+				    </span>
+			   </div>
 				<li>
 					<a href ng-click="logOut()" >
 						<span class="glyphicon glyphicon-off" ></span> Log Out
