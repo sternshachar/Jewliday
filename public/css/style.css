@@ -72,5 +72,8 @@
 .myModal.ng-leave { transition:0.2s linear all; opacity: 1;}        /* starting animations for leave */
 .myModal.ng-leave.ng-leave-active {opacity: 0;} /* terminal animations for leave */
 
-/* ------  logModal ---------*/
+/* ------  end logModal ---------*/
 
+.dropdown-toggle{
+	background-color: none;
+}
