@@ -1,3 +1,9 @@
+/* ------ inbox tabs ---------*/
+.tabs{
+	border-right: 1px solid grey; 
+}
+
+/* ------ end inbox tabs ---------*/
 
 /* ------ logModal ---------*/
 .myModal{
