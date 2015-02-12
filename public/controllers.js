@@ -147,10 +147,10 @@ angular.module("jewApp")
 		restrict: 'E',
 		templateUrl: 'views/navigationBar.html',
 		scope: {
-			logo: "=logo"
-		},
-		controller: function($scope){
-			console.log($scope.logo);
-		}
+            logo: '@logo'
+        },
+        controller: function($scope, $element, $attrs){
+        	$scope.logo = $attrs.logo;
+        }
 	}
 })
