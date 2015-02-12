@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
 var passport = require('./auth');
-var User = require('./mongo').User;
+var User = require('./mongo').User();
 app.use(express.static('public'));
 app.listen(8080);
 /* --- express server setup --- */
