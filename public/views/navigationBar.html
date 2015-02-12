@@ -43,7 +43,6 @@
 					    <ul class="dropdown-menu">
 					        <li ng-repeat="choice in items">
 					          <a href>{{choice}}</a>
-					          <li class="divider" ng-if="$index == 2"></li>
 					        </li>
 					    </ul>
 				    </li>
@@ -54,3 +53,10 @@
 				</li>
 			</ul>
 	</div><!-- end navbar -->
+	<div class="navbar navar-inverse" ng-if="logo = 'logo.jpg'">
+		<ul class="nav navbar-nav"> 
+			<li>Profile</li>
+			<li>Your Home</li>
+			<li>Inbox</li>
+		</ul>
+	</div>
