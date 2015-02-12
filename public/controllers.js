@@ -180,7 +180,7 @@ angular.module("jewApp")
         	$scope.logo = $attrs.logo;
 
         		$scope.tabs = [
-					{name: "pofile", active: true},
+					{name: "profile", active: true},
 					{name: "inbox", active: false},
 					{name: "home", active: false}
 				];
