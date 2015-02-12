@@ -8,10 +8,11 @@ db.on('error', console.error.bind(console,'connection error: '));
 console.log('Connected to mongoDB!')
 
 var usersSchema = [];
+var User = {};
 db.once('open',function(callback){
 	usersSchema = mongoose.Schema({firstName: String, lastName: String, email: String, password: String, agree: Boolean },{collection:'users'});
 	usersSchema.plugin(timestamps);
-	var User = mongoose.model('users',usersSchema);
+	User = mongoose.model('users',usersSchema);
 });
 
-module.exports.myObj = User;
+module.exports.User = User;
