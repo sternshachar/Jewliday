@@ -74,7 +74,7 @@
 
 /* ------  end logModal ---------*/
 
-body > div > ul > li.dropdown.open > a{ 
+body > div > ul > li.dropdown.open { 
 	background: none;
 }
 .dropdown-menu{
