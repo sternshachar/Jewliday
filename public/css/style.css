@@ -1,9 +1,10 @@
 /* ------ inbox tabs ---------*/
 .tabs{
-margin-top: 102px;
+
 }
 
 .tabs > div{
+	margin-top: 102px;
 	border-right: 1px solid grey;
 	height: 600px; 
 }
