@@ -13,10 +13,9 @@
 		.config(function($httpProvider,$routeProvider) {
 		 	$httpProvider.defaults.withCredentials = true;
 
-		 		// 	$routeProvider.when("/news",{
-					// 	templateUrl:"views/tabs.html",
-					// 	controller:"tabsCtrl"
-					// });
+		 			$routeProvider.when("/user",{
+						templateUrl:"views/user.html",
+					});
 
 
 					$routeProvider.otherwise({
