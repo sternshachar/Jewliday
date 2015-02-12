@@ -42,7 +42,7 @@ app.post('/signup',function(req,res){
 			);
 		} else {
 
-			var newUser = new User(user);
+			var newUser = new mongoose.model('users')(user);
 			newUser.save(function(err,newUser){
 				if(err) return console.error(err);
 				console.log(newUser);
