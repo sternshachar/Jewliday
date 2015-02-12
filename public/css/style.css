@@ -75,7 +75,7 @@
 /* ------  end logModal ---------*/
 
 body > div > ul > li.dropdown.open { 
-	background: none;
+	background-color: transparent;
 }
 .dropdown-menu{
 	opacity: 0.8;
