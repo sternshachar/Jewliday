@@ -1,6 +1,6 @@
 angular.module("jewApp")
 
-.controller("mainCtrl",function($scope,$interval,$http){
+.controller("mainCtrl",function($scope,$interval,$http,$location){
 	$scope.username = "";
 	$scope.isAuth = false;
 	$scope.sign = false;
@@ -21,6 +21,7 @@ angular.module("jewApp")
 		$http.get(url + '/logout')
 			.success(function(data){
 				$scope.isAuth = data.isAuthenticated;
+				$location.url('/');
 			})
 	}
 	$scope.signUp = function(){
