@@ -41,7 +41,7 @@
 			<ul class="nav navbar-nav pull-right" ng-if="isAuth">
 				<div ng-controller="DropdownCtrl">
 				    <span class="dropdown" dropdown on-toggle="toggled(open)" >
-					    <a href class="dropdown-toggle" dropdown-toggle ng-click="staus = !status">
+					    <a href class="dropdown-toggle" dropdown-toggle ng-click="status.isopen = !status.isopen">
 					        Hello {{username}}<span class="caret">
 					    </a>
 					    <ul class="dropdown-menu">
