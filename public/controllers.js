@@ -148,7 +148,7 @@ angular.module("jewApp")
 		templateUrl: 'views/navigationBar.html',
 		scope: {
 			logo: "=logo"
-		}
+		},
 		controller: function($scope){
 			console.log($scope.log);
 		}
