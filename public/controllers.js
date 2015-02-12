@@ -12,8 +12,10 @@ angular.module("jewApp")
 	
 	$http.get(url + '/login').
 		success(function(data){
-			console.log(data);
-		});
+		$scope.isAuth = data.isAuthenticated;
+		$scope.username = data.user.firstName;
+		console.log(data);
+	});
 
 	$scope.logOut = function(){
 		$http.get(url + '/logout')
