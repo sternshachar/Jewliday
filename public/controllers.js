@@ -97,6 +97,7 @@ angular.module("jewApp")
 			if($scope.tabs[i].name == tab){
 				$scope.tabs[i].active = true;
 			} else {
+				console.log(tab + ' ' + $scope.tabs[i].name);
 				$scope.tabs[i].active = false;
 			}
 		};
