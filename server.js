@@ -2,6 +2,7 @@
 var flash = require('connect-flash');
 var express = require('express');
 var app = express();
+var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
