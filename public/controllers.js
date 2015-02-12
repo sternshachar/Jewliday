@@ -150,7 +150,7 @@ angular.module("jewApp")
 			logo: "=logo"
 		},
 		controller: function($scope){
-			console.log($scope.log);
+			console.log($scope.logo);
 		}
 	}
 })
