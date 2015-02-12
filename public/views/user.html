@@ -35,17 +35,17 @@
 		<div class="navbar navbar-side" ng-if="logo == 'logo.jpg'">
 			<ul class="nav navbar-nav row">
 				<li class="col-sm-12 inbox-tabs" ng-class="activeInboxTab('incoming')">
-					<a href ng-click="pickInboxTab(incoming)">
+					<a href ng-click="pickInboxTab('incoming')">
 						<span class="glyphicon glyphicon-inbox" ></span> Incoming
 					</a>
 				</li>
 				<li class="col-sm-12 inbox-tabs" ng-class="activeInboxTab('sent')">
-					<a href ng-click="pickInboxTab(sent)">
+					<a href ng-click="pickInboxTab('sent')">
 						<span class="glyphicon glyphicon-ok"></span> Sent
 					</a>
 				</li>
 				<li class="col-sm-12 inbox-tabs" ng-class="activeInboxTab('saved')">
-					<a href ng-click="pickInboxTab(saved)" >
+					<a href ng-click="pickInboxTab('saved')" >
 						<span class="glyphicon glyphicon-send"></span> Saved
 					</a>
 				</li>
