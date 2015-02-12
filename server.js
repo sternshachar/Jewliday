@@ -101,7 +101,7 @@ app.post('/login', function(req, res, next) {
 		);
 	});
 
-app.get("/logout" ,function(request,response){
-	request.logout();
+app.get("/logout" ,function(req,res){
+	req.logout();
 	res.redirect('/');
 });
