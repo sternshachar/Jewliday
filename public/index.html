@@ -9,19 +9,30 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Gurajada' rel='stylesheet' type='text/css'>
 	<script>
-		angular.module("jewApp",["ngAnimate","ui.bootstrap"])
-		.config(function($httpProvider) {
+		angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute"])
+		.config(function($httpProvider,$routeProvider) {
 		 	$httpProvider.defaults.withCredentials = true;
+
+		 		// 	$routeProvider.when("/news",{
+					// 	templateUrl:"views/tabs.html",
+					// 	controller:"tabsCtrl"
+					// });
+
+
+					$routeProvider.otherwise({
+						templateUrl:"views/main.html"
+					});
 		});
+
+
 	</script>
+	<script src="ngmodules/angular-route.js"></script>
 	<script src="ngmodules/angular-animate.js"></script>
 	<script src="controllers.js"></script>
 </head>
 <body ng-controller="mainCtrl">
 
-
-	<navigation-bar></navigation-bar>
-	<jumbotron></jumbotron>
+	<ng-view></ng-view>
 	<log-modal ng-attr-modal="sign" ng-show="sign" class="sign"></log-modal>
 	<log-modal ng-attr-modal="log" ng-show="login" class="login"></log-modal>
 
