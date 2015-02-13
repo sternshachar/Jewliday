@@ -102,10 +102,10 @@ angular.module('jewApp')
 		restrict: 'E',
 		templateUrl: function(elem,attrs){
 			var tab = 'profile';
-			var tab = attrs.$observe('content', function(value){
-                return value;
+			 attrs.$observe('content', function(value){
+                tab = value;
             });
-			console.log(tab);
+			
 			switch(tab){
 				case 'profile':
 					return 'views/profile.html';
