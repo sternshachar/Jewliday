@@ -101,7 +101,7 @@ angular.module('jewApp')
 	return {
 		restrict: 'E',
 		templateUrl: function(elem,attrs){
-			console.log($eval(attrs['content']);
+			console.log($eval(attrs['content']));
 			switch(attrs['content']){
 				case 'profile':
 					return 'views/profile.html';
