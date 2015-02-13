@@ -1,0 +1,26 @@
+<div class="row tabs" ng-controller="inboxCtrl" ng-if="inbox.state">
+	<div class="col-sm-2">
+		<div class="navbar navbar-side" ng-if="logo == 'logo.jpg'">
+			<ul class="nav navbar-nav row">
+				<li class="col-sm-12 inbox-tabs" ng-class="activeInboxTab('incoming')">
+					<a href ng-click="pickInboxTab('incoming')">
+						<span class="glyphicon glyphicon-inbox" ></span> Incoming
+					</a>
+				</li>
+				<li class="col-sm-12 inbox-tabs" ng-class="activeInboxTab('sent')">
+					<a href ng-click="pickInboxTab('sent')">
+						<span class="glyphicon glyphicon-send"></span> Sent
+					</a>
+				</li>
+				<li class="col-sm-12 inbox-tabs" ng-class="activeInboxTab('saved')">
+					<a href ng-click="pickInboxTab('saved')" >
+						<span class="glyphicon glyphicon-floppy-saved"></span> Saved
+					</a>
+				</li>
+			</ul>
+		</div><!-- end navbar -->
+	</div><!-- end col-sm-2 --> 
+
+	<div class="col-sm-10 inbox-panel">
+	</div>
+</div><!-- end row -->

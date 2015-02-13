@@ -75,6 +75,7 @@ angular.module('jewApp')
 					for (var i = 0; i < $scope.tabs.length; i++) {
 						if($scope.tabs[i].name == tab){
 							$scope.tabs[i].active = true;
+							$scope.userTab.name = tab;
 							if(tab == 'inbox')
 								$scope.inbox.state = true;
 							else
@@ -95,5 +96,23 @@ angular.module('jewApp')
 					return ' ';
 				}
         }
+	}
+})
+
+.directive("user", function(){
+	return {
+		restrict: 'E',
+		templateUrl: function(elem,attrs){
+			switch(attrs['content']){
+				case 'profile':
+					return 'views/profile.html';
+				case 'yourHome':
+					return 'views/yourHome.html';
+				case 'inbox':
+					return 'views/inbox.html';
+				default:
+					return 'views/profile.html';
+			}
+		}
 	}
 })
