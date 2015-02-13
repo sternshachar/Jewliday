@@ -105,7 +105,7 @@ angular.module('jewApp')
 			 attrs.$observe('content', function(value){
                 tab = value;
             });
-			
+			console.log(tab);
 			switch(tab){
 				case 'profile':
 					return 'views/profile.html';
