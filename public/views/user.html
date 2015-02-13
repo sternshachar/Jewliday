@@ -35,4 +35,6 @@
 </style>
 
 <navigation-bar logo="logo.jpg"></navigation-bar>
-<user content="{{userTab.name}}">
+<user content="profile" ng-if='userTab.name == "profile"'>
+<user content="yourHome" ng-if='userTab.name == "yourHome"'>
+<user content="inbox" ng-if='userTab.name == "inbox"'>

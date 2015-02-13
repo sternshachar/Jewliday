@@ -101,24 +101,17 @@ angular.module('jewApp')
 	return {
 		restrict: 'E',
 		templateUrl: function(elem,attrs){
-			var tab = 'profile';
-			 attrs.$observe('content', function(value){
-                tab = value;
-
-                if(tab){
-					switch(tab){
-						case 'profile':
-							return 'views/profile.html';
-						case 'yourHome':
-							return 'views/yourHome.html';
-						case 'inbox':
-							return 'views/inbox.html';
-						default:
-							return 'views/profile.html';
-					}
-				}
-            });
-
+			console.log(attrs['content']);
+			switch(attrs['content']){
+				case 'profile':
+					return 'views/profile.html';
+				case 'yourHome':
+					return 'views/yourHome.html';
+				case 'inbox':
+					return 'views/inbox.html';
+				default:
+					return 'views/profile.html';
+			}
 		}
 	}
 })
