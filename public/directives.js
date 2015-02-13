@@ -103,9 +103,9 @@ angular.module('jewApp')
 		templateUrl: function(elem,attrs){
 			var tab = 'profile';
 			var tab = attrs.$observe('content', function(value){
-                console.log(value);
+                
             });
-
+			console.log(tab);
 			switch(tab){
 				case 'profile':
 					return 'views/profile.html';
