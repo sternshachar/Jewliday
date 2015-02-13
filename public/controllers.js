@@ -84,7 +84,7 @@ angular.module("jewApp")
 	    'Log Out'
 	  ];
 
-	  $scope.userTab = {name:'profile'};
+	  $scope.userTab = {name:'inbox'};
 })
 
 .controller("inboxCtrl",function($scope){
