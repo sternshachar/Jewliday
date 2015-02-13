@@ -103,7 +103,7 @@ angular.module('jewApp')
 		templateUrl: function(elem,attrs){
 			var tab = 'profile';
 			var tab = attrs.$observe('content', function(value){
-                
+                return value;
             });
 			console.log(tab);
 			switch(tab){
