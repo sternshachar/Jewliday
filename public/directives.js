@@ -71,7 +71,6 @@ angular.module('jewApp')
 				];
 
 				$scope.pickTab = function(tab){
-					console.log($scope.tabs);
 					for (var i = 0; i < $scope.tabs.length; i++) {
 						if($scope.tabs[i].name == tab){
 							$scope.tabs[i].active = true;
@@ -81,7 +80,6 @@ angular.module('jewApp')
 							else
 								$scope.inbox.state = false;
 						} else {
-							console.log(tab + ' ' + $scope.tabs[i].name);
 							$scope.tabs[i].active = false;
 						}
 					};
@@ -103,6 +101,7 @@ angular.module('jewApp')
 	return {
 		restrict: 'E',
 		templateUrl: function(elem,attrs){
+			console.log(attra['content']);
 			switch(attrs['content']){
 				case 'profile':
 					return 'views/profile.html';
