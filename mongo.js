@@ -38,7 +38,7 @@ db.once('open',function(callback){
 
 	User = mongoose.model('users',usersSchema);
 
-	Inbox = mongoose.model('inboxes',usersSchema);
+	Inbox = mongoose.model('inboxes',inboxSchema);
 });
 
 module.exports = mongoose;
