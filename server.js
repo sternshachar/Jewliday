@@ -95,9 +95,10 @@ app.get("/logout" ,function(req,res){
 });
 
 app.get('/inbox/:id', function(req,res){
+	var Inbox = mongoose.model('inboxes');
 	var id = req.params.id;
 	console.log('ownerId ' + id);
-	mongoose.model('inboxes').find({ ownerId : id},function(err,messages){
+	Inbox.findOne({ "ownerId" : id},function(err,messages){
 		console.log(messages);
 		res.json(messages);
 	});
