@@ -106,6 +106,7 @@ app.get('/inbox/:id', function(req,res){
 })
 
 app.post('/inbox/:id',function(req,res){
+	var Inbox = mongoose.model('inboxes');
 	var id = req.params.id;
 	var message = req.body;
 	Inbox.find({"ownerId" : id},function(err,inbox){
