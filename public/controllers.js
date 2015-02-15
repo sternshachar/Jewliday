@@ -63,6 +63,8 @@ angular.module("jewApp")
 							success(function(data){
 								$scope.isAuth = data.isAuthenticated;
 								$scope.username = data.user.firstName;
+								$scope.userLastName = data.user.lastName;
+								$scope.userId = data.user._id;
 								console.log(data);
 							});
 
@@ -105,7 +107,7 @@ angular.module("jewApp")
 	];
 	$http.get(url + '/inbox/' + $scope.userId)
 		.success(function(data){
-			$scope.messages = data.messages;
+			$scope.messages = data[0].messages;
 			console.log(data);
 		});
 
