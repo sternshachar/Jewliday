@@ -13,7 +13,7 @@ var User = {};
 var inboxSchema = [];
 var Inbox = {};
 
-var ObjectId = mongoose.Types.ObjectId();
+// var ObjectId = mongoose.Types.ObjectId();
 
 db.once('open',function(callback){
 	usersSchema = mongoose.Schema({
@@ -26,9 +26,9 @@ db.once('open',function(callback){
 	);
 	usersSchema.plugin(timestamps);
 	inboxSchema = mongoose.Schema({
-		ownerId: ObjectId,
+		ownerId: mongoose.Types.ObjectId(),
 		messages: [{
-			sender:  ObjectId,
+			sender:  mongoose.Types.ObjectId();,
 			subject: String,
 			content: String ,
 			sent: {type: Date, default: Date.now}
