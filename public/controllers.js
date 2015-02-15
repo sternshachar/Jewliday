@@ -98,7 +98,7 @@ angular.module("jewApp")
 	];
 	$http.get(url + '/inbox/' + $scope.userId)
 		.success(function(data){
-			$scope.messages = data.messages;
+			$scope.messages = data[0].messages;
 			console.log(data);
 		});
 
