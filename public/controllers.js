@@ -88,6 +88,7 @@ angular.module("jewApp")
 })
 
 .controller("inboxCtrl",function($scope){
+	$scope.messageSend = "";
 	$scope.tabs = [
 		{name: "incoming", active: true},
 		{name: "sent", active: false},
