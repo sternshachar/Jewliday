@@ -27,12 +27,12 @@ db.once('open',function(callback){
 	usersSchema.plugin(timestamps);
 	inboxSchema = mongoose.Schema({
 		ownerId: ObjectId,
-		messages: [
+		messages: [{
 			sender: {type: ObjectId, ref: User},
 			subject: String,
 			content: String ,
 			sent: {type: Date, default: Date.now}
-		]},
+		}]},
 		{collection:'inboxes'}
 	);
 
