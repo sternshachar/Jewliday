@@ -16,7 +16,7 @@ angular.module("jewApp")
 		$scope.isAuth = data.isAuthenticated;
 		$scope.username = data.user.firstName;
 		$scope.userId = data.user._id;
-		console.log(data);
+		console.log($scope.userId);
 	});
 
 	$scope.logOut = function(){
@@ -96,7 +96,7 @@ angular.module("jewApp")
 		{name: "sent", active: false},
 		{name: "saved", active: false}
 	];
-	$http.get(url + '/' + $scope.userId)
+	$http.get(url + '/inbox/' + $scope.userId)
 		.success(function(data){
 			$scope.messages = data.messages;
 			console.log(data);
