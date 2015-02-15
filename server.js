@@ -109,7 +109,7 @@ app.post('/inbox/:id',function(req,res){
 	var Inbox = mongoose.model('inboxes');
 	var id = req.params.id;
 	var message = req.body;
-	Inbox.find({"ownerId" : id},function(err,inbox){
+	Inbox.findOne({"ownerId" : id},function(err,inbox){
 		console.log(inbox)
 		inbox.messages.push(message);
 		inbox.save(function (err) {
