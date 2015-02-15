@@ -28,7 +28,7 @@ db.once('open',function(callback){
 	inboxSchema = mongoose.Schema({
 		ownerId: ObjectId,
 		messages: [{
-			sender: {type: ObjectId, ref: User},
+			sender:  ObjectId,
 			subject: String,
 			content: String ,
 			sent: {type: Date, default: Date.now}
