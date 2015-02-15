@@ -105,9 +105,9 @@ app.get('/inbox/:id', function(req,res){
 	});
 })
 
-app.post('/inbox/:id',function(req,res)){
+app.post('/inbox/:id',function(req,res){
 	var id = req.params.id;
 	var message = req.body;
 	console.log(req.body);
 	res.json(message);
-}
+})
