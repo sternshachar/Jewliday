@@ -13,6 +13,8 @@ var User = {};
 var inboxSchema = [];
 var Inbox = {};
 
+var ObjectId = mongoose.Types.ObjectId();
+
 db.once('open',function(callback){
 	usersSchema = mongoose.Schema({firstName: String, lastName: String, email: String, password: String, agree: Boolean },{collection:'users'});
 	usersSchema.plugin(timestamps);
