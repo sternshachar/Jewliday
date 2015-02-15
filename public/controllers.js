@@ -112,7 +112,6 @@ angular.module("jewApp")
 	$scope.sendMessage = function(){
 		$http.post(url + '/inbox/' + $scope.userId, $scope.messageData)
 			.success(function(data){
-				$scope.messages = data.messages;
 				console.log(data);
 			});
 	}
