@@ -98,7 +98,7 @@ app.get('/inbox/:id', function(req,res){
 	var Inbox = mongoose.model('inboxes');
 	var id = req.params.id;
 	console.log('ownerId ' + id);
-	Inbox.find({},function(err,messages){
+	Inbox.find({"data":"1/2/3"},function(err,messages){
 		console.log(messages);
 		res.json(messages);
 	});
