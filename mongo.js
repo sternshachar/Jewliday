@@ -25,16 +25,17 @@ db.once('open',function(callback){
 		{collection:'users'}
 	);
 	usersSchema.plugin(timestamps);
-	inboxSchema = mongoose.Schema({
-		// ownerId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-		ownerId: String,
-		messages: [{
+	var messageSchema = mongoose.Schema({
 			uid:  {type: mongoose.Schema.Types.ObjectId},
 			sender: String,
 			subject: String,
 			content: String ,
 			sent: {type: Date, default: Date.now}
-		}]},
+		});
+	inboxSchema = mongoose.Schema({
+		// ownerId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+		ownerId: String,
+		messages: [messageSchema]},
 		{collection:'inboxes'}
 	);
 
