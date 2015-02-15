@@ -98,7 +98,7 @@ app.get('/inbox/:id', function(req,res){
 	var Inbox = mongoose.model('inboxes');
 	var id = req.params.id;
 	console.log('ownerId ' + id);
-	Inbox.find({"ownerId" : id},function(err,messages){
+	Inbox.findOne({"ownerId" : "54db69b5c57078274ced74c0"},function(err,messages){
 		console.error(err);
 		console.log(messages);
 		res.json(messages);

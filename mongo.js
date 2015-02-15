@@ -26,7 +26,7 @@ db.once('open',function(callback){
 	);
 	usersSchema.plugin(timestamps);
 	inboxSchema = mongoose.Schema({
-		ownerId: {type: mongoose.Schema.Types.ObjectId, ref: 'users'},
+		ownerId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 		messages: [{
 			sender:  {type: mongoose.Schema.Types.ObjectId},
 			subject: String,
