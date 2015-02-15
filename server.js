@@ -96,7 +96,7 @@ app.get("/logout" ,function(req,res){
 
 app.get('/inbox/:id', function(req,res){
 	var id = req.params.id;
-	mongoose.model('inboxes').find({_id: id},function(err,messages){
+	mongoose.model('inboxes').find({},function(err,messages){
 		console.log(messages);
 		res.json(messages);
 	});
