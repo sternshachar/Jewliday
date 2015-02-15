@@ -29,7 +29,8 @@ db.once('open',function(callback){
 		// ownerId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 		ownerId: String,
 		messages: [{
-			sender:  {type: mongoose.Schema.Types.ObjectId},
+			uid:  {type: mongoose.Schema.Types.ObjectId},
+			sender: String,
 			subject: String,
 			content: String ,
 			sent: {type: Date, default: Date.now}

@@ -104,3 +104,10 @@ app.get('/inbox/:id', function(req,res){
 		res.json(messages);
 	});
 })
+
+app.post('/inbox/:id',function(req,res)){
+	var id = req.params.id;
+	var message = req.body;
+	console.log(req.body);
+	res.json(message);
+}

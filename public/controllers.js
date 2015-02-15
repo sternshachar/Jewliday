@@ -15,6 +15,7 @@ angular.module("jewApp")
 		success(function(data){
 		$scope.isAuth = data.isAuthenticated;
 		$scope.username = data.user.firstName;
+		$scope.userLastName = data.user.lastName;
 		$scope.userId = data.user._id;
 		console.log($scope.userId);
 	});
@@ -90,7 +91,13 @@ angular.module("jewApp")
 
 .controller("inboxCtrl",function($scope,$http){
 	var url = "http://ec2-54-149-52-21.us-west-2.compute.amazonaws.com:8080";
-	$scope.messageSend = "";
+	$scope.messageData = {
+		uid: $scope.userId,
+		sender: $scope.username + ' ' + $scope.userLastName,
+		subject: "",
+		content: ""
+	};
+
 	$scope.tabs = [
 		{name: "incoming", active: true},
 		{name: "sent", active: false},
@@ -98,9 +105,17 @@ angular.module("jewApp")
 	];
 	$http.get(url + '/inbox/' + $scope.userId)
 		.success(function(data){
-			$scope.messages = data[0].messages;
+			$scope.messages = data.messages;
 			console.log(data);
 		});
+
+	$scope.sendMessage = function(){
+		$http.post(url + '/inbox/' + $scope.userId, $scope.messageData)
+			.success(function(data){
+				$scope.messages = data.messages;
+				console.log(data);
+			});
+	}
 
 	$scope.pickInboxTab = function(tab){
 		console.log($scope.tabs);
