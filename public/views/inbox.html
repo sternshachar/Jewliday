@@ -43,7 +43,16 @@
 	</div><!-- end col-sm-2 --> 
 
 	<div class="col-sm-10 inbox-panel">
-		<div class="message">
+		<div class="messages">
+			<div ng-repeat="item in messages">
+				<p>{{item.subject}}</p>
+			</div>
+		</div>
+	</div>
+</div><!-- end row -->
+
+
+<!-- 		<div class="message">
 			<div class="message-header">
 				<p>Exmple message looks good</p>
 			</div>
@@ -61,6 +70,4 @@
 				<textarea rows="5" cols="90" ng-model="messageSend" placeholder="Write your message here ..."></textarea>
 				<button class="btn btn-primary">Send</button>
 			</div>
-		</div>
-	</div>
-</div><!-- end row -->
+		</div> -->

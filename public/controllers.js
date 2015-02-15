@@ -15,6 +15,7 @@ angular.module("jewApp")
 		success(function(data){
 		$scope.isAuth = data.isAuthenticated;
 		$scope.username = data.user.firstName;
+		$scope.userId = data.user._id;
 		console.log(data);
 	});
 
@@ -87,13 +88,18 @@ angular.module("jewApp")
 	  $scope.userTab = {name:'inbox'};
 })
 
-.controller("inboxCtrl",function($scope){
+.controller("inboxCtrl",function($scope,$http){
 	$scope.messageSend = "";
 	$scope.tabs = [
 		{name: "incoming", active: true},
 		{name: "sent", active: false},
 		{name: "saved", active: false}
 	];
+	$http.get(url + '/' + $scope.userId)
+		.success(function(data){
+			$scope.messages = data.messages;
+			console.log(data);
+		});
 
 	$scope.pickInboxTab = function(tab){
 		console.log($scope.tabs);
