@@ -28,7 +28,7 @@ angular.module("jewApp")
 			})
 	}
 	$scope.signUp = function(){
-		console.log('sending: ' + $scope.user.firstName + $scope.user.lastName)
+		// console.log('sending: ' + $scope.user.firstName + $scope.user.lastName)
 		$scope.user.firstName = $scope.user.firstName[0].toUpperCase() + $scope.user.firstName.substring(1).toLowerCase();
 		$scope.user.lastName = $scope.user.lastName[0].toUpperCase() + $scope.user.lastName.substring(1).toLowerCase();
 		$http.post(url + '/signup',$scope.user)
