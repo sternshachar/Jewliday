@@ -145,29 +145,30 @@ angular.module("jewApp")
 	$scope.home = {};
 	$scope.options = null;
 	$scope.amenities = {
-		row1:{
+		row1:[
 				"TV",
 				"Wi-fi",
 				"AirCondition",
 				"Dryer"	
-			},
-		row2:{
+			],
+		row2:[
 				"Elevator",
 				"Essentials",
 				"FreeParking",
 				"Heating"
-			},
-		row3:{
+			],
+		row3:[
 				"Fireplace"
 				"PetsAllowed",
 				"Pool",
 				"SmokingAllowed",
-				"Washer"},
-		row4:{
+				"Washer"
+			],
+		row4:[
 				"Accessibility",
 				"Kosher",
 				"Synagouge" 
-			}
+			]
 	};
 	// {
  //      country: 'ca',
