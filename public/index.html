@@ -10,7 +10,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Gurajada' rel='stylesheet' type='text/css'>
 	<script>
 		angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute",'uiGmapgoogle-maps'])
-		.config(function($httpProvider,$routeProvider,uiGmapGoogleMapApiProvider) {
+		.config(['uiGmapGoogleMapApiProvider',function($httpProvider,$routeProvider,uiGmapGoogleMapApiProvider) {
 		 	$httpProvider.defaults.withCredentials = true;
 		 			$routeProvider.when("/user",{
 						templateUrl:"views/user.html",
@@ -33,7 +33,7 @@
 				        v: '3.17',
 				        libraries: 'weather,geometry,visualization,places'
 				    });
-		});
+		}]);
 
 
 	</script>
