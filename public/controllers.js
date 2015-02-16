@@ -143,8 +143,9 @@ angular.module("jewApp")
 
 .controller("newHomeCtrl",function($scope,$http){
 	$scope.home = {};
-	$scope.options = {
-      country: 'ca',
-      types: '(cities)'
-    };
+	$scope.options = null;
+	// {
+ //      country: 'ca',
+ //      types: '(cities)'
+ //    };
 })

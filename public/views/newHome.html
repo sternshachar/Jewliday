@@ -6,42 +6,36 @@
 </style>
 <navigation-bar logo="logo.jpg"></navigation-bar>
 <div ng-controller="newHomeCtrl">
-	<h1>Put Your Home Up for Exchange</h1>
-	<form>
-		<div class="form-group">
-	        <label for="Autocomplete">Generic Autocomplete</label>
-	        <input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result1" ng-model="place" options="options"/>
-	    </div>
-	    {{place}}
-<!--	<div class="form-group">
-	 		<label for="country">Counrty:</label>
-			<input type="" id="" ng-model="home.country" placeholder="Country" class="form-control">
-		</div>
-		<div class="form-group">
-			<label for="city">City:</label>
-			<input type="" id="city" ng-model="home.city" placeholder="City" class="form-control">
-		</div> -->
-		<div class="form-group">
-			<label for="street">Street:</label>
-			<input type="" id="street" ng-model="home.street" placeholder="Street" class="form-control">
-		</div>
-		<div class="form-group">
-			<label for="home-type">Home Type:</label>
-			<input type="" id="" ng-model="home.homeType" placeholder="House , Apartment etc." class="form-control">
-		</div>
-		<div class="form-group">
-			<label for="home-number">Home Number</label>
-			<input type="" id="" ng-model="home.number" placeholder="House number" class="form-control">
-		</div>
-		<div class="form-group">
-			<label for="">Bedrooms:</label>
-			<select class="form-control" ng-model="home.bedrooms" ng-options="num for num in [1,2,3,4,5,6,7,8,9]" class="form-control">
-			</select>
-		</div>
-		<div class="form-group">
-			<label for="">Beds:</label>
-			<select class="form-control" ng-model="home.beds" ng-options="num for num in [1,2,3,4,5,6,7,8,9]" class="form-control">
-			</select>
-		</div>
-	</form>
+	
+	<div class="container">
+		<h1>Put Your Home Up for Exchange</h1>
+		<form>
+			<div class="form-group">
+		        <label for="Autocomplete">City:</label>
+		        <input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result1" ng-model="home.city" options="options"/>
+		    </div>
+			<div class="form-group">
+				<label for="street">Street:</label>
+				<input type="" id="street" ng-model="home.street" placeholder="Street" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="home-type">Home Type:</label>
+				<input type="" id="" ng-model="home.homeType" placeholder="House , Apartment etc." class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="home-number">Home Number</label>
+				<input type="" id="" ng-model="home.number" placeholder="Home number" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="">Bedrooms:</label>
+				<select class="form-control" ng-model="home.bedrooms" ng-options="num for num in [1,2,3,4,5,6,7,8,9]" class="form-control">
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="">Beds:</label>
+				<select class="form-control" ng-model="home.beds" ng-options="num for num in [1,2,3,4,5,6,7,8,9]" class="form-control">
+				</select>
+			</div>
+		</form>
+	</div>
 </div>
