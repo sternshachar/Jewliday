@@ -165,7 +165,6 @@ angular.module("jewApp")
 				$scope.step[i].active = false;
 			}
 		};
-
 	}
 	// {
  //      country: 'ca',
