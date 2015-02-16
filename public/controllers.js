@@ -153,8 +153,8 @@ angular.module("jewApp")
 
 	$scope.step = [
 		{level:"Address", active: true},
-		{level:"Details & Amenities", active: true},
-		{level:"Pictures & Description", active: true}
+		{level:"Details & Amenities", active: false},
+		{level:"Pictures & Description", active: false}
 	];
 
 	$scope.goToStep = function(stepName){
