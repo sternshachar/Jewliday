@@ -141,9 +141,14 @@ angular.module("jewApp")
 	
 })
 
-.controller("newHomeCtrl",function($scope,$http,uiGmapGoogleMapApi){
+.controller("newHomeCtrl",function($scope,$http,$log,uiGmapGoogleMapApi){
 	$scope.home = {};
 	uiGmapGoogleMapApi.then(function(maps) {
-		$scope.searchbox = { template:'searchbox.tpl.html'};
+		
     });
+    var events = {
+          places_changed: function (searchBox) {}
+        }
+ 
+    $scope.searchbox = { template:'searchbox.tpl.html'};
 })
