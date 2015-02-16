@@ -6,55 +6,54 @@
 </style>
 <navigation-bar logo="logo.jpg"></navigation-bar>
 <div ng-controller="newHomeCtrl">
-	
-	<div class="container row">
-		<h1>Put Your Home Up for Exchange</h1>
-		<div class="col-sm-6">
-					<form>
-						<div class="form-group">
-					        <label for="Autocomplete">City:</label>
-					        <input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result1" ng-model="home.city" options="options"/>
-					    </div>
-						<div class="form-group">
-							<label for="street">Street:</label>
-							<input type="" id="street" ng-model="home.street" placeholder="Street" class="form-control">
-						</div>
-						<div class="form-group">
-							<label for="home-type">Home Type:</label>
-							<input type="" id="" ng-model="home.homeType" placeholder="House , Apartment etc." class="form-control">
-						</div>
-						<div class="form-group">
-							<label for="home-number">Home Number</label>
-							<input type="" id="" ng-model="home.number" placeholder="Home number" class="form-control">
-						</div>
-						<div class="form-group">
-							<label for="">Bedrooms:</label>
-							<select class="form-control" ng-model="home.bedrooms" ng-options="num for num in [1,2,3,4,5,6,7,8,9]" class="form-control">
-								<option value="">Select</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="">Beds:</label>
-							<select class="form-control" ng-model="home.beds" ng-options="num for num in [1,2,3,4,5,6,7,8,9]" class="form-control">
-								<option value="">Select</option>
-							</select>
-						</div>
-					</form>
+	<div class="container">
+		<div class="row">
+			<h1>Put Your Home Up for Exchange</h1>
+			<div class="col-sm-6">
+						<form>
+							<div class="form-group">
+						        <label for="Autocomplete">City:</label>
+						        <input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result1" ng-model="home.city" options="options"/>
+						    </div>
+							<div class="form-group">
+								<label for="street">Street:</label>
+								<input type="" id="street" ng-model="home.street" placeholder="Street" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="home-type">Home Type:</label>
+								<input type="" id="" ng-model="home.homeType" placeholder="House , Apartment etc." class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="home-number">Home Number</label>
+								<input type="" id="" ng-model="home.number" placeholder="Home number" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="">Bedrooms:</label>
+								<select class="form-control" ng-model="home.bedrooms" ng-options="num for num in [1,2,3,4,5,6,7,8,9]" class="form-control">
+									<option value="">Select</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="">Beds:</label>
+								<select class="form-control" ng-model="home.beds" ng-options="num for num in [1,2,3,4,5,6,7,8,9]" class="form-control">
+									<option value="">Select</option>
+								</select>
+							</div>
+						</form>
+			</div>
+			<div class="col-sm-6">
+				<table class="table">
+					<tr ng-repeat="row in amenities">
+						<td ng-repeat="a in row">
+							<div class="checkbox">
+						    <label>
+						      <input type="checkbox" ng-model="home.amenities[a]"> {{a}}
+						    </label>
+						  </div>
+						</td>
+					</tr>
+				</table>
+			</div>
 		</div>
-		<div class="col-sm-6">
-			<table class="table">
-				<tr ng-repeat="row in amenities">
-					<td ng-repeat="a in row">
-						<div class="checkbox">
-					    <label>
-					      <input type="checkbox" ng-model="home.amenities[a]"> {{a}}
-					    </label>
-					  </div>
-					</td>
-				</tr>
-			</table>
-		</div>
-		{{home.amenities['AirCondition']}}
-
 	</div>
 </div>
