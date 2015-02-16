@@ -9,9 +9,10 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Gurajada' rel='stylesheet' type='text/css'>
 	<script>
-		angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute",'uiGmapgoogle-maps'])
-		.config(function($httpProvider,$routeProvider,uiGmapGoogleMapApiProvider) {
+		angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute"])
+		.config(function($httpProvider,$routeProvider) {
 		 	$httpProvider.defaults.withCredentials = true;
+
 		 			$routeProvider.when("/user",{
 						templateUrl:"views/user.html",
 					});
@@ -27,18 +28,10 @@
 					$routeProvider.otherwise({
 						templateUrl:"views/main.html"
 					});
-
-					uiGmapGoogleMapApiProvider.configure({
-				        //    key: 'your api key',
-				        v: '3.17',
-				        libraries: 'places'
-				    });
 		});
 
 
 	</script>
-	<script src='lodash.js'></script>
-	<script src='angular-google-maps.js'></script>
 	<script src="ngmodules/angular-route.js"></script>
 	<script src="ngmodules/angular-animate.js"></script>
 	<script src="../controllers.js"></script>
