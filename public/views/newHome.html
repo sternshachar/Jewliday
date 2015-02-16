@@ -10,11 +10,9 @@ h1{
 	text-align: center;
 }
 
-table{
-	position: relative;
-	bottom: 10px;
-	margin-top: 25px;
-}
+/*.amenities{
+	padding-top: 25px;
+}*/
 
 </style>
 <navigation-bar logo="logo.jpg"></navigation-bar>
@@ -42,20 +40,22 @@ table{
 							</div>
 						</form>
 			</div>
-			<div class="col-sm-6 amenities rows">
-				<div class="form-group col-sm-6">
-					<label for="">Bedrooms:</label>
-					<select class="form-control" ng-model="home.bedrooms" ng-options="num for num in [1,2,3,4,5,6,7,8,9]" class="form-control">
-						<option value="">Select</option>
-					</select>
+			<div class="col-sm-6 amenities">
+				<div class="row">
+					<div class="form-group">
+						<label for="">Bedrooms:</label>
+						<select class="form-control" ng-model="home.bedrooms" ng-options="num for num in [1,2,3,4,5,6,7,8,9]" class="form-control">
+							<option value="">Select</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="">Beds:</label>
+						<select class="form-control" ng-model="home.beds" ng-options="num for num in [1,2,3,4,5,6,7,8,9]" class="form-control">
+							<option value="">Select</option>
+						</select>
+					</div>
 				</div>
-				<div class="form-group col-sm-6">
-					<label for="">Beds:</label>
-					<select class="form-control" ng-model="home.beds" ng-options="num for num in [1,2,3,4,5,6,7,8,9]" class="form-control">
-						<option value="">Select</option>
-					</select>
-				</div>
-				<table class="table table-condensed">
+				<table class="table">
 					<tr ng-repeat="row in amenities">
 						<td ng-repeat="a in row">
 							<div class="checkbox">
