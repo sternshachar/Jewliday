@@ -15,7 +15,7 @@
 		<script type="text/ng-template" id="searchbox.tpl.html">
        		 <input type="text" placeholder="Search Box">
     	</script>
-    	<ui-gmap-google-map>
+    	<ui-gmap-google-map draggable="false" center="map.center" zoom="map.zoom" options="map.options">
     	<ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box></ui-gmap-google-map>
 <!-- 		<div class="form-group">
 			<label for="city">City:</label>
