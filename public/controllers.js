@@ -144,6 +144,31 @@ angular.module("jewApp")
 .controller("newHomeCtrl",function($scope,$http){
 	$scope.home = {};
 	$scope.options = null;
+	$scope.amenities = {
+		row1:{
+				"TV",
+				"Wi-fi",
+				"AirCondition",
+				"Dryer"	
+			},
+		row2:{
+				"Elevator",
+				"Essentials",
+				"FreeParking",
+				"Heating"
+			},
+		row3:{
+				"Fireplace"
+				"PetsAllowed",
+				"Pool",
+				"SmokingAllowed",
+				"Washer"},
+		row4:{
+				"Accessibility",
+				"Kosher",
+				"Synagouge" 
+			}
+	};
 	// {
  //      country: 'ca',
  //      types: '(cities)'
