@@ -148,7 +148,7 @@ angular.module("jewApp")
 				["TV", "Wi-fi", "AirCondition","Dryer"],
 				["Elevator", "Essentials", "FreeParking","Heating"],
 				["Fireplace", "PetsAllowed", "Pool","SmokingAllowed"],
-				["Washer", "Accessibility", "Kosher","Synagouge"],
+				["Washer", "Accessibility"],
 	];
 	// {
  //      country: 'ca',
