@@ -11,7 +11,6 @@
 	<script>
 		angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute",'uiGmapgoogle-maps'])
 		.config(['uiGmapGoogleMapApiProvider',function($httpProvider,$routeProvider,uiGmapGoogleMapApiProvider) {
-		 	$httpProvider.defaults.withCredentials = true;
 		 			$routeProvider.when("/user",{
 						templateUrl:"views/user.html",
 					});
