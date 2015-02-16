@@ -43,24 +43,26 @@ label span {
 <navigation-bar logo="logo.jpg"></navigation-bar>
 <div ng-controller="newHomeCtrl">
 	<div class="row">
-		<div class="col-sm-2 navbar-side">
-			<ul class="nav navbar-nav row">
-				<li class="col-sm-12 inbox-tabs" ng-class="activeInboxTab('incoming')">
-					<a href ng-click="pickInboxTab('incoming')">
-						<span class="glyphicon glyphicon-inbox" ></span> Incoming
-					</a>
-				</li>
-				<li class="col-sm-12 inbox-tabs" ng-class="activeInboxTab('sent')">
-					<a href ng-click="pickInboxTab('sent')">
-						<span class="glyphicon glyphicon-send"></span> Sent
-					</a>
-				</li>
-				<li class="col-sm-12 inbox-tabs" ng-class="activeInboxTab('saved')">
-					<a href ng-click="pickInboxTab('saved')" >
-						<span class="glyphicon glyphicon-floppy-saved"></span> Saved
-					</a>
-				</li>
-			</ul>
+		<div class="col-sm-2">
+			<div class="navbar navbar-side">
+				<ul class="nav navbar-nav row">
+					<li class="col-sm-12 inbox-tabs" ng-class="activeInboxTab('incoming')">
+						<a href ng-click="pickInboxTab('incoming')">
+							<span class="glyphicon glyphicon-inbox" ></span> Incoming
+						</a>
+					</li>
+					<li class="col-sm-12 inbox-tabs" ng-class="activeInboxTab('sent')">
+						<a href ng-click="pickInboxTab('sent')">
+							<span class="glyphicon glyphicon-send"></span> Sent
+						</a>
+					</li>
+					<li class="col-sm-12 inbox-tabs" ng-class="activeInboxTab('saved')">
+						<a href ng-click="pickInboxTab('saved')" >
+							<span class="glyphicon glyphicon-floppy-saved"></span> Saved
+						</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 		<div class="col-sm-10">	
 			<div class="row">
