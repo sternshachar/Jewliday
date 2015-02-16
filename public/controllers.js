@@ -150,5 +150,5 @@ angular.module("jewApp")
           places_changed: function (searchBox) {}
         }
  
-    $scope.searchbox = { template:'searchbox.tpl.html'};
+    $scope.searchbox = { template:'searchbox.tpl.html', events:events};
 })
