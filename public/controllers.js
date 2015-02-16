@@ -141,7 +141,7 @@ angular.module("jewApp")
 	
 })
 
-.controller("newHomeCtrl",function($scope,$http){
+.controller("newHomeCtrl",function($scope,$http,uiGmapGoogleMapApiProvider){
 	$scope.home = {};
 	uiGmapGoogleMapApi.then(function(maps) {
 		$scope.searchbox = { template:'searchbox.tpl.html'};
