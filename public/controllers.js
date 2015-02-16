@@ -17,7 +17,7 @@ angular.module("jewApp")
 		$scope.username = data.user.firstName;
 		$scope.userLastName = data.user.lastName;
 		$scope.userId = data.user._id;
-		console.log($scope.userId);
+		// console.log($scope.userId);
 	});
 
 	$scope.logOut = function(){
