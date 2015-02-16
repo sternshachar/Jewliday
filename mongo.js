@@ -51,7 +51,7 @@ db.once('open',function(callback){
 				synagouge : Number 
 			}
 		}
-	}
+	},
 
 		{collection:'users'}
 	);
