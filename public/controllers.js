@@ -141,3 +141,6 @@ angular.module("jewApp")
 	
 })
 
+.controller("newHomeCtrl",function($scope,$http){
+	$scope.home = {};
+})

@@ -28,7 +28,6 @@ db.once('open',function(callback){
 			city : String,
 			street : String,
 			houseNumber : Number,
-			apartment : Number,
 			bedrooms : Number,
 			beds: Number,
 			propertyType : String,
