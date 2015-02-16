@@ -9,13 +9,18 @@
 	<h1>Put Your Home Up for Exchange</h1>
 	<form>
 		<div class="form-group">
-			<label for="country">Counrty:</label>
+	        <label for="Autocomplete">Generic Autocomplete</label>
+	        <input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result1" ng-model="place" options="options"/>
+	    </div>
+	    {{place}}
+<!--	<div class="form-group">
+	 		<label for="country">Counrty:</label>
 			<input type="" id="" ng-model="home.country" placeholder="Country" class="form-control">
 		</div>
 		<div class="form-group">
 			<label for="city">City:</label>
 			<input type="" id="city" ng-model="home.city" placeholder="City" class="form-control">
-		</div>
+		</div> -->
 		<div class="form-group">
 			<label for="street">Street:</label>
 			<input type="" id="street" ng-model="home.street" placeholder="Street" class="form-control">

@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Gurajada' rel='stylesheet' type='text/css'>
 	<script>
-		angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute"])
+		angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete"])
 		.config(function($httpProvider,$routeProvider) {
 		 	$httpProvider.defaults.withCredentials = true;
 
@@ -32,8 +32,10 @@
 
 
 	</script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 	<script src="ngmodules/angular-route.js"></script>
 	<script src="ngmodules/angular-animate.js"></script>
+	<script src="ngmodules/ngAutocomplete.js"></script>
 	<script src="../controllers.js"></script>
 	<script src="../directives.js"></script>
 </head>
