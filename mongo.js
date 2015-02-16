@@ -21,7 +21,38 @@ db.once('open',function(callback){
 		lastName: String,
 		email: String,
 		password: String,
-		agree: Boolean },
+		agree: Boolean ,
+		house : {
+			country : String,
+			state : String,
+			city : String,
+			street : String,
+			houseNumber : Number,
+			apartment : Number,
+			bedrooms : Number,
+			beds: Number,
+			propertyType : String,
+			amenities : {
+				TV : Boolean,
+				wifi : Boolean,
+				air condition : Boolean,
+				dryer : Boolean,
+				elevator : Boolean,
+				essentials : Boolean,
+				free parking : Boolean,
+				heating : Boolean,
+				fireplace : Boolean,
+				pets allowed : Boolean,
+				pool : Boolean,
+				smoking allowed : Boolean,
+				washer : Boolean,
+				accessibility : Boolean,
+				kosher : String,
+				synagouge : Number 
+			}
+		}
+	}
+
 		{collection:'users'}
 	);
 	usersSchema.plugin(timestamps);
