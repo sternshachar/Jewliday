@@ -156,6 +156,17 @@ angular.module("jewApp")
 		{level:"Details & Amenities", active: true},
 		{level:"Pictures & Description", active: true}
 	];
+
+	$scope.goToStep = function(stepName){
+		for (var i = 0; i < $scope.step.length; i++) {
+			if($scope.step[i].level == stepName){
+				$scope.step[i].active = true;
+			} else {
+				$scope.step[i].active = false;
+			}
+		};
+
+	}
 	// {
  //      country: 'ca',
  //      types: '(cities)'
