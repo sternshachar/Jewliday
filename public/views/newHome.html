@@ -42,9 +42,15 @@
 					</form>
 		</div>
 		<div class="col-sm-6">
-			<table>
+			<table class="table">
 				<tr ng-repeat="row in amenities">
-					<td ng-repeat="a in row">{{a}}</td>
+					<td ng-repeat="a in row">
+						<div class="checkbox">
+					    <label>
+					      <input type="checkbox" ng-model="home.amenities"> {{a}}
+					    </label>
+					  </div>
+					</td>
 				</tr>
 			</table>
 		</div>
