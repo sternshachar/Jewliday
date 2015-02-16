@@ -150,6 +150,12 @@ angular.module("jewApp")
 				["Fireplace", "Pets allowed", "Pool","Smoking allowed"],
 				["Washer", "Accessibility"],
 	];
+
+	$scope.step = [
+		{level:"Address", active: true},
+		{level:"Details & Amenities", active: true},
+		{level:"Pictures & Description", active: true}
+	];
 	// {
  //      country: 'ca',
  //      types: '(cities)'
