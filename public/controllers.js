@@ -91,7 +91,7 @@ angular.module("jewApp")
 	  $scope.userTab = {name:'inbox'};
 })
 
-.controller("inboxCtrl",function($scope,$http,$stateProvider){
+.controller("inboxCtrl",function($scope,$http,$state){
 	var url = "http://ec2-54-149-52-21.us-west-2.compute.amazonaws.com:8080";
 	$state.go('.incoming');
 	$scope.messageData = {
