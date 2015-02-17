@@ -93,6 +93,7 @@ angular.module("jewApp")
 
 .controller("inboxCtrl",function($scope,$http){
 	var url = "http://ec2-54-149-52-21.us-west-2.compute.amazonaws.com:8080";
+	
 	$scope.messageData = {
 		uid: $scope.userId,
 		sender: $scope.username + ' ' + $scope.userLastName,
