@@ -59,18 +59,18 @@
 	<div class="navbar navbar-low" ng-if="logo == 'logo.jpg'">
 		<div class="container">
 			<ul class="nav navbar-nav pull-left">
-				<li>
-					<a href ui-sref=".profile" ui-active="active" > <!-- ng-click="pickTab('profile')" -->
+				<li ui-sref=".profile" ui-active="active">
+					<a href  > <!-- ng-click="pickTab('profile')" -->
 						<span class="glyphicon glyphicon-user" ></span> Profile
 					</a>
 				</li>
-				<li>
-					<a href  ui-sref=".home" ui-active="active"><!-- ng-click="pickTab('home')" -->
+				<li ui-sref=".home" ui-active="active">
+					<a href  ><!-- ng-click="pickTab('home')" -->
 						<span class="glyphicon glyphicon-home"></span> Your Home
 					</a>
 				</li>
-				<li>
-					<a href ui-sref=".inbox" ui-active="active"> <!-- ng-click="pickTab('inbox')" -->
+				<li ui-sref=".inbox" ui-active="active">
+					<a href > <!-- ng-click="pickTab('inbox')" -->
 						<span class="glyphicon glyphicon-envelope"></span> Inbox
 					</a>
 				</li>
