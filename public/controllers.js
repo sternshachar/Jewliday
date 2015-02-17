@@ -166,6 +166,10 @@ angular.module("jewApp")
 			}
 		};
 	}
+
+	$scope.upload = function () {
+      console.log($scope.fileModel); // This is where the file is linked to.
+    };
 	// {
  //      country: 'ca',
  //      types: '(cities)'
