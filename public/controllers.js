@@ -100,11 +100,6 @@ angular.module("jewApp")
 		content: ""
 	};
 
-	$scope.tabs = [
-		{name: "incoming", active: true},
-		{name: "sent", active: false},
-		{name: "saved", active: false}
-	];
 	$http.get(url + '/inbox/' + $scope.userId)
 		.success(function(data){
 			$scope.messages = data[0].messages;
@@ -117,28 +112,7 @@ angular.module("jewApp")
 			.success(function(data){
 				console.log(data);
 			});
-	}
-
-	$scope.pickInboxTab = function(tab){
-		console.log($scope.tabs);
-		for (var i = 0; i < $scope.tabs.length; i++) {
-			if($scope.tabs[i].name == tab){
-				$scope.tabs[i].active = true;
-			} else {
-				$scope.tabs[i].active = false;
-			}
-		};
-	}
-
-	$scope.activeInboxTab = function(tab){
-		for (var i = 0; i < $scope.tabs.length; i++) {
-			if($scope.tabs[i].active == true && $scope.tabs[i].name == tab)
-				return 'active';
-
-		};
-		return ' ';
-	}
-	
+	}	
 })
 
 .controller("newHomeCtrl",function($scope,$http){
