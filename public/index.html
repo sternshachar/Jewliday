@@ -46,6 +46,23 @@
 						url:'/saved',
 						templateUrl:'views/users.inbox.saved.html'
 					})
+					.state('listHome',{
+						url: '/listHome',
+						templateUrl: 'views/listHome.html',
+						controller: 'newHomeCtrl'
+					})
+					.state('listHome.address',{
+						url: '/listHome/address',
+						templateUrl: 'views/listHome.address.html'
+					})
+					.state('listHome.details',{
+						url: '/listHome/details',
+						templateUrl: 'views/listHome.details.html'
+					})
+					.state('listHome.description',{
+						url: '/listHome',
+						templateUrl: 'views/listHome.description.html'
+					})
 			})
 	</script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>

@@ -126,21 +126,6 @@ angular.module("jewApp")
 				["Washer", "Accessibility"],
 	];
 
-	$scope.step = [
-		{level:"Address", active: true},
-		{level:"Details & Amenities", active: false},
-		{level:"Pictures & Description", active: false}
-	];
-
-	$scope.goToStep = function(stepName){
-		for (var i = 0; i < $scope.step.length; i++) {
-			if($scope.step[i].level == stepName){
-				$scope.step[i].active = true;
-			} else {
-				$scope.step[i].active = false;
-			}
-		};
-	}
 	  $scope.file = null;
       
       $scope.$watch('file', function (newVal) {
