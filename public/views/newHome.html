@@ -157,6 +157,7 @@ span{
 						</table>
 					</div>
 					<div class="col-sm-6 well" ng-if="step[2].active">
+						<div ui-view></div>
 						<textarea class="form-control" rows="3" placeholder="Describe your home and any other detail you think is important" ng-model="home.description"></textarea>
 						<label class="image-btn">
 						    <input type='file' file-model='file'>

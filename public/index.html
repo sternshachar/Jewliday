@@ -33,28 +33,12 @@
 						url:'/home',
 						templateUrl:'views/users.home.html'
 					})
+
+					.state('usersArea.inbox.incoming',{
+						url:'/inbox',
+						templateUrl:'views/users.inbox.incoming.html'
+					})
 			})
-		// .config(function($httpProvider,$routeProvider) {
-		//  	$httpProvider.defaults.withCredentials = true;
-
-		//  			$routeProvider.when("/user",{
-		// 				templateUrl:"views/user.html",
-		// 			});
-
-		//  			$routeProvider.when("/search",{
-		//  				templateUrl: "views/search.html"
-		//  			});
-
-		//  			$routeProvider.when("/home/new",{
-		//  				templateUrl: "views/newHome.html"
-		//  			});
-
-		// 			$routeProvider.otherwise({
-		// 				templateUrl:"views/main.html"
-		// 			});
-		// });
-
-
 	</script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 	<script src="angular-ui-router.js"></script>
@@ -69,7 +53,6 @@
 <body ng-controller="mainCtrl">
 
 	<div ui-view></div>
-	<!-- <ng-view></ng-view> -->
 	<log-modal ng-attr-modal="sign" ng-show="sign" class="sign"></log-modal>
 	<log-modal ng-attr-modal="log" ng-show="login" class="login"></log-modal>
 
