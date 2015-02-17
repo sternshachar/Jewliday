@@ -67,3 +67,26 @@ angular.module('jewApp')
         }
 	}
 })
+
+.directive("user", function(){
+	return {
+		restrict: 'E',
+		templateUrl: function(elem,attrs){
+			console.log(attrs['content']);
+			switch(attrs['content']){
+				case 'profile':
+				// console.log('pro');
+					return 'views/profile.html';
+				case 'yourHome':
+				// console.log('home');
+					return 'views/yourHome.html';
+				case 'inbox':
+				// console.log('box');
+					return 'views/inbox.html';
+				default:
+				// console.log('fault');
+					return 'views/profile.html';
+			}
+		}
+	}
+})
