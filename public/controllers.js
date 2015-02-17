@@ -141,7 +141,7 @@ angular.module("jewApp")
 	
 })
 
-.controller("newHomeCtrl",function($scope,$http,fileUploader){
+.controller("newHomeCtrl",function($scope,$http){
 	$scope.home = {};
 	$scope.options = {types: '(cities)'};
 	$scope.amenities = [
@@ -172,16 +172,8 @@ angular.module("jewApp")
         if (newVal)
           console.log(newVal);
       })
-    $scope.upload = function () {
-      var extraData = {
-        hey: 'Extra data'
-      };
-
-      fileUploader.post(
-        '/upload/end-point', 
-        document.getElementById('file-to-upload').files, 
-        extraData
-      ).then(success, error, progress);
+	$scope.upload = function () {
+      console.log($scope.file); // This is where the file is linked to.
     };
 	// {
  //      country: 'ca',
