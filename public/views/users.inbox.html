@@ -22,32 +22,27 @@
 	padding: 0;
 }
 
-.tabs{
-	width: 100%;
-}
 </style>
 
-<div class="row tabs" > <!-- ng-controller="inboxCtrl"  ng-if="inbox.state" -->
+<div class="row" > <!-- ng-controller="inboxCtrl"  ng-if="inbox.state" -->
 	<div class="col-sm-2 side-bar">
-		<div class="navbar navbar-side" ng-if="logo == 'logo.jpg'">
-			<ul class="nav navbar-nav row">
-				<li class="col-sm-12 inbox-tabs" ui-sref=".incoming" ui-sref-active="active">
+			<ul class="list-group">
+				<li class="list-group-item" ui-sref=".incoming" ui-sref-active="active">
 					<a href >
 						<span class="glyphicon glyphicon-inbox" ></span> Incoming
 					</a>
 				</li>
-				<li class="col-sm-12 inbox-tabs" ui-sref=".sent" ui-sref-active="active">
+				<li class="list-group-item" ui-sref=".sent" ui-sref-active="active">
 					<a href >
 						<span class="glyphicon glyphicon-send"></span> Sent
 					</a>
 				</li>
-				<li class="col-sm-12 inbox-tabs" ui-sref=".saved" ui-sref-active="active">
+				<li class="list-group-item" ui-sref=".saved" ui-sref-active="active">
 					<a href  >
 						<span class="glyphicon glyphicon-floppy-saved"></span> Saved
 					</a>
 				</li>
 			</ul>
-		</div><!-- end navbar -->
 	</div><!-- end col-sm-2 --> 
 
 	<div class="col-sm-10 inbox-panel">
