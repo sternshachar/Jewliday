@@ -20,6 +20,11 @@
 						url:'/users',
 						templateUrl: "views/user.html"
 					})
+					.state('usersArea.tab',{
+						url:'/users/inbox',
+						templateUrl:'views/users.inbox.html',
+						controller: 'inboxCtrl'
+					})
 			})
 		// .config(function($httpProvider,$routeProvider) {
 		//  	$httpProvider.defaults.withCredentials = true;
