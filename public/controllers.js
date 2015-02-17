@@ -166,13 +166,15 @@ angular.module("jewApp")
 			}
 		};
 	}
-
 	  $scope.file = null;
       
       $scope.$watch('file', function (newVal) {
         if (newVal)
           console.log(newVal);
       })
+	$scope.upload = function () {
+      console.log($scope.file); // This is where the file is linked to.
+    };
 	// {
  //      country: 'ca',
  //      types: '(cities)'
