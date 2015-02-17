@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Gurajada' rel='stylesheet' type='text/css'>
 	<script>
-		angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","file-model"])
+		angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","file-model","file-uploader"])
 		.config(function($httpProvider,$routeProvider) {
 		 	$httpProvider.defaults.withCredentials = true;
 
@@ -39,6 +39,7 @@
 	<script src="../controllers.js"></script>
 	<script src="../directives.js"></script>
 	<script src="angular-file-model.js"></script>
+	<script src="angular-file-uploader.js"></script>
 </head>
 <body ng-controller="mainCtrl">
 
