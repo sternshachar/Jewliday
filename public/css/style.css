@@ -96,3 +96,8 @@ a:hover, a:active,a:visited, a:-webkit-any-link{
 	text-decoration: none;
 	color: #337ab7;
 }
+
+.inbox-panel{
+	padding: 0;
+	margin-left: 10%;
+}
