@@ -74,6 +74,7 @@
 	border: 0;
 	width: 100%;
 	background-color: #eeeeee;
+	margin-bottom: 20px;
 }
 
 .side-bar{
@@ -108,7 +109,6 @@ a:hover, a:active,a:visited, a:-webkit-any-link{
 	padding: 0;
 	width: 70%;
 	padding-left: 2%;
-	margin-top: 20px;
 }
 .active{
 	background-color: lightgrey;
