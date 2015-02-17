@@ -64,35 +64,6 @@ angular.module('jewApp')
         controller: function($scope, $element, $attrs){
         	$scope.logo = $attrs.logo;
 
-        		$scope.tabs = [
-					{name: "profile", active: true},
-					{name: "inbox", active: false},
-					{name: "home", active: false}
-				];
-
-				$scope.pickTab = function(tab){
-					for (var i = 0; i < $scope.tabs.length; i++) {
-						if($scope.tabs[i].name == tab){
-							$scope.tabs[i].active = true;
-							$scope.userTab.name = tab;
-							if(tab == 'inbox')
-								$scope.inbox.state = true;
-							else
-								$scope.inbox.state = false;
-						} else {
-							$scope.tabs[i].active = false;
-						}
-					};
-				}
-
-				$scope.activeTab = function(tab){
-					for (var i = 0; i < $scope.tabs.length; i++) {
-						if($scope.tabs[i].active == true && $scope.tabs[i].name == tab)
-							return 'active';
-
-					};
-					return ' ';
-				}
         }
 	}
 })
