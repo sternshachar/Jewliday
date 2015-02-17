@@ -74,11 +74,12 @@
 	border: 0;
 	width: 100%;
 	background-color: #eeeeee;
-	margin-bottom: 20px;
+	margin-bottom: 0;
 }
 
 .side-bar{
 	padding: 0;
+	margin-top: 20px;
 }
 .side-bar ul li {
 	text-decoration: none;
