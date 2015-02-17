@@ -82,10 +82,10 @@ angular.module("jewApp")
 	}
 
 	  $scope.items = [
-	    'Profile',
-	    'Inbox',
-	    'Your Home',
-	    'Log Out'
+	    {name:'Profile',url: "users/profile"}
+	    {name:'Inbox',url:"users/inbox"}
+	    {name:'Your Home',url:"users/home"}
+	    {name:'Log Out',url:"users/profile"}
 	  ];
 
 	  $scope.userTab = {name:'inbox'};
@@ -93,7 +93,7 @@ angular.module("jewApp")
 
 .controller("inboxCtrl",function($scope,$http){
 	var url = "http://ec2-54-149-52-21.us-west-2.compute.amazonaws.com:8080";
-	
+
 	$scope.messageData = {
 		uid: $scope.userId,
 		sender: $scope.username + ' ' + $scope.userLastName,
