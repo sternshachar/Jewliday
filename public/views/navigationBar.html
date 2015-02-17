@@ -60,12 +60,12 @@
 		<div class="container">
 			<ul class="nav navbar-nav pull-left">
 				<li ng-class="activeTab('profile')">
-					<a href ng-click="pickTab('profile')">
+					<a href ui-sref=".profile" ng-click="pickTab('profile')">
 						<span class="glyphicon glyphicon-user" ></span> Profile
 					</a>
 				</li>
 				<li ng-class="activeTab('home')">
-					<a href ng-click="pickTab('home')">
+					<a href  ui-sref=".home" ng-click="pickTab('home')">
 						<span class="glyphicon glyphicon-home"></span> Your Home
 					</a>
 				</li>

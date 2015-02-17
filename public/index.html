@@ -25,6 +25,14 @@
 						templateUrl:'views/users.inbox.html',
 						controller: 'inboxCtrl'
 					})
+					.state('usersArea.profile',{
+						url:'/users/profile',
+						templateUrl:'views/users.profile.html'
+					})
+					.state('usersArea.home',{
+						url:'/users/home',
+						templateUrl:'views/users.home.html'
+					})
 			})
 		// .config(function($httpProvider,$routeProvider) {
 		//  	$httpProvider.defaults.withCredentials = true;
