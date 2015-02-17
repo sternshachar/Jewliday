@@ -51,7 +51,7 @@
 	</div><!-- end col-sm-2 --> 
 
 	<div class="col-sm-10 inbox-panel">
-
+		<div ui-view></div>
 		<input type="text" class="form-control" placeholder="Text input" ng-model="messageData.subject">
 		<textarea class="form-control" rows="3" ng-model="messageData.content"></textarea>
 		<button class="btn btn-primary" ng-click="sendMessage()">Send</button>
