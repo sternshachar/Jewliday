@@ -81,7 +81,6 @@
 	height: 100%;
 }
 .list-group-item{
-	background-color: #eeeeee;
 	padding-left: 20px;
 }
 .list-group-item.active,.list-group-item.active:hover{
@@ -99,5 +98,5 @@ a:hover, a:active,a:visited, a:-webkit-any-link{
 
 .inbox-panel{
 	padding: 0;
-	margin-left: 10%;
+	margin-left: 2%;
 }
