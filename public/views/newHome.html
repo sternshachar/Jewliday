@@ -50,7 +50,8 @@ label span {
 }
 .list-group-item{
 	background-color: #eeeeee;
-	padding-left: 10px;
+	padding-left: 20px;
+
 }
 .list-group-item:hover{
 	cursor: pointer;
@@ -135,6 +136,10 @@ a:hover, a:active,a:visited, a:-webkit-any-link{
 								</td>
 							</tr>
 						</table>
+					</div>
+					<div class="col-sm-6 well" ng-if="step[2].active">
+						<textarea class="form-control" rows="3" placeholder="Describe your home and any other detail you think is important"></textarea>
+						<button class="btn btn-primart"><input type="file" id="imageFile"></button>
 					</div>
 			</div>
 		</div>
