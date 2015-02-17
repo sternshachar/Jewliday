@@ -181,7 +181,7 @@ angular.module("jewApp")
         '/upload/end-point', 
         document.getElementById('file-to-upload').files, 
         extraData
-      )then(success, error, progress);
+      ).then(success, error, progress);
     };
 	// {
  //      country: 'ca',
