@@ -139,7 +139,10 @@ a:hover, a:active,a:visited, a:-webkit-any-link{
 					</div>
 					<div class="col-sm-6 well" ng-if="step[2].active">
 						<textarea class="form-control" rows="3" placeholder="Describe your home and any other detail you think is important"></textarea>
-						<button class="btn btn-primary"><input type="file" id="imageFile"></button>
+						<label class="btn btn-primary">
+						    <input type="file" required/>
+						    <span>Add Photo</span>
+						</label>
 					</div>
 			</div>
 		</div>
