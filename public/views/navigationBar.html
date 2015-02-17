@@ -15,10 +15,6 @@
 .nav > li > a{
 	height: 100%;
 }
-
-.activeClassName{
-
-}
 /* ------ end navbar -----*/
 
 	</style>
@@ -63,18 +59,18 @@
 	<div class="navbar navbar-low" ng-if="logo == 'logo.jpg'">
 		<div class="container">
 			<ul class="nav navbar-nav pull-left">
-				<li ui-active="active">
-					<a href ui-sref=".profile"  > <!-- ng-click="pickTab('profile')" -->
+				<li>
+					<a href ui-sref=".profile" ui-active="active" > <!-- ng-click="pickTab('profile')" -->
 						<span class="glyphicon glyphicon-user" ></span> Profile
 					</a>
 				</li>
-				<li ui-active="active">
-					<a href  ui-sref=".home" ><!-- ng-click="pickTab('home')" -->
+				<li>
+					<a href  ui-sref=".home" ui-active="active"><!-- ng-click="pickTab('home')" -->
 						<span class="glyphicon glyphicon-home"></span> Your Home
 					</a>
 				</li>
-				<li ui-active="active">
-					<a href ui-sref=".inbox"> <!-- ng-click="pickTab('inbox')" -->
+				<li>
+					<a href ui-sref=".inbox" ui-active="active"> <!-- ng-click="pickTab('inbox')" -->
 						<span class="glyphicon glyphicon-envelope"></span> Inbox
 					</a>
 				</li>
