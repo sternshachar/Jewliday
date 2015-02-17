@@ -29,6 +29,7 @@ db.once('open',function(callback){
 			bedrooms : Number,
 			beds: Number,
 			propertyType : String,
+			description: String,
 			amenities : {
 				TV : Boolean,
 				wifi : Boolean,
