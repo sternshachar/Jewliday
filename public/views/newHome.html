@@ -65,6 +65,20 @@ a:hover, a:active,a:visited, a:-webkit-any-link{
 	margin-left: 2%;
 	width: 60%;
 }
+
+.file_button_container,
+  .file_button_container input {
+       height: 47px;
+       width: 263px;
+   }
+
+   .file_button_container {
+       background: transparent url(http://i.stack.imgur.com/BT5AB.png) left top no-repeat;
+   }
+
+   .file_button_container input {
+       opacity: 0;
+   }
 </style>
 <navigation-bar logo="logo.jpg"></navigation-bar>
 <div ng-controller="newHomeCtrl">
@@ -139,10 +153,10 @@ a:hover, a:active,a:visited, a:-webkit-any-link{
 					</div>
 					<div class="col-sm-6 well" ng-if="step[2].active">
 						<textarea class="form-control" rows="3" placeholder="Describe your home and any other detail you think is important"></textarea>
-						<label class="btn btn-primary">
+						<div class="file_button_container">
 						    <input type="file" required/>
 						    <span>Add Photo</span>
-						</label>
+						</div>
 					</div>
 			</div>
 		</div>
