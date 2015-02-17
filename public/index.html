@@ -20,14 +20,14 @@
 						url:'/users',
 						templateUrl: "views/user.html"
 					})
+					.state('usersArea.profile',{
+						url:'/profile',
+						templateUrl:'views/users.profile.html'
+					})
 					.state('usersArea.inbox',{
 						url:'/inbox',
 						templateUrl:'views/users.inbox.html',
 						controller: 'inboxCtrl'
-					})
-					.state('usersArea.profile',{
-						url:'/profile',
-						templateUrl:'views/users.profile.html'
 					})
 					.state('usersArea.home',{
 						url:'/home',
