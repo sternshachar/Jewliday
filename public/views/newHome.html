@@ -65,10 +65,12 @@ a:hover, a:active,a:visited, a:-webkit-any-link{
 	margin-left: 2%;
 	width: 60%;
 }
-label{
+.image-btn{
+	margin-top: 10px;
 	height: 40px;
 	width: 100px;
 	background-color: #3399FF;
+	border-radius: 2px;
 }
 input[type="file"]{
 	opacity: 0;
@@ -149,7 +151,7 @@ input[type="file"]{
 					</div>
 					<div class="col-sm-6 well" ng-if="step[2].active">
 						<textarea class="form-control" rows="3" placeholder="Describe your home and any other detail you think is important" ng-model="home.description"></textarea>
-						<label>
+						<label class="image-btn">
 						    <input type="file" required/>
 						    <span style="font-size: 14px;">Add Photo</span>
 						</label>
