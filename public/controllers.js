@@ -84,7 +84,7 @@ angular.module("jewApp")
 	  $scope.items = [
 	    {name:'Profile',url: "users/profile"},
 	    {name:'Your Home',url:"users/home"},
-	    {name:'Inbox',url:"users/inbox"},
+	    {name:'Inbox',url:"users/inbox/incoming"},
 	    {name:'Log Out',url:"users/profile"}
 	  ];
 
