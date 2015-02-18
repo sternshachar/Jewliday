@@ -119,7 +119,16 @@ app.post('/inbox/:id',function(req,res){
 		
 	});
 })
-app.put('/listHome', function(req,res){
-	console.log(req.body);
+app.put('/listHome/:id', function(req,res){
+	var id = request.params.id;
+	var house = req.body;
+
+	var User = mongoose.model('users');
+	User.update({_id: id},{$set {house: house}}, function(){
+		User.findById(id, function(err,user){
+				if(err) return console.error(err);
+				console.log(user);
+			});
+	})
 	res.send('Home saved!');
 })
