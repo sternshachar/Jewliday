@@ -130,7 +130,6 @@ angular.module("jewApp")
 				["Fireplace", "Pets allowed", "Pool","Smoking allowed"],
 				["Washer", "Accessibility"],
 	];
-	$scope.city = "";
 	$scope.details = "";
 	  $scope.file = null;
       
