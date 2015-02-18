@@ -13,10 +13,10 @@
 				    <input ng-class="redAlert()" ng-model="user.email" type="email" class="form-control" id="email" placeholder="{{signMessage}}" required>
 				  </div>
 				  <div class="form-group">
-				    <input ng-model="user.password" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }" type="password" class="form-control" id="password" placeholder="Password" required>
+				    <input ng-model="user.password" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 3000, 'blur': 2000} }" type="password" class="form-control" id="password" placeholder="Password" required>
 				  </div>
 				  <div class="form-group">
-				    <input ng-model="user.password2" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }" type="password" class="form-control" id="password2" placeholder="Confim Password" required>
+				    <input ng-model="user.password2" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 3000, 'blur': 0} }" type="password" class="form-control" id="password2" placeholder="Confim Password" required>
 				  </div>
 				  <div class="checkbox">
 				    <label>
