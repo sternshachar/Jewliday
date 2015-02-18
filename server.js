@@ -138,6 +138,6 @@ app.get('/listHome/:id', function(req,res){
 	var User = mongoose.model('users');
 
 	User.findOne({ _id: id }, function(err,user){
-		res.json(user.house);
+		res.json(user);
 	})
 })

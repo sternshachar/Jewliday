@@ -74,7 +74,7 @@ angular.module("jewApp")
 								console.log(data);
 								$http.get(url + '/listHome/' + $scope.userId).
 									success(function(data){
-										$scope.isListed = data.listed;
+										$scope.isListed = data;
 									})
 							});
 
