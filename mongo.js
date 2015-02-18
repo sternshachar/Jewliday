@@ -32,21 +32,21 @@ db.once('open',function(callback){
 			description: String,
 			kosher : String,
 			synagouge : Number 
-			amenities : {
+			"amenities" : {
 				TV : Boolean,
 				wifi : Boolean,
-				airCondition : Boolean,
-				dryer : Boolean,
-				elevator : Boolean,
-				essentials : Boolean,
-				freeParking : Boolean,
-				heating : Boolean,
-				fireplace : Boolean,
-				petsAllowed : Boolean,
-				pool : Boolean,
-				smokingAllowed : Boolean,
-				washer : Boolean,
-				accessibility : Boolean,
+				AirCondition : Boolean,
+				Dryer : Boolean,
+				Elevator : Boolean,
+				Essentials : Boolean,
+				FreeParking : Boolean,
+				Heating : Boolean,
+				Fireplace : Boolean,
+				PetsAllowed : Boolean,
+				Pool : Boolean,
+				SmokingAllowed : Boolean,
+				Washer : Boolean,
+				Accessibility : Boolean,
 				
 			}
 		}
