@@ -9,8 +9,10 @@ angular.module("jewApp")
 	$scope.userLog = {};
 	$scope.signMessage = "Enter email";
 	$scope.inbox ={state: false};
+
 	var url = "http://ec2-54-149-52-21.us-west-2.compute.amazonaws.com:8080";
 	
+
 	$http.get(url + '/login').
 		success(function(data){
 		$scope.isAuth = data.isAuthenticated;
@@ -18,6 +20,10 @@ angular.module("jewApp")
 		$scope.userLastName = data.user.lastName;
 		$scope.userId = data.user._id;
 		console.log($scope.userId);
+		$http.get(url + '/listHome/' + $scope.userId).
+			success(function(data){
+				$scope.homeData = data.listed;
+			})
 	});
 
 	$scope.logOut = function(){
@@ -67,6 +73,10 @@ angular.module("jewApp")
 								$scope.userId = data.user._id;
 								console.log(data);
 							});
+						$http.get(url + '/listHome/' + $scope.userId).
+							success(function(data){
+								$scope.isListed = data.listed;
+							})
 
 					$scope.closeModal();
 					$scope.userLog = {};
