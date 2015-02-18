@@ -11,7 +11,7 @@
 	<script>
 		angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","file-model","file-uploader","ui.router"])
 			.config(function($stateProvider,$urlRouterProvider){
-				$urlRouterProvider.when('users/inbox', 'users/inbox/incoming');
+				$urlRouterProvider.when('#/users/inbox', '#/users/inbox/incoming');
 				$stateProvider
 					.state('home',{
 						url:'/',
