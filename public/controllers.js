@@ -96,6 +96,9 @@ angular.module("jewApp")
 	$scope.getIncoming = function(){
 		$state.go('.incoming');
 	}
+
+	$scope.getIncoming();
+
 	$scope.messageData = {
 		uid: $scope.userId,
 		sender: $scope.username + ' ' + $scope.userLastName,
