@@ -89,6 +89,11 @@ angular.module("jewApp")
 	  ];
 
 	  $scope.userTab = {name:'inbox'};
+
+	  $scope.inboxActive = function(){
+	  	console.log($state.includes('inbox'));
+	  	return $state.includes('inbox') ? 'active' : '';
+	  }
 })
 
 .controller("inboxCtrl",function($scope,$http,$state){
