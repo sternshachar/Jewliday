@@ -122,7 +122,7 @@ angular.module("jewApp")
 })
 
 .controller("newHomeCtrl",function($scope,$http){
-	$scope.home = {};
+	$scope.home = {city:''};
 	$scope.options = {types: '(cities)'};
 	$scope.amenities = [
 				["TV", "Wi-fi", "AirCondition","Dryer"],
