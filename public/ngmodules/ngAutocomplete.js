@@ -37,9 +37,9 @@ angular.module( "ngAutocomplete", [])
     return {
 
       scope: {
-        details: '=',
-        ngAutocomplete: '=',
-        options: '='
+        details: '=details',
+        ngAutocomplete: '=ngAutocomplete',
+        options: '=options'
       },
 
       link: function(scope, element, attrs, model) {
