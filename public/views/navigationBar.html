@@ -39,6 +39,11 @@
 				</li>
 			</ul>
 			<ul class="nav navbar-nav pull-right" ng-if="isAuth" ng-hide="logo == 'logo.jpg'">
+					<li>
+						<a class="btn btn-warning" href="#/listHome" ng-if="isListed">
+							List Your Home
+						</a>
+					</li>
 				    <li class="dropdown" dropdown on-toggle="toggled(open)" >
 					    <a href class="dropdown-toggle" dropdown-toggle>
 					         {{username}}<span class="caret">
