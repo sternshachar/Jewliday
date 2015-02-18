@@ -69,7 +69,7 @@
 						<span class="glyphicon glyphicon-home"></span> Your Home
 					</a>
 				</li>
-				<li ui-sref-active="active" ng-class="inboxActive()">
+				<li ui-sref-active="active" ng-class="$state.includes('usersArea.inbox') ? 'active' : ''">
 					<a href="#/users/inbox" >
 						<span class="glyphicon glyphicon-envelope"></span> Inbox
 					</a>
