@@ -13,7 +13,7 @@
 			.config(function($stateProvider,$urlRouterProvider){
 				    $urlRouterProvider
 				      .when('/users/inbox', ['$state', function ($state) {
-				            $state.go('app.list.detail');
+				            $state.go('users.inbox.incoming');
 				    }])
     				$stateProvider
 					.state('home',{
