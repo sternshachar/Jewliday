@@ -144,7 +144,7 @@ angular.module("jewApp")
 				["Washer", "Accessibility"],
 	];
 	$scope.details = "";
-	  $scope.file = null;
+	  $scope.file = {};
       
       $scope.$watch('file', function (newVal) {
         if (newVal)
