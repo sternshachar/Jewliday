@@ -71,7 +71,7 @@ angular.module("jewApp")
 								$scope.username = data.user.firstName;
 								$scope.userLastName = data.user.lastName;
 								$scope.userId = data.user._id;
-								$scope.isListed = data.user.house.listed;
+								$scope.isListed ={ listed: data.user.house.listed};
 								console.log(data);
 							});
 
@@ -155,6 +155,11 @@ angular.module("jewApp")
     	$http.put(url + '/listHome/' + $scope.userId,$scope.home)
     		.success(function(data){
     			$scope.listHomeMessage = data;
+    					$http.get(url + '/login').
+							success(function(data){
+								$scope.isListed.listed = data.user.house.listed;
+							});
+
     		})
     }
 	// {
