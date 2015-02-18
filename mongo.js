@@ -23,6 +23,7 @@ db.once('open',function(callback){
 		password: String,
 		agree: Boolean ,
 		house : {
+			listed: {type: Boolean, default: false},
 			city : String,
 			street : String,
 			homeNumber : Number,

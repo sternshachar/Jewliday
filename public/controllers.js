@@ -123,7 +123,7 @@ angular.module("jewApp")
 
 .controller("newHomeCtrl",function($scope,$http){
 	var url = "http://ec2-54-149-52-21.us-west-2.compute.amazonaws.com:8080";
-	$scope.home = {};
+	$scope.home = {listed: true};
 	$scope.options = {types: '(cities)'};
 	$scope.amenities = [
 				["TV", "wifi", "AirCondition","Dryer"],
