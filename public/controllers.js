@@ -92,7 +92,7 @@ angular.module("jewApp")
 
 	  $scope.inboxActive = function(){
 	  	console.log($state.includes('usersArea.inbox'));
-	  	return $state.includes('inbox') ? 'active' : '';
+	  	return $state.includes('usersArea.inbox') ? 'active' : '';
 	  }
 })
 
