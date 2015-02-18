@@ -89,6 +89,12 @@ angular.module("jewApp")
 	  ];
 
 	  $scope.userTab = {name:'inbox'};
+
+	  $scope.incoming = function(){
+	  	$scope.$apply(function() {
+	  		$location.path('#/users/inbox'); 
+	  	});
+	  }
 })
 
 .controller("inboxCtrl",function($scope,$http,$state){
