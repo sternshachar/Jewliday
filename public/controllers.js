@@ -91,7 +91,7 @@ angular.module("jewApp")
 	  $scope.userTab = {name:'inbox'};
 
 	  $scope.inboxActive = function(){
-	  	if($state.includes('usersArea.inbox.incoming') || $state.includes('usersArea.inbox.sent') || $state.includes('usersArea.inbox.saved'))
+	  	if($state.includes('usersArea.inbox'))
 	  	{return 'active';} else {return '';}
 	  }
 })
