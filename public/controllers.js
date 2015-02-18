@@ -103,6 +103,10 @@ angular.module("jewApp")
 	  	if($state.includes('usersArea.inbox'))
 	  	{return 'active';} else {return '';}
 	  }
+	  $scope.homeActive = function(){
+	  	if($state.includes('usersArea.home'))
+	  	{return 'active';} else {return '';}
+	  }
 })
 
 .controller("inboxCtrl",function($scope,$http,$state){

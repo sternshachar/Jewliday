@@ -15,6 +15,10 @@
 				      .when('/users/inbox', ['$state', function ($state) {
 				            $state.go('usersArea.inbox.incoming');
 				    }])
+				     $urlRouterProvider
+				      .when('/users/home', ['$state', function ($state) {
+				            $state.go('usersArea.home.location');
+				    }])
     				$stateProvider
 					.state('home',{
 						url:'/',
