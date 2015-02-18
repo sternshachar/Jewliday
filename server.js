@@ -119,7 +119,7 @@ app.post('/inbox/:id',function(req,res){
 		
 	});
 })
-app.post('/listHome', function(req,res){
+app.put('/listHome', function(req,res){
 	console.log(req.body);
 	res.send('Home saved!');
 })

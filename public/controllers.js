@@ -144,7 +144,7 @@ angular.module("jewApp")
 
     $scope.saveHome = function(){
     	console.log($scope.home);
-    	$http.post(url + '/listHome',$scope.home)
+    	$http.put(url + '/listHome',$scope.home)
     		.success(function(data){
     			$scope.listHomeMessage = data;
     		})
