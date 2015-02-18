@@ -126,9 +126,9 @@ angular.module("jewApp")
 	$scope.home = {};
 	$scope.options = {types: '(cities)'};
 	$scope.amenities = [
-				["TV", "Wi-fi", "AirCondition","Dryer"],
-				["Elevator", "Essentials", "Free parking","Heating"],
-				["Fireplace", "Pets allowed", "Pool","Smoking allowed"],
+				["TV", "wifi", "AirCondition","Dryer"],
+				["Elevator", "Essentials", "FreeParking","Heating"],
+				["Fireplace", "PetsAllowed", "Pool","SmokingAllowed"],
 				["Washer", "Accessibility"],
 	];
 	$scope.details = "";
