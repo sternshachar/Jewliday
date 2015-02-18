@@ -9,6 +9,7 @@ angular.module("jewApp")
 	$scope.userLog = {};
 	$scope.signMessage = "Enter email";
 	$scope.inbox ={state: false};
+	$scope.isListed = { listed: false};
 
 	var url = "http://ec2-54-149-52-21.us-west-2.compute.amazonaws.com:8080";
 	
