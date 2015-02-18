@@ -1,6 +1,6 @@
 angular.module("jewApp")
 
-.controller("mainCtrl",function($scope,$interval,$http,$location){
+.controller("mainCtrl",function($scope,$interval,$http,$location,$state){
 	$scope.username = "";
 	$scope.isAuth = false;
 	$scope.sign = false;
