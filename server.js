@@ -120,7 +120,7 @@ app.post('/inbox/:id',function(req,res){
 	});
 })
 app.put('/listHome/:id', function(req,res){
-	var id = request.params.id;
+	var id = req.params.id;
 	var house = req.body;
 
 	var User = mongoose.model('users');
