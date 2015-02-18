@@ -68,6 +68,9 @@
 						templateUrl: 'views/listHome.description.html'
 					})
 			})
+            .run(function ($rootScope,$state,$log) {
+                $rootScope.$state = $state;
+            })
 	</script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 	<script src="angular-ui-router.js"></script>
