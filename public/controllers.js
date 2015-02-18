@@ -122,6 +122,7 @@ angular.module("jewApp")
 })
 
 .controller("newHomeCtrl",function($scope,$http){
+	var url = "http://ec2-54-149-52-21.us-west-2.compute.amazonaws.com:8080";
 	$scope.home = {};
 	$scope.options = {types: '(cities)'};
 	$scope.amenities = [
@@ -141,8 +142,12 @@ angular.module("jewApp")
       console.log($scope.file); // This is where the file is linked to.
     };
 
-    $scope.showHome = function(){
+    $scope.saveHome = function(){
     	console.log($scope.home);
+    	$http.post(url + '/listHome',$scope.home)
+    		.success(function(data){
+    			$scope.listHomeMessage = data;
+    		})
     }
 	// {
  //      country: 'ca',

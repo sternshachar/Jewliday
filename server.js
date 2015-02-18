@@ -119,3 +119,7 @@ app.post('/inbox/:id',function(req,res){
 		
 	});
 })
+app.post('/listHome', function(req,res){
+	console.log(req.body);
+	return.send('Home saved!');
+})
