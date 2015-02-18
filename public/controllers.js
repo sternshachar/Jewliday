@@ -11,7 +11,7 @@ angular.module("jewApp")
 	$scope.inbox ={state: false};
 	$scope.isListed = { listed: false};
 
-	var url = "http://ec2-54-149-52-21.us-west-2.compute.amazonaws.com:8080";
+	var url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080";
 	
 
 	$http.get(url + '/login').
