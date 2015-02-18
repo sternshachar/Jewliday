@@ -72,11 +72,12 @@ angular.module("jewApp")
 								$scope.userLastName = data.user.lastName;
 								$scope.userId = data.user._id;
 								console.log(data);
+								$http.get(url + '/listHome/' + $scope.userId).
+									success(function(data){
+										$scope.isListed = data.listed;
+									})
 							});
-						$http.get(url + '/listHome/' + $scope.userId).
-							success(function(data){
-								$scope.isListed = data.listed;
-							})
+
 
 					$scope.closeModal();
 					$scope.userLog = {};
