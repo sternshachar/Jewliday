@@ -141,3 +141,8 @@ app.get('/listHome/:id', function(req,res){
 		res.json(user);
 	})
 })
+
+app.post('/photo',function(req,res){
+	console.log(req.body);
+	res.send('Sent image');
+})

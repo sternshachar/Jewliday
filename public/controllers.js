@@ -152,6 +152,10 @@ angular.module("jewApp")
       })
 	$scope.upload = function () {
       console.log($scope.file); // This is where the file is linked to.
+      $http.post(url + '/photo',$scope.file)
+      	.success(function(data){
+      		console.log(data);
+      	})
     };
 
     $scope.saveHome = function(){
