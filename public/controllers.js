@@ -141,6 +141,10 @@ angular.module("jewApp")
 	$scope.upload = function () {
       console.log($scope.file); // This is where the file is linked to.
     };
+
+    $scope.showHome = function(){
+    	console.log($scope.home);
+    }
 	// {
  //      country: 'ca',
  //      types: '(cities)'
