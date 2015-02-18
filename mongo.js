@@ -31,8 +31,8 @@ db.once('open',function(callback){
 			homeType : String,
 			description: String,
 			kosher : String,
-			synagouge : Number 
-			"amenities" : {
+			synagouge : Number ,
+			amenities : {
 				TV : Boolean,
 				wifi : Boolean,
 				AirCondition : Boolean,
@@ -46,7 +46,7 @@ db.once('open',function(callback){
 				Pool : Boolean,
 				SmokingAllowed : Boolean,
 				Washer : Boolean,
-				Accessibility : Boolean,
+				Accessibility : Boolean
 				
 			}
 		}
