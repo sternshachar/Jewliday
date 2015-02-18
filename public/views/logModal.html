@@ -7,7 +7,7 @@
 				    <input ng-model="userLog.username" type="email" class="form-control" id="email" placeholder="Enter email" required>
 				  </div>
 				  <div class="form-group">
-				    <input ng-model="userLog.password" type="password" class="form-control" id="password" placeholder="Password" required>
+				    <input ng-model="userLog.password" ng-model-options="debounce: {'default': 500, 'blur': 0} }" type="password" class="form-control" id="password" placeholder="Password" required>
 				  </div>
 				  <div class="checkbox">
 				    <label>
