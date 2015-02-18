@@ -124,7 +124,7 @@ app.put('/listHome/:id', function(req,res){
 	var house = req.body;
 
 	var User = mongoose.model('users');
-	User.update({_id: id},{$set {house: house}}, function(){
+	User.update({_id: id},{$set: {house: house}}, function(){
 		User.findById(id, function(err,user){
 				if(err) return console.error(err);
 				console.log(user);
