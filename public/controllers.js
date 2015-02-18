@@ -122,7 +122,7 @@ angular.module("jewApp")
 })
 
 .controller("newHomeCtrl",function($scope,$http){
-	$scope.home = {city:''};
+	$scope.home = {};
 	$scope.options = {types: '(cities)'};
 	$scope.amenities = [
 				["TV", "Wi-fi", "AirCondition","Dryer"],
@@ -130,7 +130,7 @@ angular.module("jewApp")
 				["Fireplace", "Pets allowed", "Pool","Smoking allowed"],
 				["Washer", "Accessibility"],
 	];
-
+	$scope.city = " ";
 	  $scope.file = null;
       
       $scope.$watch('file', function (newVal) {
