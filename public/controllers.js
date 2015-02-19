@@ -13,7 +13,7 @@ angular.module("jewApp")
 					.error(function(err){
 						console.error(err);
 				    });
-			setTimeout(function() {},200);
+			setTimeout(function() {},1000);
 			})
 
 	return{
