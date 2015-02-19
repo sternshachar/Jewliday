@@ -193,8 +193,8 @@ angular.module("jewApp")
 					          $scope.marker = {
 							      id: 0,
 							      coords: {
-							        latitude: $scope.mapData.results.location.lat,
-							        longitude: $scope.mapData.results.location.lng
+							        latitude: $scope.mapData.results[0].location.lat,
+							        longitude: $scope.mapData.results[0].location.lng
 							      },
 							      options: { draggable: true },
 							      events: {
