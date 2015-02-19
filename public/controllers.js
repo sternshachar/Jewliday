@@ -13,6 +13,7 @@ angular.module("jewApp")
 					.error(function(err){
 						console.error(err);
 				    });
+
 			})
 
 	return{
@@ -250,8 +251,8 @@ angular.module("jewApp")
     $scope.marker = {
       id: 0,
       coords: {
-        latitude: $scope.mapData.results[0].geometry.location.lat,
-        longitude: $scope.mapData.results[0].geometry.location.lng
+        latitude: userData.mapData.results[0].geometry.location.lat,
+        longitude: userData.mapData.results[0].geometry.location.lng
       },
       options: { draggable: true },
       events: {
