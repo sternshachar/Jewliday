@@ -205,7 +205,7 @@ angular.module("jewApp")
 
 	$scope.amenityCheck = function(name){
 		if(home.amenities[name]){
-			return 'glyphicon glyphicon-checked';
+			return 'glyphicon glyphicon-check';
 		} else {
 			return 'glyphicon glyphicon-unchecked';
 		}
