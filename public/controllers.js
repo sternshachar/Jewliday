@@ -1,25 +1,23 @@
 angular.module("jewApp")
 .service('userData', function($http){
 	this.url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080"
-	$http.get(this.url + '/login').
-		success(function(data){
-			var city = data.user.house.city.split(", ").join("+");
-			this.address =   data.user.house.homeNumber + '+' + data.user.house.street +',' + '+' + city;
-			$http.get('http://maps.google.com/maps/api/geocode/json?address='+ this.address +'&sensor=false')
-				    .success(function(mapData) {
-						   this.mapData = mapData;
-					       console.log(this.mapData.results[0]);
-					})
-					.error(function(err){
-						console.error(err);
-				    });
 
-			})
 
 	return{
 		url: this.url,
 
-		mapData: this.mapData
+		mapData: function(){
+				$http.get(this.url + '/login').
+					success(function(data){
+						var city = data.user.house.city.split(", ").join("+");
+						this.address =   data.user.house.homeNumber + '+' + data.user.house.street +',' + '+' + city;
+						$http.get('http://maps.google.com/maps/api/geocode/json?address='+ this.address +'&sensor=false')
+							    .success(function(mapData) {
+									   return  mapData;
+								       console.log(this.mapData.results[0]);
+								})
+						})
+		}
 	}
 })
 .controller("mainCtrl",function($scope,$interval,$http,$location,$state,userData){
@@ -210,7 +208,7 @@ angular.module("jewApp")
 					console.log(data);
 
 				});
-		$scope.mapData = userData.mapData;
+		$scope.mapData = userData.mapData();
 		console.log($scope.mapData);
 
 		$scope.amenitiesOrdered = [
@@ -244,16 +242,16 @@ angular.module("jewApp")
 
     });
 
-    $scope.map = {center: {latitude: userData.mapData.results[0].geometry.location.lat,
-     longitude: userData.mapData.results[0].geometry.location.lng }, zoom: 14 };
+    $scope.map = {center: {latitude: $scope.mapData.results[0].geometry.location.lat,
+     longitude: $scope.mapData.results[0].geometry.location.lng }, zoom: 14 };
     $scope.options = {scrollwheel: false};
 
 
     $scope.marker = {
       id: 0,
       coords: {
-        latitude: userData.mapData.results[0].geometry.location.lat,
-        longitude: userData.mapData.results[0].geometry.location.lng
+        latitude: $scope.mapData.results[0].geometry.location.lat,
+        longitude: $scope.mapData.results[0].geometry.location.lng
       },
       options: { draggable: true },
       events: {
