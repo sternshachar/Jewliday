@@ -204,10 +204,12 @@ angular.module("jewApp")
 	];
 
 	$scope.amenityCheck = function(name){
-		if(typeof home.amenities[name] === 'undefined'){
-			return 'glyphicon glyphicon-check';
-		} else {
-			return 'glyphicon glyphicon-unchecked';
+		if(!(typeof home.amenities === 'undefined')){
+			if(typeof home.amenities[name] === 'undefined'){
+				return 'glyphicon glyphicon-check';
+			} else {
+				return 'glyphicon glyphicon-unchecked';
+			}
 		}
 	}
 })
