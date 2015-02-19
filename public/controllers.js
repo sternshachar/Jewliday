@@ -3,7 +3,7 @@ angular.module("jewApp")
 	this.url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080"
 	$http.get(this.url + '/login').
 		success(function(data){
-			var city = data.house.city.split(", ").join("+");
+			var city = data.user.house.city.split(", ").join("+");
 			this.address =   data.house.homeNumber + '+' + data.house.street +',' + '+' + city;
 			$http.get('http://maps.google.com/maps/api/geocode/json?address='+ $scope.address +'&sensor=false')
 				    .success(function(mapData) {
