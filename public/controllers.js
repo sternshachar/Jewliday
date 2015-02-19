@@ -143,6 +143,9 @@ angular.module("jewApp")
 				["Fireplace", "PetsAllowed", "Pool","SmokingAllowed"],
 				["Washer", "Accessibility"],
 	];
+
+
+
 	$scope.details = "";
 	  $scope.file = {};
       
@@ -174,4 +177,22 @@ angular.module("jewApp")
  //      country: 'ca',
  //      types: '(cities)'
  //    };
+})
+.controller('homeCtrl', function($scope){
+		$scope.amenitiesOrdered = [
+			   [{name:"TV",				glyph:""},
+				{name:"WI-FI",			glyph:""},
+				{name:"Air Condition",	glyph:""},
+				{name:"Dryer",			glyph:""}],
+			   [{name:"Elevator",		glyph:""},
+				{name:"Essentials",		glyph:""},
+				{name:"Free Parking",	glyph:""},
+				{name:"Heating",		glyph:""}],
+			   [{name:"Fireplace", 		glyph:"fire"},
+				{name:"Pets Allowed",	glyph:""},
+				{name:"Pool",			glyph:""},
+				{name:"Smoking Allowed",glyph:""}],
+			   [{name:"Washer",			glyph:""},
+				{name:"Accessibility",	glyph:""}]
+	];
 })
