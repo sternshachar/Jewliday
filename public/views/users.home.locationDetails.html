@@ -2,6 +2,8 @@
 
 	<table class="table">
 		<tr ng-repeat="amenity in amenitiesOrdered">
-			<td ng-repeat="a in amenity">{{a.name}}</td>
+			<td ng-repeat="a in amenity">
+				<span ng-class="amenity(a.dbName)"></span>{{a.name}}
+			</td>
 		</tr>
 	</table>

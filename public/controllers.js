@@ -179,20 +179,35 @@ angular.module("jewApp")
  //    };
 })
 .controller('homeCtrl', function($scope){
+	var home = {};
+		$http.get(url + '/login').
+				success(function(data){
+					home = data.user.house;
+					console.log(data);
+				});
+
 		$scope.amenitiesOrdered = [
-			   [{name:"TV",				glyph:""},
-				{name:"WI-FI",			glyph:""},
-				{name:"Air Condition",	glyph:""},
-				{name:"Dryer",			glyph:""}],
-			   [{name:"Elevator",		glyph:""},
-				{name:"Essentials",		glyph:""},
-				{name:"Free Parking",	glyph:""},
-				{name:"Heating",		glyph:""}],
-			   [{name:"Fireplace", 		glyph:"fire"},
-				{name:"Pets Allowed",	glyph:""},
-				{name:"Pool",			glyph:""},
-				{name:"Smoking Allowed",glyph:""}],
-			   [{name:"Washer",			glyph:""},
-				{name:"Accessibility",	glyph:""}]
+			   [{name:"TV"				,glyph:""	,dbName:"TV"},
+				{name:"WI-FI"			,glyph:""	,dbName:"wifi"},
+				{name:"Air Condition"	,glyph:""	,dbName:"AirCondition"},
+				{name:"Dryer"			,glyph:""	,dbName:"Dryer"}],
+			   [{name:"Elevator"		,glyph:""	,dbName:"Elevator"},
+				{name:"Essentials"		,glyph:""	,dbName:"Essentials"},
+				{name:"Free Parking"	,glyph:""	,dbName:"FreeParking"},
+				{name:"Heating"			,glyph:""	,dbName:"Heating"}],
+			   [{name:"Fireplace"		,glyph:""	,dbName:"Fireplace"},
+				{name:"Pets Allowed"	,glyph:""	,dbName:"PetsAllowed"},
+				{name:"Pool"			,glyph:""	,dbName:"Pool"},
+				{name:"Smoking Allowed" ,glyph:""	,dbName:"SmokingAllowed"}],
+			   [{name:"Washer"			,glyph:""	,dbName:"Washer"},
+				{name:"Accessibility"	,glyph:""	,dbName:"Accessibility"}]
 	];
+
+	$scope.amenity = function(name){
+		if(home.amenities[name]){
+			return 'glyphicon glyphicon-checked';
+		} else {
+			return 'glyphicon glyphicon-unchecked';
+		}
+	}
 })
