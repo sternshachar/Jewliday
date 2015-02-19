@@ -11,7 +11,12 @@
 	<link href='http://fonts.googleapis.com/css?family=Gurajada' rel='stylesheet' type='text/css'>
 	<script>
 		angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","file-model","file-uploader","ui.router"])
-			.config(function($stateProvider,$urlRouterProvider){
+			.config(function($stateProvider,$urlRouterProvider,uiGmapGoogleMapApiProvider){
+				    uiGmapGoogleMapApiProvider.configure({
+				        //    key: 'your api key',
+				        v: '3.17',
+				        libraries: 'weather,geometry,visualization'
+				    });
 				    $urlRouterProvider
 				      .when('/users/inbox', ['$state', function ($state) {
 				            $state.go('usersArea.inbox.incoming');
@@ -96,6 +101,8 @@
 	<script src="../directives.js"></script>
 	<script src="angular-file-model.js"></script>
 	<script src="angular-file-uploader.js"></script>
+	<script src='lodash.js'></script>
+	<script src='angular-google-maps.js'></script>
 </head>
 <body ng-controller="mainCtrl">
 

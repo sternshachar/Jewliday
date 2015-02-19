@@ -178,7 +178,7 @@ angular.module("jewApp")
  //      types: '(cities)'
  //    };
 })
-.controller('homeCtrl', function($scope,$http){
+.controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi){
 	var amenities = {};
 
 		$http.get($scope.url + '/login').
@@ -214,4 +214,10 @@ angular.module("jewApp")
 			}
 		}
 	}
+
+	uiGmapGoogleMapApi.then(function(maps) {
+
+    });
+    $scope.map = {center: {latitude: 51.219053, longitude: 4.404418 }, zoom: 14 };
+    $scope.options = {scrollwheel: false};
 })
