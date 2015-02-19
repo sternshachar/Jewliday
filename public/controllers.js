@@ -179,10 +179,10 @@ angular.module("jewApp")
  //    };
 })
 .controller('homeCtrl', function($scope,$http){
-	var home = {};
+	var amenities = {};
 		$http.get($scope.url + '/login').
 				success(function(data){
-					home = data.user.house;
+					amenities = data.user.house.amenities;
 					console.log(data);
 				});
 
@@ -204,8 +204,8 @@ angular.module("jewApp")
 	];
 
 	$scope.amenityCheck = function(name){
-		if(!(typeof home.amenities === 'undefined')){
-			if(typeof home.amenities[name] === 'undefined'){
+		if(!(typeof amenities === 'undefined')){
+			if(!(typeof amenities[name] === 'undefined') && amenities[name]){
 				return 'glyphicon glyphicon-check';
 			} else {
 				return 'glyphicon glyphicon-unchecked';
