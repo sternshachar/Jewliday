@@ -1,9 +1,9 @@
 angular.module("jewApp")
 .service('userData', function($http){
-	this.url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080"
+	url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080"
 
 	return{
-		url: this.url
+		url: url
 	}
 })
 .controller("mainCtrl",function($scope,$interval,$http,$location,$state,userData,uiGmapGoogleMapApi){
@@ -76,11 +76,11 @@ angular.module("jewApp")
 								$scope.userLastName = data.user.lastName;
 								$scope.userId = data.user._id;
 								$scope.isListed ={ listed: data.user.house.listed};
-								$http.get(this.url + '/login').
+								$http.get(userData.url + '/login').
 								success(function(data){
 									var city = data.user.house.city.split(", ").join("+");
 									var address =   data.user.house.homeNumber + '+' + data.user.house.street +',' + '+' + city;
-									$http.get('http://maps.google.com/maps/api/geocode/json?address='+ this.address +'&sensor=false')
+									$http.get('http://maps.google.com/maps/api/geocode/json?address='+ address +'&sensor=false')
 										    .success(function(mapData) {
 										    	console.log(mapData.results[0]);
 												   $scope.mapData = mapData;
