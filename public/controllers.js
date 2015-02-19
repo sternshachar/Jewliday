@@ -211,13 +211,13 @@ angular.module("jewApp")
 
 				});
 
-		function myFunction($scope, userData) {
+		(function ($scope, userData) {
 			    var myDataPromise = userData.getAdderss();
 			    myDataPromise.then(function(result) {  // this is only run after $http completes
 			       $scope.mapData = result;
 					console.log($scope.mapData);
 			    });
-		}
+		}){};
 
 		$scope.amenitiesOrdered = [
 			   [{name:"TV"				,glyph:""	,dbName:"TV"},
