@@ -205,10 +205,13 @@ angular.module("jewApp")
 					amenities = data.user.house.amenities;
 					$scope.home = data.user.house;
 					console.log(data);
+					$scope.mapData = userData.mapData();
+					console.log($scope.mapData);
 
 				});
-		$scope.mapData = userData.mapData();
-		console.log($scope.mapData);
+
+
+
 
 		$scope.amenitiesOrdered = [
 			   [{name:"TV"				,glyph:""	,dbName:"TV"},
