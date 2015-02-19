@@ -24,10 +24,11 @@ angular.module("jewApp")
 		$http.get($scope.url + '/listHome/' + $scope.userId).
 			success(function(data){
 				$scope.homeData = data.listed;
+				$scope.address = {city: data.city, street: data.street, num: data.homeNumber};
 			})
 	});
 
-		$http.get('http://maps.google.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false')
+		$http.get('http://maps.google.com/maps/api/geocode/json?address=' + $scope.address.num + '+' $scope.address.street +'+' + $scope.address.city + '&sensor=false')
 		    .success(function(mapData) {
 				   $scope.mapData = mapData;
 			       console.log($scope.mapData.results[0]);
