@@ -5,7 +5,7 @@ angular.module("jewApp")
 		success(function(data){
 			var city = data.user.house.city.split(", ").join("+");
 			this.address =   data.user.house.homeNumber + '+' + data.user.house.street +',' + '+' + city;
-			$http.get('http://maps.google.com/maps/api/geocode/json?address='+ $scope.address +'&sensor=false')
+			$http.get('http://maps.google.com/maps/api/geocode/json?address='+ this.address +'&sensor=false')
 				    .success(function(mapData) {
 						   this.mapData = mapData;
 					       console.log(this.mapData.results[0]);
