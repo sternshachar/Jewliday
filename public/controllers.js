@@ -180,9 +180,11 @@ angular.module("jewApp")
 })
 .controller('homeCtrl', function($scope,$http){
 	var amenities = {};
+
 		$http.get($scope.url + '/login').
 				success(function(data){
 					amenities = data.user.house.amenities;
+					$scope.home = data.user.house;
 					console.log(data);
 				});
 
