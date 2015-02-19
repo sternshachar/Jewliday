@@ -1,7 +1,7 @@
 angular.module("jewApp")
 .service('userData', function($http){
 	return{
-		number: 5;
+		number: 5
 	}
 })
 .controller("mainCtrl",function($scope,$interval,$http,$location,$state,userData){
