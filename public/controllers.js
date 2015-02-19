@@ -189,7 +189,30 @@ angular.module("jewApp")
 					    $http.get('http://maps.google.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false')
 					    .success(function(mapData) {
 					       $scope.mapData = mapData;
-					      console.log($scope.mapData);
+					          $scope.marker = {
+							      id: 0,
+							      coords: {
+							        latitude: $scope.mapData.results.location.lat,
+							        longitude: $scope.mapData.results.location.lng
+							      },
+							      options: { draggable: true },
+							      events: {
+							        dragend: function (marker, eventName, args) {
+							          $log.log('marker dragend');
+							          var lat = marker.getPosition().lat();
+							          var lon = marker.getPosition().lng();
+							          $log.log(lat);
+							          $log.log(lon);
+
+							          $scope.marker.options = {
+							            draggable: true,
+							            labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
+							            labelAnchor: "100 0",
+							            labelClass: "marker-labels"
+							          };
+							        }
+							      }
+							  	}
 					    })
 					    .error(function(err){
 					    	console.error(err);
@@ -254,5 +277,5 @@ angular.module("jewApp")
           };
         }
       }
-  }
+  	}
 })
