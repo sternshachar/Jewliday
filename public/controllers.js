@@ -24,7 +24,7 @@ angular.module("jewApp")
 		$http.get($scope.url + '/listHome/' + $scope.userId).
 			success(function(data){
 				$scope.homeData = data.listed;
-				$scope.address =  data.homeNumber + data.street + data.city;
+				$scope.address =  '' + data.homeNumber + data.street + data.city;
 				console.log($scope.address);
 			})
 	});
