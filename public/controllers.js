@@ -9,7 +9,7 @@ angular.module("jewApp")
 			this.address =   data.user.house.homeNumber + '+' + data.user.house.street +',' + '+' + city;
 			$http.get('http://maps.google.com/maps/api/geocode/json?address='+ this.address +'&sensor=false')
 				    .success(function(mapData) {
-						   this.mapData = mapData;
+						   return mapData;
 					       console.log(this.mapData.results[0]);
 					})
 			})
@@ -31,8 +31,6 @@ angular.module("jewApp")
 	$scope.signMessage = "Enter email";
 	$scope.inbox ={state: false};
 	$scope.isListed = { listed: false};
-
-	console.log(userData.mapData);
 
 	$http.get(userData.url + '/login').
 		success(function(data){
@@ -209,7 +207,7 @@ angular.module("jewApp")
 					console.log(data);
 
 				});
-		$scope.mapData = userData.mapData;
+		$scope.mapData = userData.mapData();
 		console.log($scope.mapData);
 
 		$scope.amenitiesOrdered = [
