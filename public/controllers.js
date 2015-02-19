@@ -1,5 +1,6 @@
 angular.module("jewApp")
 .service('userData', function($http){
+	this.url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080"
 	$http.get(userData.url + '/login').
 		success(function(data){
 			var city = data.house.city.split(", ").join("+");
@@ -15,7 +16,7 @@ angular.module("jewApp")
 			})
 
 	return{
-		url: "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080",
+		url: this.url,
 
 		mapData: this.mapData
 	}
@@ -32,7 +33,7 @@ angular.module("jewApp")
 	$scope.isListed = { listed: false};
 
 	console.log(userData.mapData);
-	
+
 	$http.get(userData.url + '/login').
 		success(function(data){
 		$scope.isAuth = data.isAuthenticated;
