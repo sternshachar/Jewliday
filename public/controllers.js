@@ -84,6 +84,30 @@ angular.module("jewApp")
 										    .success(function(mapData) {
 										    	console.log(mapData.results[0]);
 												   $scope.mapData = mapData;
+												       $scope.marker = {
+													      id: 0,
+													      coords: {
+													        latitude: $scope.mapData.results[0].geometry.location.lat,
+													        longitude: $scope.mapData.results[0].geometry.location.lng
+													      },
+													      options: { draggable: true },
+													      events: {
+													        dragend: function (marker, eventName, args) {
+													          $log.log('marker dragend');
+													          var lat = marker.getPosition().lat();
+													          var lon = marker.getPosition().lng();
+													          $log.log(lat);
+													          $log.log(lon);
+
+													          $scope.marker.options = {
+													            draggable: true,
+													            labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
+													            labelAnchor: "100 0",
+													            labelClass: "marker-labels"
+													          };
+													        }
+													      }
+													  }
 											       
 											})
 									})
@@ -241,29 +265,4 @@ angular.module("jewApp")
      longitude: $scope.mapData.results[0].geometry.location.lng }, zoom: 14 };
     $scope.options = {scrollwheel: false};
 
-
-    $scope.marker = {
-      id: 0,
-      coords: {
-        latitude: $scope.mapData.results[0].geometry.location.lat,
-        longitude: $scope.mapData.results[0].geometry.location.lng
-      },
-      options: { draggable: true },
-      events: {
-        dragend: function (marker, eventName, args) {
-          $log.log('marker dragend');
-          var lat = marker.getPosition().lat();
-          var lon = marker.getPosition().lng();
-          $log.log(lat);
-          $log.log(lon);
-
-          $scope.marker.options = {
-            draggable: true,
-            labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
-            labelAnchor: "100 0",
-            labelClass: "marker-labels"
-          };
-        }
-      }
-  }
 })
