@@ -7,7 +7,7 @@ angular.module("jewApp")
 						var city = data.user.house.city.split(", ").join("+");
 						this.address =   data.user.house.homeNumber + '+' + data.user.house.street +',' + '+' + city;
 						$http.get('http://maps.google.com/maps/api/geocode/json?address='+ this.address +'&sensor=false')
-							    .success(function(mapData) {
+							    .then(function(mapData) {
 									   return  mapData;
 								       console.log(this.mapData.results[0]);
 								})
@@ -209,8 +209,14 @@ angular.module("jewApp")
 					console.log(data);
 
 				});
-		$scope.mapData = userData.mapData();
-		console.log($scope.mapData);
+
+		function myFunction($scope, myService) {
+			    var myDataPromise = myService.getData();
+			    myDataPromise.then(function(result) {  // this is only run after $http completes
+			       $scope.mapData = userData.mapData();
+					console.log($scope.mapData);
+			    });
+		}
 
 		$scope.amenitiesOrdered = [
 			   [{name:"TV"				,glyph:""	,dbName:"TV"},
