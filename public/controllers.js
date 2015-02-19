@@ -30,7 +30,7 @@ angular.module("jewApp")
 
 	 $scope.url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080";
 	
-
+console.log('service' + this.mapData.results[0]);
 	$http.get($scope.url + '/login').
 		success(function(data){
 		$scope.isAuth = data.isAuthenticated;
