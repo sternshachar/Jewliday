@@ -26,7 +26,7 @@ angular.module("jewApp")
 				$scope.homeData = data.listed;
 				var city = data.house.city.split(", ").join("+");
 				$scope.address =   data.house.homeNumber + '+' + data.house.street +',' + '+' + city;
-				console.log($scope.address);
+				console.log('http://maps.google.com/maps/api/geocode/json?address=' + $scope.address +'&sensor=false');
 			})
 	});
 
