@@ -1,7 +1,7 @@
 angular.module("jewApp")
 .service('userData', function($http){
 	return{
-		number: 5
+		url: "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080";
 	}
 })
 .controller("mainCtrl",function($scope,$interval,$http,$location,$state,userData){
@@ -15,17 +15,15 @@ angular.module("jewApp")
 	$scope.inbox ={state: false};
 	$scope.isListed = { listed: false};
 
-	 $scope.url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080";
-	console.log(userData.number);
 
-	$http.get($scope.url + '/login').
+	$http.get(userData.url + '/login').
 		success(function(data){
 		$scope.isAuth = data.isAuthenticated;
 		$scope.username = data.user.firstName;
 		$scope.userLastName = data.user.lastName;
 		$scope.userId = data.user._id;
 		console.log($scope.userId);
-		$http.get($scope.url + '/listHome/' + $scope.userId).
+		$http.get(userData.url + '/listHome/' + $scope.userId).
 			success(function(data){
 				$scope.homeData = data.listed;
 				var city = data.house.city.split(", ").join("+");
@@ -45,7 +43,7 @@ angular.module("jewApp")
 
 
 	$scope.logOut = function(){
-		$http.get($scope.url + '/logout')
+		$http.get(userData.url + '/logout')
 			.success(function(data){
 				$scope.isAuth = data.isAuthenticated;
 				$location.path('/');
@@ -55,7 +53,7 @@ angular.module("jewApp")
 		// console.log('sending: ' + $scope.user.firstName + $scope.user.lastName)
 		$scope.user.firstName = $scope.user.firstName[0].toUpperCase() + $scope.user.firstName.substring(1).toLowerCase();
 		$scope.user.lastName = $scope.user.lastName[0].toUpperCase() + $scope.user.lastName.substring(1).toLowerCase();
-		$http.post($scope.url + '/signup',$scope.user)
+		$http.post(userData.url + '/signup',$scope.user)
 			.success(function(data){
 				if(data.message){
 					$scope.signMessage = data.message;
@@ -75,7 +73,7 @@ angular.module("jewApp")
 
 	$scope.logIn = function(){
 		console.log($scope.userLog);
-		$http.post($scope.url + "/login",$scope.userLog)
+		$http.post(userData.url + "/login",$scope.userLog)
 			.success(function(data){
 				if(data.message){
 					$scope.message = data.message;
@@ -83,7 +81,7 @@ angular.module("jewApp")
 					$scope.userLog = {};
 				} else {
 
-						$http.get($scope.url + '/login').
+						$http.get(userData.url + '/login').
 							success(function(data){
 								$scope.isAuth = data.isAuthenticated;
 								$scope.username = data.user.firstName;
@@ -126,8 +124,7 @@ angular.module("jewApp")
 	  }
 })
 
-.controller("inboxCtrl",function($scope,$http,$state){
-	var url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080";
+.controller("inboxCtrl",function($scope,$http,$state,userData){
 	$scope.messageData = {
 		uid: $scope.userId,
 		sender: $scope.username + ' ' + $scope.userLastName,
@@ -135,7 +132,7 @@ angular.module("jewApp")
 		content: ""
 	};
 
-	$http.get($scope.url + '/inbox/' + $scope.userId)
+	$http.get(userData.url + '/inbox/' + $scope.userId)
 		.success(function(data){
 			$scope.messages = data[0].messages;
 			console.log(data);
@@ -143,15 +140,15 @@ angular.module("jewApp")
 
 	$scope.sendMessage = function(){
 		console.log('sending');
-		$http.post($scope.url + '/inbox/' + $scope.userId, $scope.messageData)
+		$http.post(userData.url + '/inbox/' + $scope.userId, $scope.messageData)
 			.success(function(data){
 				console.log(data);
 			});
 	}	
 })
 
-.controller("newHomeCtrl",function($scope,$http){
-	var url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080";
+.controller("newHomeCtrl",function($scope,$http,userData){
+
 	$scope.home = {listed: true};
 	$scope.options = {types: '(cities)'};
 	$scope.amenities = [
@@ -172,7 +169,7 @@ angular.module("jewApp")
       })
 	$scope.upload = function () {
       console.log($scope.file); // This is where the file is linked to.
-      $http.post($scope.url + '/photo',$scope.file)
+      $http.post(userData.url + '/photo',$scope.file)
       	.success(function(data){
       		console.log(data);
       	})
@@ -180,10 +177,10 @@ angular.module("jewApp")
 
     $scope.saveHome = function(){
     	console.log($scope.home);
-    	$http.put($scope.url + '/listHome/' + $scope.userId,$scope.home)
+    	$http.put(userData.url + '/listHome/' + $scope.userId,$scope.home)
     		.success(function(data){
     			$scope.listHomeMessage = data;
-    					$http.get($scope.url + '/login').
+    					$http.get(userData.url + '/login').
 							success(function(data){
 								$scope.isListed.listed = data.user.house.listed;
 							});
@@ -195,10 +192,10 @@ angular.module("jewApp")
  //      types: '(cities)'
  //    };
 })
-.controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi){
+.controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi,userData){
 	var amenities = {};
 
-		$http.get($scope.url + '/login').
+		$http.get(userData.url + '/login').
 				success(function(data){
 					amenities = data.user.house.amenities;
 					$scope.home = data.user.house;
