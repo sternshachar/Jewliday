@@ -8,7 +8,7 @@ angular.module("jewApp")
 			this.address =   data.user.house.homeNumber + '+' + data.user.house.street +',' + '+' + city;
 			$http.get('http://maps.google.com/maps/api/geocode/json?address='+ this.address +'&sensor=false')
 				    .success(function(mapData) {
-				    	console.log(this.mapData.results[0]);
+				    	console.log(mapData.results[0]);
 						   return mapData;
 					       
 					})
