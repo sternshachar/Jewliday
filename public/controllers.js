@@ -241,16 +241,16 @@ angular.module("jewApp")
 
     });
 
-    $scope.map = {center: {latitude: userData.mapData.results[0].geometry.location.lat,
-     longitude: userData.mapData.results[0].geometry.location.lng }, zoom: 14 };
+    $scope.map = {center: {latitude: $scope.mapData.results[0].geometry.location.lat,
+     longitude: $scope.mapData.results[0].geometry.location.lng }, zoom: 14 };
     $scope.options = {scrollwheel: false};
 
 
     $scope.marker = {
       id: 0,
       coords: {
-        latitude: userData.mapData.results[0].geometry.location.lat,
-        longitude: userData.mapData.results[0].geometry.location.lng
+        latitude: $scope.mapData.results[0].geometry.location.lat,
+        longitude: $scope.mapData.results[0].geometry.location.lng
       },
       options: { draggable: true },
       events: {
