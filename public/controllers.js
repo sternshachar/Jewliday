@@ -251,4 +251,5 @@ angular.module("jewApp")
           };
         }
       }
+  }
 })
