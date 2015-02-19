@@ -189,7 +189,7 @@ angular.module("jewApp")
 					    $http.get('http://maps.google.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false')
 					    .success(function(mapData) {
 					      angular.extend($scope, mapData);
-					      console.log($scope.mapData);
+					      console.log(mapData);
 					    })
 					    .error(function(err){
 					    	console.error(err);
