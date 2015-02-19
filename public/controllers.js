@@ -127,7 +127,7 @@ angular.module("jewApp")
 			});
 	}
 
-	if(isAuth){
+	if($scope.isAuth){
 		$scope.logIn;
 	}
 
