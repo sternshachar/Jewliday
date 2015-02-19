@@ -8,7 +8,7 @@ angular.module("jewApp")
 })
 .controller("mainCtrl",function($scope,$interval,$http,$location,$state,userData,uiGmapGoogleMapApi){
 	$scope.username = $http.get(userData.url + '/login').then(function(data){
-		console.log(data);
+		console.log(data.data);
 		return data.data.user.firstName;
 	});
 	$scope.isAuth = $http.get(userData.url + '/login').then(function(data){
