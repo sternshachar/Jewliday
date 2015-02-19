@@ -26,7 +26,7 @@
 				</a>
 			</div>
 
-			<ul class="nav navbar-nav pull-right" ng-if="!isAuth">
+			<ul class="nav navbar-nav pull-right" ng-show="!isAuth">
 				<li>
 					<a href ng-click="openModal('login')" >
 						<span class="glyphicon glyphicon-user" ></span> Log In
@@ -38,9 +38,9 @@
 					</a>
 				</li>
 			</ul>
-			<ul class="nav navbar-nav pull-right" ng-if="isAuth" ng-hide="logo == 'logo.jpg'">
+			<ul class="nav navbar-nav pull-right" ng-show="isAuth" ng-hide="logo == 'logo.jpg'">
 					<li>
-						<a href="#/listHome/address" ng-if="!isListed.listed">
+						<a href="#/listHome/address" ng-show="!isListed.listed">
 							<button class="btn btn-warning">List Your Home</button>
 						</a>
 					</li>
@@ -80,7 +80,7 @@
 					</a>
 				</li>
 			</ul>
-			<ul class="nav navbar-nav pull-right" ng-if="isAuth">
+			<ul class="nav navbar-nav pull-right" ng-show="isAuth">
 				    <li class="dropdown" dropdown on-toggle="toggled(open)" >
 					    <a href class="dropdown-toggle" dropdown-toggle>
 					        Hello {{username}}<span class="caret"></span>
