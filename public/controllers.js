@@ -128,7 +128,7 @@ angular.module("jewApp")
 	}
 
 	if($scope.isAuth){
-		$scope.logIn;
+		$scope.logIn();
 	}
 
 	$scope.redAlert = function(){
