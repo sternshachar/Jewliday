@@ -45,7 +45,6 @@ angular.module("jewApp")
 		$http.get(userData.url + '/listHome/' + $scope.userId).
 			success(function(data){
 				$scope.homeData = data.listed;
-
 			})
 	});
 
@@ -211,6 +210,8 @@ angular.module("jewApp")
 					console.log(data);
 
 				});
+		$scope.mapData = userData.mapData;
+		console.log($scope.mapData);
 
 		$scope.amenitiesOrdered = [
 			   [{name:"TV"				,glyph:""	,dbName:"TV"},
