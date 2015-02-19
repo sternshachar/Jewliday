@@ -178,7 +178,7 @@ angular.module("jewApp")
  //      types: '(cities)'
  //    };
 })
-.controller('homeCtrl', function($scope){
+.controller('homeCtrl', function($scope,$http){
 	var home = {};
 		$http.get(url + '/login').
 				success(function(data){
