@@ -4,6 +4,7 @@ angular.module("jewApp")
 	var getAdderss = function(){
 				$http.get(this.url + '/login').
 					success(function(data){
+						console.log(data);
 						var city = data.user.house.city.split(", ").join("+");
 						this.address =   data.user.house.homeNumber + '+' + data.user.house.street +',' + '+' + city;
 						$http.get('http://maps.google.com/maps/api/geocode/json?address='+ this.address +'&sensor=false')
