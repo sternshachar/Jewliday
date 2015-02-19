@@ -29,7 +29,6 @@ angular.module("jewApp")
 				$scope.homeData = data.listed;
 			})
 	});
-	$scope.mapData = userData.mapData();
 
 	$scope.logOut = function(){
 		$http.get(userData.url + '/logout')
