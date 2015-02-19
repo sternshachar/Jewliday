@@ -187,8 +187,8 @@ angular.module("jewApp")
 					$scope.home = data.user.house;
 					console.log(data);
 					    $http.get('http://maps.google.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false').success(function(mapData) {
-					      angular.extend($scope, $scope.map);
-					      console.log($scope.map);
+					      angular.extend($scope, mapData);
+					      console.log($scope.mapData);
 					    });
 				});
 
@@ -230,8 +230,8 @@ angular.module("jewApp")
     $scope.marker = {
       id: 0,
       coords: {
-        latitude: $scope.map.geometry.location.lat,
-        longitude: $scope.map.geometry.location.lng
+        latitude: $scope.mapData.geometry.location.lat,
+        longitude: $scope.mapData.geometry.location.lng
       },
       options: { draggable: true },
       events: {
