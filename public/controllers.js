@@ -128,6 +128,7 @@ angular.module("jewApp")
 	}
 
 	if($scope.isAuth){
+		console.log('sdad')
 		$scope.logIn();
 	}
 
