@@ -1,24 +1,9 @@
 angular.module("jewApp")
 .service('userData', function($http){
 	this.url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080"
-	this.getAdderss = function(){
-		$http.get(this.url + '/login').
-		success(function(data){
-			var city = data.user.house.city.split(", ").join("+");
-			this.address =   data.user.house.homeNumber + '+' + data.user.house.street +',' + '+' + city;
-			$http.get('http://maps.google.com/maps/api/geocode/json?address='+ this.address +'&sensor=false')
-				    .success(function(mapData) {
-				    	console.log(mapData.results[0]);
-						   return mapData;
-					       
-					})
-			})
-	}
 
 	return{
-		url: this.url,
-
-		mapData: this.getAdderss
+		url: this.url
 	}
 })
 .controller("mainCtrl",function($scope,$interval,$http,$location,$state,userData){
@@ -45,7 +30,6 @@ angular.module("jewApp")
 			})
 	});
 	$scope.mapData = userData.mapData();
-	console.log(userData.mapData());
 
 	$scope.logOut = function(){
 		$http.get(userData.url + '/logout')
@@ -93,7 +77,17 @@ angular.module("jewApp")
 								$scope.userLastName = data.user.lastName;
 								$scope.userId = data.user._id;
 								$scope.isListed ={ listed: data.user.house.listed};
-								console.log(data);
+								$http.get(this.url + '/login').
+								success(function(data){
+									var city = data.user.house.city.split(", ").join("+");
+									this.address =   data.user.house.homeNumber + '+' + data.user.house.street +',' + '+' + city;
+									$http.get('http://maps.google.com/maps/api/geocode/json?address='+ this.address +'&sensor=false')
+										    .success(function(mapData) {
+										    	console.log(mapData.results[0]);
+												   $scope.mapData = mapData;
+											       
+											})
+									})
 							});
 
 
