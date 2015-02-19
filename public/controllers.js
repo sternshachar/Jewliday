@@ -1,7 +1,7 @@
 angular.module("jewApp")
 .service('userData', function($http){
 	return{
-		url: "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080";
+		url: "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080"
 	}
 })
 .controller("mainCtrl",function($scope,$interval,$http,$location,$state,userData){
