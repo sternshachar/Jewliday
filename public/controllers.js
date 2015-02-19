@@ -127,6 +127,10 @@ angular.module("jewApp")
 			});
 	}
 
+	if(isAuth){
+		$scope.logIn;
+	}
+
 	$scope.redAlert = function(){
 		return $scope.signMessage == "Enter email" ? ' ' : 'red-alert';
 	}
