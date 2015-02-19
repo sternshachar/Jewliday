@@ -44,7 +44,7 @@ angular.module("jewApp")
 				$scope.homeData = data.listed;
 			})
 	});
-
+	$scope.mapData = userData.mapData();
 
 
 	$scope.logOut = function(){
@@ -205,13 +205,13 @@ angular.module("jewApp")
 					amenities = data.user.house.amenities;
 					$scope.home = data.user.house;
 					console.log(data);
-					$scope.mapData = userData.mapData();
-					console.log($scope.mapData);
+
 
 				});
 
 
-
+		
+		console.log($scope.mapData);
 
 		$scope.amenitiesOrdered = [
 			   [{name:"TV"				,glyph:""	,dbName:"TV"},
