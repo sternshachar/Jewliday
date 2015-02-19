@@ -25,7 +25,7 @@ angular.module("jewApp")
 			success(function(data){
 				$scope.homeData = data.listed;
 				var city = data.house.city.split(", ").join("+");
-				$scope.address =   data.house.homeNumber + '+' + data.house.street + '+' + city;
+				$scope.address =   data.house.homeNumber + '+' + data.house.street +',' + '+' + city;
 				console.log($scope.address);
 			})
 	});
