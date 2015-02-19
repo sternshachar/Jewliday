@@ -186,6 +186,10 @@ angular.module("jewApp")
 					amenities = data.user.house.amenities;
 					$scope.home = data.user.house;
 					console.log(data);
+					    $http.get('http://maps.google.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false').success(function(mapData) {
+					      angular.extend($scope, $scope.map);
+					      console.log($saveHome.map);
+					    });
 				});
 
 		$scope.amenitiesOrdered = [
@@ -222,10 +226,6 @@ angular.module("jewApp")
     $scope.map = {center: {latitude: 51.219053, longitude: 4.404418 }, zoom: 14 };
     $scope.options = {scrollwheel: false};
 
-    $http.get('http://maps.google.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false').success(function(mapData) {
-      angular.extend($scope, $scope.map);
-      console.log($saveHome.map);
-    });
 
     $scope.marker = {
       id: 0,
