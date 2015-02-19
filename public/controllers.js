@@ -84,6 +84,8 @@ angular.module("jewApp")
 										    .success(function(mapData) {
 										    	console.log(mapData.results[0]);
 												   $scope.mapData = mapData;
+												       $scope.map = {center: {latitude: $scope.mapData.results[0].geometry.location.lat,
+     															longitude: $scope.mapData.results[0].geometry.location.lng }, zoom: 14 };
 												       $scope.marker = {
 													      id: 0,
 													      coords: {
@@ -261,8 +263,7 @@ angular.module("jewApp")
 
     });
 
-    $scope.map = {center: {latitude: $scope.mapData.results[0].geometry.location.lat,
-     longitude: $scope.mapData.results[0].geometry.location.lng }, zoom: 14 };
+
     $scope.options = {scrollwheel: false};
 
 })
