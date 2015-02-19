@@ -6,7 +6,7 @@ angular.module("jewApp")
 		url: this.url
 	}
 })
-.controller("mainCtrl",function($scope,$interval,$http,$location,$state,userData){
+.controller("mainCtrl",function($scope,$interval,$http,$location,$state,userData,uiGmapGoogleMapApi){
 	$scope.username = "";
 	$scope.isAuth = false;
 	$scope.sign = false;
@@ -84,6 +84,7 @@ angular.module("jewApp")
 										    .success(function(mapData) {
 										    	console.log(mapData.results[0]);
 												   $scope.mapData = mapData;
+												   $scope.options = {scrollwheel: false};
 												       $scope.map = {center: {latitude: $scope.mapData.results[0].geometry.location.lat,
      															longitude: $scope.mapData.results[0].geometry.location.lng }, zoom: 14 };
 												       $scope.marker = {
@@ -264,6 +265,6 @@ angular.module("jewApp")
     });
 
 
-    $scope.options = {scrollwheel: false};
+    
 
 })
