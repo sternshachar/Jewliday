@@ -25,7 +25,7 @@ angular.module("jewApp")
 			success(function(data){
 				$scope.homeData = data.listed;
 				$scope.address =  '' + data.homeNumber + data.street + data.city;
-				console.log($scope.address);
+				console.log(data);
 			})
 	});
 
