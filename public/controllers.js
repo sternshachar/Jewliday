@@ -1,21 +1,8 @@
 angular.module("jewApp")
 .service('userData', function($http){
-	this.url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080";
-	$http.get(this.url + '/login')
-		.success(function(data){
-			this.userId = data.user._id;
-			var city = data.house.city.split(", ").join("+");
-			this.address =   data.house.homeNumber + '+' + data.house.street +',' + '+' + city;
-			$http.get('http://maps.google.com/maps/api/geocode/json?address='+ this.address +'&sensor=false')
-				.success(function(mapData) {
-					   this.mapData = mapData;
-				       console.log('service' + this.mapData.results[0]);
-				})
-				.error(function(err){
-						console.error(err);
-					});
-				})
-
+	return{
+		number: 5;
+	}
 })
 .controller("mainCtrl",function($scope,$interval,$http,$location,$state,userData){
 	$scope.username = "";
@@ -29,8 +16,8 @@ angular.module("jewApp")
 	$scope.isListed = { listed: false};
 
 	 $scope.url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080";
-	
-console.log('service' + this.mapData.results[0]);
+	console.log(userData.number);
+
 	$http.get($scope.url + '/login').
 		success(function(data){
 		$scope.isAuth = data.isAuthenticated;
