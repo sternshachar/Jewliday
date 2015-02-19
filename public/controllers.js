@@ -79,7 +79,7 @@ angular.module("jewApp")
 								$http.get(this.url + '/login').
 								success(function(data){
 									var city = data.user.house.city.split(", ").join("+");
-									this.address =   data.user.house.homeNumber + '+' + data.user.house.street +',' + '+' + city;
+									var address =   data.user.house.homeNumber + '+' + data.user.house.street +',' + '+' + city;
 									$http.get('http://maps.google.com/maps/api/geocode/json?address='+ this.address +'&sensor=false')
 										    .success(function(mapData) {
 										    	console.log(mapData.results[0]);
