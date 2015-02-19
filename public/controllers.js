@@ -13,7 +13,6 @@ angular.module("jewApp")
 					.error(function(err){
 						console.error(err);
 				    });
-			setTimeout(function() {alert('hello');},1250);
 			})
 
 	return{
@@ -45,17 +44,7 @@ angular.module("jewApp")
 		$http.get(userData.url + '/listHome/' + $scope.userId).
 			success(function(data){
 				$scope.homeData = data.listed;
-				var city = data.house.city.split(", ").join("+");
-				$scope.address =   data.house.homeNumber + '+' + data.house.street +',' + '+' + city;
-				console.log('http://maps.google.com/maps/api/geocode/json?address=' + $scope.address +'&sensor=false');
-				$http.get('http://maps.google.com/maps/api/geocode/json?address='+ $scope.address +'&sensor=false')
-					    .success(function(mapData) {
-							   $scope.mapData = mapData;
-						       console.log($scope.mapData.results[0]);
-						})
-						.error(function(err){
-							console.error(err);
-					    });
+
 			})
 	});
 
