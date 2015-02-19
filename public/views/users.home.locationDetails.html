@@ -1,6 +1,8 @@
 <style type="text/css">
         #map_canvas {
             position: relative;
+            width: 300px;
+            height: 300px;
         }
 
         .angular-google-map-container {
@@ -18,7 +20,7 @@
 	</div>
 	<div id="map_canvas" class="col-sm-9">
 		{{home.city}}
-		    <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options" style="width: 200px; height: 200px;"></ui-gmap-google-map>
+		    <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options" ></ui-gmap-google-map>
 	</div>
 </div>
 <div class="row">
