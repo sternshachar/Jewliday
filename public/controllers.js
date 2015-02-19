@@ -1,25 +1,24 @@
 angular.module("jewApp")
 .service('userData', function($http){
 	this.url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080"
-	var getAdderss = function(){
-				$http.get(this.url + '/login').
-					success(function(data){
-						console.log(data);
-						var city = data.user.house.city.split(", ").join("+");
-						this.address =   data.user.house.homeNumber + '+' + data.user.house.street +',' + '+' + city;
-						$http.get('http://maps.google.com/maps/api/geocode/json?address='+ this.address +'&sensor=false')
-							    .then(function(mapData) {
-									   return  mapData;
-								       console.log(this.mapData.results[0]);
-								})
-						})
-				}
+	this.getAdderss = function(){
+		$http.get(this.url + '/login').
+		success(function(data){
+			console.data('service' + data);
+			var city = data.user.house.city.split(", ").join("+");
+			this.address =   data.user.house.homeNumber + '+' + data.user.house.street +',' + '+' + city;
+			$http.get('http://maps.google.com/maps/api/geocode/json?address='+ this.address +'&sensor=false')
+				    .success(function(mapData) {
+						   this.mapData = mapData;
+					       console.log(this.mapData.results[0]);
+					})
+			})
+	}
 
 	return{
 		url: this.url,
 
-		mapData: getAdderss
-		
+		mapData: this.getAdderss
 	}
 })
 .controller("mainCtrl",function($scope,$interval,$http,$location,$state,userData){
@@ -33,7 +32,7 @@ angular.module("jewApp")
 	$scope.inbox ={state: false};
 	$scope.isListed = { listed: false};
 
-	console.log(userData.mapData());
+	console.log(userData.mapData);
 
 	$http.get(userData.url + '/login').
 		success(function(data){
@@ -210,14 +209,8 @@ angular.module("jewApp")
 					console.log(data);
 
 				});
-
-		(function ($scope, userData) {
-			    var myDataPromise = userData.getAdderss();
-			    myDataPromise.then(function(result) {  // this is only run after $http completes
-			       $scope.mapData = result;
-					console.log($scope.mapData);
-			    });
-		}){};
+		$scope.mapData = userData.mapData;
+		console.log($scope.mapData);
 
 		$scope.amenitiesOrdered = [
 			   [{name:"TV"				,glyph:""	,dbName:"TV"},
@@ -250,16 +243,16 @@ angular.module("jewApp")
 
     });
 
-    $scope.map = {center: {latitude: $scope.mapData.results[0].geometry.location.lat,
-     longitude: $scope.mapData.results[0].geometry.location.lng }, zoom: 14 };
+    $scope.map = {center: {latitude: userData.mapData.results[0].geometry.location.lat,
+     longitude: userData.mapData.results[0].geometry.location.lng }, zoom: 14 };
     $scope.options = {scrollwheel: false};
 
 
     $scope.marker = {
       id: 0,
       coords: {
-        latitude: $scope.mapData.results[0].geometry.location.lat,
-        longitude: $scope.mapData.results[0].geometry.location.lng
+        latitude: userData.mapData.results[0].geometry.location.lat,
+        longitude: userData.mapData.results[0].geometry.location.lng
       },
       options: { draggable: true },
       events: {
