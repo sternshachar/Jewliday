@@ -211,10 +211,10 @@ angular.module("jewApp")
 
 				});
 
-		function myFunction($scope, myService) {
-			    var myDataPromise = myService.getData();
+		function myFunction($scope, userData) {
+			    var myDataPromise = userData.getAdderss();
 			    myDataPromise.then(function(result) {  // this is only run after $http completes
-			       $scope.mapData = userData.mapData();
+			       $scope.mapData = result;
 					console.log($scope.mapData);
 			    });
 		}
