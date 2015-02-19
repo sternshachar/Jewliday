@@ -31,7 +31,7 @@ angular.module("jewApp")
 	$scope.inbox ={state: false};
 	$scope.isListed = { listed: false};
 
-	console.log(userData.mapData);
+	console.log(userData.mapData());
 
 	$http.get(userData.url + '/login').
 		success(function(data){
