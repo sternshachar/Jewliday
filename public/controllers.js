@@ -229,7 +229,8 @@ angular.module("jewApp")
 
     });
 
-    $scope.map = {center: {latitude: 51.219053, longitude: 4.404418 }, zoom: 14 };
+    $scope.map = {center: {latitude: $scope.mapData.results[0].geometry.location.lat,
+     longitude: $scope.mapData.results[0].geometry.location.lng }, zoom: 14 };
     $scope.options = {scrollwheel: false};
 
 
