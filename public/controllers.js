@@ -7,28 +7,27 @@ angular.module("jewApp")
 	}
 })
 .controller("mainCtrl",function($scope,$interval,$http,$location,$state,userData,uiGmapGoogleMapApi){
-	$scope.username = "";
-	$scope.isAuth = false;
+	$scope.username = $http.get(userData.url + '/login').then(function(data){
+		return data.user.firstName;
+	});
+	$scope.isAuth = $http.get(userData.url + '/login').then(function(data){
+		return data.isAuthenticated;
+	});
+	$scope.userId = $http.get(userData.url + '/login').then(function(data){
+		return data.user._id;
+	});
+	$scope.userLastName = $http.get(userData.url + '/login').then(function(data){
+		return data.user.lastName;
+	});
+
 	$scope.sign = false;
 	$scope.login = true;
+	$scope.inbox ={state: false};
+	$scope.isListed = { listed: false};
 	$scope.user = {};
 	$scope.userLog = {};
 	$scope.signMessage = "Enter email";
-	$scope.inbox ={state: false};
-	$scope.isListed = { listed: false};
 
-	$http.get(userData.url + '/login').
-		success(function(data){
-		$scope.isAuth = data.isAuthenticated;
-		$scope.username = data.user.firstName;
-		$scope.userLastName = data.user.lastName;
-		$scope.userId = data.user._id;
-		console.log($scope.userId);
-		$http.get(userData.url + '/listHome/' + $scope.userId).
-			success(function(data){
-				$scope.homeData = data.listed;
-			})
-	});
 
 	$scope.logOut = function(){
 		$http.get(userData.url + '/logout')
@@ -38,7 +37,6 @@ angular.module("jewApp")
 			})
 	}
 	$scope.signUp = function(){
-		// console.log('sending: ' + $scope.user.firstName + $scope.user.lastName)
 		$scope.user.firstName = $scope.user.firstName[0].toUpperCase() + $scope.user.firstName.substring(1).toLowerCase();
 		$scope.user.lastName = $scope.user.lastName[0].toUpperCase() + $scope.user.lastName.substring(1).toLowerCase();
 		$http.post(userData.url + '/signup',$scope.user)
@@ -53,9 +51,6 @@ angular.module("jewApp")
 					$scope.logIn();
 					$scope.user = {};
 				}
-				
-
-
 			})
 	}
 
@@ -127,8 +122,6 @@ angular.module("jewApp")
 			});
 	}
 
-		console.log('sdad')
-		$scope.logIn();
 
 	$scope.redAlert = function(){
 		return $scope.signMessage == "Enter email" ? ' ' : 'red-alert';
