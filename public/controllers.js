@@ -218,6 +218,37 @@ angular.module("jewApp")
 	uiGmapGoogleMapApi.then(function(maps) {
 
     });
+    $http.get('http://maps.google.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false').success(function(mapData) {
+      angular.extend($scope, map);
+    });
     $scope.map = {center: {latitude: 51.219053, longitude: 4.404418 }, zoom: 14 };
     $scope.options = {scrollwheel: false};
+
+    $http.get('http://maps.google.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false').success(function(mapData) {
+      angular.extend($scope, map);
+    });
+
+    $scope.marker = {
+      id: 0,
+      coords: {
+        latitude: $scope.map.geometry.location.lat,
+        longitude: $scope.map.geometry.location.lng
+      },
+      options: { draggable: true },
+      events: {
+        dragend: function (marker, eventName, args) {
+          $log.log('marker dragend');
+          var lat = marker.getPosition().lat();
+          var lon = marker.getPosition().lng();
+          $log.log(lat);
+          $log.log(lon);
+
+          $scope.marker.options = {
+            draggable: true,
+            labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
+            labelAnchor: "100 0",
+            labelClass: "marker-labels"
+          };
+        }
+      }
 })
