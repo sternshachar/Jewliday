@@ -203,7 +203,7 @@ angular.module("jewApp")
 				{name:"Accessibility"	,glyph:""	,dbName:"Accessibility"}]
 	];
 
-	$scope.amenity = function(name){
+	$scope.amenityCheck = function(name){
 		if(home.amenities[name]){
 			return 'glyphicon glyphicon-checked';
 		} else {
