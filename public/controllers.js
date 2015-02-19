@@ -1,7 +1,7 @@
 angular.module("jewApp")
 .service('userData', function($http){
 	this.url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080"
-	$http.get(userData.url + '/login').
+	$http.get(this.url + '/login').
 		success(function(data){
 			var city = data.house.city.split(", ").join("+");
 			this.address =   data.house.homeNumber + '+' + data.house.street +',' + '+' + city;
