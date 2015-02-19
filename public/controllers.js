@@ -1,12 +1,7 @@
 angular.module("jewApp")
 .service('userData', function($http){
 	this.url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080"
-
-
-	return{
-		url: this.url,
-
-		mapData: function(){
+	var getAdderss = function(){
 				$http.get(this.url + '/login').
 					success(function(data){
 						var city = data.user.house.city.split(", ").join("+");
@@ -17,7 +12,13 @@ angular.module("jewApp")
 								       console.log(this.mapData.results[0]);
 								})
 						})
-		}
+				}
+
+	return{
+		url: this.url,
+
+		mapData: getAdderss
+		
 	}
 })
 .controller("mainCtrl",function($scope,$interval,$http,$location,$state,userData){
