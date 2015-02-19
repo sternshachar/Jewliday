@@ -1,7 +1,23 @@
 angular.module("jewApp")
 .service('userData', function($http){
+	$http.get(userData.url + '/login').
+		success(function(data){
+			var city = data.house.city.split(", ").join("+");
+			this.address =   data.house.homeNumber + '+' + data.house.street +',' + '+' + city;
+			$http.get('http://maps.google.com/maps/api/geocode/json?address='+ $scope.address +'&sensor=false')
+				    .success(function(mapData) {
+						   this.mapData = mapData;
+					       console.log(this.mapData.results[0]);
+					})
+					.error(function(err){
+						console.error(err);
+				    });
+			})
+
 	return{
-		url: "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080"
+		url: "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080",
+
+		mapData: this.mapData
 	}
 })
 .controller("mainCtrl",function($scope,$interval,$http,$location,$state,userData){
@@ -15,7 +31,8 @@ angular.module("jewApp")
 	$scope.inbox ={state: false};
 	$scope.isListed = { listed: false};
 
-
+	console.log(userData.mapData);
+	
 	$http.get(userData.url + '/login').
 		success(function(data){
 		$scope.isAuth = data.isAuthenticated;
@@ -234,8 +251,8 @@ angular.module("jewApp")
 
     });
 
-    $scope.map = {center: {latitude: $scope.mapData.results[0].geometry.location.lat,
-     longitude: $scope.mapData.results[0].geometry.location.lng }, zoom: 14 };
+    $scope.map = {center: {latitude: userData.mapData.results[0].geometry.location.lat,
+     longitude: userData.mapData.results[0].geometry.location.lng }, zoom: 14 };
     $scope.options = {scrollwheel: false};
 
 
