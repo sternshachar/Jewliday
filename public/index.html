@@ -78,6 +78,8 @@
 									.then(function(result){
 										console.log(result)
 										return result.data.results[0].geometry.location;
+									},function(err){
+										console.error(err);
 									})
 								})
 							}
