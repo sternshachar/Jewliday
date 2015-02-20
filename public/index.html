@@ -58,19 +58,18 @@
 									console.log(address);
 									return address;
 								})
-
-								var location = promise.then(function(result){
-									console.log(result);
-									$http.get('http://maps.google.com/maps/api/geocode/json?address='+ result +'&sensor=false')
+								.then(function(result){
+									var location = $http.get('http://maps.google.com/maps/api/geocode/json?address='+ result +'&sensor=false')
 									.then(function(result){
 										console.log(result.data)
 										return result.data.results[0].geometry.location;
 									},function(err){
 										console.error(err);
 									})
+									console.log(location);
+									return location;
 								})
-								console.log(location)
-								return location;
+								return promise;
 							}
 						} 
 					})
