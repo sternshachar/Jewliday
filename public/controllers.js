@@ -76,45 +76,7 @@ angular.module("jewApp")
 								$scope.userLastName = data.user.lastName;
 								$scope.userId = data.user._id;
 								$scope.isListed ={ listed: data.user.house.listed};
-								$http.get(userData.url + '/login').
-								success(function(data){
-									var city = data.user.house.city.split(", ").join("+");
-									var address =   data.user.house.homeNumber + '+' + data.user.house.street +',' + '+' + city;
-									$http.get('http://maps.google.com/maps/api/geocode/json?address='+ address +'&sensor=false')
-										    .success(function(mapData) {
-										    	console.log(mapData.results[0]);
-												   $scope.mapData = mapData;
-												   console.log($scope.mapData)
-												   $scope.options = {scrollwheel: false};
-												       $scope.map = {center: {latitude: $scope.mapData.results[0].geometry.location.lat,
-     															longitude: $scope.mapData.results[0].geometry.location.lng }, zoom: 14 };
-												       $scope.marker = {
-													      id: 0,
-													      coords: {
-													        latitude: $scope.mapData.results[0].geometry.location.lat,
-													        longitude: $scope.mapData.results[0].geometry.location.lng
-													      },
-													      options: { draggable: true },
-													      events: {
-													        dragend: function (marker, eventName, args) {
-													          $log.log('marker dragend');
-													          var lat = marker.getPosition().lat();
-													          var lon = marker.getPosition().lng();
-													          $log.log(lat);
-													          $log.log(lon);
-
-													          $scope.marker.options = {
-													            draggable: true,
-													            labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
-													            labelAnchor: "100 0",
-													            labelClass: "marker-labels"
-													          };
-													        }
-													      }
-													  }
-											       
-											})
-									})
+								$http.get(userData.url + '/login');
 							});
 
 
@@ -219,7 +181,7 @@ angular.module("jewApp")
  //      types: '(cities)'
  //    };
 })
-.controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi,userData){
+.controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi,userData,addressData){
 	var amenities = {};
 
 		$http.get(userData.url + '/login').
@@ -266,7 +228,35 @@ angular.module("jewApp")
 
     });
 
+					   $scope.mapData = addressData;
+												   console.log($scope.mapData)
+												   $scope.options = {scrollwheel: false};
+												       $scope.map = {center: {latitude: $scope.mapData.lat,
+     															longitude: $scope.mapData.lng }, zoom: 14 };
+												       $scope.marker = {
+													      id: 0,
+													      coords: {
+													        latitude: $scope.mapData.lat,
+													        longitude: $scope.mapData.lng
+													      },
+													      options: { draggable: true },
+													      events: {
+													        dragend: function (marker, eventName, args) {
+													          $log.log('marker dragend');
+													          var lat = marker.getPosition().lat();
+													          var lon = marker.getPosition().lng();
+													          $log.log(lat);
+													          $log.log(lon);
 
+													          $scope.marker.options = {
+													            draggable: true,
+													            labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
+													            labelAnchor: "100 0",
+													            labelClass: "marker-labels"
+													          };
+													        }
+													      }
+													  }
     
 
 })

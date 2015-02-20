@@ -63,7 +63,23 @@
 					})
 					.state('usersArea.home.location',{
 						url:'/location',
-						templateUrl:'views/users.home.locationDetails.html'
+						templateUrl:'views/users.home.locationDetails.html',
+						resolve: {
+							addressData : $http.get(userData.url + '/login')
+								.then(function(result){
+									console.log(result);
+									var city = result.data.user.house.city.split(", ").join("+");
+									var address =   result.data.user.house.homeNumber + '+' + result.data.user.house.street +',' + '+' + city;
+									return address;
+								})
+								.then(function(result){
+									var location = $http.get('http://maps.google.com/maps/api/geocode/json?address='+ address +'&sensor=false')
+									.then(function(result){
+										console.log(result)
+										return result.data.results[0].geometry.location;
+									})
+								})
+						} 
 					})
 					.state('usersArea.home.photos',{
 						url:'/photos',
