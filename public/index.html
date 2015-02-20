@@ -59,7 +59,6 @@
 									return address;
 								})
 								.then(function(result){
-									console.log(result)
 									var location = $http.get('http://maps.google.com/maps/api/geocode/json?address='+ result +'&sensor=false')
 									.then(function(result2){
 										console.log(result2)
@@ -67,6 +66,7 @@
 									},function(err){
 										console.error(err);
 									})
+									return location;
 								})
 								return promise;
 							}
