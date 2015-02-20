@@ -46,24 +46,7 @@
 					.state('usersArea.home',{
 						url:'/home',
 						templateUrl:'views/users.home.html',
-						controller: 'homeCtrl'
-					})
-
-					.state('usersArea.inbox.incoming',{
-						url:'/incoming',
-						templateUrl:'views/users.inbox.incoming.html'
-					})
-					.state('usersArea.inbox.sent',{
-						url:'/sent',
-						templateUrl:'views/users.inbox.sent.html'
-					})
-					.state('usersArea.inbox.saved',{
-						url:'/saved',
-						templateUrl:'views/users.inbox.saved.html'
-					})
-					.state('usersArea.home.location',{
-						url:'/location',
-						templateUrl:'views/users.home.locationDetails.html',
+						controller: 'homeCtrl',
 						resolve: {
 							addressData : function($http,userData){
 								var promise = $http.get(userData.url + '/login');
@@ -86,6 +69,23 @@
 								return promise;
 							}
 						} 
+					})
+
+					.state('usersArea.inbox.incoming',{
+						url:'/incoming',
+						templateUrl:'views/users.inbox.incoming.html'
+					})
+					.state('usersArea.inbox.sent',{
+						url:'/sent',
+						templateUrl:'views/users.inbox.sent.html'
+					})
+					.state('usersArea.inbox.saved',{
+						url:'/saved',
+						templateUrl:'views/users.inbox.saved.html'
+					})
+					.state('usersArea.home.location',{
+						url:'/location',
+						templateUrl:'views/users.home.locationDetails.html'
 					})
 					.state('usersArea.home.photos',{
 						url:'/photos',
