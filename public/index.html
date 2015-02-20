@@ -60,9 +60,9 @@
 								})
 								.then(function(result){
 									var location = $http.get('http://maps.google.com/maps/api/geocode/json?address='+ result +'&sensor=false')
-									.then(function(result2){
-										console.log(result2.data)
-										return result2.data.results[0].geometry.location;
+									.then(function(result){
+										console.log(result.data)
+										return result.data.results[0].geometry.location;
 									},function(err){
 										console.error(err);
 									})
