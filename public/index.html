@@ -49,8 +49,8 @@
 						controller: 'homeCtrl',
 						resolve: {
 							addressData : function($http,userData){
-								var promise = $http.get(userData.url + '/login');
-								promise
+								var promise = $http.get(userData.url + '/login')
+								
 								.then(function(result){
 									console.log(result);
 									var city = result.data.user.house.city.split(", ").join("+");
