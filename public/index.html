@@ -11,7 +11,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Gurajada' rel='stylesheet' type='text/css'>
 	<script>
 		angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","file-model","file-uploader","ui.router",'uiGmapgoogle-maps'])
-			.config(function($stateProvider,$urlRouterProvider,uiGmapGoogleMapApiProvider,$http){
+			.config(function($stateProvider,$urlRouterProvider,uiGmapGoogleMapApiProvider){
 				    uiGmapGoogleMapApiProvider.configure({
 				        //    key: 'your api key',
 				        v: '3.17',
@@ -65,7 +65,8 @@
 						url:'/location',
 						templateUrl:'views/users.home.locationDetails.html',
 						resolve: {
-							addressData : $http.get(userData.url + '/login')
+							addressData : function($http){
+								$http.get(userData.url + '/login')
 								.then(function(result){
 									console.log(result);
 									var city = result.data.user.house.city.split(", ").join("+");
@@ -79,6 +80,7 @@
 										return result.data.results[0].geometry.location;
 									})
 								})
+							}
 						} 
 					})
 					.state('usersArea.home.photos',{
