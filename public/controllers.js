@@ -122,7 +122,7 @@ angular.module("jewApp")
 		content: ""
 	};
 
-	$http.get(userData.url + '/inbox/' + $scope.userId)
+	$http.get(userData.url + '/inbox/' + $scope.userId)// move to resolve
 		.success(function(data){
 			$scope.messages = data[0].messages;
 			console.log(data);
