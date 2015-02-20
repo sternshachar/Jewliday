@@ -75,7 +75,7 @@
 									return address;
 								})
 								.then(function(result){
-									var location = $http.get('http://maps.google.com/maps/api/geocode/json?address='+ address +'&sensor=false')
+									var location = $http.get('http://maps.google.com/maps/api/geocode/json?address='+ result +'&sensor=false')
 									.then(function(result){
 										console.log(result)
 										return result.data.results[0].geometry.location;
