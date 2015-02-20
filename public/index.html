@@ -55,6 +55,7 @@
 									console.log(result);
 									var city = result.data.user.house.city.split(", ").join("+");
 									var address =   result.data.user.house.homeNumber + '+' + result.data.user.house.street +',' + '+' + city;
+									console.log(address);
 									return address;
 								})
 								.then(function(result){
