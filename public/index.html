@@ -65,7 +65,7 @@
 						url:'/location',
 						templateUrl:'views/users.home.locationDetails.html',
 						resolve: {
-							addressData : function($http){
+							addressData : function($http,userData){
 								var promise = $http.get(userData.url + '/login');
 								promise
 								.then(function(result){
