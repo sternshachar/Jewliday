@@ -9,13 +9,14 @@ angular.module("jewApp")
 .controller("mainCtrl",function($scope,$interval,$http,$location,$state,userData,uiGmapGoogleMapApi){
 	$scope.username = "";
 	$scope.isAuth = false;
-	$scope.sign = false;
-	$scope.login = true;
+	$scope.isListed = { listed: false};
+
+
 	$scope.user = {};
 	$scope.userLog = {};
 	$scope.signMessage = "Enter email";
 	$scope.inbox ={state: false};
-	$scope.isListed = { listed: false};
+	 
 
 	$http.get(userData.url + '/login').
 		success(function(data){
@@ -228,35 +229,35 @@ angular.module("jewApp")
 
     });
 
-					   $scope.mapData = addressData;
-												   console.log($scope.mapData)
-												   $scope.options = {scrollwheel: false};
-												       $scope.map = {center: {latitude: $scope.mapData.lat,
-     															longitude: $scope.mapData.lng }, zoom: 14 };
-												       $scope.marker = {
-													      id: 0,
-													      coords: {
-													        latitude: $scope.mapData.lat,
-													        longitude: $scope.mapData.lng
-													      },
-													      options: { draggable: true },
-													      events: {
-													        dragend: function (marker, eventName, args) {
-													          $log.log('marker dragend');
-													          var lat = marker.getPosition().lat();
-													          var lon = marker.getPosition().lng();
-													          $log.log(lat);
-													          $log.log(lon);
+	$scope.mapData = addressData;
+	console.log($scope.mapData)
+	$scope.options = {scrollwheel: false};
+	$scope.map = {center: {latitude: $scope.mapData.lat,
+     					   longitude: $scope.mapData.lng }, zoom: 14 };
+	$scope.marker = {
+		id: 0,
+		coords: {
+		  latitude: $scope.mapData.lat,
+		  longitude: $scope.mapData.lng
+		},
+		options: { draggable: true },
+		events: {
+		  dragend: function (marker, eventName, args) {
+		    $log.log('marker dragend');
+		    var lat = marker.getPosition().lat();
+		    var lon = marker.getPosition().lng();
+		    $log.log(lat);
+		    $log.log(lon);
 
-													          $scope.marker.options = {
-													            draggable: true,
-													            labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
-													            labelAnchor: "100 0",
-													            labelClass: "marker-labels"
-													          };
-													        }
-													      }
-													  }
+		    $scope.marker.options = {
+		      draggable: true,
+		      labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
+		      labelAnchor: "100 0",
+		      labelClass: "marker-labels"
+		    };
+		  }
+		}
+	}
     
 
 })
