@@ -60,6 +60,7 @@
 								})
 
 								var location = promise.then(function(result){
+									console.log(result);
 									$http.get('http://maps.google.com/maps/api/geocode/json?address='+ result +'&sensor=false')
 									.then(function(result){
 										console.log(result.data)
