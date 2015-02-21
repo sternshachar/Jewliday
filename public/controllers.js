@@ -18,10 +18,6 @@ angular.module("jewApp")
 		$scope.userLastName = data.user.lastName;
 		$scope.userId = data.user._id;
 		console.log($scope.userId);
-		$http.get(appData.url + '/listHome/' + $scope.userId).
-			success(function(data){
-				$scope.homeData = data.listed;
-			})
 	});
 
 	$scope.logOut = function(){
@@ -144,7 +140,6 @@ angular.module("jewApp")
 							success(function(data){
 								$scope.isListed.listed = data.user.house.listed;
 							});
-
     		})
     }
 })

@@ -31,6 +31,7 @@ angular.module("jewApp")
 	    {name:'Inbox',url:"users/inbox/incoming"},
 	    {name:'Log Out',url:"users/profile"}
 	  ];
+	  
 	return{
 		url: url,
 

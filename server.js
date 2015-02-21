@@ -133,14 +133,6 @@ app.put('/listHome/:id', function(req,res){
 	res.send('Home saved!');
 })
 
-app.get('/listHome/:id', function(req,res){
-	var id = req.params.id;
-	var User = mongoose.model('users');
-
-	User.findOne({ _id: id }, function(err,user){
-		res.json(user);
-	})
-})
 
 app.post('/photo',function(req,res){
 	console.log(req.body);
