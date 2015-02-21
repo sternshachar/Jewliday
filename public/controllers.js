@@ -1,38 +1,37 @@
 angular.module("jewApp")
-.service('userData', function($http){
+.service('appData', function($http){
 	url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080"
 
 	return{
 		url: url
 	}
 })
-.controller("mainCtrl",function($scope,$interval,$http,$location,$state,userData,uiGmapGoogleMapApi){
+.controller("mainCtrl",function($scope,$interval,$http,$location,$state,appData,uiGmapGoogleMapApi){
+	$scope.user = {};// user data for SINGUP from form (logModal.html)
+	$scope.userLog = {};//user data for LOGIN up from form (signModal.html)
+
 	$scope.username = "";
 	$scope.isAuth = false;
 	$scope.isListed = { listed: false};
 
-
-	$scope.user = {};
-	$scope.userLog = {};
 	$scope.signMessage = "Enter email";
 	$scope.inbox ={state: false};
 	 
-
-	$http.get(userData.url + '/login').
+	$http.get(appData.url + '/login').
 		success(function(data){
 		$scope.isAuth = data.isAuthenticated;
 		$scope.username = data.user.firstName;
 		$scope.userLastName = data.user.lastName;
 		$scope.userId = data.user._id;
 		console.log($scope.userId);
-		$http.get(userData.url + '/listHome/' + $scope.userId).
+		$http.get(appData.url + '/listHome/' + $scope.userId).
 			success(function(data){
 				$scope.homeData = data.listed;
 			})
 	});
 
 	$scope.logOut = function(){
-		$http.get(userData.url + '/logout')
+		$http.get(appData.url + '/logout')
 			.success(function(data){
 				$scope.isAuth = data.isAuthenticated;
 				$location.path('/');
@@ -42,17 +41,17 @@ angular.module("jewApp")
 		// console.log('sending: ' + $scope.user.firstName + $scope.user.lastName)
 		$scope.user.firstName = $scope.user.firstName[0].toUpperCase() + $scope.user.firstName.substring(1).toLowerCase();
 		$scope.user.lastName = $scope.user.lastName[0].toUpperCase() + $scope.user.lastName.substring(1).toLowerCase();
-		$http.post(userData.url + '/signup',$scope.user)
+		$http.post(appData.url + '/signup',$scope.user)
 			.success(function(data){
 				if(data.message){
 					$scope.signMessage = data.message;
-					$scope.user.email = "";
-				} else {
+					$scope.user.email = "";//reset email if signup fails (user exists already)
+				} else {//LOGIN if SIGNUP ok
 					$scope.userLog.password = $scope.user.password;
 					$scope.userLog.username = $scope.user.email;
 					$scope.signMessage = "Enter email";
 					$scope.logIn();
-					$scope.user = {};
+					$scope.user = {};//reset SIGUP form
 				}
 				
 
@@ -62,7 +61,7 @@ angular.module("jewApp")
 
 	$scope.logIn = function(){
 		console.log($scope.userLog);
-		$http.post(userData.url + "/login",$scope.userLog)
+		$http.post(appData.url + "/login",$scope.userLog)
 			.success(function(data){
 				if(data.message){
 					$scope.message = data.message;
@@ -70,14 +69,14 @@ angular.module("jewApp")
 					$scope.userLog = {};
 				} else {
 
-						$http.get(userData.url + '/login').
+						$http.get(appData.url + '/login').
 							success(function(data){
 								$scope.isAuth = data.isAuthenticated;
 								$scope.username = data.user.firstName;
 								$scope.userLastName = data.user.lastName;
 								$scope.userId = data.user._id;
 								$scope.isListed ={ listed: data.user.house.listed};
-								$http.get(userData.url + '/login');
+								$http.get(appData.url + '/login');
 							});
 
 
@@ -114,7 +113,7 @@ angular.module("jewApp")
 	  }
 })
 
-.controller("inboxCtrl",function($scope,$http,$state,userData){
+.controller("inboxCtrl",function($scope,$http,$state,appData){
 	$scope.messageData = {
 		uid: $scope.userId,
 		sender: $scope.username + ' ' + $scope.userLastName,
@@ -122,7 +121,7 @@ angular.module("jewApp")
 		content: ""
 	};
 
-	$http.get(userData.url + '/inbox/' + $scope.userId)// move to resolve
+	$http.get(appData.url + '/inbox/' + $scope.userId)// move to resolve
 		.success(function(data){
 			$scope.messages = data[0].messages;
 			console.log(data);
@@ -130,14 +129,14 @@ angular.module("jewApp")
 
 	$scope.sendMessage = function(){
 		console.log('sending');
-		$http.post(userData.url + '/inbox/' + $scope.userId, $scope.messageData)
+		$http.post(appData.url + '/inbox/' + $scope.userId, $scope.messageData)
 			.success(function(data){
 				console.log(data);
 			});
 	}	
 })
 
-.controller("newHomeCtrl",function($scope,$http,userData){
+.controller("newHomeCtrl",function($scope,$http,appData){
 
 	$scope.home = {listed: true};
 	$scope.options = {types: '(cities)'};
@@ -159,7 +158,7 @@ angular.module("jewApp")
       })
 	$scope.upload = function () {
       console.log($scope.file); // This is where the file is linked to.
-      $http.post(userData.url + '/photo',$scope.file)
+      $http.post(appData.url + '/photo',$scope.file)
       	.success(function(data){
       		console.log(data);
       	})
@@ -167,10 +166,10 @@ angular.module("jewApp")
 
     $scope.saveHome = function(){
     	console.log($scope.home);
-    	$http.put(userData.url + '/listHome/' + $scope.userId,$scope.home)
+    	$http.put(appData.url + '/listHome/' + $scope.userId,$scope.home)
     		.success(function(data){
     			$scope.listHomeMessage = data;
-    					$http.get(userData.url + '/login').
+    					$http.get(appData.url + '/login').
 							success(function(data){
 								$scope.isListed.listed = data.user.house.listed;
 							});
@@ -182,10 +181,10 @@ angular.module("jewApp")
  //      types: '(cities)'
  //    };
 })
-.controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi,userData,addressData){
+.controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi,appData,addressData){
 	var amenities = {};
 
-		$http.get(userData.url + '/login').
+		$http.get(appData.url + '/login').
 				success(function(data){
 					amenities = data.user.house.amenities;
 					$scope.home = data.user.house;
