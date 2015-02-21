@@ -1,7 +1,10 @@
 angular.module("jewApp")
 .controller("mainCtrl",function($scope,$interval,$http,$location,$state,appData,uiGmapGoogleMapApi){
-	$scope.user = {};// user data for SINGUP from form (logModal.html)
-	$scope.userLog = {};//user data for LOGIN up from form (signModal.html)
+	$scope.user = {};		// user data for SINGUP from form (logModal.html)
+	$scope.userLog = {};	//user data for LOGIN up from form (signModal.html)
+
+	$scope.items = appData.dropdownUserMenu; //item for user dropdown menu
+	//$scope.userTab = {name:'inbox'};
 
 	$scope.username = "";
 	$scope.isAuth = false;
@@ -83,14 +86,9 @@ angular.module("jewApp")
 		return $scope.signMessage == "Enter email" ? ' ' : 'red-alert';
 	}
 
-	  $scope.items = [
-	    {name:'Profile',url: "users/profile"},
-	    {name:'Your Home',url:"users/home"},
-	    {name:'Inbox',url:"users/inbox/incoming"},
-	    {name:'Log Out',url:"users/profile"}
-	  ];
+	  
 
-	  $scope.userTab = {name:'inbox'};
+	  
 
 	  $scope.inboxActive = function(){
 	  	if($state.includes('usersArea.inbox'))
@@ -169,8 +167,6 @@ angular.module("jewApp")
 
 
 				});
-
-		console.log($scope.mapData);
 
 		$scope.amenitiesOrdered = appData.amenitiesHomeView;
 

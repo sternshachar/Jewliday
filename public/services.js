@@ -16,7 +16,7 @@ angular.module("jewApp")
 				{name:"Smoking Allowed" ,glyph:""	,dbName:"SmokingAllowed"}],
 			   [{name:"Washer"			,glyph:""	,dbName:"Washer"},
 				{name:"Accessibility"	,glyph:""	,dbName:"Accessibility"}]
-	]
+	];
 
 	amenitiesListHome = [
 				["TV", "wifi", "AirCondition","Dryer"],
@@ -24,11 +24,20 @@ angular.module("jewApp")
 				["Fireplace", "PetsAllowed", "Pool","SmokingAllowed"],
 				["Washer", "Accessibility"],
 	];
+
+	dropdownUserMenu =  [
+	    {name:'Profile',url: "users/profile"},
+	    {name:'Your Home',url:"users/home"},
+	    {name:'Inbox',url:"users/inbox/incoming"},
+	    {name:'Log Out',url:"users/profile"}
+	  ];
 	return{
 		url: url,
 
 		amenitiesHomeView: amenitiesHomeView, //for homeCtrl
 
-		amenitiesListHome: amenitiesListHome //for newHomeCtrl
+		amenitiesListHome: amenitiesListHome, //for newHomeCtrl
+
+		dropdownUserMenu: dropdownUserMenu	  //for mainCtrl - item for user dropdown menu
 	}
 })
