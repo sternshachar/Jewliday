@@ -1,7 +1,7 @@
 angular.module("jewApp")
 .service('appData', function($http){
 	url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080",
-	amenities = [
+	amenitiesHomeView = [
 			   [{name:"TV"				,glyph:""	,dbName:"TV"},
 				{name:"WI-FI"			,glyph:""	,dbName:"wifi"},
 				{name:"Air Condition"	,glyph:""	,dbName:"AirCondition"},
@@ -17,9 +17,18 @@ angular.module("jewApp")
 			   [{name:"Washer"			,glyph:""	,dbName:"Washer"},
 				{name:"Accessibility"	,glyph:""	,dbName:"Accessibility"}]
 	]
+
+	amenitiesListHome = [
+				["TV", "wifi", "AirCondition","Dryer"],
+				["Elevator", "Essentials", "FreeParking","Heating"],
+				["Fireplace", "PetsAllowed", "Pool","SmokingAllowed"],
+				["Washer", "Accessibility"],
+	];
 	return{
 		url: url,
 
-		amenities: amenities
+		amenitiesHomeView: amenitiesHomeView, //for homeCtrl
+
+		amenitiesListHome: amenitiesListHome //for newHomeCtrl
 	}
 })

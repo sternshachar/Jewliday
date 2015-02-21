@@ -46,9 +46,6 @@ angular.module("jewApp")
 					$scope.logIn();
 					$scope.user = {};//reset SIGUP form
 				}
-				
-
-
 			})
 	}
 
@@ -81,7 +78,6 @@ angular.module("jewApp")
 
 			});
 	}
-
 
 	$scope.redAlert = function(){
 		return $scope.signMessage == "Enter email" ? ' ' : 'red-alert';
@@ -128,19 +124,11 @@ angular.module("jewApp")
 			});
 	}	
 })
-
 .controller("newHomeCtrl",function($scope,$http,appData){
 
 	$scope.home = {listed: true};
 	$scope.options = {types: '(cities)'};
-	$scope.amenities = [
-				["TV", "wifi", "AirCondition","Dryer"],
-				["Elevator", "Essentials", "FreeParking","Heating"],
-				["Fireplace", "PetsAllowed", "Pool","SmokingAllowed"],
-				["Washer", "Accessibility"],
-	];
-
-
+	$scope.amenities = appData.amenitiesListHome;
 
 	$scope.details = "";
 	  $scope.file = {};
@@ -169,10 +157,6 @@ angular.module("jewApp")
 
     		})
     }
-	// {
- //      country: 'ca',
- //      types: '(cities)'
- //    };
 })
 .controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi,appData,addressData){
 	var amenities = {};
@@ -186,8 +170,6 @@ angular.module("jewApp")
 
 				});
 
-
-		
 		console.log($scope.mapData);
 
 		$scope.amenitiesOrdered = appData.amenities;
@@ -235,6 +217,4 @@ angular.module("jewApp")
 		  }
 		}
 	}
-    
-
 })
