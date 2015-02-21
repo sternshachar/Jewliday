@@ -7,9 +7,9 @@ angular.module("jewApp")
 
 	$scope.signMessage = "Enter email";  	//default text in email field in SIGNUP form
 
-	$scope.username = "";
-	$scope.isAuth = false;
-	$scope.isListed = { listed: false};
+	$scope.username = "";				//name displayed in navigation bar
+	$scope.isAuth = false;				//login Status
+	$scope.isListed = { listed: false};	//submited a home?
 	 
 	$http.get(appData.url + '/login').
 		success(function(data){
@@ -32,7 +32,6 @@ angular.module("jewApp")
 			})
 	}
 	$scope.signUp = function(){
-		// console.log('sending: ' + $scope.user.firstName + $scope.user.lastName)
 		$scope.user.firstName = $scope.user.firstName[0].toUpperCase() + $scope.user.firstName.substring(1).toLowerCase();
 		$scope.user.lastName = $scope.user.lastName[0].toUpperCase() + $scope.user.lastName.substring(1).toLowerCase();
 		$http.post(appData.url + '/signup',$scope.user)
@@ -82,20 +81,15 @@ angular.module("jewApp")
 
 	$scope.redAlert = function(){
 		return $scope.signMessage == "Enter email" ? ' ' : 'red-alert';
+	}	  
+	$scope.inboxActive = function(){			//sets relevant tab active
+		if($state.includes('usersArea.inbox'))
+		{return 'active';} else {return '';}
 	}
-
-	  
-
-	  
-
-	  $scope.inboxActive = function(){
-	  	if($state.includes('usersArea.inbox'))
-	  	{return 'active';} else {return '';}
-	  }
-	  $scope.homeActive = function(){
+	$scope.homeActive = function(){
 	  	if($state.includes('usersArea.home'))
 	  	{return 'active';} else {return '';}
-	  }
+	}
 })
 
 .controller("inboxCtrl",function($scope,$http,$state,appData){
@@ -177,10 +171,6 @@ angular.module("jewApp")
 			}
 		}
 	}
-
-	uiGmapGoogleMapApi.then(function(maps) {
-
-    });
 
 	$scope.mapData = addressData;
 	console.log($scope.mapData)
