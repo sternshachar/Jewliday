@@ -4,14 +4,12 @@ angular.module("jewApp")
 	$scope.userLog = {};	//user data for LOGIN up from form (signModal.html)
 
 	$scope.items = appData.dropdownUserMenu; //item for user dropdown menu
-	//$scope.userTab = {name:'inbox'};
+
+	$scope.signMessage = "Enter email";  	//default text in email field in SIGNUP form
 
 	$scope.username = "";
 	$scope.isAuth = false;
 	$scope.isListed = { listed: false};
-
-	$scope.signMessage = "Enter email";
-	$scope.inbox ={state: false};
 	 
 	$http.get(appData.url + '/login').
 		success(function(data){
