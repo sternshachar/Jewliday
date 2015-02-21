@@ -11,7 +11,7 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 				    }])
 				     $urlRouterProvider
 				      .when('/users/home', ['$state', function ($state) {
-				            $state.go('usersArea.home.location');
+				            $state.go('usersArea.home.photos');
 				    }])
     				$stateProvider
 					.state('home',{
@@ -37,27 +37,26 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 						controller: 'homeCtrl',
 						resolve: {
 							addressData : function($http,userData){
-								var promise = $http.get(userData.url + '/login')
-								
-								.then(function(result){
-									console.log(result);
-									var city = result.data.user.house.city.split(", ").join("+");
-									var address =   result.data.user.house.homeNumber + '+' + result.data.user.house.street +',' + '+' + city;
-									console.log(address);
-									return address;
-								})
-								.then(function(result){
-									var location = $http.get('http://maps.google.com/maps/api/geocode/json?address='+ result +'&sensor=false')
+								var promise = $http.get(userData.url + '/login')								
 									.then(function(result){
-										console.log(result.data)
-										return result.data.results[0].geometry.location;
-									},function(err){
-										console.error(err);
+										console.log(result);
+										var city = result.data.user.house.city.split(", ").join("+");
+										var address =   result.data.user.house.homeNumber + '+' + result.data.user.house.street +',' + '+' + city;
+										console.log(address);
+										return address;
 									})
-									console.log(location);
-									return location;
-								})
-								return promise;
+									.then(function(result){
+										var location = $http.get('http://maps.google.com/maps/api/geocode/json?address='+ result +'&sensor=false')
+										.then(function(result){
+											console.log(result.data)
+											return result.data.results[0].geometry.location;
+										},function(err){
+											console.error(err);
+										})
+										console.log(location);
+										return location;
+									})
+									return promise;
 							}
 						} 
 					})
