@@ -172,7 +172,7 @@ angular.module("jewApp")
 
 		console.log($scope.mapData);
 
-		$scope.amenitiesOrdered = appData.amenities;
+		$scope.amenitiesOrdered = appData.amenitiesHomeView;
 
 	$scope.amenityCheck = function(name){
 		if(!(typeof amenities === 'undefined')){
