@@ -134,11 +134,11 @@ angular.module("jewApp")
 
                 model: { file: null },
 
-                upload: function(model) {
-                    Files.prototype.$save.call(model.file, function(self, headers) {
-                        // Handle server response
-                    });
-                }
+                // upload: function(model) {
+                //     Files.prototype.$save.call(model.file, function(self, headers) {
+                //         // Handle server response
+                //     });
+                // }
             });
 
                 console.log($scope.model.file);
