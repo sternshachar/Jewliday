@@ -131,7 +131,7 @@ angular.module("jewApp")
     		})
     }
 
-    $scope.upload() = function(){
+    $scope.upload = function(){
     	console.log($scope.uploader);
     	console.info($scope.uploader);
     }
