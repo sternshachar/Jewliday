@@ -133,7 +133,7 @@ angular.module("jewApp")
 
     $scope.upload = function(){
     	var reader = new FileReader();
-        var binaryImage = FileReader.readAsBinaryString($scope.uploader.queue._file);
+        var binaryImage = FileReader.readAsBinaryString($scope.uploader.queue[0]._file);
         console.log(binaryImage);
     	var promise = $http.post(appData.url + '/photo',{image : binaryImage})
     					.then(function(result){
