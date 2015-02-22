@@ -146,7 +146,7 @@ app.post('/photo',function(req,res){
 function uploadFile(remoteFilename, fileName) {
   var fileBuffer = fileName;
   
-  s3.putObject({
+  s3bucket.putObject({
     ACL: 'public-read',
     Bucket: 'jewliday',
     Key: remoteFilename,
