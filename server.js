@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
 var passport = require('./auth');
+var AWS = require('aws-sdk'); 
 app.use(express.static('public'));
 app.listen(8080);
 /* --- express server setup --- */
@@ -138,3 +139,5 @@ app.post('/photo',function(req,res){
 	console.log(req.body);
 	res.send('Sent image');
 })
+
+var s3bucket = new AWS.S3({ params: {Bucket: 'jewliday'} });
