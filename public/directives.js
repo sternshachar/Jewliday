@@ -101,6 +101,7 @@ angular.module('jewApp')
                 var reader = new FileReader();
 
                 reader.onload = onLoadFile;
+                console.log(params.file);
                 reader.readAsDataURL(params.file);
 
                 function onLoadFile(event) {
