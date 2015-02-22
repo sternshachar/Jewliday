@@ -1,8 +1,19 @@
+<style>
+.dragDrop{
+	border: 1.5px dashed black;
+	background-color: white;
+}
+</style>
 
-						<div ui-view></div>
-						<textarea class="form-control" rows="3" placeholder="Describe your home and any other detail you think is important" ng-model="home.description"></textarea>
-						<label class="image-btn">
-						    <input type='file' file-model='file'>
-						    <span id="photo-btn"style="font-size: 14px;">Add Photo</span>
-						</label>
-						{{file}}
+<div ui-view></div>
+<textarea class="form-control" rows="3" placeholder="Describe your home and any other detail you think is important" ng-model="home.description"></textarea>
+<p>Select from file:</p>
+<label class="image-btn">
+    <input type="file" nv-file-select uploader="uploader"/>
+    <span id="photo-btn"style="font-size: 14px;">Add Photo</span>
+</label>
+
+<p>Drag & Drop :</p>
+<div class="dragDrop" nv-file-drop uploader="uploader">
+
+</div>

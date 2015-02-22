@@ -1,15 +1,15 @@
 angular.module("jewApp")
 .controller("mainCtrl",function($scope,$interval,$http,$location,$state,appData,uiGmapGoogleMapApi){
-	$scope.user = {};		// user data for SINGUP from form (logModal.html)
-	$scope.userLog = {};	//user data for LOGIN up from form (signModal.html)
+	$scope.user = {};						// user data for SINGUP from form (logModal.html)
+	$scope.userLog = {};					//user data for LOGIN up from form (signModal.html)
 
-	$scope.items = appData.dropdownUserMenu; //item for user dropdown menu
+	$scope.items = appData.dropdownUserMenu;//item for user dropdown menu
 
 	$scope.signMessage = "Enter email";  	//default text in email field in SIGNUP form
 
-	$scope.username = "";				//name displayed in navigation bar
-	$scope.isAuth = false;				//login Status
-	$scope.isListed = { listed: false};	//submited a home?
+	$scope.isAuth = false;					//login Status
+	$scope.username = "";					//name displayed in navigation bar
+	$scope.isListed = { listed: false};		//submited a home?
 	 
 	$http.get(appData.url + '/login').
 		success(function(data){
@@ -110,26 +110,14 @@ angular.module("jewApp")
 			});
 	}	
 })
-.controller("newHomeCtrl",function($scope,$http,appData){
-
+.controller("newHomeCtrl",function($scope,$http,appData,FileUploader){
+	$scope.uploader = new FileUploader();
 	$scope.home = {listed: true};
 	$scope.options = {types: '(cities)'};
 	$scope.amenities = appData.amenitiesListHome;
 
 	$scope.details = "";
-	  $scope.file = {};
-      
-      $scope.$watch('file', function (newVal) {
-        if (newVal)
-          console.log(newVal);
-      })
-	$scope.upload = function () {
-      console.log($scope.file); // This is where the file is linked to.
-      $http.post(appData.url + '/photo',$scope.file)
-      	.success(function(data){
-      		console.log(data);
-      	})
-    };
+
 
     $scope.saveHome = function(){
     	console.log($scope.home);
