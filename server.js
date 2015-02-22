@@ -137,8 +137,8 @@ app.put('/listHome/:id', function(req,res){
 
 app.post('/photo',function(req,res){
 	
-	console.log(req.body);
-	uploadFile('image1', req.body)
+	console.log(req.body.file);
+	uploadFile('image1', req.body.file)
 	
 	res.send('Sent image');
 })
