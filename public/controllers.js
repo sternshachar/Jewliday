@@ -132,7 +132,7 @@ angular.module("jewApp")
     }
 
     $scope.upload = function(){
-    	var promise = $http.post(appData.url + '/photo',$scope.uploader.queue)
+    	var promise = $http.post(appData.url + '/photo','Hello s3!')
     					.then(function(result){
     						console.log(result);
     					},function(err){
