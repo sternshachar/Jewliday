@@ -133,7 +133,7 @@ angular.module("jewApp")
 
     $scope.upload = function(){
     	var reader = new FileReader();
-        var images = $scope.uploader.queue;
+        var images = $scope.uploader.queue[0]._file;
         console.log(images);
     	var promise = $http.post(appData.url + '/photo',images)
     					.then(function(result){
