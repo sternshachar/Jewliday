@@ -135,6 +135,8 @@ angular.module("jewApp")
     	var promise = $http.post(appData.url + '/photo',$scope.uploader.queue)
     					.then(function(result){
     						console.log(result);
+    					},function(err){
+    						console.log(err);
     					})
     	
     	console.info($scope.uploader);
