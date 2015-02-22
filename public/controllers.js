@@ -130,8 +130,18 @@ angular.module("jewApp")
     		})
     }
 
-    $scope.upload = function(){
-	}
+                angular.extend($scope, {
+
+                model: { file: null },
+
+                upload: function(model) {
+                    Files.prototype.$save.call(model.file, function(self, headers) {
+                        // Handle server response
+                    });
+                }
+            });
+
+                console.log($scope.model.file);
 })
 .controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi,appData,addressData){
 	var amenities = {};
