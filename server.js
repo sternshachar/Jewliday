@@ -144,8 +144,7 @@ app.post('/photo',function(req,res){
 })
 
 function uploadFile(remoteFilename, fileName) {
-  var reader = new FileReader();
-  var fileBuffer = reader.readAsArrayBuffer(fileName);
+  var fileBuffer = fileName;
   
   s3.putObject({
     ACL: 'public-read',
