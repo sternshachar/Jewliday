@@ -129,7 +129,7 @@ angular.module("jewApp")
 								$scope.isListed.listed = data.user.house.listed;
 							});
     		})
-    }
+  
 })
 .controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi,appData,addressData){
 	var amenities = {};
