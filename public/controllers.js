@@ -137,8 +137,8 @@ angular.module("jewApp")
   		var fileBuffer = reader.readAsArrayBuffer(images);
 
         
-        console.log(images);
-    	var promise = $http.post(appData.url + '/photo',images)
+        console.log(fileBuffer);
+    	var promise = $http.post(appData.url + '/photo',fileBuffer)
     					.then(function(result){
     						console.log(result);
     					},function(err){
