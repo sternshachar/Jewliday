@@ -111,7 +111,6 @@ angular.module("jewApp")
 	}	
 })
 .controller("newHomeCtrl",function($scope,$http,appData){
-	$scope.uploader = new FileUploader();
 	$scope.home = {listed: true};
 	$scope.options = {types: '(cities)'};
 	$scope.amenities = appData.amenitiesListHome;
