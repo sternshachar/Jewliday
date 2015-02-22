@@ -142,6 +142,12 @@ angular.module("jewApp")
             });
             $scope.upload = function(){
                 console.log($scope.model.file);
+                $http.post(appData.url + '/photo',$scope.model.file)
+                	.then(function(data){
+                		console.log(data);
+                	},function(err){
+                		console.error(err);
+                	})
             }
 })
 .controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi,appData,addressData){
