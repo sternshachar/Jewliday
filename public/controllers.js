@@ -132,7 +132,7 @@ angular.module("jewApp")
     }
 
     $scope.upload = function(){
-
+	}
 })
 .controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi,appData,addressData){
 	var amenities = {};
