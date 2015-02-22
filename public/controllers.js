@@ -130,6 +130,11 @@ angular.module("jewApp")
 							});
     		})
     }
+
+    $scope.upload() = function(){
+    	console.log($scope.uploader);
+    	console.info($scope.uploader);
+    }
 })
 .controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi,appData,addressData){
 	var amenities = {};
