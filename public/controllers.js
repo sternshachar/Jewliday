@@ -134,7 +134,7 @@ angular.module("jewApp")
     $scope.upload = function(){
     	var reader = new FileReader();
     	var images = $scope.uploader.queue[0]._file;
-  		var fileBuffer = reader.readAsArrayBuffer(images);
+  		var fileBuffer = reader.readAsDataURL(images);
 
         
         console.log(fileBuffer);
