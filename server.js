@@ -138,15 +138,24 @@ app.put('/listHome/:id', function(req,res){
 app.post('/photo',function(req,res){
 	var s3bucket = new AWS.S3({ params: {Bucket: 'jewliday'} });
 	console.log(req.body);
-	var params = {Key: 'pictures', Body: req.body.image};
-	  s3bucket.upload(params, function(err, data) {
-	    if (err) {
-	      console.log("Error uploading data: ", err);
-	    } else {
-	      console.log("Successfully uploaded data to myBucket/myKey");
-	    }
-	  });
+	uploadFile('image1', req.body[0]._file)
 	
 	res.send('Sent image');
 })
+
+function uploadFile(remoteFilename, fileName) {
+  var reader = new FileReader();
+  var fileBuffer = reader.readAsArrayBuffer(fileName);
+  
+  s3.putObject({
+    ACL: 'public-read',
+    Bucket: 'jewliday',
+    Key: remoteFilename,
+    Body: fileBuffer,
+    ContentType: 'image/jpg'
+  }, function(error, response) {
+    console.log('uploaded file[' + fileName + '] to [' + remoteFilename + '] as [' + metaData + ']');
+    console.log(arguments);
+  });
+}
 
