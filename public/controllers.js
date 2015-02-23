@@ -110,7 +110,7 @@ angular.module("jewApp")
 			});
 	}	
 })
-.controller("newHomeCtrl",function($scope,$http,appData){
+.controller("newHomeCtrl",function($scope,$http,appData,fileUpload){
 	$scope.home = {listed: true};
 	$scope.options = {types: '(cities)'};
 	$scope.amenities = appData.amenitiesListHome;
@@ -140,6 +140,11 @@ angular.module("jewApp")
                 //     });
                 // }
             });
+
+                var file = $scope.myFile;
+				
+				fileUpload.uploadFileToUrl(file, appData.url + '/photo');
+
             $scope.upload = function(){
                 console.log($scope.model.file);
                 var reader = new FileReader();
