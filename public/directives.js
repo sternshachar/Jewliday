@@ -68,7 +68,7 @@ angular.module('jewApp')
 	}
 })
 
-.directives.directive('file', function() {
+.directive('file', function() {
   return {
     restrict: 'AE',
     scope: {
