@@ -183,6 +183,7 @@ app.post('/upload', function(req, res) {
                         res.status(500);
                         res.json({'success': false});
                     } else {
+                    	uploadFile('image1',data)
                         res.status(200);
                         res.json({'success': true});
                     }
