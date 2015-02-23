@@ -149,9 +149,9 @@ app.post('/photo',function(req,res){
 })
 
 
-function uploadFile(remoteFilename, fileName) {
+function uploadFile(remoteFilename, file) {
   var s3bucket = new AWS.S3({ params: {Bucket: 'jewliday'} });
-  var fileBuffer = fileName;
+  var fileBuffer = file;
   
   s3bucket.putObject({
     ACL: 'public-read',
@@ -160,7 +160,7 @@ function uploadFile(remoteFilename, fileName) {
     Body: fileBuffer,
     ContentType: 'image/jpg'
   }, function(error, response) {
-    console.log('uploaded file[' + fileName + '] to [' + remoteFilename + '] as [' + 'jewliday' + ']');
+    console.log('uploaded file to [' + remoteFilename + '] as [' + 'jewliday' + ']');
     // console.log(arguments);
   });
 }
