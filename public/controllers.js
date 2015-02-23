@@ -141,9 +141,15 @@ angular.module("jewApp")
                 // }
             });
 
-                var file = $scope.myFile;
-				
-				fileUpload.uploadFileToUrl(file, appData.url + '/photo');
+			    $scope.uploadFile = function(){
+			        var file = $scope.myFile;
+			        console.log('file is ' + JSON.stringify(file));
+			        var uploadUrl = appData.url + '/photo';
+			        fileUpload.uploadFileToUrl(file, uploadUrl,function(data, status, headers, config){
+			            if(status == 200)console.log('Success!');
+			            else console.log('Error!');
+			        });
+			    };				
 
             $scope.upload = function(){
                 console.log($scope.model.file);
