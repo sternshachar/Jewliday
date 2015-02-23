@@ -140,7 +140,7 @@ angular.module("jewApp")
 	  AWS.config.update({ accessKeyId: $scope.creds.access_key, secretAccessKey: $scope.creds.secret_key });
 	  AWS.config.region = 'us-east-1';
 	  var bucket = new AWS.S3({ params: { Bucket: $scope.creds.bucket } });
-	 
+	 	console.log(file);
 	  if($scope.file) {
 	    var params = { Key: $scope.file.name, ContentType: $scope.file.type, Body: $scope.file, ServerSideEncryption: 'AES256' };
 	 
