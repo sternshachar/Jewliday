@@ -145,12 +145,12 @@ angular.module("jewApp")
                 var reader = new FileReader();
                 reader.readAsBinaryString($scope.model.file);
 
-				read.onloadend = function(){
+				reader.onloadend = function(){
 				    console.log(reader.result);
 				}
                 
                 console.log(reader.result);
-                $http.post(appData.url + '/photo',{file: imageFile})
+                $http.post(appData.url + '/photo',{file: reader.result})
                 	.then(function(data){
                 		console.log(data);
                 	},function(err){
