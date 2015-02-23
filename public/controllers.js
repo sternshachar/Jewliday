@@ -131,7 +131,7 @@ angular.module("jewApp")
     }
 
     $scope.showFile = function(){
-    	console.log($scope.$flow);
+    	console.log($flow);
     }
 })
 .controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi,appData,addressData){
