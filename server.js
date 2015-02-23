@@ -161,7 +161,7 @@ function uploadFile(remoteFilename, fileName) {
     ContentType: 'image/jpg'
   }, function(error, response) {
     console.log('uploaded file[' + fileName + '] to [' + remoteFilename + '] as [' + 'jewliday' + ']');
-    console.log(arguments);
+    // console.log(arguments);
   });
 }
 
