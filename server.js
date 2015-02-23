@@ -150,7 +150,7 @@ app.post('/photo',function(req,res){
 
 
 function uploadFile(remoteFilename, fileName) {
-	var s3bucket = new AWS.S3({ params: {Bucket: 'jewliday'} });
+  var s3bucket = new AWS.S3({ params: {Bucket: 'jewliday'} });
   var fileBuffer = fileName;
   
   s3bucket.putObject({
@@ -175,7 +175,7 @@ app.post('/upload', function(req, res) {
             index = old_path.lastIndexOf('/') + 1,
             file_name = old_path.substr(index),
             new_path = path.join(process.env.PWD, '/uploads/', file_name + '.' + file_ext);
- 			console.log(new_path);
+ 			console.log(files.file);
         fs.readFile(old_path, function(err, data) {
             fs.writeFile(new_path, data, function(err) {
                 fs.unlink(old_path, function(err) {
