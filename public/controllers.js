@@ -110,7 +110,7 @@ angular.module("jewApp")
 			});
 	}	
 })
-.controller("newHomeCtrl",function($scope,$http,appData,fileUpload){
+.controller("newHomeCtrl",function($scope,$http,appData){
 	$scope.home = {listed: true};
 	$scope.options = {types: '(cities)'};
 	$scope.amenities = appData.amenitiesListHome;
@@ -129,45 +129,42 @@ angular.module("jewApp")
 							});
     		})
     }
-
-                angular.extend($scope, {
-
-                model: { file: null },
-
-                // upload: function(model) {
-                //     Files.prototype.$save.call(model.file, function(self, headers) {
-                //         // Handle server response
-                //     });
-                // }
-            });
-
-			    $scope.uploadFile = function(){
-			        var file = $scope.myFile;
-			        console.log('file is ' + JSON.stringify(file));
-			        var uploadUrl = appData.url + '/photo';
-			        fileUpload.uploadFileToUrl(file, uploadUrl,function(data, status, headers, config){
-			            if(status == 200)console.log('Success!');
-			            else console.log('Error!');
-			        });
-			    };				
-
-            $scope.upload = function(){
-                console.log($scope.model.file);
-                var reader = new FileReader();
-                reader.readAsBinaryString($scope.model.file);
-
-				reader.onloadend = function(){
-				    console.log(reader.result);
-				}
-                
-                console.log(reader.result);
-                $http.post(appData.url + '/photo',{file: reader.result})
-                	.then(function(data){
-                		console.log(data);
-                	},function(err){
-                		console.error(err);
-                	})
-            }
+    $scope.creds = {
+	  bucket: 'jewliday',
+	  access_key: 'AKIAIXTYDYFGIB4U6SEA',
+	  secret_key: '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'
+	}
+	 
+	$scope.upload = function() {
+	  // Configure The S3 Object 
+	  AWS.config.update({ accessKeyId: $scope.creds.access_key, secretAccessKey: $scope.creds.secret_key });
+	  AWS.config.region = 'us-east-1';
+	  var bucket = new AWS.S3({ params: { Bucket: $scope.creds.bucket } });
+	 
+	  if($scope.file) {
+	    var params = { Key: $scope.file.name, ContentType: $scope.file.type, Body: $scope.file, ServerSideEncryption: 'AES256' };
+	 
+	    bucket.putObject(params, function(err, data) {
+	      if(err) {
+	        // There Was An Error With Your S3 Config
+	        alert(err.message);
+	        return false;
+	      }
+	      else {
+	        // Success!
+	        alert('Upload Done');
+	      }
+	    })
+	    .on('httpUploadProgress',function(progress) {
+	          // Log Progress Information
+	          console.log(Math.round(progress.loaded / progress.total * 100) + '% done');
+	        });
+	  }
+	  else {
+	    // No File Selected
+	    alert('No File Selected');
+	  }
+	}
 })
 .controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi,appData,addressData){
 	var amenities = {};
