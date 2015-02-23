@@ -23,8 +23,24 @@ canvas{
 <textarea class="form-control" rows="3" placeholder="Describe your home and any other detail you think is important" ng-model="home.description"></textarea>
 <p>Select from file:</p>
 <label class="image-btn">
-	<input name="file" type="file" file />
-    <span id="photo-btn" style="font-size: 14px;" ng-click="upload()">Add Photo</span>
+	<input name="file" type="file"/>
+    <span id="photo-btn" style="font-size: 14px;">Add Photo</span>
 </label>
 
 
+<div flow-init="{target: '/upload'}"
+     flow-files-submitted="$flow.upload()"
+     flow-file-success="$file.msg = $message">
+
+  <input type="file" flow-btn/>
+  Input OR Other element as upload button
+  <span class="btn" flow-btn>Upload File</span>
+
+  <table>
+    <tr ng-repeat="file in $flow.files">
+        <td>{{$index+1}}</td>
+        <td>{{file.name}}</td>
+        <td>{{file.msg}}</td>
+    </tr>
+  </table>
+</div>
