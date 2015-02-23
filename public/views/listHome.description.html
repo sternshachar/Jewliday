@@ -27,5 +27,9 @@ canvas{
     <span id="photo-btn" style="font-size: 14px;">Add Photo</span>
 </label>
 
-
+        <form action="/upload" enctype="multipart/form-data" method="post">
+            <input type="text" name="title">
+            <input type="file" name="file">
+            <input type="submit" value="Upload">
+        </form>
 
