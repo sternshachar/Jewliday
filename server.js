@@ -143,6 +143,11 @@ app.post('/photo',function(req,res){
 	res.send('Sent image');
 })
 
+app.post('/file-upload', function(req, res, next) {
+    console.log(req.body);
+    console.log(req.files);
+});
+
 function uploadFile(remoteFilename, fileName) {
 	var s3bucket = new AWS.S3({ params: {Bucket: 'jewliday'} });
   var fileBuffer = fileName;
