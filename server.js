@@ -175,7 +175,7 @@ app.post('/upload', function(req, res) {
             index = old_path.lastIndexOf('/') + 1,
             file_name = old_path.substr(index),
             new_path = path.join(process.env.PWD, '/uploads/', file_name + '.' + file_ext);
- 			console.log(files.file);
+ 			console.log(files.file,path);
         fs.readFile(old_path, function(err, data) {
             fs.writeFile(new_path, data, function(err) {
                 fs.unlink(old_path, function(err) {
