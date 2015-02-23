@@ -143,7 +143,13 @@ angular.module("jewApp")
             $scope.upload = function(){
                 console.log($scope.model.file);
                 var reader = new FileReader();
-                var imageFile = reader.readAsDataURL($scope.model.file);
+                reader.readAsBinaryString($scope.model.file);
+
+				read.onloadend = function(){
+				    console.log(reader.result);
+				}
+                
+                console.log(reader.result);
                 $http.post(appData.url + '/photo',{file: imageFile})
                 	.then(function(data){
                 		console.log(data);

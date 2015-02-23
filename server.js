@@ -137,16 +137,12 @@ app.put('/listHome/:id', function(req,res){
 
 app.post('/photo',function(req,res){
 	
-	console.log(req.body.file);
+	console.log(req.file);
 	uploadFile('image1', req.body.file)
 	
 	res.send('Sent image');
 })
 
-app.post('/file-upload', function(req, res, next) {
-    console.log(req.body);
-    console.log(req.files);
-});
 
 function uploadFile(remoteFilename, fileName) {
 	var s3bucket = new AWS.S3({ params: {Bucket: 'jewliday'} });
