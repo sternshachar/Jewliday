@@ -25,8 +25,8 @@ button{
         <form  name="{{pic.type}}" action="{{'/upload/' + pic.type }}" enctype="multipart/form-data" method="post" target="hiddenFrame">
             <input type="text" name="id" ng-model="userId" ng-show="false">
             <div class="pic-upload-Square">
-            	<P>{{pic.name}}</p>
-            	<p>Drag a photo here or choose below</p>
+            	<h3>{{pic.name}}</h3>
+            	<p>Drag here or choose below</p>
             </div>
             <input type="file" name="file" id="{{pic.type}}" class="input-file" ng-show="false">
             <button class="btn btn-warning btn-block" ng-click="chooseFile(pic.type)">Choose file</button>
