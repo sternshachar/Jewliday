@@ -11,7 +11,7 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 				    }])
 				     $urlRouterProvider
 				      .when('/users/home', ['$state', function ($state) {
-				            $state.go('usersArea.home.photos',{reload: true});
+				            $state.go('usersArea.home.photos');
 				    }])
 
     				$stateProvider

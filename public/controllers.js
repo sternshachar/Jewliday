@@ -153,9 +153,9 @@ angular.module("jewApp")
 		document.forms[picType].submit();
 	}
 })
-.controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi,appData,addressData,photos){
+.controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,addressData,photos){
 	var amenities = {};
-
+	$state.reload();
 	$scope.photosUrl = photos;
 	console.log($scope.photosUrl);
 
