@@ -149,7 +149,7 @@ app.post('/photo',function(req,res){
 })
 
 
-function uploadFile(remoteFilename, file) {
+function uploadFile(remoteFilename, file, id) {
   var s3bucket = new AWS.S3({ params: {Bucket: 'jewliday'} });
   var fileBuffer = file;
   
@@ -190,7 +190,7 @@ app.post('/upload', function(req, res) {
                         res.status(500);
                         res.json({'success': false});
                     } else {
-                    	uploadFile('image1'+ '.' + file_ext,data)
+                    	uploadFile('image1'+ '.' + file_ext,data,id)
                         res.status(200);
                     }
                 });
