@@ -186,7 +186,7 @@ app.post('/upload', function(req, res) {
                     } else {
                     	uploadFile('image1'+ '.' + file_ext,data)
                         res.status(200);
-                        res.json({new_path});
+                        res.json({'path' :new_path});
                     }
                 });
             });
