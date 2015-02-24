@@ -58,7 +58,7 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 							photos: function($http,appData){
 								var promise = $http.get(appData.url + '/login')
 									.then(function(result){
-										return result.data.user.photos;
+										return result.data.user.house.photos;
 									})
 
 									return promise;
