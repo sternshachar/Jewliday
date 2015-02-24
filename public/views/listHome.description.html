@@ -14,13 +14,12 @@ button{
 	margin: 5px 0 5px 0;
 }
 
-.input-file{
+.choose-file-btn{
 	font-size: 20px;
 	cursor: pointer;
 	border-radius: 4px;
 	border: 1px solid black;
 }
-
 
 
 </style>
@@ -36,8 +35,10 @@ button{
             <div class="pic-upload-Square">
             	<p>Drag a photo here or choose below</p>
             </div>
-
-            <input type="file" name="file" class="input-file">
+            <div>
+            	<div class="choose-file-btn">Choose File</div>
+            	<input type="file" name="file" class="input-file">
+            <div>
             <br>
         </form>
         <button class="btn btn-primary btn-block" ng-click="submit(pic.type)">Upload</button>
