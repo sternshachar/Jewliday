@@ -28,7 +28,7 @@ canvas{
 </label>
 
         <form action="/upload" enctype="multipart/form-data" method="post">
-            <input type="text" name="title">
+            <input type="text" name="title" ng-model="userId">
             <input type="file" name="file">
             <br>
             <input type="submit" value="Upload">
