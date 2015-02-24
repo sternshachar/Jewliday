@@ -1,6 +1,7 @@
 <style>
 .pic-upload-Square{
-	border: 3px dashed black;
+	padding: 5px;
+	border: 2px dashed black;
 	border-radius: 4px;
 	background-color: white;
 	height: 100px;
@@ -26,8 +27,8 @@
         </form>
 
 <div class="row" ng-repeat="set in photos">
-	<div class="col-sm-3 pic-upload-Square" ng-repeat="pic in set">
-        <form name="{{pic.type}}" action="{{'/upload/' + pic.type }}" enctype="multipart/form-data" method="post" target="hiddenFrame">
+	<div class="col-sm-3" ng-repeat="pic in set">
+        <form class="pic-upload-Square" name="{{pic.type}}" action="{{'/upload/' + pic.type }}" enctype="multipart/form-data" method="post" target="hiddenFrame">
             <input type="text" name="id" ng-model="userId" ng-show="false">
             <input type="file" name="file">
             <br>
