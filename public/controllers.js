@@ -17,6 +17,7 @@ angular.module("jewApp")
 		$scope.username = data.user.firstName;
 		$scope.userLastName = data.user.lastName;
 		$scope.userId = data.user._id;
+		$scope.isListed = {listed: data.user.house.listed ? '' ? false : true }
 		console.log($scope.userId);
 	});
 
@@ -157,7 +158,7 @@ angular.module("jewApp")
 
 	$scope.photosUrl = photos;
 	console.log($scope.photosUrl);
-	
+
 	$scope.homeImage = {
     	background: 'url(' + $scope.photosUrl.cover + ')'
 	};
