@@ -130,6 +130,7 @@ angular.module("jewApp")
 							success(function(data){
 								$scope.isListed.listed = data.user.house.listed;
 							});
+				$window.location.reload();
     		})
     }
 
@@ -151,7 +152,6 @@ angular.module("jewApp")
 
 	$scope.submit = function(picType){
 		document.forms[picType].submit();
-		$window.location.reload();
 	}
 })
 .controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,addressData,photos){
