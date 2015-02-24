@@ -13,6 +13,9 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 				      .when('/users/home', ['$state', function ($state) {
 				            $state.go('usersArea.home.photos');
 				    }])
+				     $state.transitionTo('usersArea.home', $stateParams, {
+					    reload: true
+					});
     				$stateProvider
 					.state('home',{
 						url:'/',
