@@ -156,7 +156,7 @@ function uploadFile(remoteFilename, file, id) {
   s3bucket.putObject({
     ACL: 'public-read',
     Bucket: 'jewliday',
-    Key: remoteFilename,
+    Key:  id + '/' + remoteFilename,
     Body: fileBuffer,
     ContentType: 'image/jpg'
   }, function(error, response) {
@@ -173,7 +173,6 @@ function uploadFile(remoteFilename, file, id) {
 				})
 				
 			});
-
   });
 }
 
@@ -197,7 +196,7 @@ app.post('/upload', function(req, res) {
                         res.status(500);
                         res.json({'success': false});
                     } else {
-                    	uploadFile('image1'+ '.' + file_ext,data,id)
+                    	uploadFile('cover'+ '.' + file_ext,data,id)
                         res.status(200);
                     }
                 });
