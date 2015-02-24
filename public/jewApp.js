@@ -104,8 +104,8 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 						url: '/details',
 						templateUrl: 'views/listHome.details.html'
 					})
-					.state('listHome.description',{
-						url: '/description',
-						templateUrl: 'views/listHome.description.html'
+					.state('listHome.photos',{
+						url: '/photos',
+						templateUrl: 'views/listHome.photos.html'
 					})
 			})
