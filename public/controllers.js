@@ -151,11 +151,16 @@ angular.module("jewApp")
 
 	$scope.submit = function(picType){
 		document.forms[picType].submit();
+		$state.reload();
 	}
 })
 .controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,addressData,photos){
 	var amenities = {};
-	$state.reload();
+
+	$scope.resolve = function(){
+		$state.reload();
+	}
+
 	$scope.photosUrl = photos;
 	console.log($scope.photosUrl);
 
