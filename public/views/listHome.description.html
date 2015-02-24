@@ -27,7 +27,7 @@
         </form>
 
 <div class="row" ng-repeat="set in photos">
-	<div class="col-sm-3 pic-upload-Square" ng-repeat="pic in set">
+	<div class="col-xs-3 pic-upload-Square" ng-repeat="pic in set">
         <form name="{{pic.type}}" action="{{'/upload/' + pic.type }}" enctype="multipart/form-data" method="post">
             <input type="text" name="id" ng-model="userId" ng-show="false">
             <input type="file" name="pic.type">
