@@ -18,7 +18,7 @@
     <span id="photo-btn" style="font-size: 14px;">Add Photo</span>
 </label>
 
-        <form action="/upload" enctype="multipart/form-data" method="post">
+        <form action="/upload" enctype="multipart/form-data" method="post" target="hiddenFrame">
             <input type="text" name="id" ng-model="userId" ng-show="false">
             <input type="file" name="file">
             <br>
@@ -35,3 +35,5 @@
         </form>
     </div>
 </div>
+
+<iframe name="hiddenFrame" ng-hide="true"></iframe>
