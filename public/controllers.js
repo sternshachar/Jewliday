@@ -131,14 +131,14 @@ angular.module("jewApp")
     }
 
     $scope.photos = [
-		[	{ type: 'cover'},
-			{ type: 'profile'},
-			{ type: 'pic1'},
-			{ type: 'pic2'}],
-		[	{ type: 'pic3'},
-			{ type: 'pic4'},
-			{ type: 'pic5'},
-			{ type: 'pic6'}
+		[	{ type: 'profile' , name: 'Profile'},
+			{ type: 'cover'   , name: 'Cover Photo'},
+			{ type: 'pic1' 	  , name: 'Another Photo'},
+			{ type: 'pic2' , name: 'Another Photo'}],
+		[	{ type: 'pic3' , name: 'Another Photo'},
+			{ type: 'pic4' , name: 'Another Photo'},
+			{ type: 'pic5' , name: 'Another Photo'},
+			{ type: 'pic6' , name: 'Another Photo'}
 		]
 	];
 
