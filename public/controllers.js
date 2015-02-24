@@ -156,7 +156,7 @@ angular.module("jewApp")
 	var amenities = {};
 
 	$scope.photosUrl = photos;
-
+	console.log($scope.photosUrl);
 	$scope.homeImage = {
     	background: 'url(' + $scope.photosUrl.cover + ')'
 	};
