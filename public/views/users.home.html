@@ -11,7 +11,6 @@
 }
 .home-top-pictures{
 	margin-top: -20px;
-	background-image: url('images/home.jpg');
 	background-position: center bottom;
 	background-repeat: no-repeat;
 	height: 350px;
@@ -39,8 +38,8 @@
 }
 </style>
 
-<div class="home-top-pictures">
-	<img class="image" src="images/house-front.jpg">
+<div class="home-top-pictures" ng-style="homeImage">
+	<img class="image" ng-src="photosUrl.profile">
 </div>
 <div class="container home-tabs-container">
 	<div class="navbar home-tabs">

@@ -110,7 +110,13 @@ angular.module("jewApp")
 			});
 	}	
 })
-.controller("newHomeCtrl",function($scope,$http,appData){
+.controller("newHomeCtrl",function($scope,$http,appData,photos){
+	$scope.photosUrl = photos;
+
+	$scope.homeImage = {
+    	background: 'url(' + $scope.photosUrl.cover + ')'
+	};
+
 	$scope.home = {listed: true};
 	$scope.options = {types: '(cities)'};
 	$scope.amenities = appData.amenitiesListHome;
@@ -203,4 +209,6 @@ angular.module("jewApp")
 		  }
 		}
 	}
+
+
 })
