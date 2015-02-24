@@ -193,7 +193,7 @@ angular.module("jewApp")
 	{ type: 'pic3'},
 	{ type: 'pic4'},
 	{ type: 'pic5'},
-	{ type: 'pic6'},
+	{ type: 'pic6'}
 	];
 
 	$scope.submit = function(picType){
