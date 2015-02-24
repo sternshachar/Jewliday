@@ -40,9 +40,12 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 							addressData : function($http,appData){
 								var promise = $http.get(appData.url + '/login')								
 									.then(function(result){
-										var city = result.data.user.house.city.split(", ").join("+");
-										var address =   result.data.user.house.homeNumber + '+' + result.data.user.house.street +',' + '+' + city;
-										return address;
+										if(typeof result.data.user.house.city != undefined){
+											var city = result.data.user.house.city.split(", ").join("+");
+											var address =   result.data.user.house.homeNumber + '+' + result.data.user.house.street +',' + '+' + city;
+											return address;
+										}
+										return throw 'Not listed properly';
 									})
 									.then(function(result){
 										var location = $http.get('http://maps.google.com/maps/api/geocode/json?address='+ result +'&sensor=false')
@@ -59,7 +62,7 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 							photos: function($http,appData){
 								var promise = $http.get(appData.url + '/login')
 									.then(function(result){
-										return result.data.user.house.photos;
+										return result.data.user.photos;
 									})
 
 									return promise;

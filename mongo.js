@@ -49,8 +49,9 @@ db.once('open',function(callback){
 				Washer : Boolean,
 				Accessibility : Boolean
 				
-			},
-			photos:{
+			}
+		},
+		photos:{
 				profile: String,
 				cover: String,
 				pic1: String,
@@ -60,7 +61,7 @@ db.once('open',function(callback){
 				pic5: String,
 				pic6: String
 			}
-		}
+
 	},
 
 		{collection:'users'}
