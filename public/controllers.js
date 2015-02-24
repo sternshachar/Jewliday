@@ -17,7 +17,7 @@ angular.module("jewApp")
 		$scope.username = data.user.firstName;
 		$scope.userLastName = data.user.lastName;
 		$scope.userId = data.user._id;
-		$scope.isListed = {listed: data.user.house.listed ? '' ? false : true }
+		$scope.isListed = {listed: data.user.house.listed == '' ? false : true };
 		console.log($scope.userId);
 	});
 
