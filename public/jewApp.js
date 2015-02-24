@@ -45,7 +45,7 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 											var address =   result.data.user.house.homeNumber + '+' + result.data.user.house.street +',' + '+' + city;
 											return address;
 										}
-										return throw 'Not listed properly';
+										throw 'Not listed properly';
 									})
 									.then(function(result){
 										var location = $http.get('http://maps.google.com/maps/api/geocode/json?address='+ result +'&sensor=false')
