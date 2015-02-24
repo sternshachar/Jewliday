@@ -142,6 +142,10 @@ angular.module("jewApp")
 		]
 	];
 
+	 $scope.chooseFile = function(picType) {
+      document.getElementById(picType).click();
+   }
+
 	$scope.submit = function(picType){
 		document.forms[picType].submit();
 	}
