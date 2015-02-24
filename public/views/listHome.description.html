@@ -22,8 +22,11 @@ button{
 
 <div class="row" ng-repeat="set in photos">
 	<div class="col-sm-3" ng-repeat="pic in set">
-        <form class="pic-upload-Square" name="{{pic.type}}" action="{{'/upload/' + pic.type }}" enctype="multipart/form-data" method="post" target="hiddenFrame">
+        <form  name="{{pic.type}}" action="{{'/upload/' + pic.type }}" enctype="multipart/form-data" method="post" target="hiddenFrame">
             <input type="text" name="id" ng-model="userId" ng-show="false">
+            <div class="pic-upload-Square">
+            	<p>Drag a photo here or choose below</p>
+            </div>
             <span>Choose file:</span>
             <input type="file" name="file">
             <br>
