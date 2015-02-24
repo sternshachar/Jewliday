@@ -164,7 +164,7 @@ function uploadFile(remoteFilename, file, id) {
     	User.findById(id, function(err,user){
 				if(err) return console.error(err);
 				user.set(
-					'house.photos.cover',
+					'house.photos' + remoteFilename.split('.')[0];,
 					'https://s3-us-west-2.amazonaws.com/jewliday/' + id + '/' + remoteFilename
 					);
 				user.save(function(err,user){
