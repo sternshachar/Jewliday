@@ -161,12 +161,19 @@ function uploadFile(remoteFilename, file, id) {
     ContentType: 'image/jpg'
   }, function(error, response) {
     var User = mongoose.model('users');
-    	User.update({_id: id},{$set: {cover: 'https://s3-us-west-2.amazonaws.com/jewliday/' + remoteFilename}}, function(){
-		User.findById(id, function(err,user){
+    	User.findById(id, function(err,user){
 				if(err) return console.error(err);
-				console.log(user.house.photos.cover);
+				user.set(
+					'house.photos.cover',
+					'https://s3-us-west-2.amazonaws.com/jewliday/' + remoteFilename
+					);
+				user.save(function(err,user){
+					if(err) return console.error(err);
+					console.log(user.house.photos.cover);
+				})
+				
 			});
-	})
+
   });
 }
 
