@@ -161,7 +161,7 @@ function uploadFile(remoteFilename, file) {
     ContentType: 'image/jpg'
   }, function(error, response) {
     console.log('uploaded file to [' + remoteFilename + '] as [' + 'jewliday' + ']');
-    // console.log(arguments);
+    console.log(response);
   });
 }
 
@@ -176,7 +176,7 @@ app.post('/upload', function(req, res) {
             index = old_path.lastIndexOf('/') + 1,
             file_name = old_path.substr(index),
             new_path = path.join(process.env.PWD, '/uploads/', file_name + '.' + file_ext);
- 			console.log(id);
+ 			console.log(files);
         fs.readFile(old_path, function(err, data) {
             fs.writeFile(new_path, data, function(err) {
                 fs.unlink(old_path, function(err) {
