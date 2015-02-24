@@ -164,12 +164,12 @@ function uploadFile(remoteFilename, file, id) {
     	User.findById(id, function(err,user){
 				if(err) return console.error(err);
 				user.set(
-					'house.photos' + remoteFilename.split('.')[0],
+					'house.photos.' + remoteFilename.split('.')[0],
 					'https://s3-us-west-2.amazonaws.com/jewliday/' + id + '/' + remoteFilename
 					);
 				user.save(function(err,user){
 					if(err) return console.error(err);
-					console.log(user.house.photos.cover);
+					console.log(user.house.photos);
 				})
 				
 			});
@@ -207,6 +207,7 @@ app.post('/upload', function(req, res) {
 
 app.post('/upload/:type', function(req, res) {
 	var type = req.params.type;
+	console.log(type);
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
         // `file` is the name of the <input> field of type `file`
