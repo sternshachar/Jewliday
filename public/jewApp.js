@@ -39,7 +39,6 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 							addressData : function($http,appData){
 								var promise = $http.get(appData.url + '/login')								
 									.then(function(result){
-										console.log(result)
 										var city = result.data.user.house.city.split(", ").join("+");
 										var address =   result.data.user.house.homeNumber + '+' + result.data.user.house.street +',' + '+' + city;
 										return address;
@@ -59,7 +58,7 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 							photos: function($http,appData){
 								var promise = $http.get(appData.url + '/login')
 									.then(function(result){
-									
+									console.log(result)
 										return result.data.photos;
 									})
 
