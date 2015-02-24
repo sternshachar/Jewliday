@@ -111,7 +111,7 @@ angular.module("jewApp")
 			});
 	}	
 })
-.controller("newHomeCtrl",function($scope,$http,appData){
+.controller("newHomeCtrl",function($scope,$http,$state,appData){
 
 
 	$scope.home = {listed: true};
