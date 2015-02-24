@@ -57,7 +57,8 @@ db.once('open',function(callback){
 				pic2: String,
 				pic3: String,
 				pic4: String,
-				pic5: String
+				pic5: String,
+				pic6: String
 			}
 		}
 	},

@@ -204,3 +204,32 @@ app.post('/upload', function(req, res) {
         });
     });
 });
+
+app.post('/upload/:type', function(req, res) {
+	var type = req.params.type;
+    var form = new formidable.IncomingForm();
+    form.parse(req, function(err, fields, files) {
+        // `file` is the name of the <input> field of type `file`
+        var id = fields.id;
+        var old_path = files.file.path,
+            file_size = files.file.size,
+            file_ext = files.file.name.split('.').pop(),
+            index = old_path.lastIndexOf('/') + 1,
+            file_name = old_path.substr(index),
+            new_path = path.join(process.env.PWD, '/uploads/', file_name + '.' + file_ext);
+ 			console.log(fields.id);
+        fs.readFile(old_path, function(err, data) {
+            fs.writeFile(new_path, data, function(err) {
+                fs.unlink(old_path, function(err) {
+                    if (err) {
+                        res.status(500);
+                        res.json({'success': false});
+                    } else {
+                    	uploadFile( type + '.' + file_ext,data,id)
+                        res.status(200);
+                    }
+                });
+            });
+        });
+    });
+});
