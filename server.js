@@ -161,7 +161,7 @@ function uploadFile(remoteFilename, file) {
     ContentType: 'image/jpg'
   }, function(error, response) {
     var User = mongoose.model('users');
-    	User.update({_id: id},{$set: {house.photos.cover: 'https://s3-us-west-2.amazonaws.com/jewliday/' + remoteFilename}}, function(){
+    	User.update({_id: id},{$set: {house:{house:{photos:{cover: 'https://s3-us-west-2.amazonaws.com/jewliday/' + remoteFilename}}}}}, function(){
 		User.findById(id, function(err,user){
 				if(err) return console.error(err);
 				console.log(user.house.photos.cover);
