@@ -50,6 +50,15 @@ db.once('open',function(callback){
 				Accessibility : Boolean
 				
 			}
+			photos:{
+				profile: String,
+				cover: String,
+				pic1: String,
+				pic2: String,
+				pic3: String,
+				pic4: String,
+				pic5: String
+			}
 		}
 	},
 

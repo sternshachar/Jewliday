@@ -160,12 +160,18 @@ function uploadFile(remoteFilename, file) {
     Body: fileBuffer,
     ContentType: 'image/jpg'
   }, function(error, response) {
-    console.log('uploaded file to [' + remoteFilename + '] as [' + 'jewliday' + ']');
-    console.log(response);
+    var User = mongoose.model('users');
+    	User.update({_id: id},{$set: {house.photos.cover: 'https://s3-us-west-2.amazonaws.com/jewliday/' + remoteFilename}}, function(){
+		User.findById(id, function(err,user){
+				if(err) return console.error(err);
+				console.log(user.house.photos.cover);
+			});
+	})
   });
 }
 
 app.post('/upload', function(req, res) {
+
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
         // `file` is the name of the <input> field of type `file`
@@ -186,7 +192,6 @@ app.post('/upload', function(req, res) {
                     } else {
                     	uploadFile('image1'+ '.' + file_ext,data)
                         res.status(200);
-                        res.json({'path' :new_path});
                     }
                 });
             });
