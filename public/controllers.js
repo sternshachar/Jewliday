@@ -111,7 +111,7 @@ angular.module("jewApp")
 			});
 	}	
 })
-.controller("newHomeCtrl",function($scope,$http,$route, appData){
+.controller("newHomeCtrl",function($scope,$http, $window, appData){
 
 
 	$scope.home = {listed: true};
@@ -151,7 +151,7 @@ angular.module("jewApp")
 
 	$scope.submit = function(picType){
 		document.forms[picType].submit();
-		$route.reload();
+		$window.location.reload();
 	}
 })
 .controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,addressData,photos){
