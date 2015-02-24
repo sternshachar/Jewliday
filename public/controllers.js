@@ -129,6 +129,21 @@ angular.module("jewApp")
 							});
     		})
     }
+
+    $scope.photos = [
+		{ type: 'cover'},
+		{ type: 'profile'},
+		{ type: 'pic1'},
+		{ type: 'pic2'},
+		{ type: 'pic3'},
+		{ type: 'pic4'},
+		{ type: 'pic5'},
+		{ type: 'pic6'}
+	];
+
+	$scope.submit = function(picType){
+		document.forms[picType].submit();
+	}
 })
 .controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi,appData,addressData){
 	var amenities = {};
@@ -182,21 +197,5 @@ angular.module("jewApp")
 		    };
 		  }
 		}
-	}
-
-
-	$scope.photos = [
-	{ type: 'cover'},
-	{ type: 'profile'},
-	{ type: 'pic1'},
-	{ type: 'pic2'},
-	{ type: 'pic3'},
-	{ type: 'pic4'},
-	{ type: 'pic5'},
-	{ type: 'pic6'}
-	];
-
-	$scope.submit = function(picType){
-		document.forms[picType].submit();
 	}
 })
