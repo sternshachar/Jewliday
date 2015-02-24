@@ -139,16 +139,6 @@ app.put('/listHome/:id', function(req,res){
 	res.send('Home saved!');
 })
 
-
-app.post('/photo',function(req,res){
-	
-	console.log(req.file);
-	uploadFile('image1', req.body.file)
-	
-	res.send('Sent image');
-})
-
-
 function uploadFile(remoteFilename, file, id) {
   var s3bucket = new AWS.S3({ params: {Bucket: 'jewliday'} });
   var fileBuffer = file;
@@ -175,35 +165,6 @@ function uploadFile(remoteFilename, file, id) {
 			});
   });
 }
-
-app.post('/upload', function(req, res) {
-
-    var form = new formidable.IncomingForm();
-    form.parse(req, function(err, fields, files) {
-        // `file` is the name of the <input> field of type `file`
-        var id = fields.id;
-        var old_path = files.file.path,
-            file_size = files.file.size,
-            file_ext = files.file.name.split('.').pop(),
-            index = old_path.lastIndexOf('/') + 1,
-            file_name = old_path.substr(index),
-            new_path = path.join(process.env.PWD, '/uploads/', file_name + '.' + file_ext);
- 			console.log(fields.id);
-        fs.readFile(old_path, function(err, data) {
-            fs.writeFile(new_path, data, function(err) {
-                fs.unlink(old_path, function(err) {
-                    if (err) {
-                        res.status(500);
-                        res.json({'success': false});
-                    } else {
-                    	uploadFile('cover'+ '.' + file_ext,data,id)
-                        res.status(200);
-                    }
-                });
-            });
-        });
-    });
-});
 
 app.post('/upload/:type', function(req, res) {
 	var type = req.params.type;

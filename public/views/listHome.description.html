@@ -9,23 +9,22 @@
 	font-size: 30px;
 	text-align: center;
 }
+
+button{
+	margin: 5px 0 5px 0;
+}
+
 </style>
 
 <div ui-view></div>
 <textarea class="form-control" rows="3" placeholder="Describe your home and any other detail you think is important" ng-model="home.description"></textarea>
 <p>Select from file:</p>
 
-        <form action="/upload" enctype="multipart/form-data" method="post">
-            <input type="text" name="id" ng-model="userId" ng-show="false">
-            <input type="file" name="file">
-            <br>
-            <input type="submit" value="Upload">
-        </form>
-
 <div class="row" ng-repeat="set in photos">
 	<div class="col-sm-3" ng-repeat="pic in set">
         <form class="pic-upload-Square" name="{{pic.type}}" action="{{'/upload/' + pic.type }}" enctype="multipart/form-data" method="post" target="hiddenFrame">
             <input type="text" name="id" ng-model="userId" ng-show="false">
+            <span>Choose file:</span>
             <input type="file" name="file">
             <br>
         </form>
