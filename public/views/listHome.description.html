@@ -12,8 +12,9 @@ button{
 	margin: 5px 0 5px 0;
 }
 
-.pic-wella{
+.pic-well{
 	background-color: white !important;
+	width: 100%;
 }
 </style>
 
@@ -22,6 +23,7 @@ button{
 <p>Select from file:</p>
 
 <div class="well pic-well">
+	<h1>Pictures Of your Home</h1>
 	<div class="row" ng-repeat="set in photos">
 		<div class="col-sm-3" ng-repeat="pic in set">
 	        <form  name="{{pic.type}}" action="{{'/upload/' + pic.type }}" enctype="multipart/form-data" method="post" target="hiddenFrame">
