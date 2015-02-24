@@ -110,7 +110,7 @@ angular.module("jewApp")
 			});
 	}	
 })
-.controller("newHomeCtrl",function($scope,$http,appData,photos){
+.controller("newHomeCtrl",function($scope,$http,appData){
 	$scope.photosUrl = photos;
 
 	$scope.homeImage = {
@@ -156,7 +156,7 @@ angular.module("jewApp")
 		document.forms[picType].submit();
 	}
 })
-.controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi,appData,addressData){
+.controller('homeCtrl', function($scope,$http,uiGmapGoogleMapApi,appData,addressData,photos){
 	var amenities = {};
 
 	$http.get(appData.url + '/login').
