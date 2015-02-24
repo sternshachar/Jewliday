@@ -14,10 +14,6 @@
 <div ui-view></div>
 <textarea class="form-control" rows="3" placeholder="Describe your home and any other detail you think is important" ng-model="home.description"></textarea>
 <p>Select from file:</p>
-<label class="image-btn">
-	<input name="file" type="file"/>
-    <span id="photo-btn" style="font-size: 14px;">Add Photo</span>
-</label>
 
         <form action="/upload" enctype="multipart/form-data" method="post">
             <input type="text" name="id" ng-model="userId" ng-show="false">
@@ -33,7 +29,7 @@
             <input type="file" name="file">
             <br>
         </form>
-        <button ng-click="submit(pic.type)">Upload</button>
+        <button class="btn btn-primary btn-block" ng-click="submit(pic.type)">Upload</button>
     </div>
 </div>
 
