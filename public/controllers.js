@@ -148,13 +148,13 @@ angular.module("jewApp")
 
 	$scope.frameName = ['profileFrame','coverFrame','pic1Frame','pic2Frame','pic3Frame','pic4Frame','pic5Frame','pic6Frame'];
 
-	document.addEventListener("DOMContentLoaded", function(event) { 
-	     document.getElementById("profileFrame").addEventListener("DOMContentLoaded", function(){
-	     	var content = document.getElementById("profileFrame").contentWindow.document.body.innerHTML;
-	     	console.log('WOWOWOW')
-	    	$scope.picUploaded = true;
-		 }) //do work
-	});
+	$window.addAttachment=function(){
+        if($.parseJSON(frames["profileFrame"].document.getElementsByTagName("body")[0].innerHTML)!=null){
+            $scope.attachments.push($.parseJSON(frames["HiddenFrame"].document.getElementsByTagName("body")[0].innerHTML));
+            console.log($scope.attachments);
+           $scope.$apply();
+        }
+    }
 
 
 	$scope.chooseFile = function(picType) {
