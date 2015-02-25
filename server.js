@@ -189,7 +189,7 @@ app.post('/upload/:type', function(req, res) {
                     } else {
                     	uploadFile( type + '.' + file_ext,data,id)
                         res.status(200);
-                        res.send({'success': true});
+                        res.send('uploaded');
                     }
                 });
             });
