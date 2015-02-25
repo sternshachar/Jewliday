@@ -172,7 +172,7 @@ angular.module("jewApp")
                 var file = files[i];
                 $upload.upload({
                     url: 'upload/pic5',
-                    fields: {'id': $scope.$scope.userId},
+                    fields: {'id': $scope.userId},
                     file: file
                 }).progress(function (evt) {
                     var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
