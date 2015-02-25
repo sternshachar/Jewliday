@@ -146,11 +146,11 @@ angular.module("jewApp")
 
 
     $scope.photos = [
-		[	{ type: 'profile' , name: 'Profile' 	 ,done: false},
+			{ type: 'profile' , name: 'Profile' 	 ,done: false},
 			{ type: 'cover'   , name: 'Cover Photo'	 ,done: false},
 			{ type: 'pic1' 	  , name: 'Another Photo',done: false},
-			{ type: 'pic2' 	  , name: 'Another Photo',done: false}],
-		[	{ type: 'pic3' 	  , name: 'Another Photo',done: false},
+			{ type: 'pic2' 	  , name: 'Another Photo',done: false},
+			{ type: 'pic3' 	  , name: 'Another Photo',done: false},
 			{ type: 'pic4'    , name: 'Another Photo',done: false},
 			{ type: 'pic5'    , name: 'Another Photo',done: false},
 			{ type: 'pic6'    , name: 'Another Photo',done: false}
