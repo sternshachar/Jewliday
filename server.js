@@ -168,12 +168,12 @@ function uploadFile(remoteFilename, file, id) {
 
 app.post('/upload/:type', function(req, res) {
 	var type = req.params.type;
-	console.log(req.user);
+	console.log(req.user._id);
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
         // `file` is the name of the <input> field of type `file`
         console.log(files)
-        var id = fields.id;
+        var id = req.user._id;
         var old_path = files.file.path,
             file_size = files.file.size,
             file_ext = files.file.name.split('.').pop(),
