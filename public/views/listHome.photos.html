@@ -40,11 +40,11 @@ iframe{
 	            </div>
 	        </div>
 	        <div class="col-sm-4">
-	            <h4 ng-show="pic.done">Uploaded!</h4>
-	        </div>
-	        <div class="col-sm-4">
 	            <div class="button btn btn-primary btn-block" ng-file-select ng-file-change="upload($files,pic.type,$index)">Choose file</div>
 	            <br>
+	        </div>
+	        <div class="col-sm-4">
+	            <h4 ng-show="pic.done" class="text-success">Uploaded!</h4>
 	        </div>
 	    </form> 
 	</div>
