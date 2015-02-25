@@ -39,6 +39,7 @@ iframe{
 	            <div class="pic-upload-Square">
 	            	<h3>{{pic.name}}</h3>
 	            	<h4 ng-show="pic.done">Uploaded!</h4>
+	            	{{pic.done}}
 	            </div>
 	            
 	            <div class="button btn btn-primary btn-block" ng-file-select ng-file-change="upload($files,pic.type)">Choose file</div>
