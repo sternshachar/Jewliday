@@ -215,7 +215,6 @@ angular.module("jewApp")
 	            alert("failed!");
 	        });
 	    };
-	};
 })
 .controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,addressData,photos){
 	var amenities = {};
