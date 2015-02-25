@@ -147,7 +147,7 @@ angular.module("jewApp")
 	];
 
 
-    document.getElementByTagName("Profile").addEventListener("load", function(){
+    document.getElementsByTagName("Profile").addEventListener("load", function(){
     	$scope.picUploaded = true;
 	 })
 
