@@ -115,9 +115,11 @@ angular.module("jewApp")
 	if($scope.isListed.listed){
 		$scope.home = homeData;
 		console.log($scope.home)
+	} else {
+		$scope.home = {listed: true};
 	}
 
-	$scope.home = {listed: true};
+	
 	$scope.options = {types: '(cities)'};
 	$scope.amenities = appData.amenitiesListHome;
 
