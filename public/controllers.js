@@ -144,17 +144,21 @@ angular.module("jewApp")
     	$window.location.reload();
     }
 
-
+    $scope.limit = 3;
     $scope.photos = [
-			{ type: 'profile' , name: 'Profile' 	 ,done: false},
-			{ type: 'cover'   , name: 'Cover Photo'	 ,done: false},
-			{ type: 'pic1' 	  , name: 'Another Photo',done: false},
-			{ type: 'pic2' 	  , name: 'Another Photo',done: false},
-			{ type: 'pic3' 	  , name: 'Another Photo',done: false},
-			{ type: 'pic4'    , name: 'Another Photo',done: false},
-			{ type: 'pic5'    , name: 'Another Photo',done: false},
-			{ type: 'pic6'    , name: 'Another Photo',done: false}
+			{ type: 'profile' , name: 'Profile' 	 ,done: false, show: true},
+			{ type: 'cover'   , name: 'Cover Photo'	 ,done: false, show: true},
+			{ type: 'pic1' 	  , name: 'Another Photo',done: false, show: true},
+			{ type: 'pic2' 	  , name: 'Another Photo',done: false, show: false},
+			{ type: 'pic3' 	  , name: 'Another Photo',done: false, show: false},
+			{ type: 'pic4'    , name: 'Another Photo',done: false, show: false},
+			{ type: 'pic5'    , name: 'Another Photo',done: false, show: false},
+			{ type: 'pic6'    , name: 'Another Photo',done: false, show: false}
 	];
+	$scope.anotherPic = function(){
+		if($scope.limit > 6)
+			$scope.limit = $scope.limit + 1;
+	}
 
 	$scope.$watch('files', function () {
         $scope.upload($scope.files);
