@@ -39,8 +39,8 @@ iframe{
 	            
 	            <div class="button btn btn-primary btn-block" ng-file-select ng-file-change="upload($files,pic.type)">Choose file</div>
 	            <div class="progress">
-				  <div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">
-				    <div ng-show="progress">{{progress}}%<div>
+				  <div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;" ng-show="progress">
+				    {{progress}}%
 				  </div>
 	            <br>
 	        </form>
