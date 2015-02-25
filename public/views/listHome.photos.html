@@ -38,7 +38,7 @@ iframe{
 	            <input type="text" name="id" ng-model="userId" ng-show="false">
 	            <div class="pic-upload-Square">
 	            	<h3>{{pic.name}}</h3>
-	            	<h4 ng-show="picUploaded">Uploaded!</h4>
+	            	<h4 ng-show="pic.done">Uploaded!</h4>
 	            </div>
 	            
 	            <div class="button btn btn-primary btn-block" ng-file-select ng-file-change="upload($files,pic.type)">Choose file</div>

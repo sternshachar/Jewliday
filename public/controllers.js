@@ -131,7 +131,7 @@ angular.module("jewApp")
 								$scope.isListed.listed = data.user.house.listed;
 							});
 							
-				
+				$state.go('listHome.photos');
     		})
     }
 
@@ -146,14 +146,14 @@ angular.module("jewApp")
 
 
     $scope.photos = [
-		[	{ type: 'profile' , name: 'Profile'},
-			{ type: 'cover'   , name: 'Cover Photo'},
-			{ type: 'pic1' 	  , name: 'Another Photo'},
-			{ type: 'pic2' , name: 'Another Photo'}],
-		[	{ type: 'pic3' , name: 'Another Photo'},
-			{ type: 'pic4' , name: 'Another Photo'},
-			{ type: 'pic5' , name: 'Another Photo'},
-			{ type: 'pic6' , name: 'Another Photo'}
+		[	{ type: 'profile' , name: 'Profile' 	 ,done: false},
+			{ type: 'cover'   , name: 'Cover Photo'	 ,done: false},
+			{ type: 'pic1' 	  , name: 'Another Photo',done: false},
+			{ type: 'pic2' 	  , name: 'Another Photo',done: false}],
+		[	{ type: 'pic3' 	  , name: 'Another Photo',done: false},
+			{ type: 'pic4'    , name: 'Another Photo',done: false},
+			{ type: 'pic5'    , name: 'Another Photo',done: false},
+			{ type: 'pic6'    , name: 'Another Photo',done: false}
 		]
 	];
 
@@ -176,6 +176,7 @@ angular.module("jewApp")
                     console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
                 }).success(function (data, status, headers, config) {
                     console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
+                    $scope.photos[type].done = true;
                 });
             }
         }
