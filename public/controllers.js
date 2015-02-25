@@ -146,23 +146,7 @@ angular.module("jewApp")
 		]
 	];
 
-	$scope.frameName = ['profileFrame','coverFrame','pic1Frame','pic2Frame','pic3Frame','pic4Frame','pic5Frame','pic6Frame'];
-
-	window.checkUpload = function(){
-		var iframe = document.getElementById("profileFrame");
-		// var iframe_contents = iframe.contentDocument.body.innerHTML;
-	}
-
-	$scope.chooseFile = function(picType) {
-      document.getElementById(picType).click();
-    }
-
-	$scope.submit = function(picType){
-		document.forms[picType].submit();
-	}
-
-
-	 $scope.$watch('files', function () {
+	$scope.$watch('files', function () {
         $scope.upload($scope.files);
     });
 

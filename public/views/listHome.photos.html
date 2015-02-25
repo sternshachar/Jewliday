@@ -36,11 +36,8 @@ iframe{
 	            	<h3>{{pic.name}}</h3>
 	            	<h4 ng-show="picUploaded">Uploaded!</h4>
 	            </div>
-	            <iframe id="{{pic.frameName}}" name="hiddenFrame" ng-hide="false" onload="checkUpload()">
-	            </iframe>
-	            <input type="file" name="file" id="{{pic.type}}" class="input-file" ng-show="false">
-	            <button class="btn btn-warning btn-block" ng-click="chooseFile(pic.type)">Choose file</button>
-	            <button class="btn btn-primary btn-block" ng-click="submit(pic.type)">Upload</button>
+	            
+	            <button class="btn btn-warning btn-block" ng-file-select ng-file-change="upload($files)">Choose file</button>
 	            <br>
 	        </form>
 	        
