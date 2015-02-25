@@ -149,7 +149,8 @@ angular.module("jewApp")
 	$scope.frameName = ['profileFrame','coverFrame','pic1Frame','pic2Frame','pic3Frame','pic4Frame','pic5Frame','pic6Frame'];
 
 	document.addEventListener("DOMContentLoaded", function(event) { 
-	     document.getElementById("profileFrame").addEventListener("load", function(){
+	     document.getElementById("profileFrame").addEventListener("DOMContentLoaded", function(){
+	     	var content = document.getElementById("profileFrame").contentWindow.document.body.innerHTML;
 	     	console.log('WOWOWOW')
 	    	$scope.picUploaded = true;
 		 }) //do work
