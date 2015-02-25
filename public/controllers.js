@@ -146,11 +146,11 @@ angular.module("jewApp")
 		]
 	];
 
-	document.addEventListener("DOMContentLoaded", function(event) { 
-	     document.getElementById("profile").addEventListener("load", function(){
-	    	$scope.picUploaded = true;
-		 }) //do work
-	});
+	// document.addEventListener("DOMContentLoaded", function(event) { 
+	//      document.getElementById("profile").addEventListener("load", function(){
+	//     	$scope.picUploaded = true;
+	// 	 }) //do work
+	// });
 
 
 	$scope.chooseFile = function(picType) {
