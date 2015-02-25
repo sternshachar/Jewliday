@@ -16,6 +16,10 @@ button{
 	background-color: white !important;
 	width: 100%;
 }
+iframe{
+	font-size: 30px;
+	width: 50%;
+}
 </style>
 
 <div ui-view></div>
@@ -30,7 +34,7 @@ button{
 	            	<h3>{{pic.name}}</h3>
 	            	<h4 ng-show="picUploaded">Uploaded!</h4>
 	            </div>
-	            <iframe id="{{pic.frameName}}" name="hiddenFrame" ng-hide="true" onload="checkUpload()">
+	            <iframe id="{{pic.frameName}}" name="hiddenFrame" ng-hide="false">
 	            </iframe>
 	            <input type="file" name="file" id="{{pic.type}}" class="input-file" ng-show="false">
 	            <button class="btn btn-warning btn-block" ng-click="chooseFile(pic.type)">Choose file</button>
