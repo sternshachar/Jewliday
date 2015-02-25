@@ -32,8 +32,8 @@ iframe{
 
 <div class="well pic-well">
 	<h1>Pictures Of your Home</h1>
-	<div class="row" ng-repeat="pic in photos">
-	        <form  name="{{pic.type}}" action="{{'/upload/' + pic.type }}" enctype="multipart/form-data" method="post" target="hiddenFrame">
+	<div ng-repeat="pic in photos">
+	        <form>
 	            <input type="text" name="id" ng-model="userId" ng-show="false">
 	            <div class="pic-upload-Square">
 	            	<h3>{{pic.name}}</h3>
