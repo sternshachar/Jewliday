@@ -162,7 +162,7 @@ angular.module("jewApp")
     });
 
     $scope.upload = function (files,type) {
-    	var done = false;
+    	var typePic = type;
         if (files && files.length) {
             for (var i = 0; i < files.length; i++) {
                 var file = files[i];
@@ -177,10 +177,10 @@ angular.module("jewApp")
                     console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
                 }).success(function (data, status, headers, config) {
                     console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
-                     done = true;
+                     $scope.photos[typePic] = true;
                 });
             }
-            $scope.photos[type] = done;
+            
         }
     };
 })
