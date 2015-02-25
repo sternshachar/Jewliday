@@ -141,7 +141,6 @@ angular.module("jewApp")
 
     $scope.finishList = function(){
     	$state.go('usersArea.home');
-    	$window.location.reload();
     }
 
     $scope.limit = 3;
