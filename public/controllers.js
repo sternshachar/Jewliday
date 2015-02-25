@@ -188,7 +188,7 @@ angular.module("jewApp")
         }
     };
 })
-.controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,addressData,photos){
+.controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,addressData,photos,homeData){
 	var amenities = {};
 
 	$scope.photosUrl = photos;
