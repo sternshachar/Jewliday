@@ -149,7 +149,7 @@ angular.module("jewApp")
 	$scope.frameName = ['profileFrame','coverFrame','pic1Frame','pic2Frame','pic3Frame','pic4Frame','pic5Frame','pic6Frame'];
 
 	window.checkUpload = function(){
-		var result = document.getElementById("profileFrame").innerHTML;;
+		var result = document.getElementById("profileFrame");
 		var wrappedResult = angular.element(result);
 		var content = wrappedResult.children();
 		console.log(result);
