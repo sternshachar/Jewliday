@@ -88,7 +88,12 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 					})
 					.state('usersArea.home.photos',{
 						url:'/photos',
-						templateUrl:'views/users.home.photosDescription.html'
+						templateUrl:'views/users.home.photosDescription.html',
+						resolve: {
+							refresh: function(){
+								$window.location.reload();
+							}
+						}
 					})
 					.state('usersArea.home.reviews',{
 						url:'/reviews',

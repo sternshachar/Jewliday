@@ -140,10 +140,9 @@ angular.module("jewApp")
     }
 
     $scope.finishList = function(){
-    	$scope.$apply();
     	$state.go('usersArea.home.photos');
     }
-
+    
     $scope.limit = 3;
     $scope.photos = [
 			{ type: 'profile' , name: 'Profile' 	 ,done: false, show: true},
