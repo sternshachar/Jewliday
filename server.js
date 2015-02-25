@@ -160,7 +160,7 @@ function uploadFile(remoteFilename, file, id) {
 				user.save(function(err,user){
 					if(err) return console.error(err);
 					console.log(user.house.photos);
-					res.send('uploaded');
+					return res.send('uploaded');
 				})
 				
 			});
