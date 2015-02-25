@@ -151,7 +151,7 @@ angular.module("jewApp")
 	window.checkUpload = function(){
 		var result = document.getElementById("profileFrame");
 		var wrappedResult = angular.element(result);
-		var content = wrappedResult.children().text();
+		var content = wrappedResult.children();
 		console.log(content);
 	}
 
