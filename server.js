@@ -158,9 +158,8 @@ function uploadFile(remoteFilename, file, id) {
 					'https://s3-us-west-2.amazonaws.com/jewliday/' + id + '/' + remoteFilename
 					);
 				user.save(function(err,user){
-					if(err) res.send(err);;
+					if(err) return console.error(err);
 					console.log(user.house.photos);
-					res.send('uploaded');
 				})
 				
 			});
@@ -191,7 +190,7 @@ app.post('/upload/:type', function(req, res) {
                     } else {
                     	uploadFile( type + '.' + file_ext,data,id)
                         res.status(200);
-                        
+                        res.send('uploaded');
                     }
                 });
             });
