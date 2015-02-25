@@ -111,7 +111,7 @@ angular.module("jewApp")
 			});
 	}	
 })
-.controller("newHomeCtrl",function($scope,$http, $window, appData,$upload,$state){
+.controller("newHomeCtrl",function($scope,$http, $window, appData,$upload,$state,homeData){
 	if($scope.isListed.listed){
 		$scope.home = homeData;
 	}
@@ -188,7 +188,7 @@ angular.module("jewApp")
         }
     };
 })
-.controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,addressData,photos,homeData){
+.controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,addressData,photos){
 	var amenities = {};
 
 	$scope.photosUrl = photos;
