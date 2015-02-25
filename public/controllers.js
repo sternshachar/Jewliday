@@ -161,8 +161,8 @@ angular.module("jewApp")
         $scope.upload($scope.files);
     });
 
-    $scope.upload = function (files,type) {
-    	var typePic = type;
+    $scope.upload = function (files,type,index) {
+    	var picIndex = index;
         if (files && files.length) {
             for (var i = 0; i < files.length; i++) {
                 var file = files[i];
@@ -177,7 +177,7 @@ angular.module("jewApp")
                     console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
                 }).success(function (data, status, headers, config) {
                     console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
-                     $scope.photos[typePic] = true;
+                     $scope.photos[picIndex].done = true;
                 });
             }
             
