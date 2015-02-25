@@ -149,11 +149,10 @@ angular.module("jewApp")
 	$scope.frameName = ['profileFrame','coverFrame','pic1Frame','pic2Frame','pic3Frame','pic4Frame','pic5Frame','pic6Frame'];
 
 	window.checkUpload = function(){
-		var result = document.getElementById("profileFrame").innerHTML;
-		var content = html.replace(/<[^>]*>/g, "");
-		// var wrappedResult = angular.element(result);
-		// var content = wrappedResult.children();
-		console.log(content);
+		var result = document.getElementById("profileFrame").innerHTML;;
+		var wrappedResult = angular.element(result);
+		var content = wrappedResult.children();
+		console.log(result);
 	}
 
 	$scope.chooseFile = function(picType) {
