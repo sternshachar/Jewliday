@@ -135,22 +135,24 @@ angular.module("jewApp")
     }
 
     $scope.photos = [
-		[	{ type: 'profile' , name: 'Profile'},
-			{ type: 'cover'   , name: 'Cover Photo'},
-			{ type: 'pic1' 	  , name: 'Another Photo'},
-			{ type: 'pic2' , name: 'Another Photo'}],
-		[	{ type: 'pic3' , name: 'Another Photo'},
-			{ type: 'pic4' , name: 'Another Photo'},
-			{ type: 'pic5' , name: 'Another Photo'},
-			{ type: 'pic6' , name: 'Another Photo'}
+		[	{ type: 'profile' , name: 'Profile', frameName: 'profileFrame'},
+			{ type: 'cover'   , name: 'Cover Photo', frameName:'coverFrame'},
+			{ type: 'pic1' 	  , name: 'Another Photo', frameName:'pic1Frame'},
+			{ type: 'pic2' , name: 'Another Photo', frameName:'pic2Frame'}],
+		[	{ type: 'pic3' , name: 'Another Photo', frameName:'pic3Frame'},
+			{ type: 'pic4' , name: 'Another Photo', frameName:'pic4Frame'},
+			{ type: 'pic5' , name: 'Another Photo', frameName:'pic5Frame'},
+			{ type: 'pic6' , name: 'Another Photo', frameName:'pic6Frame'}
 		]
 	];
 
-	// document.addEventListener("DOMContentLoaded", function(event) { 
-	//      document.getElementById("ProfileFrame").addEventListener("load", function(){
-	//     	$scope.picUploaded = true;
-	// 	 }) //do work
-	// });
+	$scope.frameName = ['profileFrame','coverFrame','pic1Frame','pic2Frame','pic3Frame','pic4Frame','pic5Frame','pic6Frame'];
+
+	document.addEventListener("DOMContentLoaded", function(event) { 
+	     document.getElementById("profileFrame").addEventListener("load", function(){
+	    	$scope.picUploaded = true;
+		 }) //do work
+	});
 
 
 	$scope.chooseFile = function(picType) {
