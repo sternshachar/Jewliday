@@ -28,16 +28,9 @@ button{
 	            <input type="text" name="id" ng-model="userId" ng-show="false">
 	            <div class="pic-upload-Square">
 	            	<h3>{{pic.name}}</h3>
-	            	<h4 ng-show="picUploaded == 'uploaded' ">Uploaded!</h4>
+	            	<h4 ng-show="picUploaded">Uploaded!</h4>
 	            </div>
-	            <iframe id="{{pic.frameName}}" name="hiddenFrame" ng-hide="true">
-	            	<html>
-	            	<head>
-	            	</head>
-	            	<body ng-model="picUploaded">
-	            	
-	            	</body>
-	            	</html>
+	            <iframe id="{{pic.frameName}}" name="hiddenFrame" ng-hide="true" onload="checkUpload()">
 	            </iframe>
 	            <input type="file" name="file" id="{{pic.type}}" class="input-file" ng-show="false">
 	            <button class="btn btn-warning btn-block" ng-click="chooseFile(pic.type)">Choose file</button>
