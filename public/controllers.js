@@ -114,6 +114,7 @@ angular.module("jewApp")
 .controller("newHomeCtrl",function($scope,$http, $window, appData,$upload,$state,homeData){
 	if($scope.isListed.listed){
 		$scope.home = homeData;
+		console.log($scope.home)
 	}
 
 	$scope.home = {listed: true};
