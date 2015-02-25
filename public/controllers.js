@@ -135,14 +135,14 @@ angular.module("jewApp")
     }
 
     $scope.photos = [
-		[	{ type: 'profile' , name: 'Profile', frameName: 'profileFrame'},
-			{ type: 'cover'   , name: 'Cover Photo', frameName:'coverFrame'},
-			{ type: 'pic1' 	  , name: 'Another Photo', frameName:'pic1Frame'},
-			{ type: 'pic2' , name: 'Another Photo', frameName:'pic2Frame'}],
-		[	{ type: 'pic3' , name: 'Another Photo', frameName:'pic3Frame'},
-			{ type: 'pic4' , name: 'Another Photo', frameName:'pic4Frame'},
-			{ type: 'pic5' , name: 'Another Photo', frameName:'pic5Frame'},
-			{ type: 'pic6' , name: 'Another Photo', frameName:'pic6Frame'}
+		[	{ type: 'profile' , name: 'Profile'},
+			{ type: 'cover'   , name: 'Cover Photo'},
+			{ type: 'pic1' 	  , name: 'Another Photo'},
+			{ type: 'pic2' , name: 'Another Photo'}],
+		[	{ type: 'pic3' , name: 'Another Photo'},
+			{ type: 'pic4' , name: 'Another Photo'},
+			{ type: 'pic5' , name: 'Another Photo'},
+			{ type: 'pic6' , name: 'Another Photo'}
 		]
 	];
 
@@ -150,12 +150,12 @@ angular.module("jewApp")
         $scope.upload($scope.files);
     });
 
-    $scope.upload = function (files) {
+    $scope.upload = function (files,type) {
         if (files && files.length) {
             for (var i = 0; i < files.length; i++) {
                 var file = files[i];
                 $upload.upload({
-                    url: 'upload/pic5',
+                    url: 'upload/' + type,
                     fields: {'id': $scope.userId},
                     file: file
                 }).progress(function (evt) {
