@@ -130,10 +130,20 @@ angular.module("jewApp")
 							success(function(data){
 								$scope.isListed.listed = data.user.house.listed;
 							});
-							$state.go('listHome.photos');
-				// $window.location.reload();
+							
+				
     		})
     }
+
+    $scope.goToDetails = function(){
+    	$state.go('listHome.details');
+    }
+
+    $scope.finishList = function(){
+    	$state.go('usersArea.home');
+    	$window.location.reload();
+    }
+
 
     $scope.photos = [
 		[	{ type: 'profile' , name: 'Profile'},
