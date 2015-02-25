@@ -38,18 +38,13 @@ iframe{
 	            </div>
 	            
 	            <div class="button btn btn-primary btn-block" ng-file-select ng-file-change="upload($files,pic.type)">Choose file</div>
+	            <div class="progress">
+				  <div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">
+				    {{progress}}%
+				  </div>
 	            <br>
 	        </form>
 	        
 	    </div>
 	</div>
 </div>
-
-
-    watching model:
-    <div class="button" ng-file-select ng-model="files">Upload ussing model $watch</div>
-    <div class="button" ng-file-select ng-file-change="upload($files)">Upload on file change</div>
-    Drop File:
-    <div ng-file-drop ng-model="files" class="drop-box" 
-        drag-over-class="dragover" ng-multiple="true" allow-dir="true"
-        accept=".jpg,.png,.pdf">Drop Images or PDFs files here</div>
