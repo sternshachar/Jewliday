@@ -24,13 +24,12 @@ button{
 	<h1>Pictures Of your Home</h1>
 	<div class="row" ng-repeat="set in photos">
 		<div class="col-sm-3" ng-repeat="pic in set">
-	        <form  name="{{pic.type}}" action="{{'/upload/' + pic.type }}" enctype="multipart/form-data" method="post" target="{{pic.type}}">
+	        <form  name="{{pic.type}}" action="{{'/upload/' + pic.type }}" enctype="multipart/form-data" method="post" target="hiddenFrame">
 	            <input type="text" name="id" ng-model="userId" ng-show="false">
 	            <div class="pic-upload-Square">
 	            	<h3>{{pic.name}}</h3>
-	            	<h4 ng-show="picUploaded">Uploaded</h4>
 	            </div>
-	            <iframe name="{{pic.type}}"></iframe>
+	            <iframe name="hiddenFrame" ng-hide="true"></iframe>
 	            <input type="file" name="file" id="{{pic.type}}" class="input-file" ng-show="false">
 	            <button class="btn btn-warning btn-block" ng-click="chooseFile(pic.type)">Choose file</button>
 	            <button class="btn btn-primary btn-block" ng-click="submit(pic.type)">Upload</button>
