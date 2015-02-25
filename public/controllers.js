@@ -140,7 +140,7 @@ angular.module("jewApp")
     }
 
     $scope.finishList = function(){
-    	$state.go('usersArea.home');
+    	$state.go('usersArea.home.photos');
     }
 
     $scope.limit = 3;
