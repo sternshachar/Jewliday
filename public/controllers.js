@@ -140,6 +140,7 @@ angular.module("jewApp")
     }
 
     $scope.finishList = function(){
+    	$scope.$apply();
     	$state.go('usersArea.home.photos');
     }
 
