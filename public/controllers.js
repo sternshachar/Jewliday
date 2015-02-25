@@ -147,13 +147,13 @@ angular.module("jewApp")
 	];
 
 
-    document.getElementsByTagName('profile').addEventListener("load", function(){
+    document.getElementById("Profile").addEventListener("load", function(){
     	$scope.picUploaded = true;
 	 })
 
-	 $scope.chooseFile = function(picType) {
+	$scope.chooseFile = function(picType) {
       document.getElementById(picType).click();
-   }
+    }
 
 	$scope.submit = function(picType){
 		document.forms[picType].submit();
