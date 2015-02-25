@@ -248,8 +248,9 @@ angular.module("jewApp")
 		  }
 		}
 	}
+
 	$scope.editHome = function(){
-		$state.go('listHome.photos');
+		$state.go('listHome.address');
 	}
 
 
