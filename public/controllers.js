@@ -111,7 +111,7 @@ angular.module("jewApp")
 			});
 	}	
 })
-.controller("newHomeCtrl",function($scope,$http, $window, appData){
+.controller("newHomeCtrl",function($scope,$http, $window, appData,$upload){
 
 
 	$scope.home = {listed: true};
@@ -148,6 +148,11 @@ angular.module("jewApp")
 
 	$scope.frameName = ['profileFrame','coverFrame','pic1Frame','pic2Frame','pic3Frame','pic4Frame','pic5Frame','pic6Frame'];
 
+	window.checkUpload = function(){
+		var iframe = document.getElementById("profileFrame");
+		// var iframe_contents = iframe.contentDocument.body.innerHTML;
+	}
+
 	$scope.chooseFile = function(picType) {
       document.getElementById(picType).click();
     }
@@ -156,60 +161,28 @@ angular.module("jewApp")
 		document.forms[picType].submit();
 	}
 
-		//an array of files selected
-	    $scope.files = [];
 
-	    //listen for the file selected event
-	    $scope.$on("fileSelected", function (event, args) {
-	        $scope.$apply(function () {            
-	            //add the file object to the scope's files collection
-	            $scope.files.push(args.file);
-	        });
-	    });
-	    
-	    $scope.model = {
-	        name: "",
-	        comments: ""
-	    };
-	    //the save method
-	    $scope.save = function() {
-	        $http({
-	            method: 'POST',
-	            url: "/upload/pic5",
-	            //IMPORTANT!!! You might think this should be set to 'multipart/form-data' 
-	            // but this is not true because when we are sending up files the request 
-	            // needs to include a 'boundary' parameter which identifies the boundary 
-	            // name between parts in this multi-part request and setting the Content-type 
-	            // manually will not set this boundary parameter. For whatever reason, 
-	            // setting the Content-type to 'false' will force the request to automatically
-	            // populate the headers properly including the boundary parameter.
-	            headers: { 'Content-Type': false },
-	            //This method will allow us to change how the data is sent up to the server
-	            // for which we'll need to encapsulate the model data in 'FormData'
-	            transformRequest: function (data) {
-	                var formData = new FormData();
-	                //need to convert our json object to a string version of json otherwise
-	                // the browser will do a 'toString()' on the object which will result 
-	                // in the value '[Object object]' on the server.
-	                formData.append("model", angular.toJson(data.model));
-	                //now add all of the assigned files
-	                for (var i = 0; i < data.files; i++) {
-	                    //add each file to the form data and iteratively name them
-	                    formData.append("file" + i, data.files[i]);
-	                }
-	                return formData;
-	            },
-	            //Create an object that contains the model and files which will be transformed
-	            // in the above transformRequest method
-	            data: { model: $scope.model, files: $scope.files }
-	        }).
-	        success(function (data, status, headers, config) {
-	            alert("success!");
-	        }).
-	        error(function (data, status, headers, config) {
-	            alert("failed!");
-	        });
-	    };
+	 $scope.$watch('files', function () {
+        $scope.upload($scope.files);
+    });
+
+    $scope.upload = function (files) {
+        if (files && files.length) {
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                $upload.upload({
+                    url: 'upload/pic5',
+                    fields: {'username': $scope.username},
+                    file: file
+                }).progress(function (evt) {
+                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                    console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+                }).success(function (data, status, headers, config) {
+                    console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
+                });
+            }
+        }
+    };
 })
 .controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,addressData,photos){
 	var amenities = {};
