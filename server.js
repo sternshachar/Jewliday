@@ -159,7 +159,7 @@ function uploadFile(remoteFilename, file, id) {
 					);
 				user.save(function(err,user){
 					if(err) return console.error(err);
-					console.log(user.house.photos);
+					console.log(user.photos);
 				})
 				
 			});
@@ -168,7 +168,6 @@ function uploadFile(remoteFilename, file, id) {
 
 app.post('/upload/:type', function(req, res) {
 	var type = req.params.type;
-	console.log(type);
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
         // `file` is the name of the <input> field of type `file`
