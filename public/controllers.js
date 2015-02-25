@@ -154,7 +154,6 @@ angular.module("jewApp")
 			{ type: 'pic4'    , name: 'Another Photo',done: false},
 			{ type: 'pic5'    , name: 'Another Photo',done: false},
 			{ type: 'pic6'    , name: 'Another Photo',done: false}
-		]
 	];
 
 	$scope.$watch('files', function () {
