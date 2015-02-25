@@ -111,7 +111,7 @@ angular.module("jewApp")
 			});
 	}	
 })
-.controller("newHomeCtrl",function($scope,$http, $window, appData,$upload){
+.controller("newHomeCtrl",function($scope,$http, $window, appData,$upload,$state){
 
 
 	$scope.home = {listed: true};
@@ -130,7 +130,8 @@ angular.module("jewApp")
 							success(function(data){
 								$scope.isListed.listed = data.user.house.listed;
 							});
-				$window.location.reload();
+							$state.go('listHome.photos');
+				// $window.location.reload();
     		})
     }
 
