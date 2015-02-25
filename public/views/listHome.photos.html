@@ -30,7 +30,7 @@ button{
 	            	<h3>{{pic.name}}</h3>
 	            	<h4 ng-show="picUploaded">Uploaded</h4>
 	            </div>
-	            <iframe id="ProfileFrame" name="{{pic.type}}"></iframe>
+	            <iframe name="{{pic.type}}"></iframe>
 	            <input type="file" name="file" id="{{pic.type}}" class="input-file" ng-show="false">
 	            <button class="btn btn-warning btn-block" ng-click="chooseFile(pic.type)">Choose file</button>
 	            <button class="btn btn-primary btn-block" ng-click="submit(pic.type)">Upload</button>
