@@ -112,7 +112,9 @@ angular.module("jewApp")
 	}	
 })
 .controller("newHomeCtrl",function($scope,$http, $window, appData,$upload,$state){
-
+	if($scope.isListed.listed){
+		$scope.home = homeData;
+	}
 
 	$scope.home = {listed: true};
 	$scope.options = {types: '(cities)'};
@@ -142,7 +144,7 @@ angular.module("jewApp")
     $scope.finishList = function(){
     	$state.go('usersArea.home.photos');
     }
-    
+
     $scope.limit = 3;
     $scope.photos = [
 			{ type: 'profile' , name: 'Profile' 	 ,done: false, show: true},
@@ -245,6 +247,9 @@ angular.module("jewApp")
 		    };
 		  }
 		}
+	}
+	$scope.editHome = function(){
+		$state.go('listHome.photos');
 	}
 
 

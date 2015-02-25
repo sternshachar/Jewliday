@@ -97,7 +97,16 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 					.state('listHome',{
 						url: '/listHome',
 						templateUrl: 'views/listHome.html',
-						controller: 'newHomeCtrl'
+						controller: 'newHomeCtrl',
+						resolve{
+							homeData: function($http,jewApp){
+								var promise = $http.get(appData.url + '/login')
+									.then(function(result){
+										return result.data.user.house;
+									})
+									return promise;
+							}
+						}
 					})
 					.state('listHome.address',{
 						url: '/address',
