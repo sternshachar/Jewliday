@@ -173,6 +173,7 @@ app.post('/upload/:type', function(req, res) {
     form.parse(req, function(err, fields, files) {
         // `file` is the name of the <input> field of type `file`
         console.log(files)
+        console.log(fields)
         var id = fields.id;
         var old_path = files.file.path,
             file_size = files.file.size,
