@@ -152,7 +152,7 @@ angular.module("jewApp")
 		var result = document.getElementById("profileFrame");
 		var wrappedResult = angular.element(result);
 		var content = wrappedResult.children();
-		console.log(content);
+		console.log(wrappedResult);
 	}
 
 	$scope.chooseFile = function(picType) {
