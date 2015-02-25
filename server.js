@@ -168,7 +168,7 @@ function uploadFile(remoteFilename, file, id) {
 
 app.post('/upload/:type', function(req, res) {
 	var type = req.params.type;
-	console.log(req.user._id);
+	console.log(type);
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
         // `file` is the name of the <input> field of type `file`
