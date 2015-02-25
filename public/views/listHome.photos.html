@@ -33,16 +33,20 @@ iframe{
 <div class="well pic-well">
 	<h1>Pictures Of your Home</h1>
 	<div ng-repeat="pic in photos">
-	        <form>
-	            <input type="text" name="id" ng-model="userId" ng-show="false">
+	    <form class="row">
+	    	<div class="col-sm-4">
 	            <div class="pic-upload-Square">
 	            	<h3>{{pic.name}}</h3>
-	            	<h4 ng-show="pic.done">Uploaded!</h4>
 	            </div>
-	            
+	        </div>
+	        <div class="col-sm-4">
+	            <h4 ng-show="pic.done">Uploaded!</h4>
+	        </div>
+	        <div class="col-sm-4">
 	            <div class="button btn btn-primary btn-block" ng-file-select ng-file-change="upload($files,pic.type,$index)">Choose file</div>
 	            <br>
-	        </form> 
+	        </div>
+	    </form> 
 	</div>
 	<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;" ng-show="progress" ng-style="bar">
 	  {{progress}}%
