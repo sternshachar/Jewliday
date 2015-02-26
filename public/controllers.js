@@ -160,7 +160,7 @@ angular.module("jewApp")
 			{ type: 'pic6'    , name: 'Another Photo',done: false, show: false}
 	];
 	$scope.anotherPic = function(){
-		if($scope.limit < 6)
+		if($scope.limit < 8)
 			$scope.limit = $scope.limit + 1;
 	}
 
