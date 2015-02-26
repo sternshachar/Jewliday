@@ -24,6 +24,8 @@
 <div class="container carousel-container">
 	<div ng-repeat="slide in slides">
 		<div class="carousel-slide" ng-if="isActive[$index]">
+			<a href ng-click="changeSlide('next')"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      		<a href ng-click="changeSlide('prev')"><span class="glyphicon glyphicon-chevron-right"></span></a>
 			<img class="slide-pic" ng-src="{{slide}}">
 		</div>
 	</div>
