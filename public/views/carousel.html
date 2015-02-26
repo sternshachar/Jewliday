@@ -15,8 +15,19 @@
 	width: 100%;
 }
 
-.glyphicon{
+.glyphicon-chevron-left{
 	position: absolute;
+	left: 0;
+	display: inline-block;
+	padding-top: auto;
+	padding-bottom: auto;
+	font-size: 30px;
+
+}
+
+.glyphicon-chevron-right{
+	position: absolute;
+	right: 0;
 	display: inline-block;
 	padding-top: auto;
 	padding-bottom: auto;
@@ -33,8 +44,8 @@
 <div class="container carousel-container">
 	<div ng-repeat="slide in slides">
 		<div class="carousel-slide" ng-if="isActive[$index]">
-			<a href ng-click="changeSlide('next')"><span class="glyphicon glyphicon-chevron-left pull-left"></span></a>
-      		<a href ng-click="changeSlide('prev')"><span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
+			<a href ng-click="changeSlide('next')"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      		<a href ng-click="changeSlide('prev')"><span class="glyphicon glyphicon-chevron-right"></span></a>
 			<img class="slide-pic" ng-src="{{slide}}">
 		</div>
 	</div>
