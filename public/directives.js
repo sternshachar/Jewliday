@@ -67,7 +67,7 @@ angular.module('jewApp')
         }
 	}
 })
-.directive('carousel',function(){
+.directive('myCarousel',function(){
 	return {
 		restrict: 'E',
 
