@@ -155,7 +155,7 @@ function uploadFile(remoteFilename, file, id) {
 				if(err) return console.error(err);
 				user.set(
 					'photos.' + remoteFilename.split('.')[0],
-					'https://s3-us-west-2.amazonaws.com/jewliday/' + id + '/' + remoteFilename
+					'https://s3-us-west-2.amazonaws.com/jewliday/' + id + '/' + remoteFilename + new Date()
 					);
 				user.save(function(err,user){
 					if(err) return console.error(err);
