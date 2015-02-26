@@ -125,7 +125,8 @@ angular.module('jewApp')
 
 		          }
 		        };
-		        
+		        $interval.cancel(carouselInterval);
+		        var carouselInterval = $interval($scope.autoSlideChange,$scope.interval);
 		    }
 
 			var carouselInterval = $interval($scope.autoSlideChange,$scope.interval);
