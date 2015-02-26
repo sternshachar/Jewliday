@@ -188,7 +188,7 @@ app.post('/upload/:type', function(req, res) {
                         res.json({'success': false});
                     } else {
                     	var date = new Date();
-                    	uploadFile( type + date.parse().replace(/\s/g,'') +'.' + file_ext,data,id);
+                    	uploadFile( type + Date.parse(date).replace(/\s/g,'') +'.' + file_ext,data,id);
                         res.status(200);
                         res.send('uploaded');
                     }
