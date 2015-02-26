@@ -142,7 +142,8 @@ app.put('/listHome/:id', function(req,res){
 function uploadFile(remoteFilename, file, id) {
   var s3bucket = new AWS.S3({ params: {Bucket: 'jewliday'} });
   var fileBuffer = file;
-  
+  var type = remoteFilename.split('.')[0];
+  var file_ext = remoteFilename.split('.')[1];
   s3bucket.putObject({
     ACL: 'public-read',
     Bucket: 'jewliday',
@@ -154,8 +155,8 @@ function uploadFile(remoteFilename, file, id) {
     	User.findById(id, function(err,user){
 				if(err) return console.error(err);
 				user.set(
-					'photos.' + remoteFilename.split('.')[0],
-					'https://s3-us-west-2.amazonaws.com/jewliday/' + id + '/' + remoteFilename 
+					'photos.' + type,
+					'https://s3-us-west-2.amazonaws.com/jewliday/' + id + '/' + type + Date.parse(date) + file_ext
 					);
 				user.save(function(err,user){
 					if(err) return console.error(err);
@@ -188,8 +189,7 @@ app.post('/upload/:type', function(req, res) {
                         res.json({'success': false});
                     } else {
                     	var date = new Date();
-                    	console.log(type + Date.parse(date) +'.' + file_ext)
-                    	uploadFile( type + Date.parse(date) +'.' + file_ext,data,id);
+                    	uploadFile( type  +'.' + file_ext,data,id);
                         res.status(200);
                         res.send('uploaded');
                     }
