@@ -202,8 +202,9 @@ angular.module("jewApp")
 	};
 
 	$scope.imagePick = function(pic){
-		return 	$scope.photosUrl[pic] ;
-
+		return {
+	    	'background-image': 'url(' + $scope.photosUrl[pic] + ')'
+		}
 	}
 
 	$http.get(appData.url + '/login').
