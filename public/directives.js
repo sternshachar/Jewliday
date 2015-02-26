@@ -67,3 +67,23 @@ angular.module('jewApp')
         }
 	}
 })
+.directive('carousel',function(){
+	return {
+		restrict: 'E',
+
+		templateUrl: 'views/carousel.html',
+
+		scope:{
+			photos: '='
+		} ,
+
+		controller: function($scope){
+			$scope.slides['','','','','',''];
+			var slideName = ['pic1','pic2','pic3','pic4','pic5','pic6'];
+
+			for (var i = 0; i < slideName.length; i++) {
+				$scope.slides[i] = $scope.photos[slideName[i]];
+			};
+		}
+	}
+})
