@@ -155,7 +155,7 @@ function uploadFile(remoteFilename, file, id) {
 				if(err) return console.error(err);
 				user.set(
 					'photos.' + remoteFilename.split('.')[0],
-					'https://s3-us-west-2.amazonaws.com/jewliday/' + id + '/' + remoteFilename + new Date()
+					'https://s3-us-west-2.amazonaws.com/jewliday/' + id + '/' + remoteFilename 
 					);
 				user.save(function(err,user){
 					if(err) return console.error(err);
@@ -187,7 +187,7 @@ app.post('/upload/:type', function(req, res) {
                         res.status(500);
                         res.json({'success': false});
                     } else {
-                    	uploadFile( type + '.' + file_ext,data,id)
+                    	uploadFile( type + new Date() +'.' + file_ext,data,id)
                         res.status(200);
                         res.send('uploaded');
                     }
