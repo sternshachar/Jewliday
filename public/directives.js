@@ -78,7 +78,7 @@ angular.module('jewApp')
 		} ,
 
 		controller: function($scope){
-			$scope.slides['','','','','',''];
+			$scope.slides = ['','','','','',''];
 			var slideName = ['pic1','pic2','pic3','pic4','pic5','pic6'];
 
 			for (var i = 0; i < slideName.length; i++) {
