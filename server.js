@@ -142,6 +142,7 @@ app.put('/listHome/:id', function(req,res){
 function uploadFile(remoteFilename, file, id) {
   var s3bucket = new AWS.S3({ params: {Bucket: 'jewliday'} });
   var fileBuffer = file;
+  var date = new Date;
   var type = remoteFilename.split('.')[0];
   var file_ext = remoteFilename.split('.')[1];
   s3bucket.putObject({
@@ -188,7 +189,6 @@ app.post('/upload/:type', function(req, res) {
                         res.status(500);
                         res.json({'success': false});
                     } else {
-                    	var date = new Date();
                     	uploadFile( type  +'.' + file_ext,data,id);
                         res.status(200);
                         res.send('uploaded');
