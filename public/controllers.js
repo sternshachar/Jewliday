@@ -201,6 +201,13 @@ angular.module("jewApp")
     	background: 'url(' + $scope.photosUrl.cover + ')'
 	};
 
+	$scope.imagePick = function(pic){
+		console.log($scope.photosUrl[pic]);
+		return {
+	    	background: 'url(' + $scope.photosUrl[pic] + ')'
+		}
+	}
+
 	$http.get(appData.url + '/login').
 				success(function(data){
 					amenities = data.user.house.amenities;

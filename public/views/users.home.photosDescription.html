@@ -16,35 +16,22 @@
 .columns{
 	height: 600px;
 }
-.columns .row img{
-	max-width:100%;
-	max-height:100%;
-}
+
 </style>
 <br>
 <br>
 <div class="row pic-table">
 	<div class="col-sm-4 columns">
-		<div class="row first">
-			<img class="image" ng-src="{{photosUrl.pic1}}">
-		</div>
+		<div class="row first" ng-style="imagePick(pic1)"></div>
 	</div>
 
 	<div class="col-sm-4 columns">
-		<div class="row second-up">
-			<img class="image" ng-src="{{photosUrl.pic2}}">
-		</div>
-		<div class="row second-down">
-			<img class="image" ng-src="{{photosUrl.pic3}}">
-		</div>
+		<div class="row second-up" ng-style="imagePick(pic2)"></div>
+		<div class="row second-down" ng-style="imagePick(pic3)"></div>
 	</div>
 
 	<div class="col-sm-4 columns">
-		<div class="row third-up">
-			<img class="image" ng-src="{{photosUrl.pic4}}">
-		</div>
-		<div class="row third-down">
-			<img class="image" ng-src="{{photosUrl.pic5}}">
-		</div>
+		<div class="row third-up" ng-style="imagePick(pic4)"></div>
+		<div class="row third-down" ng-style="imagePick(pic5)"></div>
 	</div>
 </div>
