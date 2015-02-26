@@ -145,19 +145,21 @@ function uploadFile(remoteFilename, file, id) {
   var date = new Date;
   var type = remoteFilename.split('.')[0];
   var file_ext = remoteFilename.split('.')[1];
+  var newFileName = type + Date.parse(date) + '.' + file_ext;
   s3bucket.putObject({
     ACL: 'public-read',
     Bucket: 'jewliday',
-    Key:  id + '/' + remoteFilename,
+    Key:  id + '/' + newFileName,
     Body: fileBuffer,
     ContentType: 'image/jpg'
   }, function(error, response) {
+  	console.log(error);
     var User = mongoose.model('users');
     	User.findById(id, function(err,user){
 				if(err) return console.error(err);
 				user.set(
 					'photos.' + type,
-					'https://s3-us-west-2.amazonaws.com/jewliday/' + id + '/' + type + Date.parse(date) + '.' + file_ext
+					'https://s3-us-west-2.amazonaws.com/jewliday/' + id + '/' + newFileName;
 					);
 				user.save(function(err,user){
 					if(err) return console.error(err);
