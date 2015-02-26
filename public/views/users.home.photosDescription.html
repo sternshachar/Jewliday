@@ -1,24 +1,32 @@
 <style type="text/css">
-tr td{
-	width: 20%;
+.pic-table{
+	width: 33%;
+}
+
+.second-up, .third-down{
+	height: 30%;
+	background-color: blue;
+}
+
+.second-down, .third-up{
+	height: 70%;
+	background-color: red;
 }
 
 </style>
 
-<br>
-<br>
-<table class="table table-bordered">
-	<tbody>
-		<tr>
-			<td rowspan="3"></td>
-			<td rowspan="2"></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td rowspan="2"></td>
-		</tr>
-		<tr>
-			<td></td>
-		</tr>
-	</tbody>
-</table>
+<div class="row pic-table">
+	<div class="col-sm-4">
+		<div class="row first"></div>
+	</div>
+
+	<div class="col-sm-4">
+		<div class="row second-up"></div>
+		<div class="row second-down"></div>
+	</div>
+
+	<div class="col-sm-4">
+		<div class="row third-up"></div>
+		<div class="row third-down"></div>
+	</div>
+</div>
