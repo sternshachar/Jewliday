@@ -202,10 +202,6 @@ angular.module("jewApp")
 	};
 
 	$scope.imagePick = function(pic){
-		console.log($scope.photosUrl[pic]);
-		if(pic == 'pic5'){
-			$scope.$apply();
-		}
 		return {
 	    	'background-image': 'url(' + $scope.photosUrl[pic] + ')'
 		}
