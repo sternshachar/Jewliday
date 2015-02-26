@@ -17,13 +17,13 @@
 	<script src="../directives.js"></script>
 	<script src="../services.js"></script>
 	<script src='lodash.js'></script>
-	<script src="ngmodules/ngAutocomplete.js"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+	<script src="ngmodules/ngAutocomplete.js"></script>
 	<script src='angular-google-maps.js'></script>
 	<script src='angular-file-upload-all.js'></script>
 	
 </head>
-<body ng-controller="mainCtrl" onload="initialize()">
+<body ng-controller="mainCtrl">
 
 	<div ui-view></div>
 	<log-modal ng-attr-modal="sign" ng-show="sign" class="sign"></log-modal>
