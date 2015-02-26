@@ -78,7 +78,7 @@ angular.module('jewApp')
 		} ,
 
 		controller: function($scope){
-			console.log(photos);
+			console.log($scope.photos);
 			$scope.slides = ['','','','','',''];
 			var slideName = ['pic1','pic2','pic3','pic4','pic5','pic6'];
 
