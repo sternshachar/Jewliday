@@ -1,18 +1,19 @@
 <br>
 <br>
-<div layout="row">
-	<div layout="column">
-		<img ng-src="{{photosUrl.pic1}}">
-		<img ng-src="{{photosUrl.pic2}}">
-	</div>
-
-	<div layout="column">
-		<img ng-src="{{photosUrl.pic3}}">
-		<img ng-src="{{photosUrl.pic4}}">
-		<img ng-src="{{photosUrl.pic5}}">
-	</div>
-
-	<div layout="column">
-		<img ng-src="{{photosUrl.pic6}}">
-	</div>
-</div>
+<table>
+	<tr>
+		<td colspan="1" rowspan="5"><img ng-src="{{photosUrl.pic1}}"></td>
+		<td colspan="1" rowspan="3"><img ng-src="{{photosUrl.pic2}}"></td>
+		<td colspan="1" rowspan="10"><img ng-src="{{photosUrl.pic3}}"></td>
+	</tr>
+	<tr>
+		<td colspan="1" rowspan="5"><img ng-src="{{photosUrl.pic4}}"></td>
+		<td colspan="1" rowspan="4"><img ng-src="{{photosUrl.pic5}}"></td>
+		<td colspan="1" rowspan="3"><img ng-src="{{photosUrl.pic6}}"></td>
+	</tr>
+	<tr>
+		<td colspan="1" rowspan="4"><img ng-src="{{photosUrl.pic4}}"></td>
+	</tr>
+	<tr></tr>
+	<tr></tr>
+</table>
