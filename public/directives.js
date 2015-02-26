@@ -126,8 +126,8 @@ angular.module('jewApp')
 		          }
 		        };
 		    }
-
-			var carouselInterval = $interval($scope.autoSlideChange,$scope.interval);
+		    //for Auto slide change uncomment the line below
+			// var carouselInterval = $interval($scope.autoSlideChange,$scope.interval);
 		}
 	}
 })
