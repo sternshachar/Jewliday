@@ -102,6 +102,32 @@ angular.module('jewApp')
 			          }
 			}
 
+			$scope.changeSlide = function(direction){
+		        for (var i = 0; i < $scope.slides.length; i++) {
+		          if($scope.isActive[i]){
+		            $scope.isActive[i] = false;
+		            if(direction == 'next'){
+		              console.log('next');
+		              if(i + 1 < $scope.slides.length)
+		                $scope.isActive[i + 1] = true;
+		              else
+		                $scope.isActive[0] = true;
+		              break;
+		            }
+		            if(direction == 'prev'){
+		              console.log('prev');
+		              if(i - 1 >= 0)
+		                $scope.isActive[i - 1] = true;
+		              else
+		                $scope.isActive[$scope.slides.length - 1] = true;
+		              break;
+		            }
+
+		          }
+		        };
+		        
+		    }
+
 			var carouselInterval = $interval($scope.autoSlideChange,$scope.interval);
 		}
 	}
