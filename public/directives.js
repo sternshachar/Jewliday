@@ -74,17 +74,35 @@ angular.module('jewApp')
 		templateUrl: 'views/carousel.html',
 
 		scope:{
-			photos: '='
+			photos: '=',
+			interval:'='
 		} ,
 
-		controller: function($scope){
+		controller: function($scope,$interval){
 			console.log($scope.photos);
 			$scope.slides = ['','','','','',''];
 			var slideName = ['pic1','pic2','pic3','pic4','pic5','pic6'];
+			$scope.isActive = [true,false,false,false,false,false];
 
 			for (var i = 0; i < slideName.length; i++) {
 				$scope.slides[i] = $scope.photos[slideName[i]];
 			};
+
+			$scope.autoSlideChange = function(){
+				   for (var i = 0; i < $scope.slides.length; i++) {
+			          if($scope.isActive[i]){
+			            $scope.isActive[i] = false;
+			              if(i + 1 < $scope.slides.length)
+			                $scope.isActive[i + 1] = true;
+			              else
+			                $scope.isActive[0] = true;
+			              break;
+			            
+			            }
+			          }
+			}
+
+			var carouselInterval = $interval($scope.autoSlideChange,$scope.interval);
 		}
 	}
 })
