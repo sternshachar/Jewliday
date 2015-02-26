@@ -1,16 +1,16 @@
 <style type="text/css">
-.carousel{
+.carousel-container{
 	height: 100%;
 	width: 100%;
 	position: absolute;
 }
-.slide{
+.carousel-slide{
 	position: relative;
 }
 </style>
 
-<div class="container carousel">
-	<div class="slide" ng-repeat="slide in slides">
+<div class="container carousel-container">
+	<div class="carousel-slide" ng-repeat="slide in slides">
 		<img class="slide-pic" src="{{slide[$index]}}">
 	</div>
 </div>
