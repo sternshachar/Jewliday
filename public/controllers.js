@@ -10,7 +10,9 @@ angular.module("jewApp")
 	$scope.isAuth = false;					//login Status
 	$scope.username = "";					//name displayed in navigation bar
 	$scope.isListed = { listed: false};		//submited a home?
-	 
+	
+	$scope.searchTerm = '';
+
 	$http.get(appData.url + '/login').
 		success(function(data){
 		$scope.isAuth = data.isAuthenticated;
@@ -20,6 +22,10 @@ angular.module("jewApp")
 		$scope.isListed = {listed: data.user.house.listed == '' ? false : true };
 		console.log($scope.userId);
 	});
+
+	$scope.search = function(){
+		console.log('search ' + $scope.searchTerm);
+	}
 
 	$scope.logOut = function(){
 		$http.get(appData.url + '/logout')

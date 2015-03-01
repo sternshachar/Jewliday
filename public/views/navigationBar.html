@@ -80,6 +80,12 @@
 					</a>
 				</li>
 			</ul>
+
+			<div class="form-group">
+	          <input type="text" class="form-control" placeholder="City of Country" ng-model="searchTerm">
+	        </div>
+	        <button class="btn btn-default" ng-click="search()">Search</button>
+
 			<ul class="nav navbar-nav pull-right" ng-if="isAuth">
 				    <li class="dropdown" dropdown on-toggle="toggled(open)" >
 					    <a href class="dropdown-toggle" dropdown-toggle>
