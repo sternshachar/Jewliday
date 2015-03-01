@@ -29,7 +29,7 @@ angular.module("jewApp")
 				return result.data;
 			})
 		console.log(results)
-		$scope.results = results;
+		$scope.results = results.value;
 	}
 
 	$scope.logOut = function(){
