@@ -256,7 +256,12 @@ angular.module("jewApp")
 		  latitude: $scope.mapData.lat,
 		  longitude: $scope.mapData.lng
 		},
-		options: { draggable: false },
+		options: {
+		      draggable: false,
+		      labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
+		      labelAnchor: new google.maps.Point(30, 0),
+		      labelClass: "marker-labels"
+		    },
 		events: {
 		  dragend: function (marker, eventName, args) {
 		    $log.log('marker dragend');
