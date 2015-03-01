@@ -18,7 +18,7 @@
 
 .navbar-search{
 	margin: 0;
-	padding: 8px 0 8px 0;
+	padding: 8px 5px 8px 5px;
 }
 /* ------ end navbar -----*/
 
@@ -43,7 +43,7 @@
 					</a>
 				</li>
 			</ul>
-			<ul class="nav navbar-nav pull-right" ng-if="isAuth" ng-hide="logo == 'logo.jpg'">
+			<ul class="nav navbar-nav pull-right" ng-if="isAuth">
 					<li>
 						<a href="#/listHome/address" ng-if="!isListed.listed">
 							<button class="btn btn-warning">List Your Home</button>
@@ -91,23 +91,6 @@
 		        </div>
 		        <button class="btn btn-default" ng-click="search()">Search</button>
 		    </form>
-			<ul class="nav navbar-nav pull-right" ng-if="isAuth">
-				    <li class="dropdown" dropdown on-toggle="toggled(open)" >
-					    <a href class="dropdown-toggle" dropdown-toggle>
-					        Hello {{username}}<span class="caret"></span>
-					    </a>
-					    <ul class="dropdown-menu">
-					        <li ng-repeat="choice in items">
-					          <a ng-href="#/{{choice.url}}" ng-click="getIncoming()">{{choice.name}}</a>
-					        </li>
-					    </ul>
-				    </li>
-				<li>
-					<a href ng-click="logOut()" >
-						<span class="glyphicon glyphicon-off" ></span> Log Out
-					</a>
-				</li>
-			</ul>
 		</div>
 	</div><!-- end navbar -->
 
