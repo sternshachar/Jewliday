@@ -21,6 +21,7 @@ angular.module("jewApp")
 		console.log($scope.userId);
 	});
 
+	$scope.searchTerm = {search: ''};
 	$scope.search = function(){
 		console.log('search ' + $scope.searchTerm);
 	}
