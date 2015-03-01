@@ -216,7 +216,7 @@ app.get('/search/:place',function(req,res){
 	var User = mongoose.model('users');
 	var query = User.find({'house.city': {$regex: new RegExp('^' + place.toLowerCase(), 'i')}}).select('house -_id');
 
-	query.exex(function(err,houses){
+	query.exec(function(err,houses){
 			if(err) return console.error(err);
 			res.json(houses);
 	})
