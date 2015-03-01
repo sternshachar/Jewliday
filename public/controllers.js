@@ -247,23 +247,15 @@ angular.module("jewApp")
 	$scope.options = {scrollwheel: false};
 	$scope.map = {center: {latitude: $scope.mapData.lat,
      					   longitude: $scope.mapData.lng }, zoom: 14 };
-    var infowindow = new google.maps.InfoWindow({
-      	content: 'Here is the house'
-  	});
 	$scope.marker = {
 		id: 0,
 		coords: {
 		  latitude: $scope.mapData.lat,
 		  longitude: $scope.mapData.lng
 		},
-		options: {
-		      draggable: false,
-		      labelContent: "label",
-		      labelAnchor: new google.maps.Point(30, 0),
-		      labelClass: "marker-labels"
-		    },
+		options: { draggable: false },
 		events: {
-		  dragend: function (marker, eventName, args) {
+		  click: function (marker, eventName, args) {
 		    $log.log('marker dragend');
 		    var lat = marker.getPosition().lat();
 		    var lon = marker.getPosition().lng();
@@ -279,9 +271,6 @@ angular.module("jewApp")
 		  }
 		}
 	}
-	google.maps.event.addListener($scope.marker, 'click', function() {
-	    infowindow.open($scope.map,$scope.marker);
-	  });
 
 	$scope.editHome = function(){
 		$state.go('listHome.address');
