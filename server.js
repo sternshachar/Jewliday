@@ -219,6 +219,5 @@ app.get('/search/:place',function(req,res){
 	query.exex(function(err,houses){
 			if(err) return console.error(err);
 			res.json(houses);
-		})
-	)
+	})
 })
