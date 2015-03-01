@@ -10,6 +10,9 @@
 		font-size: 15px;
 		color: #555;
 	}
+	.beds td{
+		margin-right: 20px;
+	}
 </style>
 <br>
 <div class="row">
@@ -25,9 +28,9 @@
 						<p class="list-group-item-text"> {{home.house.description}}</p>
 						<br><br>
 						<table>
-							<tr>
+							<tr class="beds">
 								<td><span class="glyphicon glyphicon-lamp"></span> Bedrooms: {{home.house.bedrooms}}   </td>
-								<td>{{'  '}}</td>
+								
 								<td><span class="glyphicon glyphicon-cloud"></span> Beds: {{home.house.beds}}</td>
 							</tr>
 						</table>
