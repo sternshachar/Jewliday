@@ -54,6 +54,10 @@ app.post('/signup',function(req,res){
 
 				var Inbox = mongoose.model('inboxes');
 				var newInbox = new Inbox({ownerId: newUser._id});
+				newInbox.save(function(err,newInbox){
+					if(err) return console.error(err);
+					console.log(newInbox);
+				})
 
 				console.log(newUser);
 			});
