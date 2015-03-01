@@ -80,7 +80,7 @@ angular.module('jewApp')
 
 		controller: function($scope,$interval){
 			console.log($scope.photos);
-			$scope.slides = ['1','2','3','4','5','6'];//need to be unique
+			$scope.slides = ['','','','','',''];
 			var slideName = ['pic1','pic2','pic3','pic4','pic5','pic6'];
 			$scope.isActive = [true,false,false,false,false,false];
 
