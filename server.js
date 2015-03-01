@@ -212,6 +212,7 @@ app.post('/upload/:type', function(req, res) {
 });
 
 app.get('/search/:place',function(req,res){
-	console.log(req.body);
-	res.send(req.body);
+	var place = req.params.place;
+	console.log(place);
+	res.send(place);
 })
