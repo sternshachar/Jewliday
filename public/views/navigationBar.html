@@ -15,6 +15,11 @@
 .nav > li > a{
 	height: 100%;
 }
+
+.navbar-search{
+	margin: 0;
+	padding: 8px 0 8px 0;
+}
 /* ------ end navbar -----*/
 
 	</style>
@@ -80,7 +85,7 @@
 					</a>
 				</li>
 			</ul>
-			<form class="navbar-form navbar-left" role="search" ng-class="searchActive()">
+			<form class="navbar-form navbar-left navbar-search" role="search" ng-class="searchActive()">
 				<div class="form-group">
 		          <input type="text" class="form-control" placeholder="City of Country" ng-model="searchTerm.search">
 		        </div>
