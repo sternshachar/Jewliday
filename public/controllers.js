@@ -260,6 +260,7 @@ angular.module("jewApp")
 		    var lon = marker.getPosition().lng();
 
 		    $scope.marker.options = {
+		    	labelClass: "marker-labels",
 		      content: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude //'<img class="map-info-pic" ng-src="' + $scope.photosUrl.profile + '">'
 		    };
 		  }
