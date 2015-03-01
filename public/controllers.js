@@ -261,7 +261,8 @@ angular.module("jewApp")
 
 		    $scope.marker.options = {
 		    	labelClass: "marker-labels",
-		      content: "<img class='map-info-pic' ng-src='" + $scope.photosUrl.profile + "'>"
+		      content: "<img class='map-info-pic' ng-src='" + $scope.photosUrl.profile + "'>",
+		      zIndex: 99999
 		    };
 		  }
 		}
