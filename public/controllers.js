@@ -28,7 +28,7 @@ angular.module("jewApp")
 			.then(function(result){
 				console.log(result);
 			})
-		$scope.results = results;
+		$scope.results = results.data;
 	}
 
 	$scope.logOut = function(){
