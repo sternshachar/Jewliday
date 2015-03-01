@@ -261,8 +261,8 @@ angular.module("jewApp")
 
 		    $scope.marker.options = {
 		      content: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
-		      labelAnchor: new google.maps.Point(0, 0),
-		      labelClass: "marker-labels",
+		      // labelAnchor: new google.maps.Point(0, 0),
+		      // labelClass: "marker-labels",
 		      title: 'title!'
 		    };
 		  }
