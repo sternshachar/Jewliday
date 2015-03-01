@@ -260,7 +260,7 @@ angular.module("jewApp")
 		    var lon = marker.getPosition().lng();
 
 		    $scope.marker.options = {
-		      content: '<img class="image" ng-src="' + photosUrl.profile + '">',
+		      content: '<img class="image" ng-src="' + $scope.photosUrl.profile + '">',
 		    };
 		  }
 		}
