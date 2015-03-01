@@ -1,8 +1,21 @@
-<h1>LIST</h1>
-<div class="list-group">
+<style type="text/css">
+	.homes-list{
+		text-decoration: none;
+	}
+	.homes-list img{
+	}
+</style>
+
+<div class="list-group homes-list">
 	<a href class="list-group-item" ng-repeat="home in results">
-		<img ng-src="{{home.photos.profile}}" class="pull-left">
-		<h4 class="list-group-item-heading">{{home.house.city}}</h4>
-		<p class="list-group-item-text">{{home.house.description}}</p>
+		<div class="row">
+			<div class="col-sm-3">
+				<img ng-src="{{home.photos.profile}}">
+			</div>
+			<div class="col-sm-9">
+				<h4 class="list-group-item-heading">{{home.house.city}}</h4>
+				<p class="list-group-item-text">{{home.house.description}}</p>
+			</div>
+		</div>
 	</a>
 </div>
