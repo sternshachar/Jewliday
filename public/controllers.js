@@ -256,16 +256,12 @@ angular.module("jewApp")
 		options: { draggable: false },
 		events: {
 		  click: function (marker, eventName, args) {
-		    $log.log('marker dragend');
 		    var lat = marker.getPosition().lat();
 		    var lon = marker.getPosition().lng();
-		    $log.log(lat);
-		    $log.log(lon);
 
 		    $scope.marker.options = {
-		      draggable: false,
 		      labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
-		      labelAnchor: new google.maps.Point(30, 0),
+		      labelAnchor: new google.maps.Point(15, 15),
 		      labelClass: "marker-labels"
 		    };
 		  }
