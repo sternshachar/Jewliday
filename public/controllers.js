@@ -23,8 +23,12 @@ angular.module("jewApp")
 
 	$scope.searchTerm = {search: ''};
 	$scope.search = function(){
-		console.log('search ' + $scope.searchTerm.search);
 		$state.go('usersArea.search.list');
+		var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)
+			.then(function(result){
+				console.log(result);
+			})
+		$scope.results = results;
 	}
 
 	$scope.logOut = function(){

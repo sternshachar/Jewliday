@@ -210,3 +210,8 @@ app.post('/upload/:type', function(req, res) {
         });
     });
 });
+
+app.get('/search/:place',function(req,res){
+	console.log(req.body);
+	res.send(req.body);
+})
