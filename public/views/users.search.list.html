@@ -1,9 +1,13 @@
 <style type="text/css">
 	.homes-list{
 		text-decoration: none;
+		color: black;
 	}
 	.home-img{
 		width: 100%;
+	}
+	.list-group-item-text{
+		font-size: 15px;
 	}
 </style>
 <br><br>
@@ -16,8 +20,14 @@
 						<img ng-src="{{home.photos.profile}}" class="home-img">
 					</div>
 					<div class="col-sm-9">
-						<h4 class="list-group-item-heading">{{home.house.city}}</h4>
-						<p class="list-group-item-text">{{home.house.description}}</p>
+						<h3 class="list-group-item-heading"><span class="glyphicon glyphicon-map-marker"></span> {{home.house.city}}</h4>
+						<p class="list-group-item-text"> {{home.house.description}}</p>
+						<table>
+							<tr>
+								<td><span class="glyphicon glyphicon-lamp"></span>Bedrooms: {{home.house.bedrooms}}</td>
+								<td><span class="glyphicon glyphicon-cloud"></span>Beds: {{home.house.beds}}</td>
+							</tr>
+						</table>
 					</div>
 				</div>
 			</a>
