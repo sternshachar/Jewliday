@@ -76,7 +76,7 @@ db.once('open',function(callback){
 		});
 	inboxSchema = mongoose.Schema({
 		// ownerId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-		ownerId: String,
+		ownerId: {type: mongoose.Schema.Types.ObjectId}, //maybe change to id object
 		messages: [messageSchema]},
 		{collection:'inboxes'}
 	);
