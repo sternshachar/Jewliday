@@ -13,6 +13,10 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 				      .when('/users/home', ['$state', function ($state) {
 				            $state.go('usersArea.home.photos');
 				    }])
+				    $urlRouterProvider
+				      .when('/users/search', ['$state', function ($state) {
+				            $state.go('usersArea.search.list');
+				    }])
 
     				$stateProvider
 					.state('home',{
@@ -68,6 +72,18 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 									return promise;
 							}
 						} 
+					})
+					.state('usersArea.search',{
+						url:'/search',
+						templateUrl:'views/users.search.html'
+					})
+					.state('usersArea.search.list',{
+						url:'/search/list',
+						templateUrl:'views/users.search.list.html'
+					})
+					.state('usersArea.search.map',{
+						url:'/search/map',
+						templateUrl:'views/users.search.map.html'
 					})
 
 					.state('usersArea.inbox.incoming',{
