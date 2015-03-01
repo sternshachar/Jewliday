@@ -26,7 +26,7 @@ angular.module("jewApp")
 		$state.go('usersArea.search.list');
 		var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)
 			.then(function(result){
-				console.log(result);
+				return result.data;
 			})
 		$scope.results = results.data;
 	}
