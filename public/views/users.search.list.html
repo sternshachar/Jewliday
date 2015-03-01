@@ -1,7 +1,8 @@
 <h1>LIST</h1>
 <div class="list-group">
-	<a href class="list-group-item">
-		<h4 class="list-group-item-heading"></h4>
-		<p class="list-group-item-text"></p>
+	<a href class="list-group-item" ng-repeat="home in results">
+		<img ng-src="{{home.photos.profile}}" class="pull-right">
+		<h4 class="list-group-item-heading">home.house.city</h4>
+		<p class="list-group-item-text">home.house.description</p>
 	</a>
 </div>
