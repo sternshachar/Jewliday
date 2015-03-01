@@ -24,6 +24,7 @@ angular.module("jewApp")
 	$scope.searchTerm = {search: ''};
 	$scope.search = function(){
 		console.log('search ' + $scope.searchTerm.search);
+		$state.go('usersArea.search.list');
 	}
 
 	$scope.logOut = function(){
