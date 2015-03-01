@@ -28,6 +28,7 @@ angular.module("jewApp")
 			.then(function(result){
 				return result.data;
 			})
+		console.log(results)
 		$scope.results = results;
 	}
 
