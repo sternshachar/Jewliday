@@ -11,8 +11,6 @@ angular.module("jewApp")
 	$scope.username = "";					//name displayed in navigation bar
 	$scope.isListed = { listed: false};		//submited a home?
 	
-	$scope.searchTerm = '';
-
 	$http.get(appData.url + '/login').
 		success(function(data){
 		$scope.isAuth = data.isAuthenticated;
