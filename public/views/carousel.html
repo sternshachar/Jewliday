@@ -42,7 +42,7 @@
 </style>
 
 <div class="container carousel-container">
-	<div ng-repeat="slide in slides track by $index" ng-if="slides"> <!-- fix unique error -->
+	<div ng-repeat="slide in slides track by $index"> <!-- fix unique error -->
 		<div class="carousel-slide" ng-if="isActive[$index]">
 			<a href ng-click="changeSlide('next')"><span class="glyphicon glyphicon-chevron-left carousel-glyph"></span></a>
       		<a href ng-click="changeSlide('prev')"><span class="glyphicon glyphicon-chevron-right carousel-glyph"></span></a>

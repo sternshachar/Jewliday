@@ -80,12 +80,13 @@ angular.module('jewApp')
 
 		controller: function($scope,$interval){
 			console.log($scope.photos);
-			$scope.slides = ['','','','','',''];
+			$scope.slides = [];
 			var slideName = ['pic1','pic2','pic3','pic4','pic5','pic6'];
 			$scope.isActive = [true,false,false,false,false,false];
 
 			for (var i = 0; i < slideName.length; i++) {
-				$scope.slides[i] = $scope.photos[slideName[i]];
+				if($scope.photos[slideName[i]])
+					$scope.slides.push($scope.photos[slideName[i]]);
 			};
 
 			$scope.autoSlideChange = function(){
