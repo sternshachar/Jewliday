@@ -261,7 +261,7 @@ angular.module("jewApp")
 
 		    $scope.marker.options = {
 		    	labelClass: "marker-labels",
-		      content: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude //'<img class="map-info-pic" ng-src="' + $scope.photosUrl.profile + '">'
+		      content: "<img class='map-info-pic' ng-src='" + $scope.photosUrl.profile + "'>"
 		    };
 		  }
 		}
