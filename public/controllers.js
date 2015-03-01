@@ -23,7 +23,7 @@ angular.module("jewApp")
 
 	$scope.searchTerm = {search: ''};
 	$scope.search = function(){
-		console.log('search ' + $scope.searchTerm);
+		console.log('search ' + $scope.searchTerm.search);
 	}
 
 	$scope.logOut = function(){
