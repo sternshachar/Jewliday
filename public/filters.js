@@ -14,7 +14,7 @@ angular.module("jewApp")
 		if(noFilterNeeded){
 			return items;
 		}
-		
+
 		angular.forEach(items, function (item) {
 			var insert = false;
 			for(var propertyName in filterObject) {
@@ -28,7 +28,9 @@ angular.module("jewApp")
 				}
 			}
 			if(insert) resultArr.push(item);
-		}		
+		})
+
+		return resultArr;	
 	}
 });
 
