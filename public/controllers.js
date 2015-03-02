@@ -310,5 +310,10 @@ angular.module("jewApp")
 
 	$scope.filterAmen = appData.amenitiesFilter;
 
+	$scope.filters = {TV: false, wifi: false, AirCondition: false,Dryer: false,
+				Elevator: false, Essentials: false, FreeParking: false,Heating: false,
+				Fireplace: false, PetsAllowed: false, Pool: false,SmokingAllowed: false,
+				Washer: false, Accessibility: false,}
+
 
 })
