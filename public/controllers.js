@@ -269,7 +269,7 @@ angular.module("jewApp")
 
 
 })
-.controller('searchCtrl',function($scope,uiGmapGoogleMapApi,appData){
+.controller('searchCtrl',function($scope,$state,uiGmapGoogleMapApi,appData){
 
 	$scope.searchTerm = {search: ''};
 	$scope.search = function(){
@@ -280,7 +280,7 @@ angular.module("jewApp")
 				$scope.results = result.data;
 			})
 	}
-	
+
 	$scope.mapData = addressData;
 	console.log($scope.mapData)
 	$scope.options = {scrollwheel: false};
