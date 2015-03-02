@@ -21,7 +21,15 @@ angular.module("jewApp")
 		console.log($scope.userId);
 	});
 
-
+	$scope.searchTerm = {search: ''};
+	$scope.search = function(){
+		$state.go('usersArea.search.list');
+		var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)
+			.then(function(result){
+				console.log(result);
+				$scope.results = result.data;
+			})
+	}
 
 	$scope.logOut = function(){
 		$http.get(appData.url + '/logout')
@@ -269,18 +277,8 @@ angular.module("jewApp")
 
 
 })
-.controller('searchCtrl',function($scope,$state,uiGmapGoogleMapApi,appData){
-
-	$scope.searchTerm = {search: ''};
-	$scope.search = function(){
-		$state.go('usersArea.search.list');
-		var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)
-			.then(function(result){
-				console.log(result);
-				$scope.results = result.data;
-			})
-	}
-
+.controller('searchCtrl',function($scope,uiGmapGoogleMapApi,appData){
+	
 	$scope.mapData = addressData;
 	console.log($scope.mapData)
 	$scope.options = {scrollwheel: false};
