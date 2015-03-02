@@ -31,7 +31,7 @@ angular.module("jewApp")
 			if(insert) resultArr.push(item);
 		}
 		return resultArr;
-	)}
+	}
 });
 
 			// if (item.done == false || showComplete == true) {

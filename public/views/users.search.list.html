@@ -23,7 +23,7 @@
 <div class="row">
 	<div class="col-sm-8">
 		<div class="list-group homes-list">
-			<a href class="list-group-item" ng-repeat="home in results">
+			<a href class="list-group-item" ng-repeat="home in results | amenFilter:filters">
 				<div class="row">
 					<div class="col-sm-3">
 						<img ng-src="{{home.photos.profile}}" class="home-img">
@@ -48,7 +48,7 @@
 		<div class="well">
 			<table class="table">
 				<tr ng-repeat="amenity in filterAmen">
-					<td ng-repeat="a in amenity | amenFilter:filters" class="filter-table">
+					<td ng-repeat="a in amenity " class="filter-table">
 						<input type="checkbox" ng-model="filters[a.dbName]"> {{a.name}}
 					</td>
 				</tr>
