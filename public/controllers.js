@@ -141,23 +141,23 @@ angular.module("jewApp")
 
 
     $scope.saveHome = function(){
-    	console.log($scope.home);
+    	
     	var locationPromise = appData.addressData(appData.url)
     		.then(function(result){
     			$scope.home.location = result.data;
-    			console.log(result);
+    			$http.put(appData.url + '/listHome/' + $scope.userId,$scope.home)
+		    		.success(function(data){
+		    			$scope.listHomeMessage = data;
+		    					$http.get(appData.url + '/login').
+									success(function(data){
+										$scope.isListed.listed = data.user.house.listed;
+									});
+									
+						$state.go('listHome.photos');
+		    		})
     		});
     	
-    	$http.put(appData.url + '/listHome/' + $scope.userId,$scope.home)
-    		.success(function(data){
-    			$scope.listHomeMessage = data;
-    					$http.get(appData.url + '/login').
-							success(function(data){
-								$scope.isListed.listed = data.user.house.listed;
-							});
-							
-				$state.go('listHome.photos');
-    		})
+
     }
 
     $scope.goToDetails = function(){
