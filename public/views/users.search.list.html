@@ -48,8 +48,8 @@
 		<div class="well">
 			<table class="table">
 				<tr ng-repeat="amenity in filterAmen">
-					<td ng-repeat="a in amenity" class="filter-table">
-						<input type="checkbox" ng-model="filters[a.dbName]"> {{a.name}} {{filters[a.dbName]}}
+					<td ng-repeat="a in amenity | amenFilter:filters" class="filter-table">
+						<input type="checkbox" ng-model="filters[a.dbName]"> {{a.name}}
 					</td>
 				</tr>
 			</table>
