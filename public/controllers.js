@@ -334,10 +334,13 @@ angular.module("jewApp")
 							longitude: $scope.filterResult[i].house.location.lng
 						});
 					};
-		$scope.markers = $scope.markersCoord;
+		
 		
 	})
-	$scope.$emit('mapFiltered',$scope.markers);
+	$scope.$watch( $scope.markers, function(){
+		$scope.$emit('mapFiltered',$scope.markersCoord);
+	})
+	
 
 
 })
