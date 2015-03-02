@@ -75,7 +75,8 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 					})
 					.state('usersArea.search',{
 						url:'/search',
-						templateUrl:'views/users.search.html'
+						templateUrl:'views/users.search.html',
+						controller: 'searchCtrl'
 					})
 					.state('usersArea.search.list',{
 						url:'/search/list',
