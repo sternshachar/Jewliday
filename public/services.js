@@ -35,7 +35,19 @@ angular.module("jewApp")
 	    {name:'Log Out',url:"users/profile"}
 	  ];
 
-	  addressData : function(){
+
+	return{
+		url: url,
+
+		imageUrl: imageUrl,
+
+		amenitiesHomeView: amenitiesHomeView, //for homeCtrl
+
+		amenitiesListHome: amenitiesListHome, //for newHomeCtrl
+
+		dropdownUserMenu: dropdownUserMenu,	  //for mainCtrl - item for user dropdown menu
+
+		addressData: function(){
 								var promise = $http.get(this.url + '/login')								
 									.then(function(result){
 										if(typeof result.data.user.house.city != undefined){
@@ -56,18 +68,5 @@ angular.module("jewApp")
 									})
 									return promise;
 							}
-
-	return{
-		url: url,
-
-		imageUrl: imageUrl,
-
-		amenitiesHomeView: amenitiesHomeView, //for homeCtrl
-
-		amenitiesListHome: amenitiesListHome, //for newHomeCtrl
-
-		dropdownUserMenu: dropdownUserMenu,	  //for mainCtrl - item for user dropdown menu
-
-		addressData: addressData
 	}
 })
