@@ -54,6 +54,8 @@ angular.module("jewApp")
 				     		zoom: 10,
 				     		bounds: {}
 				     };
+
+				     $scope.$broadcast('mapLoad',{});
 			})
 	}
 
@@ -321,7 +323,7 @@ angular.module("jewApp")
 	    $scope.chosen = $scope.results[data.key];
 	};
 
-	$scope.$watchCollection($scope.filters,function(){ 
+	$scope.$on('mapLoad', function(events,args){
 		var filterResult = filter($scope.results,$scope.filters);
 		console.log(filterResult);
 		$scope.markersCoord = [];
@@ -335,6 +337,7 @@ angular.module("jewApp")
 		$scope.markers = $scope.markersCoord;
 		$scope.$emit('mapFiltered',$scope.markers);
 	})
+
 
 
 })
