@@ -55,10 +55,13 @@ angular.module("jewApp")
 				     		bounds: {}
 				     };
 
-				     $scope.$broadcast('mapLoad',{});
+				     
 			})
 	}
-
+	$scope.map = function(){
+		$scope.$broadcast('mapLoad',{});
+	}
+	
 	$scope.$on('mapFiltered', function(events,args){
 		console.log(args);
 		$scope.markers = args;
