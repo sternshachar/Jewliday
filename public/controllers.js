@@ -39,11 +39,19 @@ angular.module("jewApp")
 					};
 					$scope.markers = $scope.markersCoord;
 
+					var sumLat = 0;
+					var sumLng = 0;
+
+					for (var i = 0; i < $scope.markersCoord.length; i++) {
+						sumLat += $scope.markersCoord[i].latitude;
+						sumLng += $scope.markersCoord[i].longitude;
+					};
+
 					$scope.options = {scrollwheel: false};
 					$scope.map = {
-						center: {latitude: $scope.markersCoord[0].latitude,
-     					   longitude: $scope.markersCoord[0].longitude },
-				     		
+						center: {latitude: sumLat/$scope.markers.length,
+     							 longitude: sumLng/$scope.markers.length },
+				     		zoom: 10,
 				     		bounds: {}
 				     };
 			})
