@@ -14,8 +14,21 @@ angular.module("jewApp")
 		if(noFilterNeeded){
 			return items;
 		}
-
 		
+		angular.forEach(items, function (item) {
+			var insert = false;
+			for(var propertyName in filterObject) {
+				if(filterObject[propertyName] == true ){
+					if(item.house.amenities[propertyName] == true){
+						insert = true
+					} else {
+						insert = false;
+						break;
+					}
+				}
+			}
+			if(insert) resultArr.push(item);
+		}		
 	}
 });
 
@@ -25,17 +38,3 @@ angular.module("jewApp")
 
 
 
-		// angular.forEach(items, function (item) {
-		// 	var insert = false;
-		// 	for(var propertyName in filterObject) {
-		// 		if(filterObject[propertyName] == true ){
-		// 			if(item.house.amenities[propertyName] == true){
-		// 				insert = true
-		// 			} else {
-		// 				insert = false;
-		// 				break;
-		// 			}
-		// 		}
-		// 	}
-		// 	if(insert) resultArr.push(item);
-		// }
