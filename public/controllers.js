@@ -56,10 +56,7 @@ angular.module("jewApp")
 				     };
 			})
 	}
-	$scope.onClick = function(data) {
-	    console.log(data);
-	    $scope.chosen = $scope.results[data.key];
-	};
+
 	$scope.logOut = function(){
 		$http.get(appData.url + '/logout')
 			.success(function(data){
@@ -314,6 +311,10 @@ angular.module("jewApp")
 				Elevator: false, Essentials: false, FreeParking: false,Heating: false,
 				Fireplace: false, PetsAllowed: false, Pool: false,SmokingAllowed: false,
 				Washer: false, Accessibility: false}
+	$scope.onClick = function(data) {
+	    console.log(data);
+	    $scope.chosen = $scope.results[data.key];
+	};
 
 
 })
