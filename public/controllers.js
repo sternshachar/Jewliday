@@ -32,7 +32,7 @@ angular.module("jewApp")
 
 					for (var i = 0; i < $scope.results.length; i++) {
 						$scope.markersCoord.push({
-							idKey: i,
+							id: i,
 							latitude: $scope.results[i].house.location.lat,
 							longitude: $scope.results[i].house.location.lng
 						});
