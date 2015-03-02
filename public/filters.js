@@ -26,13 +26,12 @@ angular.module("jewApp")
 						break;
 					}
 				}
-
-			   // propertyName is what you want
-			   // you can get the value like this: myObject[propertyName]
 			}
-		if(insert) resultArr.push(item);
+
+			if(insert) resultArr.push(item);
 		}
 		return resultArr;
+	})
 });
 
 			// if (item.done == false || showComplete == true) {
