@@ -43,7 +43,7 @@ angular.module("jewApp")
 					$scope.map = {
 						center: {latitude: $scope.markersCoord[0].latitude,
      					   longitude: $scope.markersCoord[0].longitude },
-				     		zoom: 14,
+				     		
 				     		bounds: {}
 				     };
 			})
