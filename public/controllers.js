@@ -51,11 +51,11 @@ angular.module("jewApp")
 							var filterResult = filter($scope.results,$scope.filters);
 							console.log(filterResult);
 							$scope.markersCoord = [];
-							for (var i = 0; i < $scope.filterResult.length; i++) {
+							for (var i = 0; i < filterResult.length; i++) {
 											$scope.markersCoord.push({
 												id: i,
-												latitude: $scope.filterResult[i].house.location.lat,
-												longitude: $scope.filterResult[i].house.location.lng
+												latitude: filterResult[i].house.location.lat,
+												longitude: filterResult[i].house.location.lng
 											});
 										};
 						})();
