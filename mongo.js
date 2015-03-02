@@ -52,7 +52,7 @@ db.once('open',function(callback){
 			},
 			location:{
 				lat: Number,
-				lon: Number
+				lng: Number
 			}
 		},
 		photos:{

@@ -142,7 +142,8 @@ angular.module("jewApp")
 
     $scope.saveHome = function(){
     	console.log($scope.home);
-    	$scope.home.location = appData.addressData(appData.url);
+    	var locationPromise = appData.addressData(appData.url);
+    	$scope.home.location = locationPromise.$$state.value;
     	$http.put(appData.url + '/listHome/' + $scope.userId,$scope.home)
     		.success(function(data){
     			$scope.listHomeMessage = data;
