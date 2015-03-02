@@ -13,6 +13,10 @@
 	.beds td{
 		padding-right: 20px;
 	}
+	.filter-table{
+		border: 0;
+		font-size: 13px;
+	}
 </style>
 <br>
 <div class="row">
@@ -42,7 +46,7 @@
 	<div class="col-sm-4">
 		<div class="well">
 			<table class="table">
-				<tr ng-repeat="amenity in filterAmen">
+				<tr ng-repeat="amenity in filterAmen" class="filter-table">
 					<td ng-repeat="a in amenity">
 						<input type="checkbox"> {{a.name}}
 					</td>
