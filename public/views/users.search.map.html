@@ -1,5 +1,8 @@
 
 <style type="text/css">
+		.map-div{
+			height: 100%;
+		}
         #map_canvas {
             position: absolute;
             width: 100%;
@@ -34,7 +37,7 @@
 		</table>
 
 	</div>
-	<div class="col-sm-6">
+	<div class="col-sm-6 map-div">
 		<div id="map_canvas">
 			    <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options" >
 			    	<ui-gmap-markers models="markers" coords="'self'" icon="'icon'" fit="markers.length > 1" click="onClick">
