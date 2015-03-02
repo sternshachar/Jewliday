@@ -40,5 +40,14 @@
 		</div>
 	</div>
 	<div class="col-sm-3">
+		<div class="well">
+			<table class="table">
+				<tr ng-repeat="amenity in filterAmen">
+					<td ng-repeat="a in amenity">
+						<input type="checkbox"> {{a.name}}
+					</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </div>

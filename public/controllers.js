@@ -308,7 +308,7 @@ angular.module("jewApp")
 })
 .controller('searchCtrl',function($scope,uiGmapGoogleMapApi,appData){
 
-
+	$scope.filterAmen = appData.amenitiesHomeView;
 
 
 })
