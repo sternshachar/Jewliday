@@ -313,7 +313,7 @@ angular.module("jewApp")
 	$scope.filters = {TV: false, wifi: false, AirCondition: false,Dryer: false,
 				Elevator: false, Essentials: false, FreeParking: false,Heating: false,
 				Fireplace: false, PetsAllowed: false, Pool: false,SmokingAllowed: false,
-				Washer: false, Accessibility: false,}
+				Washer: false, Accessibility: false}
 
 
 })
