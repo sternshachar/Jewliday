@@ -35,7 +35,6 @@ angular.module("jewApp")
 	    {name:'Log Out',url:"users/profile"}
 	  ];
 
-
 	return{
 		url: url,
 
@@ -45,28 +44,6 @@ angular.module("jewApp")
 
 		amenitiesListHome: amenitiesListHome, //for newHomeCtrl
 
-		dropdownUserMenu: dropdownUserMenu,	  //for mainCtrl - item for user dropdown menu
-
-		addressData: function(){
-								var promise = $http.get(this.url + '/login')								
-									.then(function(result){
-										if(typeof result.data.user.house.city != undefined){
-											var city = result.data.user.house.city.split(", ").join("+");
-											var address =   result.data.user.house.homeNumber + '+' + result.data.user.house.street +',' + '+' + city;
-											return address;
-										}
-										throw 'Not listed properly';
-									})
-									.then(function(result){
-										var location = $http.get('http://maps.google.com/maps/api/geocode/json?address='+ result +'&sensor=false')
-										.then(function(result){
-											return result.data.results[0].geometry.location;
-										},function(err){
-											console.error(err);
-										})
-										return location;
-									})
-									return promise;
-							}
+		dropdownUserMenu: dropdownUserMenu	  //for mainCtrl - item for user dropdown menu
 	}
 })
