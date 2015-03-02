@@ -130,7 +130,7 @@ angular.module("jewApp")
 		$scope.home = homeData;
 		console.log($scope.home)
 	} else {
-		$scope.home = {listed: true};
+		$scope.home = {listed: true, location: {}};
 	}
 
 	
@@ -142,6 +142,7 @@ angular.module("jewApp")
 
     $scope.saveHome = function(){
     	console.log($scope.home);
+    	$scope.home.location = appData.addressData(appData.url);
     	$http.put(appData.url + '/listHome/' + $scope.userId,$scope.home)
     		.success(function(data){
     			$scope.listHomeMessage = data;
