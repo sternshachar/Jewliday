@@ -41,7 +41,8 @@ angular.module("jewApp")
 
 					$scope.options = {scrollwheel: false};
 					$scope.map = {
-						center: $scope.markersCoord[0],
+						center: {latitude: $scope.markersCoord[0].latitude,
+     					   longitude: $scope.markersCoord[0].longitude },
 				     		zoom: 14,
 				     		bounds: {}
 				     };
