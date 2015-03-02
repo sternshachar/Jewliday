@@ -49,7 +49,7 @@ angular.module("jewApp")
 			})
 	}
 	$scope.onClick = function(data) {
-	    console.log('This is a ' + data);
+	    console.log(data);
 	};
 	$scope.logOut = function(){
 		$http.get(appData.url + '/logout')
