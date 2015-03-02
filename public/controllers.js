@@ -321,6 +321,15 @@ angular.module("jewApp")
 	$scope.$on('mapLoad', function(events,args){
 		var filterResult = filter($scope.results,$scope.filters);
 		console.log(filterResult);
+		$scope.markersCoord = [];
+		for (var i = 0; i < $scope.filterResult.length; i++) {
+						$scope.markersCoord.push({
+							id: i,
+							latitude: $scope.filterResult[i].house.location.lat,
+							longitude: $scope.filterResult[i].house.location.lng
+						});
+					};
+		$scope.markers = $scope.markersCoord;
 	})
 
 
