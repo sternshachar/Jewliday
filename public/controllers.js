@@ -242,7 +242,7 @@ angular.module("jewApp")
 		}
 	}
 
-	$scope.mapData = addressData;
+	$scope.mapData = appData.addressData;
 	console.log($scope.mapData)
 	$scope.options = {scrollwheel: false};
 	$scope.map = {center: {latitude: $scope.mapData.lat,
