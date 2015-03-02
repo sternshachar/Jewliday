@@ -45,7 +45,20 @@ angular.module("jewApp")
 							longitude: $scope.results[i].house.location.lng
 						});
 					};
-					
+				
+
+				     	(function(){
+							var filterResult = filter($scope.results,$scope.filters);
+							console.log(filterResult);
+							$scope.markersCoord = [];
+							for (var i = 0; i < $scope.filterResult.length; i++) {
+											$scope.markersCoord.push({
+												id: i,
+												latitude: $scope.filterResult[i].house.location.lat,
+												longitude: $scope.filterResult[i].house.location.lng
+											});
+										};
+						})();
 
 					var sumLat = 0;
 					var sumLng = 0;
@@ -62,19 +75,6 @@ angular.module("jewApp")
 				     		zoom: 10,
 				     		bounds: {}
 				     };
-
-				     	(function(){
-							var filterResult = filter($scope.results,$scope.filters);
-							console.log(filterResult);
-							$scope.markersCoord = [];
-							for (var i = 0; i < $scope.filterResult.length; i++) {
-											$scope.markersCoord.push({
-												id: i,
-												latitude: $scope.filterResult[i].house.location.lat,
-												longitude: $scope.filterResult[i].house.location.lng
-											});
-										};
-						})();
 					$scope.markers = $scope.markersCoord;
 			})
 	}
