@@ -63,7 +63,7 @@ angular.module("jewApp")
 				     		bounds: {}
 				     };
 
-				     	function(){
+				     	(function(){
 							var filterResult = filter($scope.results,$scope.filters);
 							console.log(filterResult);
 							$scope.markersCoord = [];
@@ -74,7 +74,7 @@ angular.module("jewApp")
 												longitude: $scope.filterResult[i].house.location.lng
 											});
 										};
-						}
+						})();
 					$scope.markers = $scope.markersCoord;
 			})
 	}
