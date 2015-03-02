@@ -50,6 +50,7 @@ angular.module("jewApp")
 	}
 	$scope.onClick = function(data) {
 	    console.log(data);
+	    $scope.chosen = $scope.results[data.key];
 	};
 	$scope.logOut = function(){
 		$http.get(appData.url + '/logout')
