@@ -54,6 +54,8 @@ angular.module("jewApp")
 				     		zoom: 10,
 				     		bounds: {}
 				     };
+
+				     $scope.$broadcast('mapLoad',{});
 			})
 	}
 
@@ -303,8 +305,8 @@ angular.module("jewApp")
 
 
 })
-.controller('searchCtrl',function($scope,uiGmapGoogleMapApi,appData){
-
+.controller('searchCtrl',function($scope,uiGmapGoogleMapApi,appData,$filter){
+	var filter = $filter('amenFilter')
 	$scope.filterAmen = appData.amenitiesFilter;
 
 	$scope.filters = {TV: false, wifi: false, AirCondition: false,Dryer: false,
@@ -315,6 +317,12 @@ angular.module("jewApp")
 	    console.log(data);
 	    $scope.chosen = $scope.results[data.key];
 	};
+
+	$scope.$on('mapLoad', function(events,args){
+		var filterResult = filter($scope.results,$scope.filters);
+		console.log(filterResult);
+	})
+
 
 
 })
