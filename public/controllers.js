@@ -145,6 +145,7 @@ angular.module("jewApp")
     	var locationPromise = appData.addressData(appData.url)
     		.then(function(result){
     			$scope.home.location = result.data;
+    			console.log($scope.home);
     			$http.put(appData.url + '/listHome/' + $scope.userId,$scope.home)
 		    		.success(function(data){
 		    			$scope.listHomeMessage = data;
@@ -215,7 +216,6 @@ angular.module("jewApp")
 	var amenities = {};
 
 	$scope.photosUrl = photos;
-	console.log($scope.photosUrl);
 
 	$scope.homeImage = {
     	background: 'url(' + $scope.photosUrl.cover + ')'
@@ -231,9 +231,6 @@ angular.module("jewApp")
 				success(function(data){
 					amenities = data.user.house.amenities;
 					$scope.home = data.user.house;
-					console.log(data);
-
-
 				});
 
 	$scope.amenitiesOrdered = appData.amenitiesHomeView;
@@ -249,7 +246,6 @@ angular.module("jewApp")
 	}
 
 	$scope.mapData = addressData;
-	console.log($scope.mapData)
 	$scope.options = {scrollwheel: false};
 	$scope.map = {center: {latitude: $scope.mapData.lat,
      					   longitude: $scope.mapData.lng }, zoom: 14 };
