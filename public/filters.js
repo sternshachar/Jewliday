@@ -11,6 +11,10 @@ angular.module("jewApp")
 			}
 		}
 
+		if(noFilterNeeded){
+			return items;
+		}
+
 		
 	}
 });
@@ -20,9 +24,7 @@ angular.module("jewApp")
 
 
 
-		// if(noFilterNeeded){
-		// 	return items;
-		// }
+
 		// angular.forEach(items, function (item) {
 		// 	var insert = false;
 		// 	for(var propertyName in filterObject) {
