@@ -5,9 +5,10 @@ angular.module("jewApp")
 		var noFilterNeeded = true;
 
 		for(var propertyName in filterObject) { //if all filter is false all items go back
-			if(filterObject[propertyName] == true)
+			if(filterObject[propertyName] == true){
 				noFilterNeeded = false;
 				break;
+			}
 		}
 
 		if(noFilterNeeded){
