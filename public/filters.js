@@ -1,4 +1,4 @@
-
+angular.module("jewApp")
 .filter("fire", function () {
 	return function (items) {
 		var resultArr = [];
