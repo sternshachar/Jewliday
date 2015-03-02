@@ -41,26 +41,8 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 						templateUrl:'views/users.home.html',
 						controller: 'homeCtrl',
 						resolve: {
-							addressData : function($http,appData){
-								var promise = $http.get(appData.url + '/login')								
-									.then(function(result){
-										if(typeof result.data.user.house.city != undefined){
-											var city = result.data.user.house.city.split(", ").join("+");
-											var address =   result.data.user.house.homeNumber + '+' + result.data.user.house.street +',' + '+' + city;
-											return address;
-										}
-										throw 'Not listed properly';
-									})
-									.then(function(result){
-										var location = $http.get('http://maps.google.com/maps/api/geocode/json?address='+ result +'&sensor=false')
-										.then(function(result){
-											return result.data.results[0].geometry.location;
-										},function(err){
-											console.error(err);
-										})
-										return location;
-									})
-									return promise;
+							addressData : function(){
+								appData.addressData();
 							},
 
 							photos: function($http,appData){

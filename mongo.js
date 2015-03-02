@@ -50,6 +50,10 @@ db.once('open',function(callback){
 				Accessibility : Boolean
 				
 			}
+			location:{
+				lat: Number,
+				lon: Number
+			}
 		},
 		photos:{
 				profile: String,
@@ -60,7 +64,7 @@ db.once('open',function(callback){
 				pic4: String,
 				pic5: String,
 				pic6: String
-			}
+		}
 
 	},
 

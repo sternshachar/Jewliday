@@ -146,6 +146,7 @@ app.put('/listHome/:id', function(req,res){
 				console.log(user);
 			});
 	})
+	//make here ajax request from google and put in mongo the lat & lon
 	res.send('Home saved!');
 })
 
