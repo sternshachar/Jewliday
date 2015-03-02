@@ -49,7 +49,7 @@ db.once('open',function(callback){
 				Washer : Boolean,
 				Accessibility : Boolean
 				
-			}
+			},
 			location:{
 				lat: Number,
 				lon: Number
