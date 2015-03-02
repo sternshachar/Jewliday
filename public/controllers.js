@@ -68,6 +68,9 @@ angular.module("jewApp")
 						sumLng += $scope.markersCoord[i].longitude;
 					};
 
+
+					$scope.markers = $scope.markersCoord;
+
 					$scope.options = {scrollwheel: false};
 					$scope.map = {
 						center: {latitude: sumLat/$scope.markers.length,
@@ -75,7 +78,6 @@ angular.module("jewApp")
 				     		zoom: 10,
 				     		bounds: {}
 				     };
-					$scope.markers = $scope.markersCoord;
 			})
 	}
 
