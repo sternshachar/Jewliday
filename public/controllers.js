@@ -59,6 +59,11 @@ angular.module("jewApp")
 			})
 	}
 
+	$scope.$on('mapFiltered', function(events,args){
+		console.log(args);
+		$scope.markers = args;
+	}
+
 	$scope.logOut = function(){
 		$http.get(appData.url + '/logout')
 			.success(function(data){
@@ -330,6 +335,7 @@ angular.module("jewApp")
 						});
 					};
 		$scope.markers = $scope.markersCoord;
+		$scope.$emit('mapFiltered',$scope.markers);
 	})
 
 
