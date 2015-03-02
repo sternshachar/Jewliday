@@ -41,7 +41,7 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 						templateUrl:'views/users.home.html',
 						controller: 'homeCtrl',
 						resolve: {
-							addressData : function(){
+							addressData : function(appData){
 								appData.addressData();
 							},
 
