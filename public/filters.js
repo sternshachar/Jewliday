@@ -11,9 +11,9 @@ angular.module("jewApp")
 			}
 		}
 
-		// if(noFilterNeeded){
-		// 	return items;
-		// }
+		if(noFilterNeeded){
+			return items;
+		}
 
 		angular.forEach(items, function (item) {
 			var insert = false;
@@ -29,8 +29,9 @@ angular.module("jewApp")
 			}
 
 			if(insert) resultArr.push(item);
+			return resultArr;
 		}
-		return resultArr;
+		
 	}
 });
 
