@@ -278,15 +278,17 @@ angular.module("jewApp")
 
 })
 .controller('searchCtrl',function($scope,uiGmapGoogleMapApi,appData){
-	
-	$scope.mapData = addressData;
-	console.log($scope.mapData)
+	$scope.markersCoord = [];
+
+	for (var i = 0; i < $scope.results.length; i++) {
+		$scope.markersCoord.push({idKey: i, $scope.results[i].house.location});
+	};
+
+	$scope.markers = $scope.markersCoord;
+
 	$scope.options = {scrollwheel: false};
 	$scope.map = {
-		center: {
-			latitude: $scope.mapData.lat,
-     		longitude: $scope.mapData.lng
-     		},
+		center: $scope.markersCoord[0],
      		zoom: 14,
      		bounds: {}
      };
