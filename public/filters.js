@@ -29,9 +29,6 @@ angular.module("jewApp")
 			}
 			if(insert) resultArr.push(item);
 		}
-			
-
-	}
 		
 });
 
