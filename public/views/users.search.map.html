@@ -16,8 +16,18 @@
 </style>
 <div class="row" >
 	<div class="col-sm-6">
-		<p>Details: {{chosen.house.description}}</p>
-	</div>
+		<h3><span class="glyphicon glyphicon-map-marker"> {{chosen.house.city}}</h3>
+		<img ng-src="{{chosen.photos.profile}}" class="home-img">
+		<p>{{chosen.house.description}}</p>
+		<table>
+			<tr class="beds">
+				<td><span class="glyphicon glyphicon-lamp"></span> Bedrooms: {{chosen.house.bedrooms}}   </td>
+								
+				<td><span class="glyphicon glyphicon-cloud"></span> Beds: {{chosen.house.beds}}</td>
+			</tr>
+		</table>
+
+	</div
 	<div class="col-sm-6">
 		<div id="map_canvas">
 			    <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options" >
