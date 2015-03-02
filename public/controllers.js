@@ -28,6 +28,23 @@ angular.module("jewApp")
 			.then(function(result){
 				console.log(result);
 				$scope.results = result.data;
+					$scope.markersCoord = [];
+
+					for (var i = 0; i < $scope.results.length; i++) {
+						$scope.markersCoord.push({
+							idKey: i,
+							latitude: $scope.results[i].house.location.lat,
+							longitude: $scope.results[i].house.location.lng
+						});
+					};
+					$scope.markers = $scope.markersCoord;
+
+					$scope.options = {scrollwheel: false};
+					$scope.map = {
+						center: $scope.markersCoord[0],
+				     		zoom: 14,
+				     		bounds: {}
+				     };
 			})
 	}
 
@@ -278,23 +295,8 @@ angular.module("jewApp")
 
 })
 .controller('searchCtrl',function($scope,uiGmapGoogleMapApi,appData){
-	$scope.markersCoord = [];
 
-	for (var i = 0; i < $scope.results.length; i++) {
-		$scope.markersCoord.push({
-			idKey: i,
-			latitude: $scope.results[i].house.location.lat,
-			longitude: $scope.results[i].house.location.lng
-		});
-	};
 
-	$scope.markers = $scope.markersCoord;
 
-	$scope.options = {scrollwheel: false};
-	$scope.map = {
-		center: $scope.markersCoord[0],
-     		zoom: 14,
-     		bounds: {}
-     };
 
 })
