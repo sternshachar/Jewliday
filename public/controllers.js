@@ -334,7 +334,7 @@ angular.module("jewApp")
 					};
 		$scope.markers = $scope.markersCoord;
 		$scope.$emit('mapFiltered',$scope.markers);
-	}
+	})
 
 
 })
