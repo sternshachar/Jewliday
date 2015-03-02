@@ -1,5 +1,5 @@
 angular.module("jewApp")
-.controller("mainCtrl",function($scope,$interval,$http,$location,$state,appData,uiGmapGoogleMapApi){
+.controller("mainCtrl",function($scope,$interval,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter){
 	$scope.user = {};						// user data for SINGUP from form (logModal.html)
 	$scope.userLog = {};					//user data for LOGIN up from form (signModal.html)
 
@@ -21,6 +21,14 @@ angular.module("jewApp")
 		console.log($scope.userId);
 	});
 
+	var filter = $filter('amenFilter')
+	$scope.filterAmen = appData.amenitiesFilter;
+
+	$scope.filters = {TV: false, wifi: false, AirCondition: false,Dryer: false,
+				Elevator: false, Essentials: false, FreeParking: false,Heating: false,
+				Fireplace: false, PetsAllowed: false, Pool: false,SmokingAllowed: false,
+				Washer: false, Accessibility: false}
+
 	$scope.searchTerm = {search: ''};
 	$scope.search = function(){
 		$state.go('usersArea.search.list');
@@ -37,7 +45,7 @@ angular.module("jewApp")
 							longitude: $scope.results[i].house.location.lng
 						});
 					};
-					$scope.markers = $scope.markersCoord;
+					
 
 					var sumLat = 0;
 					var sumLng = 0;
@@ -55,9 +63,26 @@ angular.module("jewApp")
 				     		bounds: {}
 				     };
 
-				     $scope.$broadcast('mapLoad',{});
+				     	function(){
+							var filterResult = filter($scope.results,$scope.filters);
+							console.log(filterResult);
+							$scope.markersCoord = [];
+							for (var i = 0; i < $scope.filterResult.length; i++) {
+											$scope.markersCoord.push({
+												id: i,
+												latitude: $scope.filterResult[i].house.location.lat,
+												longitude: $scope.filterResult[i].house.location.lng
+											});
+										};
+						}
+					$scope.markers = $scope.markersCoord;
 			})
 	}
+
+	$scope.onClick = function(data) {
+	    console.log(data);
+	    $scope.chosen = $scope.results[data.key];
+	};
 
 	$scope.$on('mapFiltered', function(events,args){
 		console.log(args);
@@ -310,36 +335,12 @@ angular.module("jewApp")
 
 
 })
-.controller('searchCtrl',function($scope,uiGmapGoogleMapApi,appData,$filter){
-	var filter = $filter('amenFilter')
-	$scope.filterAmen = appData.amenitiesFilter;
+.controller('searchCtrl',function($scope,uiGmapGoogleMapApi,appData){
 
-	$scope.filters = {TV: false, wifi: false, AirCondition: false,Dryer: false,
-				Elevator: false, Essentials: false, FreeParking: false,Heating: false,
-				Fireplace: false, PetsAllowed: false, Pool: false,SmokingAllowed: false,
-				Washer: false, Accessibility: false}
-	$scope.onClick = function(data) {
-	    console.log(data);
-	    $scope.chosen = $scope.results[data.key];
-	};
 
-	$scope.$on('mapLoad', function(events,args){
-		var filterResult = filter($scope.results,$scope.filters);
-		console.log(filterResult);
-		$scope.markersCoord = [];
-		for (var i = 0; i < $scope.filterResult.length; i++) {
-						$scope.markersCoord.push({
-							id: i,
-							latitude: $scope.filterResult[i].house.location.lat,
-							longitude: $scope.filterResult[i].house.location.lng
-						});
-					};
-		
-		
-	})
-	$scope.$watch( $scope.markers, function(){
-		$scope.$emit('mapFiltered',$scope.markersCoord);
-	})
+
+
+
 	
 
 
