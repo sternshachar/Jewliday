@@ -47,7 +47,9 @@ angular.module("jewApp")
 					};
 				
 					$rootScope.$on('$stateChangeStart', 
-				     function(){
+				     function(event, toState, toParams, fromState, fromParams){
+				     	console.log(toState);
+				     	if(toState == 'usersArea.search.map'){
 						var filterResult = filter($scope.results,$scope.filters);
 						console.log(filterResult);
 						$scope.markersCoord = [];
@@ -77,6 +79,7 @@ angular.module("jewApp")
 					     		zoom: 10,
 					     		bounds: {}
 					     };
+					 }
 					});
 			})
 	}
