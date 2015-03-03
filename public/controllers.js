@@ -294,7 +294,7 @@ angular.module("jewApp")
 
 	$scope.$on('serach',function(events,args){
 		
-		$scope.searchTerm = args.search;
+		$scope.searchTerm = args;
 		console.log($scope.searchTerm);
 		$scope.search();
 	});
