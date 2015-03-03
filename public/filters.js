@@ -42,7 +42,7 @@ angular.module("jewApp")
 
 		var resultArr = [];
 
-		angular.forEach(var item in items, function(item){
+		angular.forEach(items, function(item){
 			if(item.house.kosher == kosher.kosher){
 				resultArr.push(item);
 			}
