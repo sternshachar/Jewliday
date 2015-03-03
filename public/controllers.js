@@ -344,4 +344,8 @@ angular.module("jewApp")
 	    console.log(data);
 	    $scope.chosen = $scope.results[data.key];
 	};
+
+	$scope.pageNum = 3;
+
+	$scope.step = 2;
 })

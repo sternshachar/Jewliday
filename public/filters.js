@@ -101,7 +101,15 @@ angular.module("jewApp")
 		return resultArr;
 	}
 })
+.filter('searchPagination',function(){
+	return function(items,step,pageNum){
+		var resultArr = [];
 
+		resultArr = items.slice((pageNum - 1)*step,pageNum*step - 1);
+
+		return resultArr;
+	}
+})
 
 
 
