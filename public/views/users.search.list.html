@@ -22,7 +22,7 @@
 <br>
 <div class="row">
 	<div class="col-sm-8">
-		<h4>Found {{filteredResults}} results</h4>
+		<h4>Found {{filteredResults.length}} results</h4>
 		<div class="list-group homes-list">
 			<a href class="list-group-item" ng-repeat="home in filteredResults =(results | amenFilter:filters)">
 				<div class="row">
