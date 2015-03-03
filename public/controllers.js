@@ -21,10 +21,9 @@ angular.module("jewApp")
 		console.log($scope.userId);
 	});
 
-
-	$scope.searchTerm = {search: ''};
+	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){
-		$scope.$broadcast('serach',$scope.searchTerm);
+		$scope.$broadcast('serach',$scope.searchTerm);//send a search event to searchCtrl with searchTerm
 	}
 
 	$scope.onClick = function(data) {
@@ -139,12 +138,10 @@ angular.module("jewApp")
 		$scope.home = {listed: true, location: {}};
 	}
 
-	
 	$scope.options = {types: '(cities)'};
 	$scope.amenities = appData.amenitiesListHome;
 
 	$scope.details = "";
-
 
     $scope.saveHome = function(){
     	
@@ -164,8 +161,6 @@ angular.module("jewApp")
 						$state.go('listHome.photos');
 		    		})
     		});
-    	
-
     }
 
     $scope.goToDetails = function(){
@@ -280,11 +275,8 @@ angular.module("jewApp")
 	$scope.editHome = function(){
 		$state.go('listHome.address');
 	}
-
-
 })
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData){
-
 
 	var filter = $filter('amenFilter')
 	$scope.filterAmen = appData.amenitiesFilter;
@@ -294,21 +286,20 @@ angular.module("jewApp")
 				Fireplace: false, PetsAllowed: false, Pool: false,SmokingAllowed: false,
 				Washer: false, Accessibility: false}
 
-	$scope.$on('serach',function(events,args){
+	$scope.$on('serach',function(events,args){//waits for a search event from mainCtrl
 		$scope.searchTerm = args;
-		console.log($scope.searchTerm);
-		$scope.search();
+		$scope.search();//calls search function
 	});
 
 	$scope.search = function(){
-		$state.go('usersArea.search.list');
-		var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)
+		$state.go('usersArea.search.list');//goes to list view
+		var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)//asks express for homes
 			.then(function(result){
 				console.log(result);
 				$scope.results = result.data;
 					$scope.markersCoord = [];
 
-					for (var i = 0; i < $scope.results.length; i++) {
+					for (var i = 0; i < $scope.results.length; i++) {//builds markers object for google maps
 						$scope.markersCoord.push({
 							id: i,
 							latitude: $scope.results[i].house.location.lat,
@@ -316,7 +307,7 @@ angular.module("jewApp")
 						});
 					};
 				
-					$rootScope.$on('$stateChangeStart', 
+					$rootScope.$on('$stateChangeStart', //whenever entering map state, filters results
 				     function(event, toState, toParams, fromState, fromParams){
 				     	if(toState.name == 'usersArea.search.map'){
 						var filterResult = filter($scope.results,$scope.filters);
@@ -330,7 +321,6 @@ angular.module("jewApp")
 										});
 									};
 					
-
 						var sumLat = 0;
 						var sumLng = 0;
 
@@ -352,9 +342,4 @@ angular.module("jewApp")
 					});
 			})
 	}
-
-
-	
-
-
 })
