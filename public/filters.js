@@ -1,6 +1,6 @@
 angular.module("jewApp")
 .filter("amenFilter", function () {
-	return function (items, filterObject) {
+	return function (items, filterObject,homeFilter) {
 		var resultArr = [];
 		var noFilterNeeded = true;
 
@@ -30,7 +30,7 @@ angular.module("jewApp")
 			if(insert) resultArr.push(item);
 		})
 
-		return resultArr;	
+		resultArr $filter('kosherFilter')(resultArr,homeFilter);	
 	}
 })
 .filter('kosherFilter',function(){
