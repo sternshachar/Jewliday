@@ -59,7 +59,7 @@ angular.module("jewApp")
 		} else{
 			
 			angular.forEach(items, function(item){
-				if(item.house.synagouge == home.synagouge){
+				if(item.house.synagouge < home.synagouge){
 					resultArr.push(item);
 				}
 			})
