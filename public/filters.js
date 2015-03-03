@@ -34,7 +34,7 @@ angular.module("jewApp")
 	}
 })
 .filter('kosherFilter',function(){
-	return function (items,kosher){
+	return function(items,kosher){
 		console.log(kosher.kosher);
 		if(!kosher.kosher){
 			return items;
@@ -42,15 +42,14 @@ angular.module("jewApp")
 
 		var resultArr = [];
 
-		angular.forEach(var item in items, function(item){
+		angular.forEach(item in items, function(item){
 			if(item.house.kosher == kosher.kosher){
 				resultArr.push(item);
 			}
 		})
 		return resultArr;
 	}
-});
-
+})
 
 
 
