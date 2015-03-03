@@ -34,7 +34,7 @@
 	<div class="col-sm-8">
 		<h4 class="text-muted results-number" ng-hide="!filteredResults">Found <span class="badge">{{filteredResults.length}}</span> results</h4>
 		<div class="list-group homes-list">
-			<a href class="list-group-item" ng-repeat="home in filteredResults =(results | amenFilter:filters)">
+			<a href class="list-group-item" ng-repeat="home in filteredResults =(results | amenFilter:filters | kosherFilter:homeFilter.Kosher)">
 				<div class="row">
 					<div class="col-sm-3">
 						<img ng-src="{{home.photos.profile}}" class="home-img">

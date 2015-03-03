@@ -33,6 +33,22 @@ angular.module("jewApp")
 		return resultArr;	
 	}
 });
+.filter('kosherFilter',function(){
+	return function(items,kosher){
+		if(!kosher){
+			return items;
+		}
+
+		var resultArr = [];
+
+		angular.forEach(item in items, function(item){
+			if(item.house.kosher == kosher){
+				resultArr.push(item);
+			}
+		})
+		return resultArr;
+	}
+})
 
 
 
