@@ -345,7 +345,7 @@ angular.module("jewApp")
 	    $scope.chosen = $scope.results[data.key];
 	};
 
-	$scope.pageNum = 3;
+	$scope.pageNum = 1;
 
-	$scope.step = 2;
+	$scope.step = 3;
 })
