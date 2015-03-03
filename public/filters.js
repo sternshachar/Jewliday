@@ -32,6 +32,8 @@ angular.module("jewApp")
 
 		resultArr  = $filter('kosherFilter')(resultArr,homeFilter);
 		resultArr  = $filter('synagFilter')(resultArr,homeFilter);
+		resultArr  = $filter('bedsFilter')(resultArr,homeFilter);
+		resultArr  = $filter('roomsFilter')(resultArr,homeFilter);
 		return resultArr;	
 	}
 })
@@ -60,6 +62,38 @@ angular.module("jewApp")
 			
 			angular.forEach(items, function(item){
 				if(item.house.synagouge <= home.synagouge){
+					resultArr.push(item);
+				}
+			})
+		}
+		return resultArr;
+	}
+})
+.filter('bedsFilter',function(){
+	return function(items,home){
+		var resultArr = [];
+		if(!home.beds){
+			resultArr = items;
+		} else{
+			
+			angular.forEach(items, function(item){
+				if(item.house.beds <= home.beds){
+					resultArr.push(item);
+				}
+			})
+		}
+		return resultArr;
+	}
+})
+.filter('roomsFilter',function(){
+	return function(items,home){
+		var resultArr = [];
+		if(!home.bedrooms){
+			resultArr = items;
+		} else{
+			
+			angular.forEach(items, function(item){
+				if(item.house.bedrooms <= home.bedrooms){
 					resultArr.push(item);
 				}
 			})
