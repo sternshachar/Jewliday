@@ -48,8 +48,8 @@ angular.module("jewApp")
 				
 					$rootScope.$on('$stateChangeStart', 
 				     function(event, toState, toParams, fromState, fromParams){
-				     	console.log(toState);
-				     	if(toState == 'usersArea.search.map'){
+				     	console.log(toState.name);
+				     	if(toState.name == 'usersArea.search.map'){
 						var filterResult = filter($scope.results,$scope.filters);
 						console.log(filterResult);
 						$scope.markersCoord = [];
