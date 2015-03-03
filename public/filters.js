@@ -77,7 +77,7 @@ angular.module("jewApp")
 		} else{
 			
 			angular.forEach(items, function(item){
-				if(item.house.beds <= home.beds){
+				if(item.house.beds >= home.beds){
 					resultArr.push(item);
 				}
 			})
@@ -93,7 +93,7 @@ angular.module("jewApp")
 		} else{
 			
 			angular.forEach(items, function(item){
-				if(item.house.bedrooms <= home.bedrooms){
+				if(item.house.bedrooms >= home.bedrooms){
 					resultArr.push(item);
 				}
 			})
