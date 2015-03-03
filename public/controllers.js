@@ -347,5 +347,9 @@ angular.module("jewApp")
 
 	$scope.pageNum = 1;
 
-	$scope.step = 3;
+	$scope.step = 5;
+
+	$scope.setPage = function(page){
+		$scope.pageNum = page;
+	}
 })

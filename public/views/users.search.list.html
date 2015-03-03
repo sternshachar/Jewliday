@@ -40,7 +40,7 @@
 						<img ng-src="{{home.photos.profile}}" class="home-img">
 					</div>
 					<div class="col-sm-9">
-						<h3 class="list-group-item-heading"><span class="glyphicon glyphicon-map-marker"></span> {{home.house.city}}</h4>
+						<h4 class="list-group-item-heading"><span class="glyphicon glyphicon-map-marker"></span> {{home.house.city}}</h4>
 						<p class="list-group-item-text"> {{home.house.description}}</p>
 						<br><br>
 						<table>
@@ -54,9 +54,22 @@
 				</div>
 			</a>
 		</div>
+		<nav>
+		  <ul class="pagination">
+		    <li>
+		      <a href="#" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+		    <li ng-repeat="a in filteredResults" ng-show="$index <=  Math.ceil(filteredResults.length/step)" ng-click="setPage($index)"><a href="#">{{$index}}</a></li>
+		    <li>
+		      <a href="#" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		  </ul>
+		</nav>
 	</div>
-	<input type="text" ng-model="pageNum">page
-	<input type="text" ng-model="step">step
 	<div class="col-sm-4">
 		<div class="well filter-well">
 			<div class="row">
