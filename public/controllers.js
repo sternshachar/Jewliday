@@ -278,7 +278,10 @@ angular.module("jewApp")
 })
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData){
 
-	// $scope.filteredResultLength = 0;
+	$scope.filteredResults = {};
+	
+	$scope.$watch('filteredResults', function() { console.log('filtered:', $scope.filteredResults); });
+
 	var filter = $filter('amenFilter')
 	$scope.filterAmen = appData.amenitiesFilter;
 
