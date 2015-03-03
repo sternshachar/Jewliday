@@ -1,5 +1,5 @@
 angular.module("jewApp")
-.controller("mainCtrl",function($scope,$interval,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter){
+.controller("mainCtrl",function($scope,$interval,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope){
 	$scope.user = {};						// user data for SINGUP from form (logModal.html)
 	$scope.userLog = {};					//user data for LOGIN up from form (signModal.html)
 
@@ -46,38 +46,38 @@ angular.module("jewApp")
 						});
 					};
 				
+					$rootScope.$on('$stateChangeStart', 
+				     function(){
+						var filterResult = filter($scope.results,$scope.filters);
+						console.log(filterResult);
+						$scope.markersCoord = [];
+						for (var i = 0; i < filterResult.length; i++) {
+										$scope.markersCoord.push({
+											id: i,
+											latitude: filterResult[i].house.location.lat,
+											longitude: filterResult[i].house.location.lng
+										});
+									};
+					
 
-				     	(function(){
-							var filterResult = filter($scope.results,$scope.filters);
-							console.log(filterResult);
-							$scope.markersCoord = [];
-							for (var i = 0; i < filterResult.length; i++) {
-											$scope.markersCoord.push({
-												id: i,
-												latitude: filterResult[i].house.location.lat,
-												longitude: filterResult[i].house.location.lng
-											});
-										};
-						})();
+						var sumLat = 0;
+						var sumLng = 0;
 
-					var sumLat = 0;
-					var sumLng = 0;
+						for (var i = 0; i < $scope.markersCoord.length; i++) {
+							sumLat += $scope.markersCoord[i].latitude;
+							sumLng += $scope.markersCoord[i].longitude;
+						};
 
-					for (var i = 0; i < $scope.markersCoord.length; i++) {
-						sumLat += $scope.markersCoord[i].latitude;
-						sumLng += $scope.markersCoord[i].longitude;
-					};
+						$scope.markers = $scope.markersCoord;
 
-
-					$scope.markers = $scope.markersCoord;
-
-					$scope.options = {scrollwheel: false};
-					$scope.map = {
-						center: {latitude: sumLat/$scope.markers.length,
-     							 longitude: sumLng/$scope.markers.length },
-				     		zoom: 10,
-				     		bounds: {}
-				     };
+						$scope.options = {scrollwheel: false};
+						$scope.map = {
+							center: {latitude: sumLat/$scope.markers.length,
+	     							 longitude: sumLng/$scope.markers.length },
+					     		zoom: 10,
+					     		bounds: {}
+					     };
+					});
 			})
 	}
 
