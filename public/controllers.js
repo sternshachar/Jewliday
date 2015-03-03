@@ -21,13 +21,6 @@ angular.module("jewApp")
 		console.log($scope.userId);
 	});
 
-	var filter = $filter('amenFilter')
-	$scope.filterAmen = appData.amenitiesFilter;
-
-	$scope.filters = {TV: false, wifi: false, AirCondition: false,Dryer: false,
-				Elevator: false, Essentials: false, FreeParking: false,Heating: false,
-				Fireplace: false, PetsAllowed: false, Pool: false,SmokingAllowed: false,
-				Washer: false, Accessibility: false}
 
 	$scope.searchTerm = {search: ''};
 	$scope.search = function(){
@@ -290,10 +283,18 @@ angular.module("jewApp")
 
 
 })
-.controller('searchCtrl',function($scope,$http,$rootScope,$state,uiGmapGoogleMapApi,appData){
+.controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData){
+
+
+	var filter = $filter('amenFilter')
+	$scope.filterAmen = appData.amenitiesFilter;
+
+	$scope.filters = {TV: false, wifi: false, AirCondition: false,Dryer: false,
+				Elevator: false, Essentials: false, FreeParking: false,Heating: false,
+				Fireplace: false, PetsAllowed: false, Pool: false,SmokingAllowed: false,
+				Washer: false, Accessibility: false}
 
 	$scope.$on('serach',function(events,args){
-		
 		$scope.searchTerm = args;
 		console.log($scope.searchTerm);
 		$scope.search();
