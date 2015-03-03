@@ -30,7 +30,8 @@ angular.module("jewApp")
 			if(insert) resultArr.push(item);
 		})
 
-		resultArr  = $filter('kosherFilter')(resultArr,homeFilter);	
+		resultArr  = $filter('kosherFilter')(resultArr,homeFilter);
+		return resultArr;	
 	}
 })
 .filter('kosherFilter',function(){
