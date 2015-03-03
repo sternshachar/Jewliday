@@ -31,18 +31,35 @@ angular.module("jewApp")
 		}
 
 		resultArr  = $filter('kosherFilter')(resultArr,homeFilter);
+		resultArr  = $filter('synagFilter')(resultArr,homeFilter);
 		return resultArr;	
 	}
 })
 .filter('kosherFilter',function(){
-	return function(items,kosher){
+	return function(items,home){
 		var resultArr = [];
-		if(!kosher.kosher){
+		if(!home.kosher){
 			resultArr = items;
 		} else{
 			
 			angular.forEach(items, function(item){
-				if(item.house.kosher == kosher.kosher){
+				if(item.house.kosher == home.kosher){
+					resultArr.push(item);
+				}
+			})
+		}
+		return resultArr;
+	}
+})
+.filter('synagFilter',function(){
+	return function(items,home){
+		var resultArr = [];
+		if(!home.synagouge){
+			resultArr = items;
+		} else{
+			
+			angular.forEach(items, function(item){
+				if(item.house.synagouge == home.synagouge){
 					resultArr.push(item);
 				}
 			})
