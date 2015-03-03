@@ -1,5 +1,5 @@
 angular.module("jewApp")
-.filter("amenFilter", function () {
+.filter("amenFilter", function ($filter) {
 	return function (items, filterObject,homeFilter) {
 		var resultArr = [];
 		var noFilterNeeded = true;
