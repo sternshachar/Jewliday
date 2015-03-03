@@ -54,21 +54,6 @@
 				</div>
 			</a>
 		</div>
-		<nav>
-		  <ul class="pagination">
-		    <li>
-		      <a href="#" aria-label="Previous">
-		        <span aria-hidden="true">&laquo;</span>
-		      </a>
-		    </li>
-		    <li ng-repeat="a in filteredResults" ng-show="$index <  Math.ceil(filteredResults.length/step)" ng-click="setPage($index)"><a href="#">{{$index}}</a></li>
-		    <li>
-		      <a href="#" aria-label="Next">
-		        <span aria-hidden="true">&raquo;</span>
-		      </a>
-		    </li>
-		  </ul>
-		</nav>
 	</div>
 	<div class="col-sm-4">
 		<div class="well filter-well">
