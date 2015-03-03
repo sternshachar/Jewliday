@@ -31,56 +31,7 @@ angular.module("jewApp")
 
 	$scope.searchTerm = {search: ''};
 	$scope.search = function(){
-		$state.go('usersArea.search.list');
-		var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)
-			.then(function(result){
-				console.log(result);
-				$scope.results = result.data;
-					$scope.markersCoord = [];
-
-					for (var i = 0; i < $scope.results.length; i++) {
-						$scope.markersCoord.push({
-							id: i,
-							latitude: $scope.results[i].house.location.lat,
-							longitude: $scope.results[i].house.location.lng
-						});
-					};
-				
-					$rootScope.$on('$stateChangeStart', 
-				     function(event, toState, toParams, fromState, fromParams){
-				     	if(toState.name == 'usersArea.search.map'){
-						var filterResult = filter($scope.results,$scope.filters);
-						console.log(filterResult);
-						$scope.markersCoord = [];
-						for (var i = 0; i < filterResult.length; i++) {
-										$scope.markersCoord.push({
-											id: i,
-											latitude: filterResult[i].house.location.lat,
-											longitude: filterResult[i].house.location.lng
-										});
-									};
-					
-
-						var sumLat = 0;
-						var sumLng = 0;
-
-						for (var i = 0; i < $scope.markersCoord.length; i++) {
-							sumLat += $scope.markersCoord[i].latitude;
-							sumLng += $scope.markersCoord[i].longitude;
-						};
-
-						$scope.markers = $scope.markersCoord;
-
-						$scope.options = {scrollwheel: false};
-						$scope.map = {
-							center: {latitude: sumLat/$scope.markers.length,
-	     							 longitude: sumLng/$scope.markers.length },
-					     		zoom: 10,
-					     		bounds: {}
-					     };
-					 }
-					});
-			})
+		$scope.$broadcast('serach',$scope.searchTerm);
 	}
 
 	$scope.onClick = function(data) {
@@ -181,7 +132,7 @@ angular.module("jewApp")
 
 	$scope.sendMessage = function(){
 		console.log('sending');
-		$http.post(appData.url + '/inbox/' + $scope.userId, $scope.messageData)
+		$http.post(appData.url + '/inbox/' + $scope.userId, $scope.messageData)//userId change to the subjects id
 			.success(function(data){
 				console.log(data);
 			});
@@ -339,10 +290,66 @@ angular.module("jewApp")
 
 
 })
-.controller('searchCtrl',function($scope,uiGmapGoogleMapApi,appData){
+.controller('searchCtrl',function($scope,$http,$rootScope,uiGmapGoogleMapApi,appData){
 
+	$scope.$on('serach',function(events,args){
+		console.log(args);
+		$scope.searchTerm = args;
+		$scope.serach();
+	});
 
+	$scope.search = function(){
+		$state.go('usersArea.search.list');
+		var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)
+			.then(function(result){
+				console.log(result);
+				$scope.results = result.data;
+					$scope.markersCoord = [];
 
+					for (var i = 0; i < $scope.results.length; i++) {
+						$scope.markersCoord.push({
+							id: i,
+							latitude: $scope.results[i].house.location.lat,
+							longitude: $scope.results[i].house.location.lng
+						});
+					};
+				
+					$rootScope.$on('$stateChangeStart', 
+				     function(event, toState, toParams, fromState, fromParams){
+				     	if(toState.name == 'usersArea.search.map'){
+						var filterResult = filter($scope.results,$scope.filters);
+						console.log(filterResult);
+						$scope.markersCoord = [];
+						for (var i = 0; i < filterResult.length; i++) {
+										$scope.markersCoord.push({
+											id: i,
+											latitude: filterResult[i].house.location.lat,
+											longitude: filterResult[i].house.location.lng
+										});
+									};
+					
+
+						var sumLat = 0;
+						var sumLng = 0;
+
+						for (var i = 0; i < $scope.markersCoord.length; i++) {
+							sumLat += $scope.markersCoord[i].latitude;
+							sumLng += $scope.markersCoord[i].longitude;
+						};
+
+						$scope.markers = $scope.markersCoord;
+
+						$scope.options = {scrollwheel: false};
+						$scope.map = {
+							center: {latitude: sumLat/$scope.markers.length,
+	     							 longitude: sumLng/$scope.markers.length },
+					     		zoom: 10,
+					     		bounds: {}
+					     };
+					 }
+					});
+			})
+	}
 
 
 	
