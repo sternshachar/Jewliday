@@ -32,7 +32,7 @@ angular.module("jewApp")
 
 		return resultArr;	
 	}
-});
+})
 .filter('kosherFilter',function(){
 	return function(items,kosher){
 		if(!kosher){
