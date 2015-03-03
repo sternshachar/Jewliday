@@ -26,11 +26,6 @@ angular.module("jewApp")
 		$scope.$broadcast('serach',$scope.searchTerm);//send a search event to searchCtrl with searchTerm
 	}
 
-	$scope.onClick = function(data) {
-	    console.log(data);
-	    $scope.chosen = $scope.results[data.key];
-	};
-
 	$scope.$on('mapFiltered', function(events,args){
 		console.log(args);
 		$scope.markers = args;
@@ -343,4 +338,8 @@ angular.module("jewApp")
 					});
 			})
 	}
+	$scope.onClick = function(data) {
+	    console.log(data);
+	    $scope.chosen = $scope.results[data.key];
+	};
 })
