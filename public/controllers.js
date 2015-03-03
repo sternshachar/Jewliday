@@ -307,9 +307,9 @@ angular.module("jewApp")
 				     function(event, toState, toParams, fromState, fromParams){
 				     	if(toState.name == 'usersArea.search.map'){
 
-				     	$scope.chosen = $scope.results[0];
 						var filterResult = filter($scope.results,$scope.filters,$scope.homeFilter);
 						console.log(filterResult);
+						$scope.chosen = filterResult[0];
 						$scope.markersCoord = [];
 						for (var i = 0; i < filterResult.length; i++) {
 										$scope.markersCoord.push({
