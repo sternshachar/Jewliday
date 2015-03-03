@@ -23,7 +23,7 @@
 <div class="row">
 	<div class="col-sm-8">
 		<div class="list-group homes-list">
-			<a href class="list-group-item" ng-repeat="home in filteredResults =(results | amenFilter:filters)">
+			<a href class="list-group-item" ng-repeat="home in searchCtrl.filteredResults =(results | amenFilter:filters)">
 				<div class="row">
 					<div class="col-sm-3">
 						<img ng-src="{{home.photos.profile}}" class="home-img">
