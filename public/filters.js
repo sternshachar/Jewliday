@@ -35,6 +35,7 @@ angular.module("jewApp")
 })
 .filter('kosherFilter',function(){
 	return function(items,kosher){
+		console.log(kosher);
 		if(!kosher){
 			return items;
 		}
