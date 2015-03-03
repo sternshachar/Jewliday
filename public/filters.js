@@ -35,15 +35,15 @@ angular.module("jewApp")
 })
 .filter('kosherFilter',function(){
 	return function(items,kosher){
-		console.log(kosher);
-		if(!kosher){
+		console.log(kosher.kosher);
+		if(!kosher.kosher){
 			return items;
 		}
 
 		var resultArr = [];
 
 		angular.forEach(item in items, function(item){
-			if(item.house.kosher == kosher){
+			if(item.house.kosher == kosher.kosher){
 				resultArr.push(item);
 			}
 		})
