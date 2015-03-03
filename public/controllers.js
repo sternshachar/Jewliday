@@ -290,7 +290,7 @@ angular.module("jewApp")
 
 
 })
-.controller('searchCtrl',function($scope,$http,$rootScope,uiGmapGoogleMapApi,appData){
+.controller('searchCtrl',function($scope,$http,$rootScope,$state,uiGmapGoogleMapApi,appData){
 
 	$scope.$on('serach',function(events,args){
 		console.log(args);
