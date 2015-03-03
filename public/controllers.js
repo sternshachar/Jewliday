@@ -311,7 +311,7 @@ angular.module("jewApp")
 					$rootScope.$on('$stateChangeStart', //whenever entering map state, filters results
 				     function(event, toState, toParams, fromState, fromParams){
 				     	if(toState.name == 'usersArea.search.map'){
-						var filterResult = filter($scope.results,$scope.filters);
+						var filterResult = filter($scope.results,$scope.filters,$scope.homeFilter);
 						console.log(filterResult);
 						$scope.markersCoord = [];
 						for (var i = 0; i < filterResult.length; i++) {
