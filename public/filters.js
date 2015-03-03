@@ -48,6 +48,7 @@ angular.module("jewApp")
 				resultArr.push(item);
 			}
 		})
+		console.log(resultArr);
 		return resultArr;
 	}
 })
