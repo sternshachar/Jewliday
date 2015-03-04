@@ -76,7 +76,7 @@
 				</li>
 				<li ng-class="homeActive()">
 					<a href="#/users/home"  >
-						<span class="glyphicon glyphicon-home"></span> Your Home
+						<span class="glyphicon glyphicon-home"></span> My Home
 					</a>
 				</li>
 				<li  ng-class="inboxActive()">
@@ -84,12 +84,18 @@
 						<span class="glyphicon glyphicon-envelope"></span> Inbox
 					</a>
 				</li>
+				<li ng-class="searchActive()">
+					<a href="#/users/search" >
+						<span class="glyphicon glyphicon-search"></span> Search
+					</a>
+				</li>
 			</ul>
-			<form class="navbar-form navbar-left navbar-search" role="search" ng-class="searchActive()">
+
+			<form class="navbar-form navbar-left navbar-search" role="search" ng-show="$state.includes('usersArea.search')">
 				<div class="form-group">
 		          <input type="text" class="form-control" placeholder="City of Country" ng-model="searchTerm.search">
 		        </div>
-		        <button class="btn btn-default" ng-click="search()">Search</button>
+		        <button class="btn btn-default" ng-click="search()">Go!</button>
 		    </form>
 		</div>
 	</div><!-- end navbar -->
