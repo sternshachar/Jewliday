@@ -113,7 +113,7 @@ angular.module("jewApp")
 			var resultArr = [];
 
 			resultArr = items.slice((pageNum - 1)*step,pageNum*step);
-			console.log(resultArr);
+			// console.log(resultArr);
 			return resultArr;
 		}
 	}
