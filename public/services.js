@@ -73,11 +73,11 @@ angular.module("jewApp")
 									return promise;
 							},
 
-			getHomeSelect: function(){
+			getHomeSelect = function(){
 				return homeSelected;
 			},
 
-			homeSelect:function(home){
+			homeSelect = function(home){
 				homeSelected = home;
 
 				return homeSelected;
@@ -96,6 +96,10 @@ angular.module("jewApp")
 
 		addressData: addressData,
 
-		amenitiesFilter: amenitiesFilter
+		amenitiesFilter: amenitiesFilter,
+
+		getHomeSelect: getHomeSelect,
+
+		homeSelect: homeSelect
 	}
 })
