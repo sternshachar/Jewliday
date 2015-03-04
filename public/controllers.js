@@ -297,11 +297,6 @@ angular.module("jewApp")
 				console.log(result);
 				$scope.results = result.data;
 				$scope.markersCoord = [];
-
-				// filterResult = filter($scope.results,$scope.filters,$scope.homeFilter);
-				// $scope.filteredResultLength = filterResult.length;
-				// $scope.numOfPages = Math.ceil($scope.filteredResultLength/$scope.step);
-				// $scope.pageArray = new Array($scope.numOfPages);
 				
 				for (var i = 0; i < $scope.results.length; i++) {//builds markers object for google maps
 					$scope.markersCoord.push({
