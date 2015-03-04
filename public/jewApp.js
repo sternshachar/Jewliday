@@ -139,6 +139,7 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 					})
 					.state('browse',{
 						url:'/browse',
+						controller: 'browswCtrl',
 						templateUrl: 'views/users.home.html'
 					})
 			})

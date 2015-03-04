@@ -279,6 +279,10 @@ angular.module("jewApp")
 	}
 })
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData){
+	$scope.openHome = function(){
+		var url = $state.href('myroute', {parameter: "parameter"});
+		window.open(url,'_blank');
+	}
 
 	$scope.searchMode =$state.includes('usersArea.search');
 	var filter = $filter('amenFilter')
@@ -370,5 +374,68 @@ angular.module("jewApp")
 
 	$scope.setPage = function(page){
 		$scope.pageNum = page;
+	}
+})
+
+.controller('browsCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,addressData){
+	var amenities = {};
+
+	$scope.photosUrl = photos;
+
+	$scope.homeImage = {
+    	background: 'url(' + $scope.photosUrl.cover + ')'
+	};
+
+	$scope.imagePick = function(pic){
+		return {
+	    	'background-image': 'url(' + $scope.photosUrl[pic] + ')'
+		}
+	}
+
+	$http.get(appData.url + '/login').
+				success(function(data){
+					amenities = data.user.house.amenities;
+					$scope.home = data.user.house;
+				});
+
+	$scope.amenitiesOrdered = appData.amenitiesHomeView;
+
+	$scope.amenityCheck = function(name){
+		if(!(typeof amenities === 'undefined')){
+			if(!(typeof amenities[name] === 'undefined') && amenities[name]){
+				return 'glyphicon glyphicon-check';
+			} else {
+				return 'glyphicon glyphicon-unchecked';
+			}
+		}
+	}
+
+	$scope.mapData = addressData;
+	$scope.options = {scrollwheel: false};
+	$scope.map = {center: {latitude: $scope.mapData.lat,
+     					   longitude: $scope.mapData.lng }, zoom: 14 };
+	$scope.marker = {
+		id: 0,
+		coords: {
+		  latitude: $scope.mapData.lat,
+		  longitude: $scope.mapData.lng
+		},
+		options: { draggable: false },
+		events: {
+		  click: function (marker, eventName, args) {
+		    var lat = marker.getPosition().lat();
+		    var lon = marker.getPosition().lng();
+
+		    $scope.marker.options = {
+		    	labelClass: "marker-labels",
+		      content: "<img class='map-info-pic' ng-src='" + $scope.photosUrl.profile + "'>",
+		      zIndex: 99999
+		    };
+		  }
+		}
+	}
+
+	$scope.editHome = function(){
+		$state.go('listHome.address');
 	}
 })
