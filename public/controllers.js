@@ -352,7 +352,8 @@ angular.module("jewApp")
 	}
 
 	$rootScope.$on('filterExec',function(event,args){
-				$scope.filteredResultLength = filterResult.length;
+		console.log(args);
+				$scope.filteredResultLength = args;
 				$scope.numOfPages = Math.ceil($scope.filteredResultLength/$scope.step);
 				$scope.pageArray = new Array($scope.numOfPages);
 				console.log(pageArray);

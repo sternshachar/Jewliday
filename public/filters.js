@@ -35,7 +35,7 @@ angular.module("jewApp")
 		resultArr  = $filter('bedsFilter')(resultArr,homeFilter);
 		resultArr  = $filter('roomsFilter')(resultArr,homeFilter);
 
-		$rootScope.$broadcast('filterExec',{});
+		$rootScope.$broadcast('filterExec',resultArr.length);
 		return resultArr;	
 	}
 })
