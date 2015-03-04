@@ -381,13 +381,11 @@ angular.module("jewApp")
 
 .controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,$rootScope){
 
-	$rootScope.$on('openedHome',function(event,args){
+	$scope.$on('openedHome',function(event,args){
 		console.log(args);
 		$scope.photosUrl = photos;//להשלים את כל המשתים
+		var amenities = args.house.amenities;
 	})
-	var amenities = {};
-
-	
 
 	$scope.homeImage = {
     	background: 'url(' + $scope.photosUrl.cover + ')'
@@ -399,11 +397,6 @@ angular.module("jewApp")
 		}
 	}
 
-	$http.get(appData.url + '/login').
-				success(function(data){
-					amenities = data.user.house.amenities;
-					$scope.home = data.user.house;
-				});
 
 	$scope.amenitiesOrdered = appData.amenitiesHomeView;
 
