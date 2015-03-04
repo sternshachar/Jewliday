@@ -104,11 +104,6 @@ angular.module("jewApp")
 	  	{return 'active';} else {return '';}
 	}
 
-	$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
-		if(!$scope.isAuth){
-			$state.go('home');
-		}
-	})
 })
 
 .controller("inboxCtrl",function($scope,$http,$state,appData){
