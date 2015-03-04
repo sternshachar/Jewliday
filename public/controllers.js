@@ -340,7 +340,7 @@ angular.module("jewApp")
 					     };
 					 }
 					 	$scope.numOfPages = Math.ceil($scope.filteredResultLength/$scope.step);
-
+					 	console.log($scope.numOfPages);
 						$scope.pageArray = new Array($scope.numOfPages);
 					});
 			})
