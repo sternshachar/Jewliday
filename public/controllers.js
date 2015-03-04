@@ -282,6 +282,7 @@ angular.module("jewApp")
 	$scope.openHome = function(data){
 		var url = $state.href('browse', {parameter: data});
 		window.open(url);
+		$rootScope.$broadcast('openedHome',$scope.results[$scope.chosenKey]); 
 	}
 
 	$scope.searchMode =$state.includes('usersArea.search');
@@ -379,9 +380,14 @@ angular.module("jewApp")
 })
 
 .controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData){
+
+	$rootScope.$on('openedHome',function(event,args){
+		console.log(args);
+		$scope.photosUrl = photos;//להשלים את כל המשתים
+	})
 	var amenities = {};
 
-	$scope.photosUrl = photos;
+	
 
 	$scope.homeImage = {
     	background: 'url(' + $scope.photosUrl.cover + ')'
