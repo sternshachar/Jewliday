@@ -273,7 +273,7 @@ angular.module("jewApp")
 	}
 })
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData){
-	$scope.search();
+	
 
 	var filter = $filter('amenFilter')
 	$scope.filterAmen = appData.amenitiesFilter;
@@ -289,7 +289,7 @@ angular.module("jewApp")
 	});
 
 	$scope.search = function(){
-		$state.go('usersArea.search.list');//goes to list view
+		// $state.go('usersArea.search.list');//goes to list view
 		var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)//asks express for homes
 			.then(function(result){
 				console.log(result);
