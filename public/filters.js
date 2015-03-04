@@ -3,7 +3,9 @@ angular.module("jewApp")
 	return function (items, filterObject,homeFilter) {
 		var resultArr = [];
 		var noFilterNeeded = true;
-
+		if(!items){
+			return items;
+		}
 		for(var propertyName in filterObject) { //if all filter is false all items go back
 			if(filterObject[propertyName] == true){
 				noFilterNeeded = false;
