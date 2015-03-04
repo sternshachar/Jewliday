@@ -353,7 +353,7 @@ angular.module("jewApp")
 
 	$scope.numOfPages = Math.ceil($scope.filteredResultLength/$scope.step);
 
-	$scope.pageArray = return new Array(numOfPages);
+	$scope.pageArray = new Array(numOfPages);
 
 	$scope.setPage = function(page){
 		$scope.pageNum = page;
