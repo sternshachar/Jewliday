@@ -1,5 +1,5 @@
 angular.module("jewApp")
-.filter("amenFilter", function ($filter) {
+.filter("amenFilter", function ($filter,$rootScope) {
 	return function (items, filterObject,homeFilter) {
 		var resultArr = [];
 		var noFilterNeeded = true;
@@ -34,6 +34,8 @@ angular.module("jewApp")
 		resultArr  = $filter('synagFilter')(resultArr,homeFilter);
 		resultArr  = $filter('bedsFilter')(resultArr,homeFilter);
 		resultArr  = $filter('roomsFilter')(resultArr,homeFilter);
+
+		$rootScope.$broadcast('filterExec',{});
 		return resultArr;	
 	}
 })
