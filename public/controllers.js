@@ -339,6 +339,9 @@ angular.module("jewApp")
 					     		bounds: {}
 					     };
 					 }
+					 	$scope.numOfPages = Math.ceil($scope.filteredResultLength/$scope.step);
+
+						$scope.pageArray = new Array($scope.numOfPages);
 					});
 			})
 	}
@@ -350,10 +353,6 @@ angular.module("jewApp")
 	$scope.pageNum = 1;
 
 	$scope.step = 5;
-
-	$scope.numOfPages = Math.ceil($scope.filteredResultLength/$scope.step);
-
-	$scope.pageArray = new Array($scope.numOfPages);
 
 	$scope.setPage = function(page){
 		$scope.pageNum = page;
