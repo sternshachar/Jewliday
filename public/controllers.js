@@ -279,8 +279,8 @@ angular.module("jewApp")
 	}
 })
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData){
-	$scope.openHome = function(){
-		var url = $state.href('myroute', {parameter: "parameter"});
+	$scope.openHome = function(data){
+		var url = $state.href('myroute', {parameter: data});
 		window.open(url,'_blank');
 	}
 
@@ -366,6 +366,7 @@ angular.module("jewApp")
 	$scope.onClick = function(data) {
 	    console.log(data);
 	    $scope.chosen = $scope.results[data.key];
+	    $scope.chosenKey = data.key;
 	};
 
 	$scope.pageNum = 1;
@@ -377,7 +378,7 @@ angular.module("jewApp")
 	}
 })
 
-.controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,addressData){
+.controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData){
 	var amenities = {};
 
 	$scope.photosUrl = photos;
