@@ -138,6 +138,6 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 						templateUrl: 'views/listHome.photos.html'
 					})
 					.state('browse',{
-						url:'/'
+						url:'views/users.home.html'
 					})
 			})
