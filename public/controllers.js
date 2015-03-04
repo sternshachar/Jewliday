@@ -377,7 +377,7 @@ angular.module("jewApp")
 	}
 })
 
-.controller('browsCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,addressData){
+.controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,addressData){
 	var amenities = {};
 
 	$scope.photosUrl = photos;
