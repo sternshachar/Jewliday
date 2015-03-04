@@ -72,17 +72,9 @@ angular.module("jewApp")
 										return location;
 									})
 									return promise;
-							},
+							}
 
-			getHomeSelect = function(){
-				return homeSelected;
-			},
 
-			homeSelect = function(home){
-				homeSelected = home;
-
-				return homeSelected;
-			}
 
 	return{
 		url: url,
@@ -99,8 +91,13 @@ angular.module("jewApp")
 
 		amenitiesFilter: amenitiesFilter,
 
-		getHomeSelect: getHomeSelect,
+		getHomeSelect = function(){
+			return homeSelected;
+		},
 
-		homeSelect: homeSelect
+		homeSelect = function(home){
+			homeSelected = home;
+			return homeSelected;
+		}
 	}
 })

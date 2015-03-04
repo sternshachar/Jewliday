@@ -382,11 +382,11 @@ angular.module("jewApp")
 
 .controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData){
 
-	$scope.$on('openedHome',function(event,args){
-		console.log(args);
-		$scope.photosUrl = photos;//להשלים את כל המשתים
-		var amenities = args.house.amenities;
-	})
+	$scope.home = appData.getHomeSelect;
+	console.log($scope.home);
+	$scope.photosUrl = photos;//להשלים את כל המשתים
+	var amenities = args.house.amenities;
+
 
 	$scope.homeImage = {
     	background: 'url(' + $scope.photosUrl.cover + ')'
