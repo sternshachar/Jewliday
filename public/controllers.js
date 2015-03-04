@@ -379,7 +379,7 @@ angular.module("jewApp")
 	}
 })
 
-.controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData){
+.controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,$rootScope){
 
 	$rootScope.$on('openedHome',function(event,args){
 		console.log(args);
