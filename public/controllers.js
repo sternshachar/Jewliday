@@ -354,6 +354,7 @@ angular.module("jewApp")
 		$scope.filteredResultLength = args;
 		$scope.numOfPages = Math.ceil($scope.filteredResultLength/$scope.step);
 		$scope.pageArray = new Array($scope.numOfPages);
+		$scope.pageNum = 1;
 	})
 
 	$scope.onClick = function(data) {
