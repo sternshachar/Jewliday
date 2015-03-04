@@ -303,13 +303,17 @@ angular.module("jewApp")
 							longitude: $scope.results[i].house.location.lng
 						});
 					};
+
+					var filterResult = filter($scope.results,$scope.filters,$scope.homeFilter);
+					$scope.filteredResultLength = filterResult.length;
+					$scope.numOfPages = Math.ceil($scope.filteredResultLength/$scope.step);
+					console.log($scope.numOfPages);
+					$scope.pageArray = new Array($scope.numOfPages);
 				
 					$rootScope.$on('$stateChangeStart', //whenever entering map state, filters results
 				     function(event, toState, toParams, fromState, fromParams){
 				     	if(toState.name == 'usersArea.search.map'){
 
-						var filterResult = filter($scope.results,$scope.filters,$scope.homeFilter);
-						$scope.filteredResultLength = filterResult.length;
 						console.log(filterResult);
 						$scope.chosen = filterResult[0];
 						$scope.markersCoord = [];
@@ -339,9 +343,7 @@ angular.module("jewApp")
 					     		bounds: {}
 					     };
 					 }
-					 	$scope.numOfPages = Math.ceil($scope.filteredResultLength/$scope.step);
-					 	console.log($scope.numOfPages);
-						$scope.pageArray = new Array($scope.numOfPages);
+
 					});
 			})
 	}
