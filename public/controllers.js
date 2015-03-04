@@ -297,11 +297,10 @@ angular.module("jewApp")
 				$scope.results = result.data;
 				$scope.markersCoord = [];
 
-				filterResult = filter($scope.results,$scope.filters,$scope.homeFilter);
-				$scope.filteredResultLength = filterResult.length;
-				$scope.numOfPages = Math.ceil($scope.filteredResultLength/$scope.step);
-				$scope.pageArray = new Array($scope.numOfPages);
-				console.log(pageArray);
+				// filterResult = filter($scope.results,$scope.filters,$scope.homeFilter);
+				// $scope.filteredResultLength = filterResult.length;
+				// $scope.numOfPages = Math.ceil($scope.filteredResultLength/$scope.step);
+				// $scope.pageArray = new Array($scope.numOfPages);
 				
 				for (var i = 0; i < $scope.results.length; i++) {//builds markers object for google maps
 					$scope.markersCoord.push({
@@ -316,9 +315,8 @@ angular.module("jewApp")
 				     	if(toState.name == 'usersArea.search.map'){
 
 							filterResult = filter($scope.results,$scope.filters,$scope.homeFilter);
-							$scope.filteredResultLength = filterResult.length;
-							console.log(filterResult);
 							$scope.chosen = filterResult[0];
+
 							$scope.markersCoord = [];
 							for (var i = 0; i < filterResult.length; i++) {
 											$scope.markersCoord.push({
@@ -351,12 +349,10 @@ angular.module("jewApp")
 			})
 	}
 
-	$rootScope.$on('filterExec',function(event,args){
-		console.log(args);
-				$scope.filteredResultLength = args;
-				$scope.numOfPages = Math.ceil($scope.filteredResultLength/$scope.step);
-				$scope.pageArray = new Array($scope.numOfPages);
-				console.log(pageArray);
+	$rootScope.$on('filterExec',function(event,args){//check size of filtered results and update page count
+		$scope.filteredResultLength = args;
+		$scope.numOfPages = Math.ceil($scope.filteredResultLength/$scope.step);
+		$scope.pageArray = new Array($scope.numOfPages);
 	})
 
 	$scope.onClick = function(data) {
