@@ -352,9 +352,11 @@ angular.module("jewApp")
 
 	$rootScope.$on('filterExec',function(event,args){//check size of filtered results and update page count
 		$scope.filteredResultLength = args;
+		if(args != $scope.oldLength)
+			$scope.pageNum = 1;
+		$scope.oldLength = args;
 		$scope.numOfPages = Math.ceil($scope.filteredResultLength/$scope.step);
-		$scope.pageArray = new Array($scope.numOfPages);
-		$scope.pageNum = 1;
+		$scope.pageArray = new Array($scope.numOfPages);	
 	})
 
 	$scope.onClick = function(data) {
