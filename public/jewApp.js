@@ -79,11 +79,11 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 						controller: 'searchCtrl'
 					})
 					.state('usersArea.search.list',{
-						url:'/search/list',
+						url:'/list',
 						templateUrl:'views/users.search.list.html'
 					})
 					.state('usersArea.search.map',{
-						url:'/search/map',
+						url:'/map',
 						templateUrl:'views/users.search.map.html'
 					})
 
@@ -136,5 +136,8 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 					.state('listHome.photos',{
 						url: '/photos',
 						templateUrl: 'views/listHome.photos.html'
+					})
+					.state('browse',{
+						url:'/'
 					})
 			})
