@@ -23,8 +23,8 @@ angular.module("jewApp")
 
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){
-		$scope.$broadcast('serach',$scope.searchTerm);//send a search event to searchCtrl with searchTerm
 		$state.go('usersArea.search.list');
+		$scope.$broadcast('serach',$scope.searchTerm);//send a search event to searchCtrl with searchTerm
 	}
 
 	$scope.$on('mapFiltered', function(events,args){
