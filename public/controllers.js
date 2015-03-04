@@ -103,6 +103,12 @@ angular.module("jewApp")
 	  	if($state.includes('usersArea.search'))
 	  	{return 'active';} else {return '';}
 	}
+
+	$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
+		if(!$scope.isAuth){
+			$state.go('home');
+		}
+	})
 })
 
 .controller("inboxCtrl",function($scope,$http,$state,appData){
@@ -115,10 +121,10 @@ angular.module("jewApp")
 
 	$http.get(appData.url + '/inbox/' + $scope.userId)// move to resolve
 		.success(function(data){
-			if(data[0].messages){
+			if(data[0]){
 				$scope.messages = data[0].messages;
 			} else{
-				$state.go('home');
+				console.log('No messages')
 			}
 			console.log(data);
 		})
@@ -132,9 +138,6 @@ angular.module("jewApp")
 	}	
 })
 .controller("newHomeCtrl",function($scope,$http, $window, appData,$upload,$state,homeData){
-	if(!$scope.isAuth)
-		$state.go('home');
-
 	if($scope.isListed.listed){
 		$scope.home = homeData;
 		console.log($scope.home)
@@ -219,9 +222,6 @@ angular.module("jewApp")
     };
 })
 .controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,addressData,photos){
-	if(!$scope.isAuth)
-		$state.go('home');
-
 	var amenities = {};
 
 	$scope.photosUrl = photos;
@@ -284,8 +284,6 @@ angular.module("jewApp")
 	}
 })
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData){
-	// if(!$scope.isAuth)
-	// 	$state.go('home');
 
 	$scope.searchMode =$state.includes('usersArea.search');
 	var filter = $filter('amenFilter')
