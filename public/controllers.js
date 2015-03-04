@@ -273,7 +273,7 @@ angular.module("jewApp")
 	}
 })
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData){
-	
+
 
 	var filter = $filter('amenFilter')
 	$scope.filterAmen = appData.amenitiesFilter;
@@ -309,6 +309,7 @@ angular.module("jewApp")
 				     	if(toState.name == 'usersArea.search.map'){
 
 						var filterResult = filter($scope.results,$scope.filters,$scope.homeFilter);
+						$scope.filteredResultLength = filterResult.length;
 						console.log(filterResult);
 						$scope.chosen = filterResult[0];
 						$scope.markersCoord = [];
@@ -349,6 +350,10 @@ angular.module("jewApp")
 	$scope.pageNum = 1;
 
 	$scope.step = 5;
+
+	$scope.numOfPages = Math.ceil($scope.filteredResultLength/$scope.step);
+
+	$scope.pageArray = return new Array(numOfPages);
 
 	$scope.setPage = function(page){
 		$scope.pageNum = page;
