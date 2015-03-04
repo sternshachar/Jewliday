@@ -275,7 +275,7 @@ angular.module("jewApp")
 })
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData){
 
-
+	$scope.searchMode =$state.includes('usersArea.search');
 	var filter = $filter('amenFilter')
 	$scope.filterAmen = appData.amenitiesFilter;
 	$scope.homeFilter = {};
