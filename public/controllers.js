@@ -289,64 +289,65 @@ angular.module("jewApp")
 	});
 
 	$scope.search = function(){
+		var filterResult = [];
 		// $state.go('usersArea.search.list');//goes to list view
 		var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)//asks express for homes
 			.then(function(result){
 				console.log(result);
 				$scope.results = result.data;
-					$scope.markersCoord = [];
+				$scope.markersCoord = [];
 
-					for (var i = 0; i < $scope.results.length; i++) {//builds markers object for google maps
-						$scope.markersCoord.push({
-							id: i,
-							latitude: $scope.results[i].house.location.lat,
-							longitude: $scope.results[i].house.location.lng
-						});
-					};
-
-					var filterResult = filter($scope.results,$scope.filters,$scope.homeFilter);
-					$scope.filteredResultLength = filterResult.length;
-					$scope.numOfPages = Math.ceil($scope.filteredResultLength/$scope.step);
-					console.log($scope.numOfPages);
-					$scope.pageArray = new Array($scope.numOfPages);
+				filterResult = filter($scope.results,$scope.filters,$scope.homeFilter);
+				$scope.filteredResultLength = filterResult.length;
+				$scope.numOfPages = Math.ceil($scope.filteredResultLength/$scope.step);
+				$scope.pageArray = new Array($scope.numOfPages);
+				console.log(pageArray);
 				
-					$rootScope.$on('$stateChangeStart', //whenever entering map state, filters results
-				     function(event, toState, toParams, fromState, fromParams){
+				for (var i = 0; i < $scope.results.length; i++) {//builds markers object for google maps
+					$scope.markersCoord.push({
+						id: i,
+						latitude: $scope.results[i].house.location.lat,
+						longitude: $scope.results[i].house.location.lng
+					});
+				};
+			
+				$rootScope.$on('$stateChangeStart', //whenever entering map state, filters results
+			     function(event, toState, toParams, fromState, fromParams){
 				     	if(toState.name == 'usersArea.search.map'){
 
-						filterResult = filter($scope.results,$scope.filters,$scope.homeFilter);
-						$scope.filteredResultLength = filterResult.length;
-						console.log(filterResult);
-						$scope.chosen = filterResult[0];
-						$scope.markersCoord = [];
-						for (var i = 0; i < filterResult.length; i++) {
-										$scope.markersCoord.push({
-											id: i,
-											latitude: filterResult[i].house.location.lat,
-											longitude: filterResult[i].house.location.lng
-										});
-									};
-					
-						var sumLat = 0;
-						var sumLng = 0;
+							filterResult = filter($scope.results,$scope.filters,$scope.homeFilter);
+							$scope.filteredResultLength = filterResult.length;
+							console.log(filterResult);
+							$scope.chosen = filterResult[0];
+							$scope.markersCoord = [];
+							for (var i = 0; i < filterResult.length; i++) {
+											$scope.markersCoord.push({
+												id: i,
+												latitude: filterResult[i].house.location.lat,
+												longitude: filterResult[i].house.location.lng
+											});
+										};
+						
+							var sumLat = 0;
+							var sumLng = 0;
 
-						for (var i = 0; i < $scope.markersCoord.length; i++) {
-							sumLat += $scope.markersCoord[i].latitude;
-							sumLng += $scope.markersCoord[i].longitude;
-						};
+							for (var i = 0; i < $scope.markersCoord.length; i++) {
+								sumLat += $scope.markersCoord[i].latitude;
+								sumLng += $scope.markersCoord[i].longitude;
+							};
 
-						$scope.markers = $scope.markersCoord;
+							$scope.markers = $scope.markersCoord;
 
-						$scope.options = {scrollwheel: false};
-						$scope.map = {
-							center: {latitude: sumLat/$scope.markers.length,
-	     							 longitude: sumLng/$scope.markers.length },
-					     		zoom: 10,
-					     		bounds: {}
-					     };
-					 }
+							$scope.options = {scrollwheel: false};
+							$scope.map = {
+								center: {latitude: sumLat/$scope.markers.length,
+		     							 longitude: sumLng/$scope.markers.length },
+						     		zoom: 10,
+						     		bounds: {}
+						     };
+						 }
 
-					});
+				});
 			})
 	}
 	$scope.onClick = function(data) {
