@@ -280,8 +280,8 @@ angular.module("jewApp")
 })
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData){
 	$scope.openHome = function(data){
-		var url = $state.href(appData.url + '/browse', {parameter: data});
-		window.open(appData.url + '/#/browse');
+		var url = $state.href('browse', {parameter: data});
+		window.open(url);
 	}
 
 	$scope.searchMode =$state.includes('usersArea.search');
