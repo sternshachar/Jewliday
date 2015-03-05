@@ -1,6 +1,6 @@
 angular.module("jewApp")
 .service('appData', function($http){
-	var homeSelected = {};
+	homeSelected = {};
 	url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080",
 
 	imageUrl = 'https://s3-us-west-2.amazonaws.com/jewliday/',
