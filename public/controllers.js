@@ -281,7 +281,7 @@ angular.module("jewApp")
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData){
 	$scope.openHome = function(data){
 		var url = $state.href('browse', {parameter: data});
-		var selectedHome = appData.homeSelect($scope.results[$scope.chosenKey]); 
+		var selectedHome = appData.homeSelect($scope.chosenKey); 
 		console.log(selectedHome);
 		window.open(url);
 	}
