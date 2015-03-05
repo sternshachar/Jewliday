@@ -282,8 +282,12 @@ angular.module("jewApp")
 	$scope.openHome = function(data){
 		var url = $state.href('browse', {parameter: data});
 		var selectedHome = homeSearch.homeSelect($scope.chosen); 
-		var newHomeWindow = window.open(url);
-		newHomeWindow.mySharedData = selectedHome;
+		// var newHomeWindow = window.open(url);
+		// newHomeWindow.mySharedData = selectedHome;
+
+		var newWindowRef = $window.open(url, "New Window", "width=1280,height=890,resizable=1");
+	var newWindowRootScope = newWindowRef.angular.element("body").scope();
+	newWindowRootScope.$broadcast("INTER_WINDOW_DATA_TRANSFER", {someData : "I'm data"});
 	}
 
 	$scope.searchMode =$state.includes('usersArea.search');
@@ -380,6 +384,10 @@ angular.module("jewApp")
 })
 
 .controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData, homeSearch){
+
+	$rootScope.$on("INTER_WINDOW_DATA_TRANSFER", function (data, args) {                   
+            console.log("DATA RECEIVED: " + args.someData);
+        });
 	console.log(window.mySharedData);
 	$scope.home = homeSearch.getHomeSelect();
 	console.log($scope.home);
