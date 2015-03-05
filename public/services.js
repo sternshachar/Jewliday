@@ -75,12 +75,12 @@ angular.module("jewApp")
 							},
 		getHomeSelect = function(){
 			console.log(homeSelected);
-			return homeSelected;
+			return this.homeSelected;
 		},
 
 		homeSelect = function(home){
-			homeSelected = home;
-			return homeSelected;
+			this.homeSelected = home;
+			return this.homeSelected;
 		}
 
 
