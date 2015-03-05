@@ -141,7 +141,7 @@ angular.module("jewApp")
 	}
 
 	$scope.options = {types: '(cities)'};
-	$scope.options = {types: '(streets)'};
+	$scope.options2 = {types: '(streets)'};
 	$scope.amenities = appData.amenitiesListHome;
 
 	$scope.details = "";
