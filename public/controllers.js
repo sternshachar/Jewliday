@@ -403,6 +403,7 @@ angular.module("jewApp")
 	$scope.amenityCheck = function(name){
 		if(!(typeof amenities === 'undefined')){
 			if(!(typeof amenities[name] === 'undefined') && amenities[name]){
+				console.log('works')
 				return 'glyphicon glyphicon-check';
 			} else {
 				return 'glyphicon glyphicon-unchecked';
