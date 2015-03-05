@@ -383,13 +383,40 @@ angular.module("jewApp")
 	var home = homeSearch.getHomeSelect();
 	console.log(home);
 	$scope.photosUrl = home.photos;//להשלים את כל המשתים
-	if(!home == {})
+	if(!home == {}){
 		var amenities = home.house.amenities;
+		$scope.homeImage = {
+    		background: 'url(' + $scope.photosUrl.cover + ')'
+		};
+
+		$scope.mapData = home.house.location;
+		$scope.options = {scrollwheel: false};
+		$scope.map = {center: {latitude: $scope.mapData.lat,
+	     					   longitude: $scope.mapData.lng }, zoom: 14 };
+		$scope.marker = {
+			id: 0,
+			coords: {
+			  latitude: $scope.mapData.lat,
+			  longitude: $scope.mapData.lng
+			},
+			options: { draggable: false },
+			events: {
+			  click: function (marker, eventName, args) {
+			    var lat = marker.getPosition().lat();
+			    var lon = marker.getPosition().lng();
+
+			    $scope.marker.options = {
+			    	labelClass: "marker-labels",
+			      content: "<img class='map-info-pic' ng-src='" + $scope.photosUrl.profile + "'>",
+			      zIndex: 99999
+			    };
+			  }
+			}
+		}
+	}
 
 
-	$scope.homeImage = {
-    	background: 'url(' + $scope.photosUrl.cover + ')'
-	};
+
 
 	$scope.imagePick = function(pic){
 		return {
@@ -410,30 +437,7 @@ angular.module("jewApp")
 		}
 	}
 
-	$scope.mapData = home.house.location;
-	$scope.options = {scrollwheel: false};
-	$scope.map = {center: {latitude: $scope.mapData.lat,
-     					   longitude: $scope.mapData.lng }, zoom: 14 };
-	$scope.marker = {
-		id: 0,
-		coords: {
-		  latitude: $scope.mapData.lat,
-		  longitude: $scope.mapData.lng
-		},
-		options: { draggable: false },
-		events: {
-		  click: function (marker, eventName, args) {
-		    var lat = marker.getPosition().lat();
-		    var lon = marker.getPosition().lng();
 
-		    $scope.marker.options = {
-		    	labelClass: "marker-labels",
-		      content: "<img class='map-info-pic' ng-src='" + $scope.photosUrl.profile + "'>",
-		      zIndex: 99999
-		    };
-		  }
-		}
-	}
 
 	$scope.editHome = function(){
 		$state.go('listHome.address');
