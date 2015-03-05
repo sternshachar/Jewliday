@@ -383,7 +383,8 @@ angular.module("jewApp")
 	var home = homeSearch.getHomeSelect();
 	console.log(home);
 	$scope.photosUrl = home.photos;//להשלים את כל המשתים
-	var amenities = home.house.amenities;
+	if(!home == {})
+		var amenities = home.house.amenities;
 
 
 	$scope.homeImage = {
@@ -396,8 +397,8 @@ angular.module("jewApp")
 		}
 	}
 
-	if(!home == {})
-		$scope.amenitiesOrdered = appData.amenitiesHomeView;
+	
+	$scope.amenitiesOrdered = appData.amenitiesHomeView;
 
 	$scope.amenityCheck = function(name){
 		if(!(typeof amenities === 'undefined')){
