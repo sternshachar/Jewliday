@@ -72,7 +72,16 @@ angular.module("jewApp")
 										return location;
 									})
 									return promise;
-							}
+							},
+		getHomeSelect = function(){
+			console.log(homeSelected);
+			return homeSelected;
+		},
+
+		homeSelect = function(home){
+			homeSelected = home;
+			return homeSelected;
+		}
 
 
 
@@ -91,14 +100,8 @@ angular.module("jewApp")
 
 		amenitiesFilter: amenitiesFilter,
 
-		getHomeSelect: function(){
-			console.log(homeSelected);
-			return homeSelected;
-		},
+		getHomeSelect: getHomeSelect,
 
-		homeSelect: function(home){
-			homeSelected = home;
-			return homeSelected;
-		}
+		homeSelect: homeSelect
 	}
 })
