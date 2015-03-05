@@ -380,10 +380,10 @@ angular.module("jewApp")
 
 .controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData, homeSearch){
 
-	$scope.home = homeSearch.getHomeSelect();
-	console.log($scope.home);
-	$scope.photosUrl = photos;//להשלים את כל המשתים
-	var amenities = args.house.amenities;
+	var home = homeSearch.getHomeSelect();
+	console.log(home);
+	$scope.photosUrl = home.photos;//להשלים את כל המשתים
+	var amenities = home.house.amenities;
 
 
 	$scope.homeImage = {
@@ -409,7 +409,7 @@ angular.module("jewApp")
 		}
 	}
 
-	$scope.mapData = addressData;
+	$scope.mapData = home.house.location;
 	$scope.options = {scrollwheel: false};
 	$scope.map = {center: {latitude: $scope.mapData.lat,
      					   longitude: $scope.mapData.lng }, zoom: 14 };
