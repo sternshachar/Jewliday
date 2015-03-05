@@ -282,7 +282,8 @@ angular.module("jewApp")
 	$scope.openHome = function(data){
 		var url = $state.href('browse', {parameter: data});
 		var selectedHome = homeSearch.homeSelect($scope.chosen); 
-		window.open(url);
+		var newHomeWindow = window.open(url);
+		newHomeWindow.mySharedData = someOtherDataService.importantData;
 	}
 
 	$scope.searchMode =$state.includes('usersArea.search');
@@ -379,7 +380,7 @@ angular.module("jewApp")
 })
 
 .controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData, homeSearch){
-	console.log(homeSearch.getHomeSelect());
+	console.log(window.mySharedData);
 	$scope.home = homeSearch.getHomeSelect();
 	console.log($scope.home);
 	$scope.photosUrl = photos;//להשלים את כל המשתים
