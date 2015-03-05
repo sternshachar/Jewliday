@@ -217,6 +217,8 @@ angular.module("jewApp")
     };
 })
 .controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,addressData,photos){
+	$scope.browseMode = false;
+
 	var amenities = {};
 
 	$scope.photosUrl = photos;
@@ -379,7 +381,7 @@ angular.module("jewApp")
 })
 
 .controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData, homeSearch){
-
+	$scope.browseMode = true;
 	var home = homeSearch.getHomeSelect();
 	console.log(home);
 	$scope.photosUrl = home.photos;//להשלים את כל המשתים
@@ -403,7 +405,6 @@ angular.module("jewApp")
 	$scope.amenityCheck = function(name){
 		if(!(typeof amenities === 'undefined')){
 			if(!(typeof amenities[name] === 'undefined') && amenities[name]){
-				console.log('works')
 				return 'glyphicon glyphicon-check';
 			} else {
 				return 'glyphicon glyphicon-unchecked';

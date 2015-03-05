@@ -59,7 +59,10 @@
 				<a href><span class="glyphicon glyphicon-list-alt"></span> Reviews</a>
 			</li>
 			<li>
-				<button class="btn btn-warning edit-button" ng-click="editHome()">Edit home details</button>
+				<button class="btn btn-warning edit-button" ng-click="editHome()" ng-if="browseMode">Edit home details</button>
+			</li>
+			<li>
+				<button class="btn btn-success edit-button" ng-click="sendMessage()" ng-if="browseMode">Contact me</button>
 			</li>
 		</ul>
 	</div>
