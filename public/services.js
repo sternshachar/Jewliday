@@ -96,12 +96,10 @@ angular.module("jewApp")
 
 		return{
 			getHomeSelect: function(){
-				console.log(homeSelected);
 				return homeSelected;
 			},
 
 			homeSelect: function(home){
-				console.log(homeSelected);
 				homeSelected = home;
 				return homeSelected;
 			}
