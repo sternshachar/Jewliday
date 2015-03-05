@@ -282,7 +282,7 @@ angular.module("jewApp")
 	$scope.openHome = function(data){
 		var url = $state.href('browse', {parameter: data});
 		var selectedHome = homeSearch.homeSelect($scope.chosen); 
-		console.log(homeSearch.homeSelected);
+		console.log(homeSearch.getHomeSelect());
 		window.open(url);
 	}
 

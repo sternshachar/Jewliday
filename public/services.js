@@ -96,7 +96,7 @@ angular.module("jewApp")
 
 		return{
 			getHomeSelect: function(){
-				
+				console.log(homeSelected);
 				return homeSelected;
 			},
 
@@ -104,7 +104,7 @@ angular.module("jewApp")
 				console.log(homeSelected);
 				homeSelected = home;
 				return homeSelected;
-			},
-			homeSelected:homeSelected
+			}
+			
 		}
 })
