@@ -396,8 +396,8 @@ angular.module("jewApp")
 		}
 	}
 
-
-	$scope.amenitiesOrdered = appData.amenitiesHomeView;
+	if(!home == {})
+		$scope.amenitiesOrdered = appData.amenitiesHomeView;
 
 	$scope.amenityCheck = function(name){
 		if(!(typeof amenities === 'undefined')){
