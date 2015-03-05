@@ -281,7 +281,6 @@ angular.module("jewApp")
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData,homeSearch){
 	$scope.openHome = function(data){
 		var url = $state.href('browse', {parameter: data});
-		console.log($scope.chosen);
 		var selectedHome = homeSearch.homeSelect($scope.chosen); 
 		console.log(homeSearch.homeSelected);
 		window.open(url);
@@ -306,7 +305,7 @@ angular.module("jewApp")
 		// $state.go('usersArea.search.list');//goes to list view
 		var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)//asks express for homes
 			.then(function(result){
-				console.log(result);
+				// console.log(result);
 				$scope.results = result.data;
 				$scope.markersCoord = [];
 				
@@ -367,7 +366,6 @@ angular.module("jewApp")
 	})
 
 	$scope.onClick = function(data) {
-	    console.log(data);
 	    $scope.chosen = $scope.results[data.key];
 	    $scope.chosenKey = data.key;
 	};
