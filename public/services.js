@@ -92,11 +92,11 @@ angular.module("jewApp")
 		amenitiesFilter: amenitiesFilter,
 
 		getHomeSelect: function(){
+			console.log(homeSelected);
 			return homeSelected;
 		},
 
 		homeSelect: function(home){
-			console.log(home);
 			homeSelected = home;
 			return homeSelected;
 		}
