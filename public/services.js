@@ -86,11 +86,8 @@ angular.module("jewApp")
 
 		addressData: addressData,
 
-		amenitiesFilter: amenitiesFilter,
+		amenitiesFilter: amenitiesFilter
 
-		getHomeSelect: getHomeSelect,
-
-		homeSelect: homeSelect
 	}
 })
 
@@ -100,13 +97,13 @@ angular.module("jewApp")
 		return{
 			getHomeSelect: function(){
 				
-				return this.homeSelected;
+				return homeSelected;
 			},
 
 			homeSelect: function(home){
-				this.homeSelected = home;
-				console.log(this.homeSelected);
-				return this.homeSelected;
+				homeSelected = home;
+				console.log(homeSelected);
+				return homeSelected;
 			}
 		}
 })
