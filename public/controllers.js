@@ -283,7 +283,7 @@ angular.module("jewApp")
 		var url = $state.href('browse', {parameter: data});
 		var selectedHome = homeSearch.homeSelect($scope.chosen); 
 		var newHomeWindow = window.open(url);
-		newHomeWindow.mySharedData = someOtherDataService.importantData;
+		newHomeWindow.mySharedData = selectedHome;
 	}
 
 	$scope.searchMode =$state.includes('usersArea.search');
