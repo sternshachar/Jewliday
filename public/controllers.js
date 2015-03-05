@@ -284,7 +284,7 @@ angular.module("jewApp")
 	$scope.openHome = function(data){
 		var url = $state.href('browse', {parameter: data});
 		var selectedHome = homeSearch.homeSelect($scope.chosen); 
-		$state.go('browse');
+		$state.go('browse.photos');
 	}
 
 	$scope.searchMode =$state.includes('usersArea.search');
@@ -382,10 +382,9 @@ angular.module("jewApp")
 
 .controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData, homeSearch){
 	$scope.browseMode = true;
+
 	var home = homeSearch.getHomeSelect();
-	console.log(home);
-	$scope.photosUrl = home.photos;//להשלים את כל המשתים
-	
+	$scope.photosUrl = home.photos;
 	var amenities = home.house.amenities;
 
 
@@ -437,7 +436,7 @@ angular.module("jewApp")
 		}
 	}
 
-	$scope.sendMessage = function(){
+	$scope.messageEvent = function(){
 		console.log('openModal');
 	}
 })
