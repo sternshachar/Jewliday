@@ -415,7 +415,7 @@ angular.module("jewApp")
 	$scope.mapData = home.house.location;
 	$scope.options = {scrollwheel: false};
 	$scope.map = {center: {latitude: $scope.mapData.lat,
-     					   longitude: $scope.mapData.lng }, zoom: 14 };
+     					   longitude: $scope.mapData.lng }, zoom: 10 };
 	$scope.marker = {
 		id: 0,
 		coords: {
@@ -437,7 +437,7 @@ angular.module("jewApp")
 		}
 	}
 
-	$scope.editHome = function(){
-		$state.go('listHome.address');
+	$scope.sendMessage = function(){
+		console.log('openModal');
 	}
 })
