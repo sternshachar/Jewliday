@@ -141,6 +141,7 @@ angular.module("jewApp")
 	}
 
 	$scope.options = {types: '(cities)'};
+	$scope.options = {types: '(streets)'};
 	$scope.amenities = appData.amenitiesListHome;
 
 	$scope.details = "";
@@ -414,7 +415,7 @@ angular.module("jewApp")
 	$scope.mapData = home.house.location;
 	$scope.options = {scrollwheel: false};
 	$scope.map = {center: {latitude: $scope.mapData.lat,
-     					   longitude: $scope.mapData.lng }, zoom: 10 };
+     					   longitude: $scope.mapData.lng }, zoom: 20 };
 	$scope.marker = {
 		id: 0,
 		coords: {
