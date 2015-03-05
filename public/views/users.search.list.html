@@ -35,7 +35,7 @@
 		<h4 class="text-muted results-number" ng-hide="!filteredResults">Found <span class="badge">{{filteredResults.length}}</span> results</h4>
 		<div class="list-group homes-list">
 			<a href class="list-group-item" ng-repeat="home in filteredResults =(results | amenFilter:filters:homeFilter) | searchPagination:step:pageNum">
-				<div class="row">
+				<div class="row" ng-click="openHome(home)">
 					<div class="col-sm-3">
 						<img ng-src="{{home.photos.profile}}" class="home-img">
 					</div>

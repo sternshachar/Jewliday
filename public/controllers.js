@@ -437,6 +437,6 @@ angular.module("jewApp")
 	}
 
 	$scope.messageEvent = function(){
-		console.log('openModal');
+		//use service to send message to inboxCtrl
 	}
 })
