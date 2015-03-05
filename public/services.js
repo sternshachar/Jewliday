@@ -96,6 +96,7 @@ angular.module("jewApp")
 		},
 
 		homeSelect: function(home){
+			console.log(home);
 			homeSelected = home;
 			return homeSelected;
 		}
