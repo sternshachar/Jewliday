@@ -1,6 +1,6 @@
 angular.module("jewApp")
 .service('appData', function($http){
-	homeSelected = {};
+	
 	url = "http://ec2-52-10-151-222.us-west-2.compute.amazonaws.com:8080",
 
 	imageUrl = 'https://s3-us-west-2.amazonaws.com/jewliday/',
@@ -72,20 +72,7 @@ angular.module("jewApp")
 										return location;
 									})
 									return promise;
-							},
-		getHomeSelect = function(){
-			
-			return this.homeSelected;
-		},
-
-		homeSelect = function(home){
-			this.homeSelected = home;
-			console.log(this.homeSelected);
-			return this.homeSelected;
-		}
-
-
-
+							}
 	return{
 		url: url,
 
@@ -105,4 +92,21 @@ angular.module("jewApp")
 
 		homeSelect: homeSelect
 	}
+})
+
+.factory('homeSearch',function(){
+		var homeSelected = {};
+
+		return{
+			getHomeSelect = function(){
+				
+				return this.homeSelected;
+			},
+
+			homeSelect = function(home){
+				this.homeSelected = home;
+				console.log(this.homeSelected);
+				return this.homeSelected;
+			}
+		}
 })

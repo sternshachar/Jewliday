@@ -278,12 +278,12 @@ angular.module("jewApp")
 		$state.go('listHome.address');
 	}
 })
-.controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData){
+.controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData,homeSearch){
 	$scope.openHome = function(data){
 		var url = $state.href('browse', {parameter: data});
 		console.log($scope.chosen);
-		var selectedHome = appData.homeSelect($scope.chosen); 
-		console.log(appData.selectedHome());
+		var selectedHome = homeSearch.homeSelect($scope.chosen); 
+		console.log(homeSearch.selectedHome());
 		window.open(url);
 	}
 
@@ -381,9 +381,9 @@ angular.module("jewApp")
 	}
 })
 
-.controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData){
+.controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData, homeSearch){
 
-	$scope.home = appData.getHomeSelect();
+	$scope.home = homeSearch.getHomeSelect();
 	console.log($scope.home);
 	$scope.photosUrl = photos;//להשלים את כל המשתים
 	var amenities = args.house.amenities;
