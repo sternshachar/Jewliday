@@ -383,8 +383,8 @@ angular.module("jewApp")
 	var home = homeSearch.getHomeSelect();
 	console.log(home);
 	$scope.photosUrl = home.photos;//להשלים את כל המשתים
-	if(!home == {})
-		var amenities = home.house.amenities;
+	
+	var amenities = home.house.amenities;
 
 
 	$scope.homeImage = {
