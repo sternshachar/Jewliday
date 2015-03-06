@@ -46,7 +46,7 @@ angular.module("jewApp")
 
 	dropdownUserMenu =  [
 	    {name:'Profile',url: "users/profile"},
-	    {name:'Your Home',url:"users/home"},
+	    {name:'My Home',url:"users/home"},
 	    {name:'Inbox',url:"users/inbox/incoming"},
 	    {name:'Log Out',url:"users/profile"}
 	  ];
