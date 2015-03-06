@@ -283,7 +283,6 @@ angular.module("jewApp")
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData,homeSearch){
 	$scope.openHome = function(data){//data is the house only in list
 		var url = $state.href('browse', {parameter: data});
-		console.log(data);
 		if(data){
 			var selectedHome = homeSearch.homeSelect(data); 
 		} else {
@@ -387,6 +386,7 @@ angular.module("jewApp")
 
 .controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData, homeSearch){
 	$scope.browseMode = true;
+	$scope.messageModal = {isOpen: false};
 
 	var home = homeSearch.getHomeSelect();
 	$scope.photosUrl = home.photos;
@@ -441,7 +441,7 @@ angular.module("jewApp")
 		}
 	}
 
-	$scope.messageEvent = function(){
-		//use service to send message to inboxCtrl
+	$scope.sendMessage = function(){
+		$scope.messageModal.isOpen = true;
 	}
 })

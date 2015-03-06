@@ -132,3 +132,24 @@ angular.module('jewApp')
 		}
 	}
 })
+
+.directive("messageModal",function(){
+	return{
+		restrict: 'E',
+
+		templateUrl: 'views/messageModal.html',
+
+		controller: function($scope){
+				$scope.openMessageModal = function(){
+					$scope.messageModal.isOpen = true;
+
+				};
+				$scope.closeModal = function(){
+					$scope.messageModal.isOpen = false;
+				}
+					}
+				}
+				$scope.modalSendMessage = function(){
+					console.log('send');
+				}
+})

@@ -1,0 +1,10 @@
+	<div class="myModal" ng-if="messageModal.isOpen">
+		<div class="modal-content">
+			<a href ng-click="closeModal()" class="pull-right">x</a>
+			<div class="modal-body">
+				<input type="text" class="form-control" placeholder="Text input" ng-model="messageData.subject">
+				<textarea class="form-control" rows="3" ng-model="messageData.content"></textarea>
+				<button class="btn btn-primary" ng-click="sendMessage()">Send</button>
+			</div><!-- end modal-body -->
+		</div><!-- end modal-content -->
+	</div><!-- end logModal -->
