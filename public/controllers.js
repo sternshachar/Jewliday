@@ -281,9 +281,14 @@ angular.module("jewApp")
 	}
 })
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData,homeSearch){
-	$scope.openHome = function(data){
+	$scope.openHome = function(data){//data is the house only in list
 		var url = $state.href('browse', {parameter: data});
-		var selectedHome = homeSearch.homeSelect($scope.chosen); 
+		if(data){
+			var selectedHome = homeSearch.homeSelect($scope.chosen); 
+		} else {
+			var selectedHome = homeSearch.homeSelect(data); 
+		}
+		
 		$state.go('browse.photos');
 	}
 
