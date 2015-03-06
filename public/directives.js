@@ -154,8 +154,8 @@ angular.module('jewApp')
 				$scope.closeModal = function(){
 					$scope.messageModal.isOpen = false;
 				}
-					}
-				}
+					
+				
 				$scope.modalSendMessage = function(){
 					console.log(homeSearch.getHomeSelect()._id);
 					$http.post(appData.url + '/inbox/' + homeSearch.getHomeSelect()._id, $scope.messageData)//userId change to the subjects id
@@ -163,4 +163,7 @@ angular.module('jewApp')
 							console.log(data);
 						});
 				}
+
+			}
+	}
 })
