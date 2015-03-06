@@ -160,7 +160,9 @@ angular.module('jewApp')
 					console.log(homeSearch.getHomeSelect()._id);
 					$http.post(appData.url + '/inbox/' + homeSearch.getHomeSelect()._id, $scope.messageData)//userId change to the subjects id
 						.success(function(data){
-							console.log(data);
+							console.log('Message sent!');
+							$scope.closeModal();
+
 						});
 				}
 
