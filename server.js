@@ -215,7 +215,7 @@ app.post('/upload/:type', function(req, res) {
 app.get('/search/:place',function(req,res){
 	var place = req.params.place;
 	var User = mongoose.model('users');
-	var query = User.find({'house.city': {$regex: new RegExp(place.toLowerCase(), 'i')}}).select('house photos -_id');
+	var query = User.find({'house.city': {$regex: new RegExp(place.toLowerCase(), 'i')}}).select('house photos');
 
 	query.exec(function(err,houses){
 			if(err) return console.error(err);

@@ -139,7 +139,14 @@ angular.module('jewApp')
 
 		templateUrl: 'views/messageModal.html',
 
-		controller: function($scope){
+		controller: function($scope,appData,homeSearch){
+				$scope.messageData = {
+					uid: $scope.userId,
+					sender: $scope.username + ' ' + $scope.userLastName,
+					subject: "",
+					content: ""
+				};
+
 				$scope.openMessageModal = function(){
 					$scope.messageModal.isOpen = true;
 
@@ -150,6 +157,10 @@ angular.module('jewApp')
 					}
 				}
 				$scope.modalSendMessage = function(){
-					console.log('send');
+					console.log(homeSearch.getHomeSelect()._id);
+					$http.post(appData.url + '/inbox/' + homeSearch.getHomeSelect()._id, $scope.messageData)//userId change to the subjects id
+						.success(function(data){
+							console.log(data);
+						});
 				}
 })
