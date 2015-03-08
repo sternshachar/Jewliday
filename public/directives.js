@@ -187,9 +187,9 @@ angular.module('jewApp')
 					$scope.message = $scope.messages[index]
 				};
 									
-				$scope.modalSendMessage = function(){
+				$scope.replyMessage = function(){
 					console.log(homeSearch.getHomeSelect()._id);
-					$http.post(appData.url + '/inbox/' + homeSearch.getHomeSelect()._id, $scope.messageData)//userId change to the subjects id
+					$http.post(appData.url + '/inbox/' + $scope.message.uid, $scope.messageData)//userId change to the subjects id
 						.success(function(data){
 							console.log('Message sent!');
 							$scope.closeModal();
