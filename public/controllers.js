@@ -129,7 +129,8 @@ angular.module("jewApp")
 				 			$scope.unread.num += 1;
 				 	};
 				 };
-				console.log($scope.conversations)
+				 console.log($scope.unread.num);
+				console.log($scope.conversations);
 			} else{
 				console.log('No messages')
 			}
