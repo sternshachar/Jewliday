@@ -7,7 +7,7 @@
 						<a href ng-click="openMessageContent($index)">Conversation with {{item.uName}}</a>
 					</td>
 					<td class="col-sm-4">
-						<a href ng-click="openMessageContent($index)">{{item[item.length-1]}}</a>
+						<a href ng-click="openMessageContent($index)">{{item.messages[item.messages.length-1].sent}}</a>
 					</td>
 			</tr>
 		</table>
