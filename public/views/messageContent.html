@@ -7,6 +7,9 @@
 				<div>
 					<p>{{message.content}}</p>
 				</div>
+				<div class="message-date">
+					{{message.sent | date:"MM/dd/yyyy 'at' h:mma"}}
+				</div>
 				<hr>
 			</div>
 			<textarea rows="5" cols="90" ng-model="messageData.content" placeholder="Write your message here ..."></textarea>
