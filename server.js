@@ -233,7 +233,7 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 	   		 return conv.uid === message.uid;
 	 	 }).pop();
 		if(conversation == undefined){
-			conversations.push({
+			inbox.conversations.push({
 				uid: message.uid
 			});
 			inbox.conversations[0].messages.push(message)
