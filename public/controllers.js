@@ -125,7 +125,7 @@ angular.module("jewApp")
 				 $scope.conversations = orderBy($scope.conversations, 'lastMessage',true);
 				 for (var i = 0; i < $scope.conversations.length; i++) { //check num of unread
 				 	for (var j = 0; j < $scope.conversations[i].messages.length; j++) {
-				 		if($scope.conversations[i].messages[j].read)
+				 		if(!$scope.conversations[i].messages[j].read)
 				 			$scope.unread.num += 1;
 				 	};
 				 };
