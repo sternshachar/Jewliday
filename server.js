@@ -245,7 +245,10 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 				iSent: false
 				});
 		}else {
-			conversation.messages.push(message);
+			conversation.messages.push({
+				content: message.content,
+				iSent: false
+				});
 		}
 		inbox.save(function (err) {
 		  if (err) return handleError(err)
