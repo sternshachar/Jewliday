@@ -169,11 +169,11 @@ angular.module('jewApp')
 			}
 	}
 })
-.directive("messageContentModal",function(){
+.directive("messageContent",function(){
 	return{
 		restrict: 'E',
 
-		templateUrl: 'views/messageContentModal.html',
+		templateUrl: 'views/messageContent.html',
 
 		controller: function($scope,$http,appData,homeSearch){
 				$scope.messageData = {
@@ -183,15 +183,10 @@ angular.module('jewApp')
 					content: ""
 				};
 
-				$scope.openMessageContentModal = function(index){
-					$scope.messageContentModal.isOpen = true;
+				$scope.openMessageContent = function(index){
 					$scope.message = $scope.messages[index]
 				};
-				$scope.closeModal = function(){
-					$scope.messageContentModal.isOpen = false;
-				}
-					
-				
+									
 				$scope.modalSendMessage = function(){
 					console.log(homeSearch.getHomeSelect()._id);
 					$http.post(appData.url + '/inbox/' + homeSearch.getHomeSelect()._id, $scope.messageData)//userId change to the subjects id

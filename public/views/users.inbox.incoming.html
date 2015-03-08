@@ -1,13 +1,13 @@
 		<table class="messages table">
 			<tr class="row" ng-repeat="item in messages">
 					<td class="col-sm-2">
-						<a href ng-click="openMessageContentModal($index)">{{item.sender}}</a>
+						<a href ng-click="openMessageContent($index)">{{item.sender}}</a>
 					</td>
 					<td class="col-sm-7">
-						<a href ng-click="openMessageContentModal($index)">{{item.subject}}</a>
+						<a href ng-click="openMessageContent($index)">{{item.subject}}</a>
 					</td>
 					<td class="col-sm-3">
-						<a href ng-click="openMessageContentModal($index)">{{item.sent}}</a>
+						<a href ng-click="openMessageContent($index)">{{item.sent}}</a>
 					</td>
 			</tr>
 		</table>

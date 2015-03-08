@@ -91,14 +91,6 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 						url:'/incoming',
 						templateUrl:'views/users.inbox.incoming.html'
 					})
-					.state('usersArea.inbox.sent',{
-						url:'/sent',
-						templateUrl:'views/users.inbox.sent.html'
-					})
-					.state('usersArea.inbox.saved',{
-						url:'/saved',
-						templateUrl:'views/users.inbox.saved.html'
-					})
 					.state('usersArea.home.location',{
 						url:'/location',
 						templateUrl:'views/users.home.locationDetails.html'

@@ -22,32 +22,16 @@
 </style>
 
 <div class="row" style="width: 100%;" > <!-- ng-controller="inboxCtrl"  ng-if="inbox.state" -->
-	<div class="col-sm-2 side-bar">
-			<ul class="list-group">
-				<li class="list-group-item" ui-sref=".incoming" ui-sref-active="active">
-					<a href >
-						<span class="glyphicon glyphicon-inbox" ></span> Incoming
-					</a>
-				</li>
-				<li class="list-group-item" ui-sref=".sent" ui-sref-active="active">
-					<a href >
-						<span class="glyphicon glyphicon-send"></span> Sent
-					</a>
-				</li>
-				<li class="list-group-item" ui-sref=".saved" ui-sref-active="active">
-					<a href  >
-						<span class="glyphicon glyphicon-floppy-saved"></span> Saved
-					</a>
-				</li>
-			</ul>
-	</div><!-- end col-sm-2 --> 
 
-	<div class="col-sm-10 inbox-panel">
+	<div class="col-sm-5 inbox-panel">
 		<div ui-view></div>
 		<input type="text" class="form-control" placeholder="Text input" ng-model="messageData.subject">
 		<textarea class="form-control" rows="3" ng-model="messageData.content"></textarea>
 		<button class="btn btn-primary" ng-click="sendMessage()">Send</button>
 	</div>
+	<div class="col-sm-7 side-bar">
+
+	</div><!-- end col-sm-2 --> 
 </div><!-- end row -->
 
 

@@ -107,7 +107,6 @@ angular.module("jewApp")
 })
 
 .controller("inboxCtrl",function($scope,$http,$state,appData){
-	$scope.messageContentModal = {isOpen: false};
 
 	$scope.messageData = {
 		uid: $scope.userId,
