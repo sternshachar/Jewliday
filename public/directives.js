@@ -183,11 +183,12 @@ angular.module('jewApp')
 				};
 
 				$scope.openMessageContent = function(index){
-					$scope.message = $scope.messages[index]
+					$scope.conversation = $scope.conversations[index]
+					console.log($scope.conversation)
 				};
 									
 				$scope.replyMessage = function(){
-					$http.post(appData.url + '/inbox/' + $scope.message.uid, $scope.messageData)//userId change to the subjects id
+					$http.post(appData.url + '/inbox/' + $scope.conversation.uid, $scope.messageData)//userId change to the subjects id
 						.success(function(data){
 							console.log('Message sent!');
 							$scope.closeModal();
