@@ -234,11 +234,12 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 	 	 }).pop();
 		console.log(conversation);
 		if(conversation == undefined){
+			var last = inbox.conversations.length();
 			inbox.conversations.push({
 				uid: message.uid,
 				uName: message.sender
 			});
-			inbox.conversations[0].messages.push(message)
+			inbox.conversations[last].messages.push(message)
 		}else {
 			conversation.messages.push(message);
 		}
