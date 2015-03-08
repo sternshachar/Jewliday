@@ -1,5 +1,5 @@
 		<table class="messages table">
-			<tr class="row" ng-repeat="item in conversations | orderBy:messages[item.messages.length-1].sent">
+			<tr class="row" ng-repeat="item in conversations | orderBy:'lastMessage'">
 					<td class="col-sm-4">
 						<a href ng-click="openMessageContent($index)">{{item.uName}}</a>
 					</td>
@@ -7,7 +7,7 @@
 						<a href ng-click="openMessageContent($index)">Conversation with {{item.uName}}</a>
 					</td>
 					<td class="col-sm-4">
-						<a href ng-click="openMessageContent($index)">{{item.messages[item.messages.length-1].sent | date:"MM/dd/yyyy 'at' h:mma"}}</a>
+						<a href ng-click="openMessageContent($index)">{{item.lastMessage}}</a>
 					</td>
 			</tr>
 		</table>
