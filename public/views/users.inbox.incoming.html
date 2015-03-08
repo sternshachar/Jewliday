@@ -1,10 +1,12 @@
 		<table class="messages table">
-			<tr class="row" ng-repeat="item in messages" ng-click="openMessageContentModal($index)">
-				<td class="col-sm-2">
-					{{item.sender}}
-				</td>
-				<td class="col-sm-7">{{item.subject}}</div>
-				<td class="col-sm-3">{{item.sent}}</div>
-			</div>
+			<tr class="row" ng-repeat="item in messages">
+				<a href ng-click="openMessageContentModal($index)">
+					<td class="col-sm-2">
+						{{item.sender}}
+					</td>
+					<td class="col-sm-7">{{item.subject}}</td>
+					<td class="col-sm-3">{{item.sent}}</td>
+				</a>
+			</tr>
 
 		</table>
