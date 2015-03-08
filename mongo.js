@@ -82,7 +82,7 @@ db.once('open',function(callback){
 		uid:  {type: mongoose.Schema.Types.ObjectId},
 		uName: String,
 		messages: [messageSchema],
-		lastMessage: {type: Date, default: Date.now}
+		lastMessage: Date
 	});
 
 	inboxSchema = mongoose.Schema({ //messaged in conversation
