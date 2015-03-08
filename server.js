@@ -233,7 +233,7 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 		var conversation = inbox.conversations.filter(function (conv) {
 	   		 return conv.uid == message.uid;
 	 	 }).pop();
-		console.log(conversation);
+		console.log('found conversation:' + conversation);
 		if(conversation == undefined){
 			var last = inbox.conversations.length;
 			inbox.conversations.push({
