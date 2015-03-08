@@ -117,9 +117,10 @@ angular.module("jewApp")
 
 	$http.get(appData.url + '/inbox/' + $scope.userId)// move to resolve //see how to pull messages
 		.success(function(data){
-			console.log(data)
+			// console.log(data)
 			if(data[0]){
 				$scope.conversations = data[0].conversations;
+				console.log($scope.conversations)
 			} else{
 				console.log('No messages')
 			}
