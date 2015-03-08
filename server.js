@@ -232,11 +232,11 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 		var conversation = inbox.conversations.filter(function (conv) {
 	   		 return conv.uid === message.uid;
 	 	 }).pop();
-		if(conversation.length == 0){
+		if(conversation == undefined){
 			conversations.push({
 				uid: message.uid
 			});
-			inbox.conversation[0].messages.push(message)
+			inbox.conversations[0].messages.push(message)
 		}else {
 			conversation.messages.push(message);
 		}
