@@ -119,7 +119,7 @@ angular.module("jewApp")
 		.success(function(data){
 			console.log(data)
 			if(data[0]){
-				$scope.messages = data[0].messages;
+				$scope.messages = data[0].conversations;
 			} else{
 				console.log('No messages')
 			}

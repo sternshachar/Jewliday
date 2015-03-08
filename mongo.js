@@ -72,7 +72,6 @@ db.once('open',function(callback){
 	);
 	usersSchema.plugin(timestamps);
 	var messageSchema = mongoose.Schema({
-			sender: String,
 			content: String ,
 			read: {type: Boolean, default: false},
 			sent: {type: Date, default: Date.now}
@@ -80,6 +79,7 @@ db.once('open',function(callback){
 
 	var conversationSchema = mongoose.Schema({
 		uid:  {type: mongoose.Schema.Types.ObjectId},
+		uName: String,
 		messages: [messageSchema]
 	});
 
