@@ -106,8 +106,8 @@ angular.module("jewApp")
 
 })
 
-.controller("inboxCtrl",function($scope,$http,$state,appData){
-
+.controller("inboxCtrl",function($scope,$http,$state,$filter,appData){
+	var orderBy = $filter('orderBy');
 	$scope.messageData = {
 		uid: $scope.userId,
 		sender: $scope.username + ' ' + $scope.userLastName,
@@ -120,6 +120,7 @@ angular.module("jewApp")
 			// console.log(data)
 			if(data[0]){
 				$scope.conversations = data[0].conversations;
+				 $scope.conversations = orderBy($scope.conversations, 'lastMessage');
 				console.log($scope.conversations)
 			} else{
 				console.log('No messages')
