@@ -262,7 +262,7 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 				var last = inbox.conversations.length;
 				inbox.conversations.push({
 					uid: id,
-					uName: user.firstName + ' ' + user.lastName;
+					uName: user.firstName + ' ' + user.lastName
 				});
 				inbox.conversations[last].messages.push({
 					"content": message.content
