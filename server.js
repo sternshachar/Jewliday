@@ -225,9 +225,10 @@ app.get('/search/:place',function(req,res){
 
 app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist createnew one
 	var Inbox = mongoose.model('inboxes');
+	var User = mongoose.model('users');
 	var id = req.params.id;
 	var message = req.body;
-	Inbox.findOne({"ownerId" : id},function(err,inbox){
+	Inbox.findOne({"ownerId" : id},function(err,inbox){ //send the message
 		console.log(inbox)
 		var conversation = inbox.conversations.filter(function (conv) {
 	   		 return conv.uid == message.uid;
@@ -239,16 +240,42 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 				uid: message.uid,
 				uName: message.sender
 			});
-			inbox.conversations[last].messages.push(message)
+			inbox.conversations[last].messages.push(
+				content: message.content;
+				iSent: false;
+				);
 		}else {
 			conversation.messages.push(message);
 		}
 		inbox.save(function (err) {
 		  if (err) return handleError(err)
-		  res.json(message);
+		  // res.json(message);
 		});
 		
 	});
+	User.findOne({ _id: id},function(error,user){
+		Inbox.findOne({"ownerId" : message.uid},function(err,inbox){
+			var conversation = inbox.conversations.filter(function (conv) {
+		   		 return conv.uid == id;
+		 	 }).pop();
+			if(conversation == undefined){
+				var last = inbox.conversations.length;
+				inbox.conversations.push({
+					uid: id,
+					uName: user.firstName + ' ' + user.lastName;
+				});
+				inbox.conversations[last].messages.push(
+					content: message.content;
+					);
+			}else {
+				conversation.messages.push(message);
+			}
+			inbox.save(function (err) {
+			  if (err) return handleError(err)
+			  res.json(message);
+			});
+		})
+	})
 })
 
 app.get('/inbox/:id', function(req,res){
