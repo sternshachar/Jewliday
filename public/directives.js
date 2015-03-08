@@ -185,6 +185,7 @@ angular.module('jewApp')
 				$scope.openMessageContent = function(index){
 					$scope.conversation = $scope.conversations[index]
 					console.log($scope.conversation)
+					$http.put(appData.url + '/inbox/' + $scope.conversation.uid, $scope.userId)
 				};
 									
 				$scope.replyMessage = function(){

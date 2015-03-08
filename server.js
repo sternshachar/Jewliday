@@ -271,3 +271,27 @@ app.get('/inbox/:id', function(req,res){
 		res.json(inbox);
 	});
 })
+
+app.put('/inbox/:id', function(req,res){
+	var Inbox = mongoose.model('inboxes');
+	var id = req.params.id;
+	var uid = req.body
+	console.log('ownerId ' + id);
+	Inbox.find({"ownerId" : id},function(err,inbox){
+		var conversation = inbox.conversations.filter(function (conv) {
+	   		 return conv.uid == uid.uid;
+	 	 }).pop();
+		for (var i = 0; i < conversation.messages.length; i++) {
+			conversation.messages[i].read = true
+		};
+		inbox.save(function (err) {
+			  if (err) return console.error(err)
+			  res.json(message);
+			});
+			
+		console.error(err);
+		console.log(inbox);
+
+		res.json(inbox);
+	});
+})
