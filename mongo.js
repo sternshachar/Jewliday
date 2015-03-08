@@ -74,7 +74,7 @@ db.once('open',function(callback){
 	var messageSchema = mongoose.Schema({
 			sender: String,
 			content: String ,
-			read: {type: Boolean, default: false}
+			read: {type: Boolean, default: false},
 			sent: {type: Date, default: Date.now}
 		});
 
