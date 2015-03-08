@@ -107,6 +107,7 @@ angular.module("jewApp")
 })
 
 .controller("inboxCtrl",function($scope,$http,$state,$filter,appData){
+	$scope.unread = 0;
 	var orderBy = $filter('orderBy');
 	$scope.messageData = {
 		uid: $scope.userId,
@@ -120,7 +121,12 @@ angular.module("jewApp")
 			// console.log(data)
 			if(data[0]){
 				$scope.conversations = data[0].conversations;
-				 $scope.conversations = orderBy($scope.conversations, 'lastMessage');
+				 $scope.conversations = orderBy($scope.conversations, 'lastMessage',true);
+				 // for (var i = 0; i < $scope.conversations[i].messages.length; i++) { check num of unread
+				 // 	for (var j = 0; j < Things.length; j++) {
+				 // 		$scope.conversations[i].messages[j].
+				 // 	};
+				 // };
 				console.log($scope.conversations)
 			} else{
 				console.log('No messages')

@@ -110,31 +110,6 @@ app.get("/logout" ,function(req,res){
 	res.redirect('/');
 });
 
-// app.get('/inbox/:id', function(req,res){
-// 	var Inbox = mongoose.model('inboxes');
-// 	var id = req.params.id;
-// 	console.log('ownerId ' + id);
-// 	Inbox.find({"ownerId" : id},function(err,messages){//instead of messages conversation
-// 		console.error(err);
-// 		console.log(messages);
-// 		res.json(messages);
-// 	});
-// })
-
-// app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist createnew one
-// 	var Inbox = mongoose.model('inboxes');
-// 	var id = req.params.id;
-// 	var message = req.body;
-// 	Inbox.findOne({"ownerId" : id},function(err,inbox){
-// 		console.log(inbox)
-// 		inbox.messages.push(message);
-// 		inbox.save(function (err) {
-// 		  if (err) return handleError(err)
-// 		  res.json(message);
-// 		});
-		
-// 	});
-// })
 app.put('/listHome/:id', function(req,res){
 	var id = req.params.id;
 	var house = req.body;
@@ -289,7 +264,7 @@ app.get('/inbox/:id', function(req,res){
 	var Inbox = mongoose.model('inboxes');
 	var id = req.params.id;
 	console.log('ownerId ' + id);
-	Inbox.find({"ownerId" : id},function(err,inbox){//instead of messages conversation
+	Inbox.find({"ownerId" : id},function(err,inbox){
 		console.error(err);
 		console.log(inbox);
 
