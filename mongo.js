@@ -72,16 +72,22 @@ db.once('open',function(callback){
 	);
 	usersSchema.plugin(timestamps);
 	var messageSchema = mongoose.Schema({
-			uid:  {type: mongoose.Schema.Types.ObjectId},
 			sender: String,
-			subject: String,
 			content: String ,
+			read: {type: Boolean, default: false}
 			sent: {type: Date, default: Date.now}
 		});
-	inboxSchema = mongoose.Schema({
+
+	var conversationSchema = mongoose.Schema({
+		uid:  {type: mongoose.Schema.Types.ObjectId},
+		messages: [messageSchema]
+	});
+
+	inboxSchema = mongoose.Schema({ //messaged in conversation
 		// ownerId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 		ownerId: {type: mongoose.Schema.Types.ObjectId}, //maybe change to id object
-		messages: [messageSchema]},
+		conversations: [conversationSchema]
+		},
 		{collection:'inboxes'}
 	);
 

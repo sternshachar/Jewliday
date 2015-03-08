@@ -110,31 +110,31 @@ app.get("/logout" ,function(req,res){
 	res.redirect('/');
 });
 
-app.get('/inbox/:id', function(req,res){
-	var Inbox = mongoose.model('inboxes');
-	var id = req.params.id;
-	console.log('ownerId ' + id);
-	Inbox.find({"ownerId" : id},function(err,messages){
-		console.error(err);
-		console.log(messages);
-		res.json(messages);
-	});
-})
+// app.get('/inbox/:id', function(req,res){
+// 	var Inbox = mongoose.model('inboxes');
+// 	var id = req.params.id;
+// 	console.log('ownerId ' + id);
+// 	Inbox.find({"ownerId" : id},function(err,messages){//instead of messages conversation
+// 		console.error(err);
+// 		console.log(messages);
+// 		res.json(messages);
+// 	});
+// })
 
-app.post('/inbox/:id',function(req,res){
-	var Inbox = mongoose.model('inboxes');
-	var id = req.params.id;
-	var message = req.body;
-	Inbox.findOne({"ownerId" : id},function(err,inbox){
-		console.log(inbox)
-		inbox.messages.push(message);
-		inbox.save(function (err) {
-		  if (err) return handleError(err)
-		  res.json(message);
-		});
+// app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist createnew one
+// 	var Inbox = mongoose.model('inboxes');
+// 	var id = req.params.id;
+// 	var message = req.body;
+// 	Inbox.findOne({"ownerId" : id},function(err,inbox){
+// 		console.log(inbox)
+// 		inbox.messages.push(message);
+// 		inbox.save(function (err) {
+// 		  if (err) return handleError(err)
+// 		  res.json(message);
+// 		});
 		
-	});
-})
+// 	});
+// })
 app.put('/listHome/:id', function(req,res){
 	var id = req.params.id;
 	var house = req.body;
@@ -221,4 +221,41 @@ app.get('/search/:place',function(req,res){
 			if(err) return console.error(err);
 			res.json(houses);
 	})
+})
+
+app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist createnew one
+	var Inbox = mongoose.model('inboxes');
+	var id = req.params.id;
+	var message = req.body;
+	Inbox.findOne({"ownerId" : id},function(err,inbox){
+		console.log(inbox)
+		var conversation = inbox.conversations.filter(function (conv) {
+	   		 return conv.uid === message.uid;
+	 	 }).pop();
+		if(conversation.length == 0){
+			conversations.push({
+				uid: message.uid;
+			});
+			inbox.conversation[0].messages.push(message)
+		}else {
+			conversation.messages.push(message);
+		}
+		inbox.save(function (err) {
+		  if (err) return handleError(err)
+		  res.json(message);
+		});
+		
+	});
+})
+
+app.get('/inbox/:id', function(req,res){
+	var Inbox = mongoose.model('inboxes');
+	var id = req.params.id;
+	console.log('ownerId ' + id);
+	Inbox.find({"ownerId" : id},function(err,inbox){//instead of messages conversation
+		console.error(err);
+		console.log(inbox);
+
+		res.json(inbox);
+	});
 })

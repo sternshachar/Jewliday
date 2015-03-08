@@ -179,7 +179,6 @@ angular.module('jewApp')
 				$scope.messageData = {
 					uid: $scope.userId,
 					sender: $scope.username + ' ' + $scope.userLastName,
-					subject: "",
 					content: ""
 				};
 
@@ -188,7 +187,6 @@ angular.module('jewApp')
 				};
 									
 				$scope.replyMessage = function(){
-					console.log(homeSearch.getHomeSelect()._id);
 					$http.post(appData.url + '/inbox/' + $scope.message.uid, $scope.messageData)//userId change to the subjects id
 						.success(function(data){
 							console.log('Message sent!');
