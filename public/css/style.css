@@ -108,7 +108,7 @@ a:hover, a:active,a:visited, a:-webkit-any-link{
 
 .inbox-panel{
 	padding: 0;
-	width: 70%;
+	/*width: 70%;*/
 	padding-left: 2%;
 }
 .active{

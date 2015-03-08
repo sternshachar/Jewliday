@@ -5,6 +5,7 @@
 .message{
 	margin-top: 20px;
 	width: 95%;
+	padding: 0 10px 0 10px;
 }
 
 .date{
@@ -26,32 +27,8 @@
 	<div class="col-sm-5 inbox-panel">
 		<div ui-view></div>
 		<input type="text" class="form-control" placeholder="Text input" ng-model="messageData.subject">
-		<textarea class="form-control" rows="3" ng-model="messageData.content"></textarea>
-		<button class="btn btn-primary" ng-click="sendMessage()">Send</button>
 	</div>
 	<div class="col-sm-7 side-bar">
 		<message-content></message-content>
 	</div><!-- end col-sm-2 --> 
 </div><!-- end row -->
-
-
-
-<!-- 		<div class="message">
-			<div class="message-header">
-				<p>Exmple message looks good</p>
-			</div>
-			<hr>
-			<div class="message-body">
-				<div class="row">
-					<div class="col-sm-10 sender">Moshe Hazan</div>
-					<div class="col-sm-2 date">12:05 Feb 12 2015</div>
-				</div>
-				<br>
-				<div>
-					<p>Chambray four dollar toast locavore, gastropub vinyl flannel blog meditation selfies yr mumblecore. Occupy art party tote bag, raw denim trust fund High Life umami lomo meh polaroid twee DIY Shoreditch. Hoodie stumptown art party, sartorial taxidermy food truck freegan selvage vegan Austin gastropub. Schlitz messenger bag Shoreditch iPhone, gastropub squid bespoke readymade roof party street art kogi pug authentic tote bag. Pinterest taxidermy 90's, pour-over Etsy fap mumblecore skateboard salvia keytar. Selvage raw denim meh aesthetic American Apparel listicle, plaid Blue Bottle paleo kitsch Schlitz jean shorts High Life. Biodiesel disrupt heirloom hoodie, polaroid next level kale chips letterpress Wes Anderson organic viral Pitchfork health goth four dollar toast post-ironic.
-					</p>
-				</div>
-				<textarea rows="5" cols="90" ng-model="messageSend" placeholder="Write your message here ..."></textarea>
-				<button class="btn btn-primary">Send</button>
-			</div>
-		</div> -->

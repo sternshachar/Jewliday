@@ -1,12 +1,12 @@
 		<table class="messages table">
 			<tr class="row" ng-repeat="item in messages">
-					<td class="col-sm-2">
+					<td class="col-sm-4">
 						<a href ng-click="openMessageContent($index)">{{item.sender}}</a>
 					</td>
-					<td class="col-sm-7">
+					<td class="col-sm-4">
 						<a href ng-click="openMessageContent($index)">{{item.subject}}</a>
 					</td>
-					<td class="col-sm-3">
+					<td class="col-sm-4">
 						<a href ng-click="openMessageContent($index)">{{item.sent}}</a>
 					</td>
 			</tr>

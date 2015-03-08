@@ -124,7 +124,7 @@ angular.module("jewApp")
 			}
 		})
 
-	$scope.sendMessage = function(){
+	$scope.sendMessage = function(){ //consider if needed ************
 		console.log('sending');
 		$http.post(appData.url + '/inbox/' + $scope.userId, $scope.messageData)//userId change to the subjects id
 			.success(function(data){
