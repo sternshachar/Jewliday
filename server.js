@@ -235,13 +235,12 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 	 	 }).pop();
 		if(conversation == undefined){
 			console.log('1');
-			var last = inbox.conversations.length;
-			inbox.conversations.push({
+			var last = inbox.conversations.push({
 				uid: message.uid,
 				uName: message.sender,
 				lastMessage: Date.now()
 			});
-			inbox.conversations[last].messages.push({
+			inbox.conversations[last - 1].messages.push({
 				content: message.content,
 				iSent: false
 				});
