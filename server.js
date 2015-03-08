@@ -237,12 +237,12 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 		if(conversation == undefined){
 			var last = inbox.conversations.length;
 			inbox.conversations.push({
-				uid: message.uid,
-				uName: message.sender
+				"uid": message.uid,
+				"uName": message.sender
 			});
 			inbox.conversations[last].messages.push(
-				content: message.content,
-				iSent: false
+				"content": message.content,
+				"iSent": false
 				);
 		}else {
 			conversation.messages.push(message);
@@ -265,7 +265,7 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 					uName: user.firstName + ' ' + user.lastName;
 				});
 				inbox.conversations[last].messages.push(
-					content: message.content
+					"content": message.content
 					);
 			}else {
 				conversation.messages.push(message);
