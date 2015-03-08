@@ -1,11 +1,11 @@
 		<div class="message"> <!-- recieve converstaiont and ng-repeat -->
 			<div class="message-header">
-				<p>Conversation with {{conversation.sender}}</p>
+				<p>Conversation with {{conversation.uName}}</p>
 			</div>
 			<hr>
 			<div class="message-body">
 				<div>
-					<p>{{conversation.message[0].content}}</p>
+					<p>{{conversation.messages[0].content}}</p>
 				</div>
 				<br>
 				<textarea rows="5" cols="90" ng-model="messageData.content" placeholder="Write your message here ..."></textarea>
