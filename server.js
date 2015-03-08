@@ -230,7 +230,7 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 	Inbox.findOne({"ownerId" : id},function(err,inbox){
 		console.log(inbox)
 		var conversation = inbox.conversations.filter(function (conv) {
-	   		 return conv.uid === message.uid;
+	   		 return conv.uid == message.uid;
 	 	 }).pop();
 		console.log(conversation);
 		if(conversation == undefined){
