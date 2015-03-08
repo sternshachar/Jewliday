@@ -184,7 +184,7 @@ angular.module('jewApp')
 				};
 
 				$scope.openMessageContentModal = function(index){
-					$scope.messageModal.isOpen = true;
+					$scope.messageContentModal.isOpen = true;
 					$scope.message = $scope.messages[index]
 				};
 				$scope.closeModal = function(){
