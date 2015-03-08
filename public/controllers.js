@@ -10,7 +10,8 @@ angular.module("jewApp")
 	$scope.isAuth = false;					//login Status
 	$scope.username = "";					//name displayed in navigation bar
 	$scope.isListed = { listed: false};		//submited a home?
-	
+	$scope.unread = {num: 0}
+
 	$http.get(appData.url + '/login').
 		success(function(data){
 		$scope.isAuth = data.isAuthenticated;
@@ -107,7 +108,7 @@ angular.module("jewApp")
 })
 
 .controller("inboxCtrl",function($scope,$http,$state,$filter,appData){
-	$scope.unread = 0;
+	
 	var orderBy = $filter('orderBy');
 	$scope.messageData = {
 		uid: $scope.userId,
@@ -122,11 +123,12 @@ angular.module("jewApp")
 			if(data[0]){
 				$scope.conversations = data[0].conversations;
 				 $scope.conversations = orderBy($scope.conversations, 'lastMessage',true);
-				 // for (var i = 0; i < $scope.conversations[i].messages.length; i++) { check num of unread
-				 // 	for (var j = 0; j < Things.length; j++) {
-				 // 		$scope.conversations[i].messages[j].
-				 // 	};
-				 // };
+				 for (var i = 0; i < $scope.conversations[i].messages.length; i++) { check num of unread
+				 	for (var j = 0; j < Things.length; j++) {
+				 		if($scope.conversations[i].messages[j].read)
+				 			$scope.unread.num += 1;
+				 	};
+				 };
 				console.log($scope.conversations)
 			} else{
 				console.log('No messages')
