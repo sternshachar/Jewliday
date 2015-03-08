@@ -253,7 +253,7 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 				});
 		}
 		inbox.save(function (err) {
-		  if (err) return handleError(err)
+		  if (err) return console.error(err)
 		  // res.json(message);
 		});
 		
