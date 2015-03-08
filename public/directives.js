@@ -169,3 +169,39 @@ angular.module('jewApp')
 			}
 	}
 })
+.directive("messageContentModal",function(){
+	return{
+		restrict: 'E',
+
+		templateUrl: 'views/messageContentModal.html',
+
+		controller: function($scope,$http,appData,homeSearch){
+				$scope.messageData = {
+					uid: $scope.userId,
+					sender: $scope.username + ' ' + $scope.userLastName,
+					subject: "",
+					content: ""
+				};
+
+				$scope.openMessageContentModal = function(index){
+					$scope.messageModal.isOpen = true;
+					$scope.message = $scope.messages[index]
+				};
+				$scope.closeModal = function(){
+					$scope.messageContentModal.isOpen = false;
+				}
+					
+				
+				$scope.modalSendMessage = function(){
+					console.log(homeSearch.getHomeSelect()._id);
+					$http.post(appData.url + '/inbox/' + homeSearch.getHomeSelect()._id, $scope.messageData)//userId change to the subjects id
+						.success(function(data){
+							console.log('Message sent!');
+							$scope.closeModal();
+
+						});
+				}
+
+			}
+	}
+})

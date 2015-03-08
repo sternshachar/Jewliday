@@ -1,5 +1,5 @@
 		<table class="messages table">
-			<tr class="row" ng-repeat="item in messages">
+			<tr class="row" ng-repeat="item in messages" ng-click="openMessageContentModal($index)">
 				<td class="col-sm-2">
 					{{item.sender}}
 				</td>

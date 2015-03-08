@@ -107,6 +107,8 @@ angular.module("jewApp")
 })
 
 .controller("inboxCtrl",function($scope,$http,$state,appData){
+	$scope.messageContentModal = {isOpen: false};
+
 	$scope.messageData = {
 		uid: $scope.userId,
 		sender: $scope.username + ' ' + $scope.userLastName,
@@ -121,7 +123,6 @@ angular.module("jewApp")
 			} else{
 				console.log('No messages')
 			}
-			console.log(data);
 		})
 
 	$scope.sendMessage = function(){
