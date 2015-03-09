@@ -114,6 +114,7 @@ angular.module("jewApp")
 		getInbox: function(inboxOwnerId){	
 			var promise = $http.get(appData.url + '/inbox/' + inboxOwnerId)// move to resolve //see how to pull messages
 			.then(function(result){
+				inbox.unread = 0;
 				if(result.data[0]){
 					inbox.conversations = result.data[0].conversations;
 					 inbox.conversations = orderBy(inbox.conversations, 'lastMessage',true);
