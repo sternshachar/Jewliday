@@ -120,7 +120,7 @@ angular.module("jewApp")
 					 for (var i = 0; i < inbox.conversations.length; i++) { //check num of unread
 					 	for (var j = 0; j < inbox.conversations[i].messages.length; j++) {
 					 		if(!inbox.conversations[i].messages[j].read)
-					 			inbox.unread.num += 1;
+					 			inbox.unread += 1;
 					 	};
 					 };
 					
