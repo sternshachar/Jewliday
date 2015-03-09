@@ -147,7 +147,7 @@ angular.module("jewApp")
 
 		return{
 			getUserData: function(){
-					$http.get(appData.url + '/login').
+					var promise = $http.get(appData.url + '/login').
 						success(function(data){
 							userData.isAuth = data.isAuthenticated;
 							if(userData.isAuth){
@@ -158,7 +158,7 @@ angular.module("jewApp")
 							}
 					});
 						console.log(userData);
-				return userData;
+				return promise;
 			},
 
 			homeSelect: function(home){
