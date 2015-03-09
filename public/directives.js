@@ -196,24 +196,6 @@ angular.module('jewApp')
 						.success(function(data){
 							console.log('Message sent!');
 							$scope.closeModal();
-								$http.get(appData.url + '/inbox/' + $scope.userId)// move to resolve //see how to pull messages
-									.success(function(data){
-										// console.log(data)
-										if(data[0]){
-											$scope.conversations = data[0].conversations;
-											 $scope.conversations = orderBy($scope.conversations, 'lastMessage',true);
-											 for (var i = 0; i < $scope.conversations.length; i++) { //check num of unread
-											 	for (var j = 0; j < $scope.conversations[i].messages.length; j++) {
-											 		if(!$scope.conversations[i].messages[j].read)
-											 			$scope.unread.num += 1;
-											 	};
-											 };
-											 console.log($scope.unread.num);
-											console.log($scope.conversations);
-										} else{
-											console.log('No messages')
-										}
-									})
 
 						});
 				}
