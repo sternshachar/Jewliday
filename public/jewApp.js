@@ -21,21 +21,11 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
     				$stateProvider
 					.state('home',{
 						url:'/',
-						templateUrl: "views/main.html",
-												controller: 'mainCtrl',
-						resolve: {
-							getUserData: function(userService){
-								userService.getUserData()
-									.then(function(result){
-										return userService.getData();		
-									});
-							}
-						}
+						templateUrl: "views/main.html"
 					})
 					.state('usersArea',{
 						url:'/users',
-						templateUrl: "views/user.html"
-
+						templateUrl: "views/user.html",
 					})
 					.state('usersArea.profile',{
 						url:'/profile',
