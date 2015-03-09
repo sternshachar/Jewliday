@@ -91,7 +91,7 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 						url:'/incoming',
 						templateUrl:'views/users.inbox.incoming.html',
 						resolve: {
-							getInbox: function(inboxService,userService){ after userService unmark
+							getInbox: function(inboxService,userService){ 
 								return inboxService.getInbox(userService.userData.id)
 							}
 						}
