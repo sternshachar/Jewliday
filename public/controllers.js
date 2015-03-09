@@ -107,7 +107,7 @@ angular.module("jewApp")
 
 })
 
-.controller("inboxCtrl",function($scope,$http,$state,$filter,appData,inboxService,getInbox){
+.controller("inboxCtrl",function($scope,$http,$state,$filter,appData,inboxService,getInbox,userService){
 	
 	var orderBy = $filter('orderBy');
 	$scope.messageData = {
@@ -130,7 +130,7 @@ angular.module("jewApp")
 
 	$scope.$on('refresh inbox', function(data){
 		console.log('need to refresh!')
-		inboxData = getInbox; 
+		inboxData = inboxService.getInbox(userService.userData.id); 
 		$scope.conversations = inboxData.conversations;
 		console.log($scope.conversations);
 	})
