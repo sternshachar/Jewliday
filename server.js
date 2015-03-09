@@ -277,7 +277,7 @@ app.put('/inbox/:id', function(req,res){
 	var id = req.params.id;
 	var uid = req.body
 	console.log('ownerId ' + id);
-	Inbox.find({"ownerId" : id},function(err,inbox){
+	Inbox.findOne({"ownerId" : id},function(err,inbox){
 		var conversation = inbox.conversations.filter(function (conv) {
 	   		 return conv.uid == uid.uid;
 	 	 }).pop();
