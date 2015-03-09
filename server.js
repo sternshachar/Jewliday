@@ -246,11 +246,15 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 					lastMessage: Date.now()
 				});
 				inbox.conversations[last].messages.push({
-					content: message.content
+					content: message.content,
+					read: true
 					});
 			}else {
 				conversation.lastMessage = Date.now();
-				conversation.messages.push(message);
+				conversation.messages.push({
+					content: message.content,
+					read: true
+				});
 			}
 			inbox.save(function (err) {
 			  if (err) return console.error(err)
