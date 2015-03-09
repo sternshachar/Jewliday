@@ -16,7 +16,8 @@ angular.module("jewApp")
 
 	userService.getUserData()
 		.then(function(result){
-			$scope.userData = userService.getData();		
+			$scope.userData = userService.getData();	
+			console.log($scope.userData)	
 		});
 
 	// $http.get(appData.url + '/login').
@@ -44,7 +45,7 @@ angular.module("jewApp")
 	$scope.logOut = function(){
 		$http.get(appData.url + '/logout')
 			.success(function(data){
-				$scope.isAuth = data.isAuthenticated;
+				$scope.userData.isAuth = data.isAuthenticated;
 				$location.path('/');
 			})
 	}
