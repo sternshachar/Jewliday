@@ -283,7 +283,7 @@ app.put('/inbox/:id', function(req,res){
 	 	 }).pop();
 		var counter = 0;
 		for (var i = 0; i < conversation.messages.length; i++) {
-			if(conversation.messages[i].read = false){
+			if(conversation.messages[i].read == false){
 				conversation.messages[i].read = true;
 				counter += 1;
 				console.log('found not read')
