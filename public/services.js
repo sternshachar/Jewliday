@@ -106,12 +106,48 @@ angular.module("jewApp")
 			
 		}
 })
+.factory('userService',function($http,appData){
+		var userData = {
+				id : {},
+			 	isAuth :false,
+			 	firstName :'',
+			 	lastName : '',
+			 	isListed : false
+			 }
+
+
+		return{
+			getUserData: function(){
+					var promise = $http.get(appData.url + '/login').
+						then(function(result){
+							userData.isAuth = result.data.isAuthenticated;
+							if(userData.isAuth){
+								userData.id = result.data.user._id;
+								userData.firstName = result.data.user.firstName;
+								userData.lastName = result.data.user.lastName;
+								userData.isListed = result.data.user.house.listed;
+								console.log('userData Loaded');
+							}
+							return userData;
+					});
+				return promise;
+			},
+
+			getData: function(){
+				return userData;
+			},
+
+			userData: userData
+			
+		}
+})
 
 .factory("inboxService", function($http,$filter,appData){
 	var inbox = {conversations:{},unread: 0};
 	var orderBy = $filter('orderBy');
 	return {
-		getInbox: function(inboxOwnerId){	
+		getInbox: function(inboxOwnerId){
+			console.log('Loadeding inbox');	
 			var promise = $http.get(appData.url + '/inbox/' + inboxOwnerId)// move to resolve //see how to pull messages
 			.then(function(result){
 				inbox.unread = 0;
@@ -135,38 +171,4 @@ angular.module("jewApp")
 	}
 })
 
-.factory('userService',function($http,appData){
-		var userData = {
-				id : {},
-			 	isAuth :false,
-			 	firstName :'',
-			 	lastName : '',
-			 	isListed : false
-			 }
-			 getUserData = function(){
-					var promise = $http.get(appData.url + '/login').
-						then(function(result){
-							userData.isAuth = result.data.isAuthenticated;
-							if(userData.isAuth){
-								userData.id = result.data.user._id;
-								userData.firstName = result.data.user.firstName;
-								userData.lastName = result.data.user.lastName;
-								userData.isListed = result.data.user.house.listed;
-							}
-							return userData;
-					});
-				return promise;
-			}
 
-
-		return{
-			getUserData: getUserData,
-
-			getData: function(){
-				return userData;
-			},
-
-			userData: userData
-			
-		}
-})
