@@ -134,8 +134,9 @@ angular.module("jewApp")
 		inboxData = inboxService.getInbox(userService.userData.id)
 			.then(function(result){
 				$scope.conversations = result.conversations;
+				$scope.$broadcast('inbox refreshed',$scope.conversations);
 			})
-			$scope.$broadcast('inbox refreshed',$scope.conversations);
+
 	})
 })
 .controller("newHomeCtrl",function($scope,$http, $window, appData,$upload,$state,homeData){
