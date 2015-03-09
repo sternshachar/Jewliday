@@ -43,7 +43,7 @@ angular.module("jewApp")
 	});
 
 	$scope.logOut = function(){
-		$http.get(appData.url + '/logout')
+		$http.get(appData.url + '/logout')//reset rest of details
 			.success(function(data){
 				$scope.userData.isAuth = data.isAuthenticated;
 				$location.path('/');
@@ -107,7 +107,7 @@ angular.module("jewApp")
 
 })
 
-.controller("inboxCtrl",function($scope,$http,$state,$filter,appData,inboxService){
+.controller("inboxCtrl",function($scope,$http,$state,$filter,appData,inboxService,getInbox){
 	
 	var orderBy = $filter('orderBy');
 	$scope.messageData = {
@@ -116,7 +116,7 @@ angular.module("jewApp")
 		subject: "",
 		content: ""
 	};
-	$scope.inboxserv = inboxService.getInbox($scope.userId); //*****************
+	$scope.inboxserv = getInbox; //*****************
 	console.log($scope.inboxserv);
 
 	$http.get(appData.url + '/inbox/' + $scope.userId)// move to resolve //see how to pull messages

@@ -158,7 +158,6 @@ angular.module("jewApp")
 							}
 							return userData;
 					});
-						console.log(userData);
 				return promise;
 			},
 
