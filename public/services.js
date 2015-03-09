@@ -143,10 +143,7 @@ angular.module("jewApp")
 			 	lastName : '',
 			 	isListed : false
 			 }
-
-
-		return{
-			getUserData: function(){
+			 getUserData = function(){
 					var promise = $http.get(appData.url + '/login').
 						then(function(result){
 							userData.isAuth = result.data.isAuthenticated;
@@ -159,7 +156,11 @@ angular.module("jewApp")
 							return userData;
 					});
 				return promise;
-			},
+			}
+
+
+		return{
+			getUserData: getUserData,
 
 			getData: function(){
 				return userData;
