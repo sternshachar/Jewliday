@@ -136,32 +136,29 @@ angular.module("jewApp")
 })
 
 .factory('userService',function($http,appData){
-		var id = {},
-		 	isAuth = false,
-		 	firstName = '',
-		 	lastName = '',
-		 	isListed = false;
+		var userData{
+				id : {},
+			 	isAuth :false,
+			 	firstName :'',
+			 	lastName : '',
+			 	isListed : false
+			 }
 
 
 		return{
 			getUserData: function(){
 					$http.get(appData.url + '/login').
 						success(function(data){
-							isAuth = data.isAuthenticated;
+							userData.isAuth = data.isAuthenticated;
 							if(isAuth){
-								id = data.user._id;
-								firstName = data.user.firstName;
-								lastName = data.user.lastName;
-								isListed = data.user.house.listed;
+								userData.id = data.user._id;
+								userData.firstName = data.user.firstName;
+								userData.lastName = data.user.lastName;
+								userData.isListed = data.user.house.listed;
 							}
 					});
-				return { //maybe define in one object
-					id:id,
-					isAuth: isAuth,
-					firstName: firstName,
-					lastName: lastName,
-					isListed: isListed
-				}
+						console.log(userData);
+				return userData;
 			},
 
 			homeSelect: function(home){
