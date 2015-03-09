@@ -14,6 +14,7 @@ angular.module("jewApp")
 
 	$scope.userData = userService.getUserData()
 		.then(function(result){
+			console.log(result)
 			$scope.isAuth = result.data.userData.isAuth;
 			$scope.username = result.data.userData.firstName;
 			$scope.userLastName = result.data.userData.lastName;
