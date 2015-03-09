@@ -129,6 +129,7 @@ angular.module("jewApp")
 	}	
 
 	$scope.$on('refresh inbox', function(data){
+		console.log('need to refresh!')
 		inboxData = getInbox; 
 		$scope.conversations = inboxData.conversations;
 	})
