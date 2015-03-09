@@ -162,6 +162,12 @@ angular.module("jewApp")
 				return promise;
 			},
 
+			getData: function(){
+				return userData;
+			}
+
+
+
 			homeSelect: function(home){
 				homeSelected = home;
 				return homeSelected;
