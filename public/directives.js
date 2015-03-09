@@ -182,6 +182,8 @@ angular.module('jewApp')
 					content: ""
 				};
 
+				$scope.$emit('refresh inbox',{})
+
 				$scope.openMessageContent = function(index){
 					$scope.conversation = $scope.conversations[index]
 					console.log($scope.conversation)
@@ -189,7 +191,7 @@ angular.module('jewApp')
 						.then(function(result){
 							$scope.unread.num -= result.data.read;
 						})
-						//emit to inboxCtrl to refresh inbox
+						$scope.$emit('refresh inbox',{})
 				};
 									
 				$scope.replyMessage = function(){
