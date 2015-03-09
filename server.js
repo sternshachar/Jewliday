@@ -286,7 +286,6 @@ app.put('/inbox/:id', function(req,res){
 		};
 		inbox.save(function (err) {
 			  if (err) return console.error(err)
-			  res.json(message);
 			});
 			
 		console.error(err);
