@@ -198,7 +198,6 @@ angular.module('jewApp')
 				$scope.replyMessage = function(){
 					$http.post(appData.url + '/inbox/' + $scope.conversation.uid, $scope.messageData)//userId change to the subjects id
 						.success(function(data){
-							console.log('Message sent!');
 							$scope.closeModal();
 							$scope.$emit('refresh inbox',{})
 						});
@@ -206,7 +205,7 @@ angular.module('jewApp')
 
 				$scope.$on('inbox refreshed',function(conversations){
 					$scope.conversation = $scope.conversations[currentIndex];
-					console.log($scope.conversation);
+					$scope.messageData.contnet = "";
 				})
 
 			}

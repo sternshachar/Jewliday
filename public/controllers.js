@@ -16,20 +16,8 @@ angular.module("jewApp")
 
 	userService.getUserData()
 		.then(function(result){
-			$scope.userData = userService.getData();	
-			console.log($scope.userData)	
+			$scope.userData = userService.getData();		
 		});
-
-	// $http.get(appData.url + '/login').
-	// 	success(function(data){
-	// 	$scope.isAuth = data.isAuthenticated;
-	// 	$scope.username = data.user.firstName;
-	// 	$scope.userLastName = data.user.lastName;
-	// 	$scope.userId = data.user._id;
-	// 	if($scope.isAuth)
-	// 		$scope.isListed = {listed: data.user.house.listed == '' ? false : true };
-	// 	console.log($scope.userId);
-	// });
 
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){
@@ -68,7 +56,6 @@ angular.module("jewApp")
 	}
 
 	$scope.logIn = function(){
-		console.log($scope.userLog);
 		$http.post(appData.url + "/login",$scope.userLog)
 			.success(function(data){
 				if(data.message){
@@ -119,6 +106,7 @@ angular.module("jewApp")
 
 	var inboxData = getInbox; 
 	$scope.conversations = inboxData.conversations;
+	$scope.unread.num = inboxData.unread;
 	console.log($scope.conversations);
 
 	$scope.sendMessage = function(){ //consider if needed ************
@@ -130,7 +118,6 @@ angular.module("jewApp")
 	}	
 
 	$scope.$on('refresh inbox', function(data){
-		console.log('need to refresh!')
 		inboxData = inboxService.getInbox(userService.userData.id)
 			.then(function(result){
 				$scope.conversations = result.conversations;
