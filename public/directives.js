@@ -204,8 +204,9 @@ angular.module('jewApp')
 				}
 
 				$scope.$on('inbox refreshed',function(conversations){
+					currentIndex = 0;
 					$scope.conversation = $scope.conversations[currentIndex];
-					$scope.messageData.contnet = "";
+					$scope.messageData.content = "";
 				})
 
 			}
