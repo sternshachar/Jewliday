@@ -132,6 +132,7 @@ angular.module("jewApp")
 		console.log('need to refresh!')
 		inboxData = getInbox; 
 		$scope.conversations = inboxData.conversations;
+		console.log($scope.conversations);
 	})
 })
 .controller("newHomeCtrl",function($scope,$http, $window, appData,$upload,$state,homeData){
