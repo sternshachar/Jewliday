@@ -171,7 +171,7 @@ angular.module("jewApp")
 		    			$scope.listHomeMessage = data;
 		    					$http.get(appData.url + '/login').
 									success(function(data){
-										$scope.isListed.listed = data.user.house.listed;
+										$scope.userData.isListed = data.user.house.listed;
 									});
 									
 						$state.go('listHome.photos');

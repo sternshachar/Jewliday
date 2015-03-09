@@ -37,8 +37,11 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 						controller: 'inboxCtrl',
 						resolve: {
 							getInbox: function(inboxService,userService){ 
-								console.log(userService.userData.id)
-								return inboxService.getInbox(userService.userData.id)
+								var user = userService.getData(),
+									id = user.id;
+
+								console.log(id)
+								return inboxService.getInbox(id)
 							}
 						}
 					})
