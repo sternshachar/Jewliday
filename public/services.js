@@ -148,13 +148,13 @@ angular.module("jewApp")
 		return{
 			getUserData: function(){
 					var promise = $http.get(appData.url + '/login').
-						success(function(data){
-							userData.isAuth = data.isAuthenticated;
+						then(function(result){
+							userData.isAuth = result.data.isAuthenticated;
 							if(userData.isAuth){
-								userData.id = data.user._id;
-								userData.firstName = data.user.firstName;
-								userData.lastName = data.user.lastName;
-								userData.isListed = data.user.house.listed;
+								userData.id = result.data.user._id;
+								userData.firstName = result.data.user.firstName;
+								userData.lastName = result.data.user.lastName;
+								userData.isListed = result.data.user.house.listed;
 							}
 							return userData;
 					});
