@@ -15,11 +15,11 @@ angular.module("jewApp")
 	$scope.userData = userService.getUserData()
 		.then(function(result){
 			console.log(result)
-			$scope.isAuth = userService.userData.isAuth;
-			$scope.username = userService.userData.firstName;
-			$scope.userLastName = userService.userData.lastName;
-			$scope.userId = userService.userData.id;
-			$scope.isListed = userService.userData.isListed;
+			$scope.isAuth = result.isAuth;
+			$scope.username = result.firstName;
+			$scope.userLastName = result.lastName;
+			$scope.userId = result.id;
+			$scope.isListed = result.isListed;
 		});
 
 	// $http.get(appData.url + '/login').
