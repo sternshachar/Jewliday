@@ -16,15 +16,7 @@ angular.module("jewApp")
 
 	userService.getUserData()
 		.then(function(result){
-			$scope.userData = userService.getData();
-			console.log($scope.userData);
-
-			$scope.isAuth = result.isAuth;
-			$scope.username = result.firstName;
-			$scope.userLastName = result.lastName;
-			$scope.userId = result.id;
-			$scope.isListed = result.isListed;
-			
+			$scope.userData = userService.getData();		
 		});
 
 	// $http.get(appData.url + '/login').
@@ -83,24 +75,16 @@ angular.module("jewApp")
 					console.log(data.message);
 					$scope.userLog = {};
 				} else {
-
-						$http.get(appData.url + '/login').
-							success(function(data){
-								$scope.isAuth = data.isAuthenticated;
-								$scope.username = data.user.firstName;
-								$scope.userLastName = data.user.lastName;
-								$scope.userId = data.user._id;
-								$scope.isListed ={ listed: data.user.house.listed};
-								$http.get(appData.url + '/login');
-							});
-
+					userService.getUserData()
+						.then(function(result){
+							$scope.userData = userService.getData();		
+						});
 
 					$scope.closeModal();
 					$scope.userLog = {};
 					$scope.message = '';
 
 				}
-
 			});
 	}
 
