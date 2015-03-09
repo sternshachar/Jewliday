@@ -150,7 +150,7 @@ angular.module("jewApp")
 					$http.get(appData.url + '/login').
 						success(function(data){
 							userData.isAuth = data.isAuthenticated;
-							if(isAuth){
+							if(userData.isAuth){
 								userData.id = data.user._id;
 								userData.firstName = data.user.firstName;
 								userData.lastName = data.user.lastName;
