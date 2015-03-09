@@ -12,18 +12,25 @@ angular.module("jewApp")
 	$scope.isListed = { listed: false};		//submited a home?
 	$scope.unread = {num: 0}
 
-	$scope.userData = userService.getUserData();
+	$scope.userData = userService.getUserData()
+		.then(function(result){
+			$scope.isAuth = result.data.userData.isAuth;
+			$scope.username = result.data.userData.firstName;
+			$scope.userLastName = result.data.userData.lastName;
+			$scope.userId = result.data.userData.id;
+			$scope.isListed = result.data.userData.isListed;
+		});
 
-	$http.get(appData.url + '/login').
-		success(function(data){
-		$scope.isAuth = data.isAuthenticated;
-		$scope.username = data.user.firstName;
-		$scope.userLastName = data.user.lastName;
-		$scope.userId = data.user._id;
-		if($scope.isAuth)
-			$scope.isListed = {listed: data.user.house.listed == '' ? false : true };
-		console.log($scope.userId);
-	});
+	// $http.get(appData.url + '/login').
+	// 	success(function(data){
+	// 	$scope.isAuth = data.isAuthenticated;
+	// 	$scope.username = data.user.firstName;
+	// 	$scope.userLastName = data.user.lastName;
+	// 	$scope.userId = data.user._id;
+	// 	if($scope.isAuth)
+	// 		$scope.isListed = {listed: data.user.house.listed == '' ? false : true };
+	// 	console.log($scope.userId);
+	// });
 
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){
