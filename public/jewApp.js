@@ -26,6 +26,13 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 					.state('usersArea',{
 						url:'/users',
 						templateUrl: "views/user.html",
+						controller: "userCtrl",
+						resolve{
+							getUserData: function(userService){
+								
+								return userService.getUserData();
+							}
+						}
 					})
 					.state('usersArea.profile',{
 						url:'/profile',
@@ -37,14 +44,11 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 						controller: 'inboxCtrl',
 						resolve: {
 							getInbox: function(inboxService,userService){ 
-								var user = userService.getData()
-											.then(function(result){
-												console.log(result);
-												var id = result.data.id;
-												console.log(id)
-												return inboxService.getInbox(id)
+								var user = userService.getData(),
+									id = user.id;
 
-											})
+								console.log(id)
+								return inboxService.getInbox(id)
 							}
 						}
 					})

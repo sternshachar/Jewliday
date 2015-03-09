@@ -90,7 +90,10 @@ angular.module("jewApp")
 	}
 
 })
-
+.controller("userCtrl",function($scope,getUserData){
+	var userData = getUserData; 
+	console.log(getUserData);
+})
 .controller("inboxCtrl",function($scope,$http,$state,$filter,appData,inboxService,getInbox,userService){
 	
 	var orderBy = $filter('orderBy');
