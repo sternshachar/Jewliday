@@ -293,7 +293,6 @@ app.put('/inbox/:id', function(req,res){
 			  if (err) return console.error(err)
 			});
 			
-		console.error(err);
 		console.log('read:' + counter);
 
 		res.json({read: counter});

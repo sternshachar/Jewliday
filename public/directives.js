@@ -187,7 +187,7 @@ angular.module('jewApp')
 					console.log($scope.conversation)
 					$http.put(appData.url + '/inbox/' + $scope.messageData.uid, {uid: $scope.conversation.uid})
 						.then(function(result){
-							$scope.unread.num -= result.read;
+							$scope.unread.num -= result.data.read;
 						})
 				};
 									
