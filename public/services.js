@@ -156,6 +156,7 @@ angular.module("jewApp")
 								userData.lastName = data.user.lastName;
 								userData.isListed = data.user.house.listed;
 							}
+							return userData;
 					});
 						console.log(userData);
 				return promise;
