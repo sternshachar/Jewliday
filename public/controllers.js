@@ -20,8 +20,9 @@ angular.module("jewApp")
 			$scope.userLastName = result.lastName;
 			$scope.userId = result.id;
 			$scope.isListed = result.isListed;
+			console.log($scope.userData);
 		});
-
+	console.log($scope.userData);
 	// $http.get(appData.url + '/login').
 	// 	success(function(data){
 	// 	$scope.isAuth = data.isAuthenticated;
