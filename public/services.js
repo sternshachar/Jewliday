@@ -127,6 +127,7 @@ angular.module("jewApp")
 				} else{
 					console.log('No messages')
 				}
+				console.log(inbox);
 				return inbox;
 			})
 		}
