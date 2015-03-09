@@ -192,6 +192,7 @@ angular.module('jewApp')
 							$scope.unread.num -= result.data.read;
 						})
 						$scope.$emit('refresh inbox',{})
+						$scope.conversation = $scope.conversations[index]
 				};
 									
 				$scope.replyMessage = function(){
@@ -200,6 +201,7 @@ angular.module('jewApp')
 							console.log('Message sent!');
 							$scope.closeModal();
 							$scope.$emit('refresh inbox',{})
+							$scope.conversation = $scope.conversations[index]
 						});
 				}
 
