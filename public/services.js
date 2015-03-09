@@ -147,7 +147,7 @@ angular.module("jewApp")
 	var orderBy = $filter('orderBy');
 	return {
 		getInbox: function(inboxOwnerId){
-			console.log('Loadeding inbox');	
+			console.log('Loading inbox');	
 			var promise = $http.get(appData.url + '/inbox/' + inboxOwnerId)// move to resolve //see how to pull messages
 			.then(function(result){
 				inbox.unread = 0;

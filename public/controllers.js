@@ -1,5 +1,5 @@
 angular.module("jewApp")
-.controller("mainCtrl",function($scope,$interval,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope,userService){
+.controller("mainCtrl",function($scope,$interval,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope,userService,getUserData){
 	$scope.user = {};						// user data for SINGUP from form (logModal.html)
 	$scope.userLog = {};					//user data for LOGIN up from form (signModal.html)
 
@@ -7,17 +7,15 @@ angular.module("jewApp")
 
 	$scope.signMessage = "Enter email";  	//default text in email field in SIGNUP form
 
-	$scope.isAuth = false;					//login Status
-	$scope.username = "";					//name displayed in navigation bar
-	$scope.isListed = { listed: false};		//submited a home?
 	$scope.unread = {num: 0}
 
 	$scope.userData = userService.getData();
 
-	userService.getUserData()
-		.then(function(result){
-			$scope.userData = userService.getData();		
-		});
+	$scope.userData = getUserData;
+	// userService.getUserData()
+	// 	.then(function(result){
+	// 		$scope.userData = userService.getData();		
+	// 	});
 
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){
