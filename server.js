@@ -281,8 +281,12 @@ app.put('/inbox/:id', function(req,res){
 		var conversation = inbox.conversations.filter(function (conv) {
 	   		 return conv.uid == uid.uid;
 	 	 }).pop();
+		var counter = 0;
 		for (var i = 0; i < conversation.messages.length; i++) {
-			conversation.messages[i].read = true
+			if(conversation.messages[i].read = false){
+				conversation.messages[i].read = true;
+				counter += 1;
+			}
 		};
 		inbox.save(function (err) {
 			  if (err) return console.error(err)
@@ -291,6 +295,6 @@ app.put('/inbox/:id', function(req,res){
 		console.error(err);
 		console.log(inbox);
 
-		res.json(inbox);
+		res.json({read: counter});
 	});
 })
