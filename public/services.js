@@ -163,7 +163,9 @@ angular.module("jewApp")
 
 			getData: function(){
 				return userData;
-			}
+			},
+
+			userData: userData
 			
 		}
 })
