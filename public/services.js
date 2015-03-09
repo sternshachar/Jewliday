@@ -136,7 +136,7 @@ angular.module("jewApp")
 })
 
 .factory('userService',function($http,appData){
-		var userData{
+		var userData = {
 				id : {},
 			 	isAuth :false,
 			 	firstName :'',
