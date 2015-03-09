@@ -206,7 +206,7 @@ angular.module('jewApp')
 				}
 
 				$scope.$on('inbox refreshed',function(conversations){
-					console.log(conversations);
+					$scope.conversation = $scope.conversations[currentIndex]
 				})
 
 			}
