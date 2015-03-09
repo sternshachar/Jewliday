@@ -1,5 +1,5 @@
 angular.module("jewApp")
-.controller("mainCtrl",function($scope,$interval,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope){
+.controller("mainCtrl",function($scope,$interval,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope,userService){
 	$scope.user = {};						// user data for SINGUP from form (logModal.html)
 	$scope.userLog = {};					//user data for LOGIN up from form (signModal.html)
 
@@ -11,6 +11,8 @@ angular.module("jewApp")
 	$scope.username = "";					//name displayed in navigation bar
 	$scope.isListed = { listed: false};		//submited a home?
 	$scope.unread = {num: 0}
+
+	$scope.userData = userService.getUserData();
 
 	$http.get(appData.url + '/login').
 		success(function(data){
@@ -116,8 +118,9 @@ angular.module("jewApp")
 		subject: "",
 		content: ""
 	};
-	$scope.inboxserv = inboxService.getInbox($scope.userId);
+	$scope.inboxserv = inboxService.getInbox($scope.userId); //*****************
 	console.log($scope.inboxserv);
+
 	$http.get(appData.url + '/inbox/' + $scope.userId)// move to resolve //see how to pull messages
 		.success(function(data){
 			// console.log(data)

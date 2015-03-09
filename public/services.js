@@ -112,10 +112,10 @@ angular.module("jewApp")
 	var orderBy = $filter('orderBy');
 	return {
 		getInbox: function(inboxOwnerId){	
-			$http.get(appData.url + '/inbox/' + inboxOwnerId)// move to resolve //see how to pull messages
-			.success(function(data){
-				if(data[0]){
-					inbox.conversations = data[0].conversations;
+			var promise = $http.get(appData.url + '/inbox/' + inboxOwnerId)// move to resolve //see how to pull messages
+			.then(function(result){
+				if(result.data[0]){
+					inbox.conversations = result.data[0].conversations;
 					 inbox.conversations = orderBy(inbox.conversations, 'lastMessage',true);
 					 for (var i = 0; i < inbox.conversations.length; i++) { //check num of unread
 					 	for (var j = 0; j < inbox.conversations[i].messages.length; j++) {
@@ -130,6 +130,44 @@ angular.module("jewApp")
 				console.log(inbox);
 				return inbox;
 			})
+			return promise;
 		}
 	}
+})
+
+.factory('userService',function($http,appData){
+		var id = {},
+		 	isAuth = false,
+		 	firstName = '',
+		 	lastName = '',
+		 	isListed = false;
+
+
+		return{
+			getUserData: function(){
+					$http.get(appData.url + '/login').
+						success(function(data){
+							isAuth = data.isAuthenticated;
+							if(isAuth){
+								id = data.user._id;
+								firstName = data.user.firstName;
+								lastName = data.user.lastName;
+								isListed = data.user.house.listed;
+							}
+					});
+				return { //maybe define in one object
+					id:id,
+					isAuth: isAuth;
+					firstName: firstName,
+					lastName: lastName,
+					isListed: isListed
+				}
+			},
+
+			homeSelect: function(home){
+				homeSelected = home;
+				return homeSelected;
+			}
+			
+		}
 })
