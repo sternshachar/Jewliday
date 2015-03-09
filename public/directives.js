@@ -183,8 +183,9 @@ angular.module('jewApp')
 				};
 
 				$scope.$emit('refresh inbox',{})
-
+				var currentIndex = 0;
 				$scope.openMessageContent = function(index){
+					currentIndex = index;
 					$scope.conversation = $scope.conversations[index]
 					console.log($scope.conversation)
 					$http.put(appData.url + '/inbox/' + $scope.messageData.uid, {uid: $scope.conversation.uid})
@@ -192,7 +193,7 @@ angular.module('jewApp')
 							$scope.unread.num -= result.data.read;
 						})
 						$scope.$emit('refresh inbox',{})
-						$scope.conversation = $scope.conversations[index]
+						$scope.conversation = $scope.conversations[index];
 				};
 									
 				$scope.replyMessage = function(){
@@ -201,7 +202,7 @@ angular.module('jewApp')
 							console.log('Message sent!');
 							$scope.closeModal();
 							$scope.$emit('refresh inbox',{})
-							$scope.conversation = $scope.conversations[index]
+							$scope.conversation = $scope.conversations[currentIndex];
 						});
 				}
 
