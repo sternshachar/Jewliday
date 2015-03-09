@@ -11,11 +11,11 @@ angular.module("jewApp")
 
 	$scope.userData = userService.getData();
 
-	$scope.userData = getUserData;
-	// userService.getUserData()
-	// 	.then(function(result){
-	// 		$scope.userData = userService.getData();		
-	// 	});
+	userService.getUserData()
+		.then(function(result){
+			$scope.userData = userService.getData();
+			$scope.$broadcast('userData loaded',{});		
+		});
 
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){
@@ -101,11 +101,14 @@ angular.module("jewApp")
 		subject: "",
 		content: ""
 	};
+	$scope.$on('userData loaded',function(data){
+		var inboxData = getInbox; 
+		$scope.conversations = inboxData.conversations;
+		$scope.unread.num = inboxData.unread;
+		console.log($scope.conversations);
 
-	var inboxData = getInbox; 
-	$scope.conversations = inboxData.conversations;
-	$scope.unread.num = inboxData.unread;
-	console.log($scope.conversations);
+	});
+
 
 	$scope.sendMessage = function(){ //consider if needed ************
 		console.log('sending');
