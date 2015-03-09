@@ -117,7 +117,7 @@ angular.module("jewApp")
 		content: ""
 	};
 	$scope.inboxserv = inboxService.getInbox($scope.userId);
-	
+	console.log($scope.inboxserv);
 	$http.get(appData.url + '/inbox/' + $scope.userId)// move to resolve //see how to pull messages
 		.success(function(data){
 			// console.log(data)
