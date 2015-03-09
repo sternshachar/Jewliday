@@ -30,7 +30,7 @@ hr{
 </style>
 
 <div class="row" style="width: 100%;" > <!-- ng-controller="inboxCtrl"  ng-if="inbox.state" -->
-	{{inboxserv}}
+
 	<div class="col-sm-5 inbox-panel">
 		<div ui-view></div>
 	</div>
@@ -38,3 +38,4 @@ hr{
 		<message-content></message-content>
 	</div><!-- end col-sm-2 --> 
 </div><!-- end row -->
+<p>{{inboxserv.unread}}</p>
