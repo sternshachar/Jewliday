@@ -12,7 +12,7 @@ angular.module("jewApp")
 	$scope.isListed = { listed: false};		//submited a home?
 	$scope.unread = {num: 0}
 
-	$scope.userData = userService.getUserData()
+	userService.getUserData()
 		.then(function(result){
 			console.log(result)
 			$scope.isAuth = result.isAuth;
@@ -20,9 +20,10 @@ angular.module("jewApp")
 			$scope.userLastName = result.lastName;
 			$scope.userId = result.id;
 			$scope.isListed = result.isListed;
-			console.log($scope.userData);
+			console.log(userService.userData);
 		});
-	console.log($scope.userData);
+
+	console.log(userService.userData);
 	// $http.get(appData.url + '/login').
 	// 	success(function(data){
 	// 	$scope.isAuth = data.isAuthenticated;
