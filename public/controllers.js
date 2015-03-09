@@ -116,7 +116,7 @@ angular.module("jewApp")
 		subject: "",
 		content: ""
 	};
-	var inboxData = getInbox; //*****************
+	var inboxData = getInbox; 
 	$scope.conversations = inboxData.conversations;
 	console.log($scope.conversations);
 
@@ -127,6 +127,11 @@ angular.module("jewApp")
 				console.log(data);
 			});
 	}	
+
+	$scope.$on('refresh inbox', function(data){
+		inboxData = getInbox; 
+		$scope.conversations = inboxData.conversations;
+	})
 })
 .controller("newHomeCtrl",function($scope,$http, $window, appData,$upload,$state,homeData){
 	if($scope.isListed.listed){

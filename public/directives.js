@@ -197,7 +197,7 @@ angular.module('jewApp')
 						.success(function(data){
 							console.log('Message sent!');
 							$scope.closeModal();
-							//emit to inboxCtrl to refresh inbox
+							$scope.$emit('refresh inbox',{})
 						});
 				}
 
