@@ -92,6 +92,7 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 						templateUrl:'views/users.inbox.incoming.html',
 						resolve: {
 							getInbox: function(inboxService,userService){ 
+								console.log(userService.userData.id)
 								return inboxService.getInbox(userService.userData.id)
 							}
 						}
