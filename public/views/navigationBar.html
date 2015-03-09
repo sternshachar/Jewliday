@@ -31,7 +31,7 @@
 				</a>
 			</div>
 
-			<ul class="nav navbar-nav pull-right" ng-if="!isAuth">
+			<ul class="nav navbar-nav pull-right" ng-if="!userData.isAuth">
 				<li>
 					<a href ng-click="openModal('login')" >
 						<span class="glyphicon glyphicon-user" ></span> Log In
@@ -43,9 +43,9 @@
 					</a>
 				</li>
 			</ul>
-			<ul class="nav navbar-nav pull-right" ng-if="isAuth">
+			<ul class="nav navbar-nav pull-right" ng-if="userData.isAuth">
 					<li>
-						<a href="#/listHome/address" ng-if="!isListed.listed">
+						<a href="#/listHome/address" ng-if="!userData.isListed">
 							<button class="btn btn-warning">List Your Home</button>
 						</a>
 					</li>

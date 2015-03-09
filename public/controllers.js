@@ -18,7 +18,7 @@ angular.module("jewApp")
 		.then(function(result){
 			$scope.userData = userService.getData();
 			console.log($scope.userData);
-			
+
 			$scope.isAuth = result.isAuth;
 			$scope.username = result.firstName;
 			$scope.userLastName = result.lastName;
@@ -27,7 +27,6 @@ angular.module("jewApp")
 			
 		});
 
-	console.log(userService.getData());
 	// $http.get(appData.url + '/login').
 	// 	success(function(data){
 	// 	$scope.isAuth = data.isAuthenticated;
