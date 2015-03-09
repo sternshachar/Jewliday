@@ -189,6 +189,7 @@ angular.module('jewApp')
 						.then(function(result){
 							$scope.unread.num -= result.data.read;
 						})
+						//emit to inboxCtrl to refresh inbox
 				};
 									
 				$scope.replyMessage = function(){
@@ -196,7 +197,7 @@ angular.module('jewApp')
 						.success(function(data){
 							console.log('Message sent!');
 							$scope.closeModal();
-
+							//emit to inboxCtrl to refresh inbox
 						});
 				}
 

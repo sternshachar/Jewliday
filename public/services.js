@@ -106,3 +106,29 @@ angular.module("jewApp")
 			
 		}
 })
+
+.factory("inboxService", function($http,$filter,appData){
+	var inbox = {conversations:{},unread: 0};
+	var orderBy = $filter('orderBy');
+	return {
+		getInbox: function(inboxOwnerId){	
+			$http.get(appData.url + '/inbox/' + inboxOwnerId)// move to resolve //see how to pull messages
+			.success(function(data){
+				if(data[0]){
+					inbox.conversations = data[0].conversations;
+					 inbox.conversations = orderBy(inbox.conversations, 'lastMessage',true);
+					 for (var i = 0; i < inbox.conversations.length; i++) { //check num of unread
+					 	for (var j = 0; j < inbox.conversations[i].messages.length; j++) {
+					 		if(!inbox.conversations[i].messages[j].read)
+					 			inbox.unread.num += 1;
+					 	};
+					 };
+					
+				} else{
+					console.log('No messages')
+				}
+				return inbox;
+			})
+		}
+	}
+})

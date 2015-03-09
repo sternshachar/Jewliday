@@ -107,7 +107,7 @@ angular.module("jewApp")
 
 })
 
-.controller("inboxCtrl",function($scope,$http,$state,$filter,appData){
+.controller("inboxCtrl",function($scope,$http,$state,$filter,appData,inboxService){
 	
 	var orderBy = $filter('orderBy');
 	$scope.messageData = {
@@ -116,7 +116,8 @@ angular.module("jewApp")
 		subject: "",
 		content: ""
 	};
-
+	$scope.inboxserv = inboxService.getInbox($scope.userId);
+	
 	$http.get(appData.url + '/inbox/' + $scope.userId)// move to resolve //see how to pull messages
 		.success(function(data){
 			// console.log(data)
