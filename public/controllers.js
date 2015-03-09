@@ -116,7 +116,7 @@ angular.module("jewApp")
 		subject: "",
 		content: ""
 	};
-	
+
 	var inboxData = getInbox; 
 	$scope.conversations = inboxData.conversations;
 	console.log($scope.conversations);
@@ -135,6 +135,7 @@ angular.module("jewApp")
 			.then(function(result){
 				$scope.conversations = result.conversations;
 			})
+			$scope.$broadcast('inbox refreshed',$scope.conversations);
 	})
 })
 .controller("newHomeCtrl",function($scope,$http, $window, appData,$upload,$state,homeData){

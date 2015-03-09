@@ -202,9 +202,12 @@ angular.module('jewApp')
 							console.log('Message sent!');
 							$scope.closeModal();
 							$scope.$emit('refresh inbox',{})
-							$scope.conversation = $scope.conversations[currentIndex];
 						});
 				}
+
+				$scope.$on('inbox refreshed',function(conversations){
+					console.log(conversations);
+				})
 
 			}
 	}
