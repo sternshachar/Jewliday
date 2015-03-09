@@ -116,6 +116,7 @@ angular.module("jewApp")
 		subject: "",
 		content: ""
 	};
+	
 	var inboxData = getInbox; 
 	$scope.conversations = inboxData.conversations;
 	console.log($scope.conversations);
