@@ -157,7 +157,7 @@ angular.module("jewApp")
 					});
 				return { //maybe define in one object
 					id:id,
-					isAuth: isAuth;
+					isAuth: isAuth,
 					firstName: firstName,
 					lastName: lastName,
 					isListed: isListed

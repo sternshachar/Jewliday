@@ -89,12 +89,12 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 
 					.state('usersArea.inbox.incoming',{
 						url:'/incoming',
-						templateUrl:'views/users.inbox.incoming.html',
-						resolve{
-							// getInbox: function(inboxService,userService){ after userService unmark
-							// 	return inboxService.getInbox(userService.id)
-							// }
-						}
+						templateUrl:'views/users.inbox.incoming.html'
+						// resolve{
+						// 	// getInbox: function(inboxService,userService){ after userService unmark
+						// 	// 	return inboxService.getInbox(userService.id)
+						// 	// }
+						// }
 					})
 					.state('usersArea.home.location',{
 						url:'/location',
