@@ -103,8 +103,10 @@ angular.module("jewApp")
 		subject: "",
 		content: ""
 	};
-
-	var inboxData = getInbox; 
+	var user = userService.getData(),
+		id = user.id;
+		
+	var inboxData = inboxService.getInbox(id); 
 	$scope.conversations = inboxData.conversations;
 	$scope.unread.num = inboxData.unread;
 	console.log($scope.conversations);
