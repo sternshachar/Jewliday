@@ -149,7 +149,7 @@ angular.module("jewApp")
     			$scope.home.location = result;
     			console.log(result);
     			console.log($scope.home.location);
-    			$http.put(appData.url + '/listHome/' + $scope.userId,$scope.home)
+    			$http.put(appData.url + '/listHome/' + $scope.userData.id,$scope.home)
 		    		.success(function(data){
 		    			$scope.listHomeMessage = data;
 		    					$http.get(appData.url + '/login').

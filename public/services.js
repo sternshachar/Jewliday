@@ -55,7 +55,7 @@ angular.module("jewApp")
 								var promise = $http.get(url + '/login')								
 									.then(function(result){
 										
-										if( result.data.user.house != undefined){
+										if( result.data.user.house.city || result.data.user.house.city != undefined){
 											var city = result.data.user.house.city.split(", ").join("+");
 											var address =   result.data.user.house.homeNumber + '+' + result.data.user.house.street +',' + '+' + city;
 											return address;
