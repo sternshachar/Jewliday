@@ -107,7 +107,7 @@ angular.module("jewApp")
 		content: ""
 	};
 
-	var inboxData = getInbox; //TRY NOT IN RESOLVE
+	var inboxData = getInbox; 
 	$scope.conversations = inboxData.conversations;
 	$scope.unread.num = inboxData.unread;
 	console.log($scope.conversations);

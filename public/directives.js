@@ -176,7 +176,7 @@ angular.module('jewApp')
 
 		templateUrl: 'views/messageContent.html',
 
-		controller: function($scope,$http,appData,homeSearch){
+		controller: function($scope,$http,$interval,appData,homeSearch){
 				$scope.messageData = {
 					uid: $scope.userData.id,
 					sender: $scope.username + ' ' + $scope.userLastName,
@@ -204,7 +204,7 @@ angular.module('jewApp')
 							currentIndex = 0;
 						});
 				}
-
+				$interval($scope.$emit('refresh inbox',{}),10000);
 				$scope.$on('inbox refreshed',function(conversations){
 					$scope.conversation = $scope.conversations[currentIndex];
 					$scope.messageData.content = "";
