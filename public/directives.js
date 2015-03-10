@@ -222,7 +222,7 @@ angular.module('jewApp')
 
 				    // call $anchorScroll()
 		            $anchorScroll();
-		            $location.hash();
+		            $location.hash('');
 				};
 
 			}
