@@ -128,6 +128,10 @@ angular.module("jewApp")
 			})
 
 	})
+
+	$scope.unreadMessage = function(unreadMessage){
+		return unreadMessage ? 'unread' : '';
+	}
 })
 .controller("newHomeCtrl",function($scope,$http, $window, appData,$upload,$state,homeData){
 	if($scope.userData.isListed){
