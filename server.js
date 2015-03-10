@@ -283,7 +283,7 @@ app.put('/inbox/:id', function(req,res){
 	var Inbox = mongoose.model('inboxes');
 	var id = req.params.id;
 	var uid = req.body
-	console.log('ownerId ' + id);
+	console.log(id);
 	Inbox.findOne({"ownerId" : id},function(err,inbox){
 		var conversation = inbox.conversations.filter(function (conv) {
 	   		 return conv.uid == uid.uid;
