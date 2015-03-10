@@ -176,7 +176,7 @@ angular.module('jewApp')
 
 		templateUrl: 'views/messageContent.html',
 
-		controller: function($scope,$http,$interval,appData,homeSearch){
+		controller: function($scope,$http,$interval,$location, $anchorScroll,appData,homeSearch){
 				$scope.messageData = {
 					uid: $scope.userData.id,
 					sender: $scope.userData.firstName + ' ' + $scope.userData.lastName,
@@ -193,6 +193,13 @@ angular.module('jewApp')
 						})
 						$scope.$emit('refresh inbox',{})
 						$scope.conversation = $scope.conversations[index];
+
+				      // set the location.hash to the id of
+				      // the element you wish to scroll to.
+				      	$location.hash('bottom');
+
+				      // call $anchorScroll()
+				      	$anchorScroll();
 				};
 									
 				$scope.replyMessage = function(){
