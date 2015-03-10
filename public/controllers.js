@@ -100,11 +100,24 @@ angular.module("jewApp")
 .controller("inboxCtrl",function($scope,$http,$state,$filter,appData,inboxService,getInbox,userService){
 	
 	var orderBy = $filter('orderBy');
+	$scope.messageData = {
+					uid: $scope.userData.id,
+					sender: $scope.username + ' ' + $scope.userLastName,
+					content: ""
+				};
 
 	var inboxData = getInbox; 
 	$scope.conversations = inboxData.conversations;
 	$scope.unread.num = inboxData.unread;
 	console.log($scope.conversations);
+
+	// $scope.sendMessage = function(){ //consider if needed ************
+	// 	console.log('sending');
+	// 	$http.post(appData.url + '/inbox/' + $scope.userId, $scope.messageData)//userId change to the subjects id
+	// 		.success(function(data){
+	// 			console.log(data);
+	// 		});
+	// }	
 
 	$scope.$on('refresh inbox', function(data){
 		inboxData = inboxService.getInbox(userService.userData.id)
