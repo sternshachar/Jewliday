@@ -11,10 +11,12 @@ angular.module("jewApp")
 
 	$scope.userData = userService.getData();
 
-
 	userService.getUserData()
 		.then(function(result){
-			$scope.userData = userService.getData();		
+			return userService.getData();		
+		})
+		.then(function(result){
+			$scope.userData = result;
 		});
 
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
@@ -66,7 +68,7 @@ angular.module("jewApp")
 							return userService.getData();		
 						})
 						.then(function(result){
-							console.log(result);
+							$scope.userData = result;
 						});
 
 					$scope.closeModal();
