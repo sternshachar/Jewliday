@@ -234,11 +234,12 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 		
 	});
 	User.findOne({ _id: id},function(error,user){
+		console.log(message)
 		Inbox.findOne({"ownerId" : message.uid},function(err,inbox){
 			var conversation = inbox.conversations.filter(function (conv) {
 		   		 return conv.uid == id;
 		 	 }).pop();
-			if(!conversation || conversation == undefined){
+			if(conversation == undefined){
 				var last = inbox.conversations.length;
 				inbox.conversations.push({
 					uid: id,
