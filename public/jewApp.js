@@ -26,13 +26,7 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 					.state('usersArea',{
 						url:'/users',
 						templateUrl: "views/user.html",
-						controller: "userCtrl",
-						resolve: {
-							getUserData: function(userService){
-
-								return userService.getUserData();
-							}
-						}
+						controller: "userCtrl"
 					})
 					.state('usersArea.profile',{
 						url:'/profile',
