@@ -4,7 +4,7 @@
 			</div>
 			<hr>
 			<div class="message-body" ng-repeat="message in conversation.messages">
-				<div id="{{if($last){'bottom'}}}">
+				<div id="{$last ?'bottom' : ''}}}">
 					<p>{{message.content}}</p>
 				</div>
 				<div class="message-date">
