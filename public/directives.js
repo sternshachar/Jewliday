@@ -194,7 +194,7 @@ angular.module('jewApp')
 						$scope.$emit('refresh inbox',{})
 						$scope.conversation = $scope.conversations[index];
 						$scope.gotoBottom();
-						$scope.gotoBottom();
+
 				};
 									
 				$scope.replyMessage = function(){
@@ -222,7 +222,7 @@ angular.module('jewApp')
 
 				    // call $anchorScroll()
 		            $anchorScroll();
-		            $location.hash('');
+		            $anchorScroll();
 				};
 
 			}
