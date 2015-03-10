@@ -10,7 +10,7 @@ angular.module("jewApp")
 	$scope.unread = {num: 0}
 
 	$scope.userData = userService.getData();
-	console.log($scope.userData)
+
 
 	userService.getUserData()
 		.then(function(result){
@@ -63,7 +63,10 @@ angular.module("jewApp")
 				} else {
 					userService.getUserData()
 						.then(function(result){
-							$scope.userData = userService.getData();		
+							return userService.getData();		
+						})
+						.then(function(result){
+							console.log(result);
 						});
 
 					$scope.closeModal();
