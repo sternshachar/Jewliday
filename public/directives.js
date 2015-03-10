@@ -142,7 +142,7 @@ angular.module('jewApp')
 		controller: function($scope,$http,appData,homeSearch){
 				$scope.messageData = {
 					uid: $scope.userData.id,
-					sender: $scope.username + ' ' + $scope.userLastName,
+					sender: $scope.userData.firsName + ' ' + $scope.userData.lastName,
 					subject: "",
 					content: ""
 				};
