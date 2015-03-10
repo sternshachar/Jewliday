@@ -188,7 +188,6 @@ angular.module('jewApp')
 				$scope.openMessageContent = function(index){
 					currentIndex = index;
 					$scope.conversation = $scope.conversations[index]
-					console.log($scope.messageData.uid)
 					$http.put(appData.url + '/inbox/' + $scope.userData.id, {uid: $scope.conversation.uid})
 						.then(function(result){
 							$scope.unread.num -= result.data.read;
@@ -198,6 +197,7 @@ angular.module('jewApp')
 				};
 									
 				$scope.replyMessage = function(){
+					console.log($scope.messageData)
 					$http.post(appData.url + '/inbox/' + $scope.conversation.uid, $scope.messageData)//userId change to the subjects id
 						.success(function(data){
 							$scope.closeModal();
