@@ -140,9 +140,10 @@ angular.module('jewApp')
 		templateUrl: 'views/messageModal.html',
 
 		controller: function($scope,$http,appData,homeSearch){
+				console.log($scope.userData.firstName + ' ' + $scope.userData.lastName)
 				$scope.messageData = {
 					uid: $scope.userData.id,
-					sender: $scope.userData.firsName + ' ' + $scope.userData.lastName,
+					sender: $scope.userData.firstName + ' ' + $scope.userData.lastName,
 					subject: "",
 					content: ""
 				};
