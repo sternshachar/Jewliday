@@ -203,9 +203,10 @@ angular.module('jewApp')
 							$scope.closeModal();
 							$scope.$emit('refresh inbox',{})
 							currentIndex = 0;
+							$scope.messageData.content = "";
 						});
 				}
-				$interval(function(){$scope.$emit('refresh inbox',{})},5000);
+				$interval(function(){$scope.$emit('refresh inbox',{})},10000);
 				$scope.$on('inbox refreshed',function(conversations){
 					$scope.conversation = $scope.conversations[currentIndex];
 				})
