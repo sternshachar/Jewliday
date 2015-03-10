@@ -82,7 +82,8 @@ db.once('open',function(callback){
 		uid:  {type: mongoose.Schema.Types.ObjectId},
 		uName: String,
 		messages: [messageSchema],
-		lastMessage: Date
+		lastMessage: Date,
+		unreadMessage: {type:Boolean, default: false}
 	});
 
 	inboxSchema = mongoose.Schema({ //messaged in conversation

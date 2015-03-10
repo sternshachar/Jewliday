@@ -219,9 +219,11 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 				content: message.content,
 				iSent: false
 				});
+			inbox.conversations[last - 1].unreadMessage = true;
 		}else {
 			console.log('2');
 			conversation.lastMessage = Date.now();
+			conversation.unreadMessage = true;
 			conversation.messages.push({
 				content: message.content,
 				iSent: false
@@ -233,7 +235,7 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 		});
 		
 	});
-	User.findOne({ _id: id},function(error,user){
+	User.findOne({ _id: id},function(error,user){//put the message in my inbox
 		console.log(message)
 		Inbox.findOne({"ownerId" : message.uid},function(err,inbox){
 			var conversation = inbox.conversations.filter(function (conv) {
@@ -291,6 +293,7 @@ app.put('/inbox/:id', function(req,res){
 			if(conversation.messages[i].read == false){
 				conversation.messages[i].read = true;
 				counter += 1;
+				conversation.unreadMessage = false;
 				console.log('found not read')
 			}
 		};
