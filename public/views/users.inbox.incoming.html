@@ -1,13 +1,13 @@
 		<table class="messages table">
 			<tr class="row" ng-repeat="item in conversations | orderBy:'-lastMessage'" ng-class="unreadMessage(item.unreadMessage)">
 					<td class="col-sm-4">
-						<a href ng-click="openMessageContent($index)">{{item.uName}}</a>
+						<a href ng-click="openMessageContent($index,1)">{{item.uName}}</a>
 					</td>
 					<td class="col-sm-4">
-						<a href ng-click="openMessageContent($index)">Conversation with {{item.uName}}</a>
+						<a href ng-click="openMessageContent($index,1)">Conversation with {{item.uName}}</a>
 					</td>
 					<td class="col-sm-4">
-						<a href ng-click="openMessageContent($index)">{{item.lastMessage | date:"MM/dd/yyyy 'at' h:mma"}}</a>
+						<a href ng-click="openMessageContent($index,1)">{{item.lastMessage | date:"MM/dd/yyyy 'at' h:mma"}}</a>
 					</td>
 			</tr>
 		</table>

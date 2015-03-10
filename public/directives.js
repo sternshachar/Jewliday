@@ -184,7 +184,8 @@ angular.module('jewApp')
 				};
 				$scope.$emit('refresh inbox',{})
 				var currentIndex = 0;
-				$scope.openMessageContent = function(index){
+				$scope.openMessageContent = function(index,nest){
+					
 					currentIndex = index;
 					$scope.conversation = $scope.conversations[index]
 					$http.put(appData.url + '/inbox/' + $scope.userData.id, {uid: $scope.conversation.uid})
@@ -194,8 +195,9 @@ angular.module('jewApp')
 						$scope.$emit('refresh inbox',{})
 						$scope.conversation = $scope.conversations[index];
 						$scope.gotoBottom();
-						$scope.gotoBottom();
-
+						if(nest == 1) {
+							$scope.openMessageContent(index,2);
+						} else return null;
 				};
 									
 				$scope.replyMessage = function(){
