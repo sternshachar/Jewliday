@@ -177,7 +177,11 @@ angular.module('jewApp')
 		templateUrl: 'views/messageContent.html',
 
 		controller: function($scope,$http,$interval,appData,homeSearch){
-
+				$scope.messageData = {
+					uid: $scope.userData.id,
+					sender: $scope.userData.firstName + ' ' + $scope.userData.lastName,
+					content: ""
+				};
 				$scope.$emit('refresh inbox',{})
 				var currentIndex = 0;
 				$scope.openMessageContent = function(index){
@@ -192,11 +196,9 @@ angular.module('jewApp')
 				};
 									
 				$scope.replyMessage = function(){
-					$scope.messageData = {
-						uid: $scope.userData.id,
-						sender: $scope.userData.firstName + ' ' + $scope.userData.lastName,
-						content: ""
-					};
+					$scope.messageData.uid = $scope.userData.id;
+					$scope.messageData.uid.sender = $scope.userData.firstName + ' ' + $scope.userData.lastName;
+
 					console.log($scope.messageData)
 					$http.post(appData.url + '/inbox/' + $scope.conversation.uid, $scope.messageData)//userId change to the subjects id
 						.success(function(data){
