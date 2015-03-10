@@ -106,7 +106,7 @@ angular.module("jewApp")
 			
 		}
 })
-.factory('userService',function($http,appData){
+.factory('userService',function($http,appData,$q){
 		var userData = {
 				id : {},
 			 	isAuth :false,
@@ -134,7 +134,9 @@ angular.module("jewApp")
 			},
 
 			getData: function(){
-				return userData;
+				var deferred = $q.defer();
+				deferred.resolve(userData);
+				return deferred.promise;
 			},
 
 			userData: userData
