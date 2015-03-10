@@ -193,13 +193,8 @@ angular.module('jewApp')
 						})
 						$scope.$emit('refresh inbox',{})
 						$scope.conversation = $scope.conversations[index];
+						$scope.gotoBottom();
 
-				      // set the location.hash to the id of
-				      // the element you wish to scroll to.
-				      	$location.hash('bottom');
-
-				      // call $anchorScroll()
-				      	$anchorScroll();
 				};
 									
 				$scope.replyMessage = function(){
@@ -219,6 +214,15 @@ angular.module('jewApp')
 				$scope.$on('inbox refreshed',function(conversations){
 					$scope.conversation = $scope.conversations[currentIndex];
 				})
+
+				$scope.gotoBottom = function() {
+				    // set the location.hash to the id of
+					// the element you wish to scroll to.
+					$location.hash('bottom');
+
+				    // call $anchorScroll()
+		            $anchorScroll();
+				};
 
 			}
 	}
