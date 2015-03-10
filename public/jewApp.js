@@ -48,12 +48,11 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 											.then(function(result){
 												userService.getData()
 													.then(function(result){
+														console.log(result)
 														return inboxService.getInbox(result.id)
 													})
 											})
 
-									
-								console.log(user)
 								return user;
 							}
 						}
