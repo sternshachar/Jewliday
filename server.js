@@ -90,12 +90,12 @@ app.post('/login', function(req, res, next) {
 
 	    });
 	  })(req, res, next);
-	  return res.json(
-			{
-				isAuthenticated: req.isAuthenticated(),
-				user: req.user
-			}
-		);
+	  	       res.json(
+				{
+					isAuthenticated: req.isAuthenticated(),
+					user: req.user
+				}
+			);
 	})
 	.get(function(request,response){
 		response.json(
