@@ -151,6 +151,7 @@ angular.module("jewApp")
     }
 
     $scope.goHome = function(){
+    	userService.getUserData();
     	$state.go('usersArea.home.photos');
     }
 
@@ -197,24 +198,19 @@ angular.module("jewApp")
         }
     };
 })
-.controller('homeCtrl', function($scope,$http,$state,$rootScope,uiGmapGoogleMapApi,appData,userService,addressData,photos){
-	$rootScope.$on('$stateChangeStart', //whenever entering map state, filters results
-			     function(event, toState, toParams, fromState, fromParams){
-			     	if(fromState.name == 'listHome.done')
-			     		$state.reload();
-			     })
+.controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,userService,addressData){
 	$scope.browseMode = false;
 	$scope.amenitiesOrdered = appData.amenitiesHomeView;
 	var amenities = {};
 	userService.getData().then(function(result){
 			amenities = result.homeData.amenities;
 			$scope.home = result.homeData.house;
-			
+			$scope.photosUrl = result.photosUrl;
 			$scope.homeImage = {
 		    	background: 'url(' + $scope.photosUrl.cover + ')'
 			};
 		})
-	$scope.photosUrl = photos;
+
 	$scope.imagePick = function(pic){
 		return {
 	    	'background-image': 'url(' + $scope.photosUrl[pic] + ')'
