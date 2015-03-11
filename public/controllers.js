@@ -2,16 +2,11 @@ angular.module("jewApp")
 .controller("mainCtrl",function($scope,$interval,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope,userService){
 	$scope.user = {};						// user data for SINGUP from form (logModal.html)
 	$scope.userLog = {};					//user data for LOGIN up from form (signModal.html)
-
 	$scope.items = appData.dropdownUserMenu;//item for user dropdown menu
-
 	$scope.signMessage = "Enter email";  	//default text in email field in SIGNUP form
+	$scope.unread = {num: 0}				//indicates number of unread messages
 
-	$scope.unread = {num: 0}
-
-	// $scope.userData = userService.getData();
-
-	userService.getUserData()
+	userService.getUserData()				//gets user datails
 		.then(function(result){
 			return userService.getData();		
 		})
@@ -56,27 +51,36 @@ angular.module("jewApp")
 	}
 
 	$scope.logIn = function(){
-		$http.post(appData.url + "/login",$scope.userLog)
-			.success(function(data){
-				if(data.message){
-					$scope.message = data.message;
-					console.log(data.message);
-					$scope.userLog = {};
-				} else {
-					userService.getUserData()
-						.then(function(result){
-							return userService.getData();		
-						})
-						.then(function(result){
-							$scope.userData = result.userData;
-						});
+		userService.login($scope.userLog)
+			then(function(data){
+				$scope.userData = data.userData;
+				$scope.closeModal();
+				$scope.userLog = {};
+				$scope.message = '';
+			}, function(message){
+				$scope.message = message;
+			})
+		// $http.post(appData.url + "/login",$scope.userLog)
+		// 	.success(function(data){
+		// 		if(data.message){
+		// 			$scope.message = data.message;
+		// 			console.log(data.message);
+		// 			$scope.userLog = {};
+		// 		} else {
+		// 			userService.getUserData()
+		// 				.then(function(result){
+		// 					return userService.getData();		
+		// 				})
+		// 				.then(function(result){
+		// 					$scope.userData = result.userData;
+		// 				});
 
-					$scope.closeModal();
-					$scope.userLog = {};
-					$scope.message = '';
+		// 			$scope.closeModal();
+		// 			$scope.userLog = {};
+		// 			$scope.message = '';
 
-				}
-			});
+		// 		}
+		// 	});
 	}
 
 	$scope.redAlert = function(){

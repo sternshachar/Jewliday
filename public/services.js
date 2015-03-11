@@ -128,7 +128,7 @@ angular.module("jewApp")
 								userData.firstName = result.data.user.firstName;
 								userData.lastName = result.data.user.lastName;
 								userData.isListed = result.data.user.house.listed;
-								if(userData.isListed){
+								if(userData.isListed){ // if user listed a house, get photos & house
 									homeData = result.data.user.house;
 									photosUrl = result.data.user.photos;
 								}
@@ -144,7 +144,27 @@ angular.module("jewApp")
 				deferred.resolve({userData:userData, homeData: homeData, photosUrl: photosUrl});
 				return deferred.promise;
 			},
-
+			login: function(credntials){
+				var deferred = $q.defer();
+				$http.post(appData.url + "/login",credntials)
+					.success(function(data){
+						if(data.message)
+							deferred.reject(data.message)
+						else
+							userData.id = result.data.user._id;
+							userData.firstName = result.data.user.firstName;
+							userData.lastName = result.data.user.lastName;
+							userData.isListed = result.data.user.house.listed;
+							if(userData.isListed){ // if user listed a house, get photos & house
+								homeData = result.data.user.house;
+								photosUrl = result.data.user.photos;
+							}
+							console.log('userData Loaded');
+							deferred.resolve({userData:userData, homeData: homeData, photosUrl: photosUrl});
+					})
+					
+				return deferred.promise;
+			},
 			userData: userData
 			
 		}

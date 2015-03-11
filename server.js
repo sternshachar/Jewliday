@@ -70,7 +70,7 @@ app.post('/signup',function(req,res){
 
 });
 
-app.get('/login', function(request,response){
+app.get('/login', function(request,response){ //see if can delete
 
 		response.json(
 			{
