@@ -9,7 +9,7 @@ angular.module("jewApp")
 
 	$scope.unread = {num: 0}
 
-	$scope.userData = userService.getData();
+	// $scope.userData = userService.getData();
 
 	userService.getUserData()
 		.then(function(result){
