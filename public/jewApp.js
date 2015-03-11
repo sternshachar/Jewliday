@@ -41,7 +41,7 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 											.then(function(result){
 												var inbox = userService.getData()
 																.then(function(result){
-																	return inboxService.getInbox(result.id);
+																	return inboxService.getInbox(result.userData.id);
 																})
 																.then(function(result){
 																	return result;

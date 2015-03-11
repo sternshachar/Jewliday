@@ -114,6 +114,8 @@ angular.module("jewApp")
 			 	lastName : '',
 			 	isListed : false
 			 }
+		var homeData = {};
+		var photosUrl = {};
 
 
 		return{
@@ -126,6 +128,10 @@ angular.module("jewApp")
 								userData.firstName = result.data.user.firstName;
 								userData.lastName = result.data.user.lastName;
 								userData.isListed = result.data.user.house.listed;
+								if(userData.isListed){
+									homeData = result.data.user.house;
+									photosUrl = result.data.user.photos;
+								}
 								console.log('userData Loaded');
 							}
 							return userData;
@@ -135,7 +141,7 @@ angular.module("jewApp")
 
 			getData: function(){
 				var deferred = $q.defer();
-				deferred.resolve(userData);
+				deferred.resolve({userData:userData, homeData: homeData, photosUrl: photosUrl});
 				return deferred.promise;
 			},
 
