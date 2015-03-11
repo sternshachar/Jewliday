@@ -213,13 +213,13 @@ angular.module("jewApp")
 	var amenities = {};
 	userService.getData()
 		.then(function(result){
+			amenities = result.homeData.amenities;
+			$scope.home = result.homeData.house;
 			$scope.photosUrl = result.photosUrl;
 			$scope.homeImage = {
 		    	background: 'url(' + $scope.photosUrl.cover + ')'
 			};
 		})
-	console.log($scope.photosUrl)
-	// $scope.photosUrl = photos;
 
 	$scope.imagePick = function(pic){
 		return {
@@ -227,11 +227,11 @@ angular.module("jewApp")
 		}
 	}
 
-	$http.get(appData.url + '/login').
-				success(function(data){
-					amenities = data.user.house.amenities;
-					$scope.home = data.user.house;
-				});
+	// $http.get(appData.url + '/login').
+	// 			success(function(data){
+	// 				amenities = data.user.house.amenities;
+	// 				$scope.home = data.user.house;
+	// 			});
 
 	$scope.amenitiesOrdered = appData.amenitiesHomeView;
 
