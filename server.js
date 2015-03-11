@@ -87,14 +87,15 @@ app.post('/login', function(req, res, next) {
 	    if (!user) { return res.json(info); }
 	    req.logIn(user, function(err) {
 	      if (err) { return next(err); }
-	      return res.json(
+
+	    });
+	  })(req, res, next);
+	  return res.json(
 			{
 				isAuthenticated: req.isAuthenticated(),
 				user: req.user
 			}
 		);
-	    });
-	  })(req, res, next);
 	})
 	.get(function(request,response){
 		response.json(
