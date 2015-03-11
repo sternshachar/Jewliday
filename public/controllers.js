@@ -209,7 +209,7 @@ angular.module("jewApp")
 		    	// background: 'url(' + $scope.photosUrl.cover + ')'
 			};
 		})
-
+	console.log($scope.photosUrl)
 	$scope.imagePick = function(pic){
 		return {
 	    	'background-image': 'url(' + $scope.photosUrl[pic] + ')'
