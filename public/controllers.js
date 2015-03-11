@@ -36,6 +36,7 @@ angular.module("jewApp")
 	$scope.signUp = function(){
 		userService.signUp($scope.user).then(function(signed){
 			$scope.userLog = {password: $scope.user.password, username: $scope.user.email};
+			$scope.logIn();
 			$scope.signMessage = "Enter email";
 			$scope.user = {};//reset SIGUP form
 		},function(message){
