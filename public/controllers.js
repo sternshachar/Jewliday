@@ -211,7 +211,10 @@ angular.module("jewApp")
 	$scope.browseMode = false;
 
 	var amenities = {};
-	$scope.photosUrl = userService.userData.photosUrl;
+	userService.getData()
+		.then(function(result){
+			$scope.photosUrl = result.photosUrl;
+		})
 	console.log($scope.photosUrl)
 	// $scope.photosUrl = photos;
 
