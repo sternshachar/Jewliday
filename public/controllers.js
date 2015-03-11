@@ -177,7 +177,7 @@ angular.module("jewApp")
     }
 
     $scope.finishList = function(){
-    	$state.go('usersArea.home.photos');
+    	$state.go('listHome.done');
     }
 
     $scope.limit = 3;
@@ -241,8 +241,6 @@ angular.module("jewApp")
 	    	'background-image': 'url(' + $scope.photosUrl[pic] + ')'
 		}
 	}
-
-	
 
 	$scope.amenityCheck = function(name){
 		if(!(typeof amenities === 'undefined')){
