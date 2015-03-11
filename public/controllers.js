@@ -206,7 +206,7 @@ angular.module("jewApp")
 			$scope.home = result.homeData.house;
 			$scope.photosUrl = result.photosUrl;
 			$scope.homeImage = {
-		    	background: 'url(' + $scope.photosUrl.cover + ')'
+		    	// background: 'url(' + $scope.photosUrl.cover + ')'
 			};
 		})
 
