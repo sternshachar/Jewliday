@@ -158,7 +158,7 @@ angular.module("jewApp")
 
 				return deferred.promise;
 			},
-			userData: userData
+			userData: {userData:userData, homeData: homeData, photosUrl: photosUrl}
 			
 		}
 })

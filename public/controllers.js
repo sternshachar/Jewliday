@@ -211,8 +211,8 @@ angular.module("jewApp")
 	$scope.browseMode = false;
 
 	var amenities = {};
-
-	$scope.photosUrl = photos;
+	$scope.photosUrl = userService.userData.photosUrl;
+	// $scope.photosUrl = photos;
 
 	$scope.homeImage = {
     	background: 'url(' + $scope.photosUrl.cover + ')'
