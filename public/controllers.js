@@ -197,19 +197,19 @@ angular.module("jewApp")
         }
     };
 })
-.controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,userService,addressData){
+.controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,userService,addressData,photos){
 	$scope.browseMode = false;
 	$scope.amenitiesOrdered = appData.amenitiesHomeView;
 	var amenities = {};
 	userService.getData().then(function(result){
 			amenities = result.homeData.amenities;
 			$scope.home = result.homeData.house;
-			$scope.photosUrl = result.photosUrl;
+			
 			$scope.homeImage = {
-		    	// background: 'url(' + $scope.photosUrl.cover + ')'
+		    	background: 'url(' + $scope.photosUrl.cover + ')'
 			};
 		})
-	console.log($scope.photosUrl)
+	$scope.photosUrl = photos;
 	$scope.imagePick = function(pic){
 		return {
 	    	'background-image': 'url(' + $scope.photosUrl[pic] + ')'
