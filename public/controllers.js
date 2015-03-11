@@ -214,13 +214,12 @@ angular.module("jewApp")
 	userService.getData()
 		.then(function(result){
 			$scope.photosUrl = result.photosUrl;
+			$scope.homeImage = {
+		    	background: 'url(' + $scope.photosUrl.cover + ')'
+			};
 		})
 	console.log($scope.photosUrl)
 	// $scope.photosUrl = photos;
-
-	$scope.homeImage = {
-    	background: 'url(' + $scope.photosUrl.cover + ')'
-	};
 
 	$scope.imagePick = function(pic){
 		return {
