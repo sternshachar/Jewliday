@@ -32,23 +32,47 @@ angular.module("jewApp")
 				$location.path('/');
 			})
 	}
+
 	$scope.signUp = function(){
-		$scope.user.firstName = $scope.user.firstName[0].toUpperCase() + $scope.user.firstName.substring(1).toLowerCase();
-		$scope.user.lastName = $scope.user.lastName[0].toUpperCase() + $scope.user.lastName.substring(1).toLowerCase();
-		$http.post(appData.url + '/signup',$scope.user)
-			.success(function(data){
-				if(data.message){
-					$scope.signMessage = data.message;
-					$scope.user.email = "";//reset email if signup fails (user exists already)
-				} else {//LOGIN if SIGNUP ok
-					$scope.userLog.password = $scope.user.password;
-					$scope.userLog.username = $scope.user.email;
-					$scope.signMessage = "Enter email";
-					$scope.logIn();
-					$scope.user = {};//reset SIGUP form
-				}
-			})
+		userService.signUp($scope.user).then(function(signed){
+			$scope.userLog = {password: $scope.user.password, username: $scope.user.email};
+			$scope.signMessage = "Enter email";
+			$scope.user = {};//reset SIGUP form
+		},function(message){
+			$scope.signMessage = data.message;
+			$scope.user.email = "";//reset email if signup fails (user exists already)
+		})
+		// $http.post(appData.url + '/signup',$scope.user)
+		// 	.success(function(data){
+		// 		if(data.message){
+		// 			
+		// 		} else {//LOGIN if SIGNUP ok
+		// 			$scope.userLog.password = $scope.user.password;
+		// 			$scope.userLog.username = $scope.user.email;
+		// 			$scope.signMessage = "Enter email";
+		// 			$scope.logIn();
+		// 			$scope.user = {};//reset SIGUP form
+		// 		}
+		// 	})
 	}
+
+	// $scope.signUp = function(){
+	// 	$scope.user.firstName = $scope.user.firstName[0].toUpperCase() + $scope.user.firstName.substring(1).toLowerCase();
+	// 	$scope.user.lastName = $scope.user.lastName[0].toUpperCase() + $scope.user.lastName.substring(1).toLowerCase();
+	// 	$http.post(appData.url + '/signup',$scope.user)
+	// 		.success(function(data){
+	// 			if(data.message){
+	// 				$scope.signMessage = data.message;
+	// 				$scope.user.email = "";//reset email if signup fails (user exists already)
+	// 			} else {//LOGIN if SIGNUP ok
+	// 				$scope.userLog.password = $scope.user.password;
+	// 				$scope.userLog.username = $scope.user.email;
+	// 				$scope.signMessage = "Enter email";
+	// 				$scope.logIn();
+	// 				$scope.user = {};//reset SIGUP form
+	// 			}
+	// 		})
+	// }
 
 	$scope.logIn = function(){
 		userService.login($scope.userLog)
@@ -200,7 +224,7 @@ angular.module("jewApp")
 })
 .controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,userService,addressData){
 	$scope.browseMode = false;
-
+	$scope.amenitiesOrdered = appData.amenitiesHomeView;
 	var amenities = {};
 	userService.getData().then(function(result){
 			amenities = result.homeData.amenities;
@@ -217,7 +241,7 @@ angular.module("jewApp")
 		}
 	}
 
-	$scope.amenitiesOrdered = appData.amenitiesHomeView;
+	
 
 	$scope.amenityCheck = function(name){
 		if(!(typeof amenities === 'undefined')){

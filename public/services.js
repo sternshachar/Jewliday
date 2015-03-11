@@ -119,7 +119,7 @@ angular.module("jewApp")
 
 
 		return{
-			getUserData: function(){
+			getUserData: function(){ //get user data from server
 					var promise = $http.get(appData.url + '/login').
 						then(function(result){
 							userData.isAuth = result.data.isAuthenticated;
@@ -139,7 +139,7 @@ angular.module("jewApp")
 				return promise;
 			},
 
-			getData: function(){
+			getData: function(){ //get user data from factory to ctrl
 				var deferred = $q.defer();
 				deferred.resolve({userData:userData, homeData: homeData, photosUrl: photosUrl});
 				return deferred.promise;
@@ -158,7 +158,23 @@ angular.module("jewApp")
 
 				return deferred.promise;
 			},
-			userData: {userData:userData, homeData: homeData, photosUrl: photosUrl}
+			signUp : function(userData){
+				var user = {
+					firstName: userData.firstName[0].toUpperCase() + userData.firstName.substring(1).toLowerCase(),
+					lastName : userData.lastName[0].toUpperCase() + userData.lastName.substring(1).toLowerCase(),
+
+				}
+				var deferred = $q.defer();
+				$http.post(appData.url + '/signup',userData)
+					.success(function(data){
+						if(data.message){
+							deferred.reject(data.message);
+						} else {//LOGIN if SIGNUP ok
+							deferred.resolve(true);
+						}
+					})
+				return deferred.promise;
+			}
 			
 		}
 })
