@@ -148,6 +148,7 @@ angular.module("jewApp")
 				var deferred = $q.defer();
 				$http.post(appData.url + "/login",credntials)
 					.success(function(data){
+						console.log(data);
 						if(data.message)
 							deferred.reject(data.message)
 						else{
