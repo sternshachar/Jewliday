@@ -66,27 +66,6 @@ angular.module("jewApp")
 			}, function(message){
 				$scope.message = message;
 			})
-		// $http.post(appData.url + "/login",$scope.userLog)
-		// 	.success(function(data){
-		// 		if(data.message){
-		// 			$scope.message = data.message;
-		// 			console.log(data.message);
-		// 			$scope.userLog = {};
-		// 		} else {
-		// 			userService.getUserData()
-		// 				.then(function(result){
-		// 					return userService.getData();		
-		// 				})
-		// 				.then(function(result){
-		// 					$scope.userData = result.userData;
-		// 				});
-
-		// 			$scope.closeModal();
-		// 			$scope.userLog = {};
-		// 			$scope.message = '';
-
-		// 		}
-		// 	});
 	}
 
 	$scope.redAlert = function(){
