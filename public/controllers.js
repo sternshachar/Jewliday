@@ -151,7 +151,12 @@ angular.module("jewApp")
     }
 
     $scope.goHome = function(){
-    	$state.go('usersArea.home.photos');
+    	$state.transitionTo('usersArea.home.photos', $stateParams, {
+		    reload: true,
+		    inherit: false,
+		    notify: true
+		});
+    	// $state.go('usersArea.home.photos');
     }
 
     $scope.limit = 3;
