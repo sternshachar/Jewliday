@@ -212,6 +212,7 @@ angular.module("jewApp")
 
 	var amenities = {};
 	$scope.photosUrl = userService.userData.photosUrl;
+	console.log($scope.photosUrl)
 	// $scope.photosUrl = photos;
 
 	$scope.homeImage = {
