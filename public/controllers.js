@@ -98,16 +98,7 @@ angular.module("jewApp")
 	var inboxData = getInbox; 
 	$scope.conversations = inboxData.conversations;
 	$scope.unread.num = inboxData.unread;
-	console.log($scope.conversations);
-
-	// $scope.sendMessage = function(){ //consider if needed ************
-	// 	console.log('sending');
-	// 	$http.post(appData.url + '/inbox/' + $scope.userId, $scope.messageData)//userId change to the subjects id
-	// 		.success(function(data){
-	// 			console.log(data);
-	// 		});
-	// }	
-
+	
 	$scope.$on('refresh inbox', function(data){
 		inboxData = inboxService.getInbox(userService.userData.id)
 			.then(function(result){
@@ -211,8 +202,7 @@ angular.module("jewApp")
 	$scope.browseMode = false;
 
 	var amenities = {};
-	userService.getData()
-		.then(function(result){
+	userService.getData().then(function(result){
 			amenities = result.homeData.amenities;
 			$scope.home = result.homeData.house;
 			$scope.photosUrl = result.photosUrl;
@@ -226,12 +216,6 @@ angular.module("jewApp")
 	    	'background-image': 'url(' + $scope.photosUrl[pic] + ')'
 		}
 	}
-
-	// $http.get(appData.url + '/login').
-	// 			success(function(data){
-	// 				amenities = data.user.house.amenities;
-	// 				$scope.home = data.user.house;
-	// 			});
 
 	$scope.amenitiesOrdered = appData.amenitiesHomeView;
 
