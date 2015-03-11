@@ -82,7 +82,7 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 							photos: function(userService){
 								var promise = userService.getData()
 									.then(function(result){
-										return result.data.user.photos;
+										return result.photosUrl;
 									})
 
 									return promise;
