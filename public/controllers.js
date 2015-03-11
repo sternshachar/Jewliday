@@ -180,6 +180,10 @@ angular.module("jewApp")
     	$state.go('listHome.done');
     }
 
+    $scope.goHome = function(){
+    	$state.go('usersArea.home.photos');
+    }
+
     $scope.limit = 3;
     $scope.photos = [
 			{ type: 'profile' , name: 'Profile' 	 ,done: false, show: true},
