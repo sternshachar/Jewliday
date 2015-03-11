@@ -148,7 +148,6 @@ angular.module("jewApp")
 
     $scope.finishList = function(){
     	$state.go('listHome.done');
-    	$scope.$apply();
     }
 
     $scope.goHome = function(){

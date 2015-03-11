@@ -78,7 +78,7 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 										return location;
 									})
 									return promise;
-							},
+							}
 						} 
 					})
 					.state('usersArea.search',{
