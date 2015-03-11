@@ -52,7 +52,7 @@ angular.module("jewApp")
 
 	$scope.logIn = function(){
 		userService.login($scope.userLog)
-			then(function(data){
+			.then(function(data){
 				$scope.userData = data.userData;
 				$scope.closeModal();
 				$scope.userLog = {};
