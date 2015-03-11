@@ -125,7 +125,7 @@ angular.module("jewApp")
 	$scope.unread.num = inboxData.unread;
 	
 	$scope.$on('refresh inbox', function(data){
-		inboxData = inboxService.getInbox(userService.userData.id)
+		inboxData = inboxService.getInbox($scope.userData.id)
 			.then(function(result){
 				console.log(result)
 				$scope.conversations = result.conversations;
