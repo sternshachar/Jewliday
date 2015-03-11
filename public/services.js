@@ -150,7 +150,7 @@ angular.module("jewApp")
 					.success(function(data){
 						if(data.message)
 							deferred.reject(data.message)
-						else
+						else{
 							userData.id = data.data.user._id;
 							userData.firstName = data.data.user.firstName;
 							userData.lastName = data.data.user.lastName;
@@ -161,8 +161,9 @@ angular.module("jewApp")
 							}
 							console.log('userData Loaded');
 							deferred.resolve({userData:userData, homeData: homeData, photosUrl: photosUrl});
+						}
 					})
-					
+
 				return deferred.promise;
 			},
 			userData: userData
