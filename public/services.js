@@ -150,18 +150,9 @@ angular.module("jewApp")
 					.success(function(data){
 						console.log(data);
 						if(data.message)
-							deferred.reject(data.message)
+							deferred.reject(data.message);
 						else{
-							userData.id = data.user._id;
-							userData.firstName = data.user.firstName;
-							userData.lastName = data.user.lastName;
-							userData.isListed = data.user.house.listed;
-							if(userData.isListed){ // if user listed a house, get photos & house
-								homeData = data.user.house;
-								photosUrl = data.user.photos;
-							}
-							console.log('userData Loaded');
-							deferred.resolve({userData:userData, homeData: homeData, photosUrl: photosUrl});
+							deferred.resolve(true);
 						}
 					})
 

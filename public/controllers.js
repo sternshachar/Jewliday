@@ -53,7 +53,13 @@ angular.module("jewApp")
 	$scope.logIn = function(){
 		userService.login($scope.userLog)
 			.then(function(data){
-				$scope.userData = data.userData;
+				userService.getUserData()				//gets user datails
+					.then(function(result){
+						return userService.getData();		
+					})
+					.then(function(result){
+						$scope.userData = result.userData;
+					});
 				$scope.closeModal();
 				$scope.userLog = {};
 				$scope.message = '';
