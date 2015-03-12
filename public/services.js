@@ -111,6 +111,7 @@ angular.module("jewApp")
 					$http.get(appData.url + '/search/' + searchTerm)//asks express for homes
 						.success(function(result){
 							searcResults = result;
+							filteredResult = result;
 							deferred.resolve(result)
 						})
 						.error(function(err){
@@ -133,25 +134,25 @@ angular.module("jewApp")
 				var sumLat = 0;
 				var sumLng = 0;
 
-				for (var i = 0; i < filteredResult.length; i++) {
+				for (var i = 0; i < filteredResult.length; i++) { //creatin markers array from googlemap
 					markersCoord.push({
 							id: i,
 							latitude: filteredResult[i].house.location.lat,
 							longitude: filteredResult[i].house.location.lng
-					});
+					});											  //end
 				};
 
-				for (var i = 0; i < markersCoord.length; i++) {
+				for (var i = 0; i < markersCoord.length; i++) {			//for finding map's center
 						sumLat += markersCoord[i].latitude;
 						sumLng += markersCoord[i].longitude;
-				};
+				};														//end
 
-				mapView = {
-						center: {latitude: sumLat/markersCoord.length,
+				mapView = {												//map object for google map
+						center: {latitude: sumLat/markersCoord.length,	
 		     					 longitude: sumLng/markersCoord.length },
 						zoom: 10,
 						bounds: {}
-				}
+				}														
 
 				deferred.resolve({markers: markersCoord, mapView: mapView});
 				return deferred.promise;
