@@ -300,6 +300,7 @@ angular.module("jewApp")
 				console.error(err);
 			});
 			$scope.$watchCollection($scope.homeFilter,function(newData,oldData){
+				console.log(newData);
 				searchService.filterSearchResults($scope.filters,newData)
 					.then(function(data){
 						console.log(data);
