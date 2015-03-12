@@ -298,6 +298,7 @@ angular.module("jewApp")
 	$scope.$watchCollection('homeFilter',function(newData,oldData){
 		searchService.filterSearchResults($scope.filters,newData)
 			.then(function(data){
+				console.log(data);
 				filterResult = data;
 				$scope.chosen = filterResult[0];
 				searchService.mapDataPrepare().
