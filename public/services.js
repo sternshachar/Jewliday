@@ -158,6 +158,19 @@ angular.module("jewApp")
 
 				return deferred.promise;
 			},
+
+			logOut: function(){
+				var deferred = $q.defer();
+				$http.get(appData.url + '/logout')//reset rest of details
+					.success(function(data){
+						deferred.resolve(data.isAuthenticated);
+					})
+					.error(function(err){
+						deferred.reject('err');
+					})
+				return deferred.promise;
+			},
+
 			signUp : function(userData){
 				var user = {
 					firstName: userData.firstName[0].toUpperCase() + userData.firstName.substring(1).toLowerCase(),

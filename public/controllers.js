@@ -26,12 +26,22 @@ angular.module("jewApp")
 	});
 
 	$scope.logOut = function(){
-		$http.get(appData.url + '/logout')//reset rest of details
-			.success(function(data){
-				$scope.userData.isAuth = data.isAuthenticated;
+		userService.signUp().
+			.then(function(data){
+				$scope.userData.isAuth = data;
 				$location.path('/');
+			},function(err){
+				console.log(err);
 			})
 	}
+
+	// $scope.logOut = function(){
+	// 	$http.get(appData.url + '/logout')//reset rest of details
+	// 		.success(function(data){
+	// 			$scope.userData.isAuth = data.isAuthenticated;
+	// 			$location.path('/');
+	// 		})
+	// }
 
 	$scope.signUp = function(){
 		userService.signUp($scope.user).then(function(signed){
