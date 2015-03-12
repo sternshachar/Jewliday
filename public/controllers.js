@@ -1,10 +1,13 @@
 angular.module("jewApp")
-.controller("mainCtrl",function($scope,$interval,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope,userService){
+.controller("mainCtrl",function($scope,$interval,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope,userService,inboxService){
 	$scope.user = {};						// user data for SINGUP from form (logModal.html)
 	$scope.userLog = {};					//user data for LOGIN up from form (signModal.html)
 	$scope.items = appData.dropdownUserMenu;//item for user dropdown menu
 	$scope.signMessage = "Enter email";  	//default text in email field in SIGNUP form
-	$scope.unread = {num: 0}				//indicates number of unread messages
+	$scope.unread = {num: 0}
+
+
+					//indicates number of unread messages
 
 	userService.getUserData()				//gets user datails
 		.then(function(result){
@@ -12,7 +15,11 @@ angular.module("jewApp")
 		})
 		.then(function(result){
 			$scope.userData = result.userData;
-		});
+			return inboxService.getInbox($scope.userData.id)
+		})
+ 		.then(function(result){
+ 			$scope.unread.num = result.unread;
+ 		});
 
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){
@@ -68,7 +75,11 @@ angular.module("jewApp")
 				$scope.closeModal();
 				$scope.userLog = {};
 				$scope.message = '';
-			}, function(message){
+				return inboxService.getInbox($scope.userData.id)
+			})
+			.then(function(result){
+ 			$scope.unread.num = result.unread;
+ 			}, function(message){
 				$scope.message = message;
 			})
 	}
