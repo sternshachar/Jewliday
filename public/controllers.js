@@ -28,7 +28,7 @@ angular.module("jewApp")
 	$scope.logOut = function(){
 		userService.logOut()
 			.then(function(data){
-				$scope.userData.isAuth = data;
+				$scope.userData = {isAuth: data};
 				$location.path('/');
 			},function(err){
 				console.log(err);
