@@ -75,9 +75,9 @@
 		<h1>HOME IS EVERYWHERE</h1>
 		<p>Exchange homes with other jewish families from around the world</p>
 		<div class="form-group row">
-			<input class="form-control col-sm-10" type="text" name="destination" ng-model="destination" placeholder="Where are you traveling to?">
+			<input class="form-control col-sm-10" type="text" name="destination" ng-model="searchTerm" placeholder="Where are you traveling to?">
 			<span class="input-group-btn col-sm-2">
-        		<button class="btn btn-default" type="button">Go!</button>
+        		<button class="btn btn-default" type="button" ng-click="search()">Go!</button>
       		</span>
 		</div>
 	</div><!-- end jumbotron -->
