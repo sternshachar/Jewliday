@@ -1,6 +1,10 @@
 angular.module("jewApp")
 .filter("amenFilter", function ($filter,$rootScope) {
-	return function (items, filterObject,homeFilter) {
+	return function (items,homeFilter) {
+		var filterObject = {TV: false, wifi: false, AirCondition: false,Dryer: false,
+				Elevator: false, Essentials: false, FreeParking: false,Heating: false,
+				Fireplace: false, PetsAllowed: false, Pool: false,SmokingAllowed: false,
+				Washer: false, Accessibility: false}
 		var resultArr = [];
 		var noFilterNeeded = true;
 		if(!items){

@@ -105,17 +105,23 @@ angular.module("jewApp")
 			},
 
 			searchHomes: function(searchTerm){
-					var deferred = $q.defer()
+					var deferred = $q.defer();
 					$http.get(appData.url + '/search/' + searchTerm)//asks express for homes
 						.success(function(result){
 							searcResults = result;
-							console.log(searcResults);
 							deferred.resolve(result)
 						})
 						.error(function(err){
 							deferred.reject(err);
 						});
 					return deferred.promise;
+			},
+
+			filterSearchResults: function(){
+				var deferred = $q.defer();
+				var filter = $filter('amenFilter');
+				searcResults = filter(searcResults)
+				return deferred.promise;
 			}
 			
 		}
