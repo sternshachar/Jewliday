@@ -20,6 +20,9 @@
 	margin: 0;
 	padding: 8px 5px 8px 5px;
 }
+.label-as-badge {
+    border-radius: 1em;
+}
 /* ------ end navbar -----*/
 
 	</style>
@@ -61,7 +64,7 @@
 				    </li>
 				<li>
 					<a href ng-click="logOut()" > <!-- link to inbox -->
-						<span class="glyphicon glyphicon-envelope" ></span><span class="badge text-danger" ng-hide="unread.num == 0">unread.num</span>
+						<span class="glyphicon glyphicon-envelope" ></span><span class="label label-danger label-as-badge" ng-hide="unread.num == 0">{{unread.num}}</span>
 					</a>
 				</li>
 				<li>
