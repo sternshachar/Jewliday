@@ -347,7 +347,7 @@ angular.module("jewApp")
 	})
 
 	$scope.onClick = function(data) {
-	    $scope.chosen = $scope.results[data.key];
+	    $scope.chosen = filterResult[data.key];
 	    $scope.chosenKey = data.key;
 	};
 
