@@ -192,7 +192,7 @@ angular.module("jewApp")
 		}
 })
 
-.factory("inboxService", function($http,$filter,appData){
+.factory("inboxService", function($http,$filter,$q,appData){
 	var inbox = {conversations:{},unread: 0};
 	var orderBy = $filter('orderBy');
 	return {
