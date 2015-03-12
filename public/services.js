@@ -102,7 +102,7 @@ angular.module("jewApp")
 			homeSelect: function(home){
 				homeSelected = home;
 				return homeSelected;
-			}
+			},
 
 			searchHomes: function(searchTerm){
 					var filter = $filter('amenFilter');
