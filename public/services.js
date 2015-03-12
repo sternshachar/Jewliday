@@ -108,7 +108,7 @@ angular.module("jewApp")
 					var deferred = $q.defer()
 					$http.get(appData.url + '/search/' + searchTerm)//asks express for homes
 						.success(function(result){
-							searcResults = results;
+							searcResults = result;
 							console.log(searcResults);
 							deferred.resolve(result)
 						})
