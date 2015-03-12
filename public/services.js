@@ -91,7 +91,7 @@ angular.module("jewApp")
 	}
 })
 
-.factory('searchService',function($filter,$q){
+.factory('searchService',function($http,$filter,$q){
 		var homeSelected = {};
 
 		return{
