@@ -297,7 +297,7 @@ angular.module("jewApp")
 		$scope.search();//calls search function
 	});
 
-	$scope.$watchCollection('homeFilter',function(newData,oldData){
+	$scope.$watchCollection('homeFilter',function(newData,oldData){ //fix bug
 		searchService.filterSearchResults($scope.filters,newData)
 			.then(function(data){
 				filterResult = data;
@@ -347,6 +347,8 @@ angular.module("jewApp")
 	})
 
 	$scope.onClick = function(data) {
+		console.log(filterResult);
+		console.log(data.key);
 	    $scope.chosen = filterResult[data.key];
 	    $scope.chosenKey = data.key;
 	};
