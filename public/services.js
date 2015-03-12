@@ -94,6 +94,8 @@ angular.module("jewApp")
 .factory('searchService',function($http,$filter,$q,appData){
 		var homeSelected = {};
 		var searcResults = [];
+		var filteredResult = [];
+
 		return{
 			getHomeSelect: function(){
 				return homeSelected;
@@ -120,8 +122,38 @@ angular.module("jewApp")
 			filterSearchResults: function(amenities,others){
 				var deferred = $q.defer();
 				var filter = $filter('amenFilter');
-				searcResults = filter(searcResults,amenities,others);
+				filteredResult = filter(searcResults,amenities,others);
 				deferred.resolve(searcResults);
+				return deferred.promise;
+			},
+			mapDataPrepare: function(){
+				var deferred = $q.defer();
+				var markersCoord = [];
+				var mapView = {};
+				var sumLat = 0;
+				var sumLng = 0;
+
+				for (var i = 0; i < filteredResult.length; i++) {
+					markersCoord.push({
+							id: i,
+							latitude: filteredResult[i].house.location.lat,
+							longitude: filteredResult[i].house.location.lng
+					});
+				};
+
+				for (var i = 0; i < markersCoord.length; i++) {
+						sumLat += markersCoord[i].latitude;
+						sumLng += markersCoord[i].longitude;
+				};
+
+				mapView = {
+						center: {latitude: sumLat/markersCoord.length,
+		     					 longitude: sumLng/markersCoord.length },
+						zoom: 10,
+						bounds: {}
+				}
+
+				deferred.resolve({markers: markersCoord, mapView: mapView});
 				return deferred.promise;
 			}
 			

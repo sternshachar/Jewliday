@@ -270,6 +270,8 @@ angular.module("jewApp")
 	$scope.homeFilter = {kosher: null, synagouge: 0, beds: 0, bedrooms:0};
 	var filterResult = [];
 
+	$scope.options = {scrollwheel: false};
+
 	$scope.openHome = function(data){//data is the house only in list
 		var url = $state.href('browse', {parameter: data});
 		if(data){
@@ -298,13 +300,23 @@ angular.module("jewApp")
 			.then(function(data){
 				filterResult = data;
 				$scope.chosen = filterResult[0];
+				searchService.mapDataPrepare().
+					then(function(mapData){
+						$scope.map = mapData.markers;
+						$scope.markers = mapData.mapView;
+					})
 			});	
 	});
 
 	$scope.search = function(){
 		searchService.searchHomes($scope.searchTerm.search)
 			.then(function(results){
-				console.log(results);
+				$scope.results = results;
+				searchService.mapDataPrepare().
+					then(function(mapData){
+						$scope.map = mapData.markers;
+						$scope.markers = mapData.mapView;
+					})
 			},function(err){
 				console.error(err);
 			});
@@ -312,57 +324,57 @@ angular.module("jewApp")
 
 			
 		
-		var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)//asks express for homes
-			.then(function(result){
-				// console.log(result);
-				$scope.results = result.data;
-				$scope.markersCoord = [];
+		// var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)//asks express for homes
+		// 	.then(function(result){
+		// 		// console.log(result);
+		// 		$scope.results = result.data;
+		// 		$scope.markersCoord = [];
 				
-				for (var i = 0; i < $scope.results.length; i++) {//builds markers object for google maps
-					$scope.markersCoord.push({
-						id: i,
-						latitude: $scope.results[i].house.location.lat,
-						longitude: $scope.results[i].house.location.lng
-					});
-				};
+		// 		for (var i = 0; i < $scope.results.length; i++) {//builds markers object for google maps
+		// 			$scope.markersCoord.push({
+		// 				id: i,
+		// 				latitude: $scope.results[i].house.location.lat,
+		// 				longitude: $scope.results[i].house.location.lng
+		// 			});
+		// 		};
 			
-				$rootScope.$on('$stateChangeStart', //whenever entering map state, filters results
-			     function(event, toState, toParams, fromState, fromParams){
-				     	if(toState.name == 'usersArea.search.map'){
+		// 		$rootScope.$on('$stateChangeStart', //whenever entering map state, filters results
+		// 	     function(event, toState, toParams, fromState, fromParams){
+		// 		     	if(toState.name == 'usersArea.search.map'){
 
-							filterResult = filter($scope.results,$scope.filters,$scope.homeFilter);
-							$scope.chosen = filterResult[0];
+		// 					filterResult = filter($scope.results,$scope.filters,$scope.homeFilter);
+		// 					$scope.chosen = filterResult[0];
 
-							$scope.markersCoord = [];
-							for (var i = 0; i < filterResult.length; i++) {
-											$scope.markersCoord.push({
-												id: i,
-												latitude: filterResult[i].house.location.lat,
-												longitude: filterResult[i].house.location.lng
-											});
-										};
+		// 					$scope.markersCoord = [];
+		// 					for (var i = 0; i < filterResult.length; i++) {
+		// 									$scope.markersCoord.push({
+		// 										id: i,
+		// 										latitude: filterResult[i].house.location.lat,
+		// 										longitude: filterResult[i].house.location.lng
+		// 									});
+		// 								};
 						
-							var sumLat = 0;
-							var sumLng = 0;
+		// 					var sumLat = 0;
+		// 					var sumLng = 0;
 
-							for (var i = 0; i < $scope.markersCoord.length; i++) {
-								sumLat += $scope.markersCoord[i].latitude;
-								sumLng += $scope.markersCoord[i].longitude;
-							};
+		// 					for (var i = 0; i < $scope.markersCoord.length; i++) {
+		// 						sumLat += $scope.markersCoord[i].latitude;
+		// 						sumLng += $scope.markersCoord[i].longitude;
+		// 					};
 
-							$scope.markers = $scope.markersCoord;
+		// 					$scope.markers = $scope.markersCoord;
 
-							$scope.options = {scrollwheel: false};
-							$scope.map = {
-								center: {latitude: sumLat/$scope.markers.length,
-		     							 longitude: sumLng/$scope.markers.length },
-						     		zoom: 10,
-						     		bounds: {}
-						     };
-						 }
+		// 					$scope.options = {scrollwheel: false};
+		// 					$scope.map = {
+		// 						center: {latitude: sumLat/$scope.markers.length,
+		//      							 longitude: sumLng/$scope.markers.length },
+		// 				     		zoom: 10,
+		// 				     		bounds: {}
+		// 				     };
+		// 				 }
 
-				});
-			})
+		// 		});
+		// 	})
 	}
 
 	$rootScope.$on('filterExec',function(event,args){//check size of filtered results and update page count
