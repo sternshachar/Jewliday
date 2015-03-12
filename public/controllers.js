@@ -305,6 +305,7 @@ angular.module("jewApp")
 					then(function(mapData){
 						$scope.map = mapData.markers;
 						$scope.markers = mapData.mapView;
+						console.log($scope.markers);
 					})
 			});	
 	});
