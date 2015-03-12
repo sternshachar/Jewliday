@@ -58,13 +58,13 @@ angular.module("jewApp")
 	$scope.logIn = function(){
 		userService.login($scope.userLog)
 			.then(function(data){
-				userService.getUserData()				//gets user datails
-					.then(function(result){
-						return userService.getData();		
-					})
-					.then(function(result){
-						$scope.userData = result.userData;
-					});
+				return userService.getUserData()
+			})				//gets user datails
+			.then(function(result){
+				return userService.getData();		
+			})
+			.then(function(result){
+				$scope.userData = result.userData;
 				$scope.closeModal();
 				$scope.userLog = {};
 				$scope.message = '';
@@ -298,14 +298,12 @@ angular.module("jewApp")
 	$scope.$watchCollection('homeFilter',function(newData,oldData){
 		searchService.filterSearchResults($scope.filters,newData)
 			.then(function(data){
-				console.log(data);
 				filterResult = data;
 				$scope.chosen = filterResult[0];
 				searchService.mapDataPrepare().
 					then(function(mapData){
 						$scope.markers = mapData.markers;
 						$scope.map = mapData.mapView;
-						console.log($scope.markers);
 					})
 			});	
 	});
@@ -318,66 +316,10 @@ angular.module("jewApp")
 					then(function(mapData){
 						$scope.markers = mapData.markers;
 						$scope.map = mapData.mapView;
-						console.log($scope.markers);
 					})
 			},function(err){
 				console.error(err);
-			});
-
-
-			
-		
-		// var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)//asks express for homes
-		// 	.then(function(result){
-		// 		// console.log(result);
-		// 		$scope.results = result.data;
-		// 		$scope.markersCoord = [];
-				
-		// 		for (var i = 0; i < $scope.results.length; i++) {//builds markers object for google maps
-		// 			$scope.markersCoord.push({
-		// 				id: i,
-		// 				latitude: $scope.results[i].house.location.lat,
-		// 				longitude: $scope.results[i].house.location.lng
-		// 			});
-		// 		};
-			
-		// 		$rootScope.$on('$stateChangeStart', //whenever entering map state, filters results
-		// 	     function(event, toState, toParams, fromState, fromParams){
-		// 		     	if(toState.name == 'usersArea.search.map'){
-
-		// 					filterResult = filter($scope.results,$scope.filters,$scope.homeFilter);
-		// 					$scope.chosen = filterResult[0];
-
-		// 					$scope.markersCoord = [];
-		// 					for (var i = 0; i < filterResult.length; i++) {
-		// 									$scope.markersCoord.push({
-		// 										id: i,
-		// 										latitude: filterResult[i].house.location.lat,
-		// 										longitude: filterResult[i].house.location.lng
-		// 									});
-		// 								};
-						
-		// 					var sumLat = 0;
-		// 					var sumLng = 0;
-
-		// 					for (var i = 0; i < $scope.markersCoord.length; i++) {
-		// 						sumLat += $scope.markersCoord[i].latitude;
-		// 						sumLng += $scope.markersCoord[i].longitude;
-		// 					};
-
-		// 					$scope.markers = $scope.markersCoord;
-
-		// 					$scope.options = {scrollwheel: false};
-		// 					$scope.map = {
-		// 						center: {latitude: sumLat/$scope.markers.length,
-		//      							 longitude: sumLng/$scope.markers.length },
-		// 				     		zoom: 10,
-		// 				     		bounds: {}
-		// 				     };
-		// 				 }
-
-		// 		});
-		// 	})
+			});	
 	}
 
 	$rootScope.$on('filterExec',function(event,args){//check size of filtered results and update page count
