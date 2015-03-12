@@ -34,7 +34,7 @@
 	<div class="col-sm-8">
 		<h4 class="text-muted results-number" ng-hide="!filteredResults">Found <span class="badge">{{filteredResults.length}}</span> results</h4>
 		<div class="list-group homes-list">
-			<a href class="list-group-item" ng-repeat="home in filteredResults =(results | amenFilter:filters.amenities:filters.homeFilter) | searchPagination:step:pageNum">
+			<a href class="list-group-item" ng-repeat="home in filteredResults =(results | amenFilter:amenities:homeFilter) | searchPagination:step:pageNum">
 				<div class="row" ng-click="openHome(home)">
 					<div class="col-sm-3">
 						<img ng-src="{{home.photos.profile}}" class="home-img">
@@ -65,13 +65,13 @@
 			<div class="row">
 				<div class="form-group col-sm-6">
 					<label for="">Bedrooms:</label>
-					<select class="form-control" ng-model="filters.homeFilter.bedrooms" ng-options="num for num in [1,2,3,4,5,6,7,8,9]" class="form-control">
+					<select class="form-control" ng-model="homeFilter.bedrooms" ng-options="num for num in [1,2,3,4,5,6,7,8,9]" class="form-control">
 						<option value="">Select</option>
 					</select>
 				</div>
 				<div class="form-group col-sm-6">
 					<label for="">Beds:</label>
-					<select class="form-control" ng-model="filters.homeFilter.beds" ng-options="num for num in [1,2,3,4,5,6,7,8,9]" class="form-control">
+					<select class="form-control" ng-model="homeFilter.beds" ng-options="num for num in [1,2,3,4,5,6,7,8,9]" class="form-control">
 						<option value="">Select</option>
 					</select>
 				</div>
@@ -79,13 +79,13 @@
 			<div class="row">
 				<div class="form-group col-sm-6">
 					<label for="">Kosher:</label>
-					<select class="form-control" ng-model="filters.homeFilter.kosher" ng-options="num for num in ['Regular','Mehadrin','Chabad','None']" class="form-control">
+					<select class="form-control" ng-model="homeFilter.kosher" ng-options="num for num in ['Regular','Mehadrin','Chabad','None']" class="form-control">
 						<option value="">Select</option>
 					</select>
 				</div>
 				<div class="form-group col-sm-6">
 					<label for="">Synagouge <span>(minutes):</span></label>
-					<select class="form-control" ng-model="filters.homeFilter.synagouge" ng-options="num for num in [5,10,15,20,25]" class="form-control">
+					<select class="form-control" ng-model="homeFilter.synagouge" ng-options="num for num in [5,10,15,20,25]" class="form-control">
 						<option value="">Select</option>
 					</select>
 				</div>
@@ -93,7 +93,7 @@
 			<table class="table">
 				<tr ng-repeat="amenity in filterAmen">
 					<td ng-repeat="a in amenity " class="filter-table">
-						<input type="checkbox" ng-model="filters.amenities[a.dbName]"> {{a.name}}
+						<input type="checkbox" ng-model="amenities[a.dbName]"> {{a.name}}
 					</td>
 				</tr>
 			</table>

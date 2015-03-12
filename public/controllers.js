@@ -267,12 +267,11 @@ angular.module("jewApp")
 	}
 })
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData,searchService){
-	$scope.filters = { homeFilter:{kosher: null, synagouge: 0, beds: 0, bedrooms:0},
-					   amenities : {TV: false, wifi: false, AirCondition: false,Dryer: false,
-								Elevator: false, Essentials: false, FreeParking: false,Heating: false,
-								Fireplace: false, PetsAllowed: false, Pool: false,SmokingAllowed: false,
-								Washer: false, Accessibility: false}
-					 }
+	$scope.homeFilter = {kosher: null, synagouge: 0, beds: 0, bedrooms:0};
+	$scope.amenities = {TV: false, wifi: false, AirCondition: false,Dryer: false,
+				Elevator: false, Essentials: false, FreeParking: false,Heating: false,
+				Fireplace: false, PetsAllowed: false, Pool: false,SmokingAllowed: false,
+				Washer: false, Accessibility: false}
 
 	var filterResult = [];
 
@@ -298,9 +297,21 @@ angular.module("jewApp")
 		$scope.search();//calls search function
 	});
 
-	$scope.$watchCollection('filters',function(newData,oldData){
-		console.log(newData);
-		searchService.filterSearchResults(newData.amenities,newData.homeFilter)
+	$scope.$watchCollection('homeFilter',function(newData,oldData){
+		searchService.filterSearchResults($scope.filters,newData)
+			.then(function(data){
+				filterResult = data;
+				$scope.chosen = filterResult[0];
+				return searchService.mapDataPrepare();
+			})
+			.then(function(mapData){
+				$scope.markers = mapData.markers;
+				$scope.map = mapData.mapView;
+			})
+	});
+
+	$scope.$watchCollection('amenities',function(newData,oldData){
+		searchService.filterSearchResults(newData,$scope.homeFilter)
 			.then(function(data){
 				filterResult = data;
 				$scope.chosen = filterResult[0];
