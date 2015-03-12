@@ -91,7 +91,7 @@ angular.module("jewApp")
 	}
 })
 
-.factory('homeSearch',function(){
+.factory('searchService',function(){
 		var homeSelected = {};
 
 		return{
