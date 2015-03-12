@@ -139,7 +139,7 @@ angular.module('jewApp')
 
 		templateUrl: 'views/messageModal.html',
 
-		controller: function($scope,$http,appData,homeSearch,inboxService){
+		controller: function($scope,$http,appData,searchService,inboxService){
 				console.log($scope.userData.firstName + ' ' + $scope.userData.lastName)
 				$scope.messageData = {
 					uid: $scope.userData.id,
@@ -157,8 +157,8 @@ angular.module('jewApp')
 					
 				
 				$scope.modalSendMessage = function(){
-					console.log(homeSearch.getHomeSelect()._id);
-					inboxService.sendMessage(homeSearch.getHomeSelect()._id,$scope.messageData)
+					console.log(searchService.getHomeSelect()._id);
+					inboxService.sendMessage(searchService.getHomeSelect()._id,$scope.messageData)
 						.then(function(data){
 							console.log('Message sent!');
 							$scope.closeModal();
@@ -178,7 +178,7 @@ angular.module('jewApp')
 
 		templateUrl: 'views/messageContent.html',
 
-		controller: function($scope,$http,$interval,$location, $anchorScroll,appData,homeSearch,inboxService){
+		controller: function($scope,$http,$interval,$location, $anchorScroll,appData,searchService,inboxService){
 				$scope.messageData = {
 					uid: $scope.userData.id,
 					sender: $scope.userData.firstName + ' ' + $scope.userData.lastName,
