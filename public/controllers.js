@@ -26,7 +26,7 @@ angular.module("jewApp")
 	});
 
 	$scope.logOut = function(){
-		userService.signUp().
+		userService.signUp()
 			.then(function(data){
 				$scope.userData.isAuth = data;
 				$location.path('/');
