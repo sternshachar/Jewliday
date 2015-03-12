@@ -268,6 +268,8 @@ angular.module("jewApp")
 })
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData,searchService){
 	$scope.homeFilter = {kosher: null, synagouge: 0, beds: 0, bedrooms:0};
+	var filterResult = [];
+
 	$scope.openHome = function(data){//data is the house only in list
 		var url = $state.href('browse', {parameter: data});
 		if(data){
@@ -281,7 +283,6 @@ angular.module("jewApp")
 	$scope.searchMode =	$state.includes('usersArea.search');
 	var filter = $filter('amenFilter')
 	$scope.filterAmen = appData.amenitiesFilter;
-	$scope.homeFilter = {};
 	$scope.filters = {TV: false, wifi: false, AirCondition: false,Dryer: false,
 				Elevator: false, Essentials: false, FreeParking: false,Heating: false,
 				Fireplace: false, PetsAllowed: false, Pool: false,SmokingAllowed: false,
@@ -292,6 +293,14 @@ angular.module("jewApp")
 		$scope.search();//calls search function
 	});
 
+	$scope.$watchCollection('homeFilter',function(newData,oldData){
+		searchService.filterSearchResults($scope.filters,newData)
+			.then(function(data){
+				filterResult = data;
+				$scope.chosen = filterResult[0];
+			});	
+	});
+
 	$scope.search = function(){
 		searchService.searchHomes($scope.searchTerm.search)
 			.then(function(results){
@@ -299,16 +308,10 @@ angular.module("jewApp")
 			},function(err){
 				console.error(err);
 			});
-			$scope.$watchCollection('homeFilter',function(newData,oldData){
-				console.log(newData);
-				searchService.filterSearchResults($scope.filters,newData)
-					.then(function(data){
-						console.log(data);
-					});
-				
-			});
+
+
 			
-		var filterResult = [];
+		
 		var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)//asks express for homes
 			.then(function(result){
 				// console.log(result);
