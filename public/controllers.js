@@ -299,7 +299,7 @@ angular.module("jewApp")
 			},function(err){
 				console.error(err);
 			});
-			$scope.$watchCollection(homeFilter,function(newData,oldData){
+			$scope.$watchCollection('homeFilter',function(newData,oldData){
 				console.log(newData);
 				searchService.filterSearchResults($scope.filters,newData)
 					.then(function(data){
