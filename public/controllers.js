@@ -300,23 +300,23 @@ angular.module("jewApp")
 			.then(function(data){
 				filterResult = data;
 				$scope.chosen = filterResult[0];
-				searchService.mapDataPrepare().
-					then(function(mapData){
-						$scope.markers = mapData.markers;
-						$scope.map = mapData.mapView;
-					})
-			});	
+				return searchService.mapDataPrepare();
+			})
+			.then(function(mapData){
+				$scope.markers = mapData.markers;
+				$scope.map = mapData.mapView;
+			})
 	});
 
 	$scope.search = function(){
 		searchService.searchHomes($scope.searchTerm.search)
 			.then(function(results){
 				$scope.results = results;
-				searchService.mapDataPrepare().
-					then(function(mapData){
-						$scope.markers = mapData.markers;
-						$scope.map = mapData.mapView;
-					})
+				return searchService.mapDataPrepare();
+			})
+			.then(function(mapData){
+				$scope.markers = mapData.markers;
+				$scope.map = mapData.mapView;
 			},function(err){
 				console.error(err);
 			});	
