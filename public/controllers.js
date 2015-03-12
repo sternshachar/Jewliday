@@ -316,8 +316,8 @@ angular.module("jewApp")
 				$scope.results = results;
 				searchService.mapDataPrepare().
 					then(function(mapData){
-						$scope.map = mapData.markers;
-						$scope.markers = mapData.mapView;
+						$scope.markers = mapData.markers;
+						$scope.map = mapData.mapView;
 						console.log($scope.markers);
 					})
 			},function(err){
