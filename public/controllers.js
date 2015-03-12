@@ -267,7 +267,13 @@ angular.module("jewApp")
 	}
 })
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData,searchService){
-	$scope.homeFilter = {kosher: null, synagouge: 0, beds: 0, bedrooms:0};
+	$scope.filters = { homeFilter:{kosher: null, synagouge: 0, beds: 0, bedrooms:0},
+					   amenities : {TV: false, wifi: false, AirCondition: false,Dryer: false,
+								Elevator: false, Essentials: false, FreeParking: false,Heating: false,
+								Fireplace: false, PetsAllowed: false, Pool: false,SmokingAllowed: false,
+								Washer: false, Accessibility: false}
+					 }
+
 	var filterResult = [];
 
 	$scope.options = {scrollwheel: false};
@@ -285,19 +291,15 @@ angular.module("jewApp")
 	$scope.searchMode =	$state.includes('usersArea.search');
 	var filter = $filter('amenFilter')
 	$scope.filterAmen = appData.amenitiesFilter;
-	$scope.filters = {TV: false, wifi: false, AirCondition: false,Dryer: false,
-				Elevator: false, Essentials: false, FreeParking: false,Heating: false,
-				Fireplace: false, PetsAllowed: false, Pool: false,SmokingAllowed: false,
-				Washer: false, Accessibility: false}
+
 
 	$scope.$on('serach',function(events,args){//waits for a search event from mainCtrl
 		$scope.searchTerm = args;
 		$scope.search();//calls search function
 	});
 
-	$scope.$watchGroup(['homeFilter','filters'],function(newData,oldData){
-		console.log(newData);
-		searchService.filterSearchResults(newData[1],newData[0])
+	$scope.$watchCollection('filters',function(newData,oldData){
+		searchService.filterSearchResults($scope.filters,newData)
 			.then(function(data){
 				filterResult = data;
 				$scope.chosen = filterResult[0];
