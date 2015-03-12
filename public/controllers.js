@@ -267,6 +267,7 @@ angular.module("jewApp")
 	}
 })
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData,searchService){
+	$scope.homeFilter = {};
 	$scope.openHome = function(data){//data is the house only in list
 		var url = $state.href('browse', {parameter: data});
 		if(data){
