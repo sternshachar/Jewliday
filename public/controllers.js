@@ -298,6 +298,14 @@ angular.module("jewApp")
 			},function(err){
 				console.error(err);
 			});
+			$scope.$watchCollection($scope.homeFilter,function(newData,oldData){
+				searchService.filterSearchResults($scope.filters,newData)
+					.then(function(data){
+						console.log(data);
+					});
+				
+			});
+			
 		var filterResult = [];
 		var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)//asks express for homes
 			.then(function(result){

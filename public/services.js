@@ -117,10 +117,11 @@ angular.module("jewApp")
 					return deferred.promise;
 			},
 
-			filterSearchResults: function(){
+			filterSearchResults: function(amenities,others){
 				var deferred = $q.defer();
 				var filter = $filter('amenFilter');
-				searcResults = filter(searcResults)
+				searcResults = filter(searcResults,amenities,others);
+				deferred.resolve(searcResults);
 				return deferred.promise;
 			}
 			
