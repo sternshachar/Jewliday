@@ -91,7 +91,7 @@ angular.module("jewApp")
 	}
 })
 
-.factory('searchService',function(){
+.factory('searchService',function($filter,$q){
 		var homeSelected = {};
 
 		return{
@@ -102,6 +102,16 @@ angular.module("jewApp")
 			homeSelect: function(home){
 				homeSelected = home;
 				return homeSelected;
+			}
+
+			searchHomes: function(searchTerm){
+					var filter = $filter('amenFilter');
+					var deferred = $q.defer()
+					var results = $http.get(appData.url + '/search/' + searchTerm)//asks express for homes
+						.then(function(result){
+							console.log(result);
+						})
+					return deferred.promise;
 			}
 			
 		}
