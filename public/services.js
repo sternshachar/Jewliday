@@ -93,7 +93,7 @@ angular.module("jewApp")
 
 .factory('searchService',function($http,$filter,$q,appData){
 		var homeSelected = {};
-
+		var searcResults = [];
 		return{
 			getHomeSelect: function(){
 				return homeSelected;
@@ -105,10 +105,11 @@ angular.module("jewApp")
 			},
 
 			searchHomes: function(searchTerm){
-					var filter = $filter('amenFilter');
 					var deferred = $q.defer()
 					$http.get(appData.url + '/search/' + searchTerm)//asks express for homes
 						.success(function(result){
+							searcResults = results;
+							console.log(searcResults);
 							deferred.resolve(result)
 						})
 						.error(function(err){
