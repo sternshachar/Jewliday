@@ -217,6 +217,17 @@ angular.module("jewApp")
 				return inbox;
 			})
 			return promise;
+		},
+		sendMessage: function(recipientId,messageData){//messageData: sender's id & name, content
+			var deferred = $q.defer();
+			$http.post(appData.url + '/inbox/' + recipientId,messageData)
+				.success(function(data){
+					deferred.resolve('Sent')
+				})
+				.error(function(error){
+					deferred.reject(error);
+				});
+			return deferred.promise;
 		}
 	}
 })

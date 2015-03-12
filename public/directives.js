@@ -176,7 +176,7 @@ angular.module('jewApp')
 
 		templateUrl: 'views/messageContent.html',
 
-		controller: function($scope,$http,$interval,$location, $anchorScroll,appData,homeSearch){
+		controller: function($scope,$http,$interval,$location, $anchorScroll,appData,homeSearch,inboxService){
 				$scope.messageData = {
 					uid: $scope.userData.id,
 					sender: $scope.userData.firstName + ' ' + $scope.userData.lastName,
@@ -199,16 +199,18 @@ angular.module('jewApp')
 									
 				$scope.replyMessage = function(){
 					$scope.messageData.uid = $scope.userData.id;
-					$scope.messageData.uid.sender = $scope.userData.firstName + ' ' + $scope.userData.lastName;
+					$scope.messageData.sender = $scope.userData.firstName + ' ' + $scope.userData.lastName;
 
 					console.log($scope.messageData)
-					$http.post(appData.url + '/inbox/' + $scope.conversation.uid, $scope.messageData)//userId change to the subjects id
-						.success(function(data){
+					inboxService.sendMessage($scope.conversation.uid,$scope.messageData)
+						.then(function(data){
 							$scope.closeModal();
 							$scope.$emit('refresh inbox',{})
 							currentIndex = 0;
 							$scope.messageData.content = "";
-						});
+						},function(err){
+							console.error(err);
+						})
 				}
 				$interval(function(){$scope.$emit('refresh inbox',{})},60000);
 				$scope.$on('inbox refreshed',function(conversations){
