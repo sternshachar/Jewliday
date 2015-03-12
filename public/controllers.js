@@ -292,7 +292,12 @@ angular.module("jewApp")
 	});
 
 	$scope.search = function(){
-		searchService.searchHomes($scope.searchTerm.search);
+		searchService.searchHomes($scope.searchTerm.search)
+			.then(function(results){
+				console.log(results);
+			},function(err){
+				console.error(err);
+			});
 		var filterResult = [];
 		var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)//asks express for homes
 			.then(function(result){

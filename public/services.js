@@ -107,10 +107,13 @@ angular.module("jewApp")
 			searchHomes: function(searchTerm){
 					var filter = $filter('amenFilter');
 					var deferred = $q.defer()
-					var results = $http.get(appData.url + '/search/' + searchTerm)//asks express for homes
-						.then(function(result){
-							console.log(result);
+					$http.get(appData.url + '/search/' + searchTerm)//asks express for homes
+						.success(function(result){
+							deferred.resolve(result)
 						})
+						.error(function(err){
+							deferred.reject(err);
+						});
 					return deferred.promise;
 			}
 			
