@@ -189,7 +189,7 @@ angular.module('jewApp')
 				$scope.openMessageContent = function(index){
 					currentIndex = index;
 					$scope.conversation = $scope.conversations[index]
-					$http.put(appData.url + '/inbox/' + $scope.userData.id, {uid: $scope.conversation.uid})
+					$http.put(appData.url + '/inbox/' + $scope.userData.id, {uid: $scope.conversation.uid})//promise in inbox servcie
 						.then(function(result){
 							$scope.unread.num -= result.data.read;
 						})

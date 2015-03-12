@@ -266,18 +266,18 @@ angular.module("jewApp")
 		$state.go('listHome.address');
 	}
 })
-.controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData,homeSearch){
+.controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData,searchService){
 	$scope.openHome = function(data){//data is the house only in list
 		var url = $state.href('browse', {parameter: data});
 		if(data){
-			var selectedHome = homeSearch.homeSelect(data); 
+			var selectedHome = searchService.homeSelect(data); 
 		} else {
-			var selectedHome = homeSearch.homeSelect($scope.chosen); 
+			var selectedHome = searchService.homeSelect($scope.chosen); 
 		}
 		$state.go('browse.photos');
 	}
 
-	$scope.searchMode =$state.includes('usersArea.search');
+	$scope.searchMode =	$state.includes('usersArea.search');
 	var filter = $filter('amenFilter')
 	$scope.filterAmen = appData.amenitiesFilter;
 	$scope.homeFilter = {};
@@ -293,7 +293,6 @@ angular.module("jewApp")
 
 	$scope.search = function(){
 		var filterResult = [];
-		// $state.go('usersArea.search.list');//goes to list view
 		var results = $http.get(appData.url + '/search/' + $scope.searchTerm.search)//asks express for homes
 			.then(function(result){
 				// console.log(result);
@@ -370,11 +369,11 @@ angular.module("jewApp")
 	}
 })
 
-.controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData, homeSearch){
+.controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData, searchService){
 	$scope.browseMode = true;
 	$scope.messageModal = {isOpen: false};
 
-	var home = homeSearch.getHomeSelect();
+	var home = searchService.getHomeSelect();
 	$scope.photosUrl = home.photos;
 	var amenities = home.house.amenities;
 
