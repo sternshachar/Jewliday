@@ -299,7 +299,8 @@ angular.module("jewApp")
 	});
 
 	$scope.$watchCollection('filters',function(newData,oldData){
-		searchService.filterSearchResults($scope.filters,newData)
+		console.log(newData);
+		searchService.filterSearchResults(newData.amenities,newData.homeFilter)
 			.then(function(data){
 				filterResult = data;
 				$scope.chosen = filterResult[0];
