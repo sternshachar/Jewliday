@@ -281,6 +281,7 @@ angular.module("jewApp")
 	$scope.searchMode =	$state.includes('usersArea.search');
 	var filter = $filter('amenFilter')
 	$scope.filterAmen = appData.amenitiesFilter;
+	$scope.homeFilter = {};
 	$scope.filters = {TV: false, wifi: false, AirCondition: false,Dryer: false,
 				Elevator: false, Essentials: false, FreeParking: false,Heating: false,
 				Fireplace: false, PetsAllowed: false, Pool: false,SmokingAllowed: false,
