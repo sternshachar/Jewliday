@@ -296,6 +296,7 @@ angular.module("jewApp")
 	});
 
 	$scope.$watchGroup(['homeFilter','filters'],function(newData,oldData){
+		console.log(newData);
 		searchService.filterSearchResults(newData[1],newData[0])
 			.then(function(data){
 				filterResult = data;
