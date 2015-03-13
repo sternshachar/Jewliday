@@ -337,7 +337,9 @@ angular.module("jewApp")
 				console.error(err);
 			});	
 	}
-	$scope.search();
+	if ($scope.searchTerm.search != '')
+		$scope.search();
+	
 	$rootScope.$on('filterExec',function(event,args){//check size of filtered results and update page count
 		$scope.filteredResultLength = args;
 		if(args != $scope.oldLength)
