@@ -42,14 +42,6 @@ angular.module("jewApp")
 			})
 	}
 
-	// $scope.logOut = function(){
-	// 	$http.get(appData.url + '/logout')//reset rest of details
-	// 		.success(function(data){
-	// 			$scope.userData.isAuth = data.isAuthenticated;
-	// 			$location.path('/');
-	// 		})
-	// }
-
 	$scope.signUp = function(){
 		userService.signUp($scope.user).then(function(signed){
 			$scope.userLog = {password: $scope.user.password, username: $scope.user.email};
@@ -336,6 +328,9 @@ angular.module("jewApp")
 
 	$scope.search = function(){
 		searchService.searchHomes($scope.searchTerm.search)
+			.then(function(results){
+				return searchService.filterSearchResults($scope.filters,$scope.homeFilter);
+			})
 			.then(function(results){
 				$scope.results = results;
 				return searchService.mapDataPrepare();
