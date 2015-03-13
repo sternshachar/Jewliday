@@ -111,7 +111,6 @@ angular.module("jewApp")
 					$http.get(appData.url + '/search/' + searchTerm)//asks express for homes
 						.success(function(result){
 							searcResults = result;
-							filteredResult = result;
 							deferred.resolve(result)
 						})
 						.error(function(err){
