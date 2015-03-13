@@ -95,7 +95,9 @@ angular.module("jewApp")
 })
 
 .controller("inboxCtrl",function($scope,$http,$state,$filter,appData,inboxService,getInbox,userService){
-	
+	if(!$scope.userData.isAuth)
+		$state.go('home');
+
 	var orderBy = $filter('orderBy');
 	$scope.messageData = {
 					uid: $scope.userData.id,
@@ -123,6 +125,9 @@ angular.module("jewApp")
 	}
 })
 .controller("newHomeCtrl",function($scope,$http, appData,$upload,$state,homeData,userService){
+	if(!$scope.userData.isAuth)
+		$state.go('home');
+
 	if($scope.userData.isListed){
 		$scope.home = homeData;
 		console.log($scope.home)
@@ -212,6 +217,9 @@ angular.module("jewApp")
     };
 })
 .controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,userService,addressData){
+	if(!$scope.userData.isAuth)
+		$state.go('home');
+
 	$scope.browseMode = false;
 	$scope.amenitiesOrdered = appData.amenitiesHomeView;
 	var amenities = {};
@@ -270,6 +278,9 @@ angular.module("jewApp")
 	}
 })
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData,searchService){
+	if(!$scope.userData.isAuth)
+		$state.go('home');
+
 	$scope.homeFilter = {kosher: null, synagouge: 0, beds: 0, bedrooms:0};
 	$scope.amenities = {TV: false, wifi: false, AirCondition: false,Dryer: false,
 				Elevator: false, Essentials: false, FreeParking: false,Heating: false,
@@ -376,6 +387,9 @@ angular.module("jewApp")
 })
 
 .controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData, searchService){
+	if(!$scope.userData.isAuth)
+		$state.go('home');
+
 	$scope.browseMode = true;
 	$scope.messageModal = {isOpen: false};
 
