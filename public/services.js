@@ -123,7 +123,7 @@ angular.module("jewApp")
 				var deferred = $q.defer();
 				var filter = $filter('amenFilter');
 				filteredResult = filter(searcResults,amenities,others);
-				deferred.resolve(searcResults);
+				deferred.resolve(filteredResult);
 				return deferred.promise;
 			},
 			mapDataPrepare: function(){
