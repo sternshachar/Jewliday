@@ -24,9 +24,7 @@ angular.module("jewApp")
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){
 		$state.go('usersArea.search.list');
-		$scope.$broadcast('serach',$scope.searchTerm);//send a search event to searchCtrl with searchTerm
 	}
-
 
 	$scope.$on('mapFiltered', function(events,args){
 		console.log(args);
@@ -295,6 +293,11 @@ angular.module("jewApp")
 	var filter = $filter('amenFilter')
 	$scope.filterAmen = appData.amenitiesFilter;
 
+	$scope.$on('serach',function(events,args){//waits for a search event from mainCtrl
+		$scope.searchTerm = args;
+		$scope.search();//calls search function
+	});
+
 	$scope.$watchCollection('homeFilter',function(newData,oldData){ //fix bug
 		searchService.filterSearchResults($scope.amenities,newData)
 			.then(function(data){
@@ -340,8 +343,7 @@ angular.module("jewApp")
 			});	
 	}
 	if ($scope.searchTerm.search != '')
-		$scope.search();
-	
+	z$scope.search();
 	$rootScope.$on('filterExec',function(event,args){//check size of filtered results and update page count
 		$scope.filteredResultLength = args;
 		if(args != $scope.oldLength)
