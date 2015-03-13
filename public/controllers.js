@@ -336,6 +336,7 @@ angular.module("jewApp")
 			.then(function(results){
 				$scope.results = results;
 				filterResult = results;
+				$scope.chosen = filterResult[0];
 				return searchService.mapDataPrepare();
 			})
 			.then(function(mapData){
