@@ -122,6 +122,7 @@ angular.module("jewApp")
 			filterSearchResults: function(amenities,others){
 				var deferred = $q.defer();
 				var filter = $filter('amenFilter');
+				console.log({amenities: amenities, others: others})
 				filteredResult = filter(searcResults,amenities,others);
 				console.log(filteredResult);
 				deferred.resolve(filteredResult);
@@ -133,7 +134,6 @@ angular.module("jewApp")
 				var mapView = {};
 				var sumLat = 0;
 				var sumLng = 0;
-				console.log(filteredResult);
 				for (var i = 0; i < filteredResult.length; i++) { //creatin markers array from googlemap
 					markersCoord.push({
 							id: i,
