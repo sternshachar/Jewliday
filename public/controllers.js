@@ -311,6 +311,7 @@ angular.module("jewApp")
 				$scope.markers = mapData.markers;
 				$scope.map = mapData.mapView;
 			})
+			console.log($scope.markers);
 	});
 
 	$scope.$watchCollection('amenities',function(newData,oldData){
@@ -324,6 +325,7 @@ angular.module("jewApp")
 				$scope.markers = mapData.markers;
 				$scope.map = mapData.mapView;
 			})
+			console.log($scope.markers);
 	});
 
 	$scope.search = function(){
@@ -338,6 +340,7 @@ angular.module("jewApp")
 			.then(function(mapData){
 				$scope.markers = mapData.markers;
 				$scope.map = mapData.mapView;
+				console.log($scope.markers);
 			},function(err){
 				console.error(err);
 			});	
