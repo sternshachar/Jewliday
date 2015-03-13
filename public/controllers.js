@@ -335,7 +335,7 @@ angular.module("jewApp")
 			})
 			.then(function(results){
 				$scope.results = results;
-				$scope.filterResult = results;
+				filterResult = results;
 				return searchService.mapDataPrepare();
 			})
 			.then(function(mapData){
