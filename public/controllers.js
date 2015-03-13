@@ -310,7 +310,6 @@ angular.module("jewApp")
 			.then(function(mapData){
 				$scope.markers = mapData.markers;
 				$scope.map = mapData.mapView;
-				console.log($scope.markers);
 			})
 			
 	});
@@ -325,7 +324,6 @@ angular.module("jewApp")
 			.then(function(mapData){
 				$scope.markers = mapData.markers;
 				$scope.map = mapData.mapView;
-				console.log($scope.markers);
 			})
 			
 	});
@@ -342,7 +340,6 @@ angular.module("jewApp")
 			.then(function(mapData){
 				$scope.markers = mapData.markers;
 				$scope.map = mapData.mapView;
-				console.log($scope.markers);
 			},function(err){
 				console.error(err);
 			});	
