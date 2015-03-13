@@ -132,7 +132,7 @@ angular.module("jewApp")
 				var mapView = {};
 				var sumLat = 0;
 				var sumLng = 0;
-
+				console.log(filteredResult);
 				for (var i = 0; i < filteredResult.length; i++) { //creatin markers array from googlemap
 					markersCoord.push({
 							id: i,
