@@ -122,9 +122,7 @@ angular.module("jewApp")
 			filterSearchResults: function(amenities,others){
 				var deferred = $q.defer();
 				var filter = $filter('amenFilter');
-				console.log({amenities: amenities, others: others})
 				filteredResult = filter(searcResults,amenities,others);
-				console.log(filteredResult);
 				deferred.resolve(filteredResult);
 				return deferred.promise;
 			},
