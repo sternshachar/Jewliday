@@ -301,7 +301,7 @@ angular.module("jewApp")
 	});
 
 	$scope.$watchCollection('homeFilter',function(newData,oldData){ //fix bug
-		searchService.filterSearchResults($scope.filters,newData)
+		searchService.filterSearchResults($scope.amenities,newData)
 			.then(function(data){
 				filterResult = data;
 				$scope.chosen = filterResult[0];
@@ -331,7 +331,7 @@ angular.module("jewApp")
 	$scope.search = function(){
 		searchService.searchHomes($scope.searchTerm.search)
 			.then(function(results){
-				return searchService.filterSearchResults($scope.filters,$scope.homeFilter);
+				return searchService.filterSearchResults($scope.amenities,$scope.homeFilter);
 			})
 			.then(function(results){
 				$scope.results = results;
