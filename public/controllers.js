@@ -293,7 +293,6 @@ angular.module("jewApp")
 	$scope.searchMode =	$state.includes('usersArea.search');
 	var filter = $filter('amenFilter')
 	$scope.filterAmen = appData.amenitiesFilter;
-	$scope.search();
 
 	$scope.$on('serach',function(events,args){//waits for a search event from mainCtrl
 		$scope.searchTerm = args;
@@ -344,7 +343,7 @@ angular.module("jewApp")
 				console.error(err);
 			});	
 	}
-
+	$scope.search();
 	$rootScope.$on('filterExec',function(event,args){//check size of filtered results and update page count
 		$scope.filteredResultLength = args;
 		if(args != $scope.oldLength)
