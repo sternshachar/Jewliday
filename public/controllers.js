@@ -24,7 +24,7 @@ angular.module("jewApp")
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){
 		$state.go('usersArea.search.list');
-		$scope.$broadcast('serach',$scope.searchTerm);//send a search event to searchCtrl with searchTerm
+		// $scope.$broadcast('serach',$scope.searchTerm);//send a search event to searchCtrl with searchTerm
 	}
 
 	$scope.$on('mapFiltered', function(events,args){
@@ -293,7 +293,7 @@ angular.module("jewApp")
 	$scope.searchMode =	$state.includes('usersArea.search');
 	var filter = $filter('amenFilter')
 	$scope.filterAmen = appData.amenitiesFilter;
-
+	$scope.search();
 
 	$scope.$on('serach',function(events,args){//waits for a search event from mainCtrl
 		$scope.searchTerm = args;
