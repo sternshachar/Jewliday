@@ -261,32 +261,33 @@ angular.module("jewApp")
 		.then(function(data){
 			console.log(data);
 			$scope.mapData = data.homeData.location;
+			$scope.map = {center: {latitude: $scope.mapData.lat,
+     					   longitude: $scope.mapData.lng }, zoom: 14 };
+     			$scope.marker = {
+					id: 0,
+					coords: {
+					  latitude: $scope.mapData.lat,
+					  longitude: $scope.mapData.lng
+					},
+					options: { draggable: false },
+					events: {
+					  click: function (marker, eventName, args) {
+					    var lat = marker.getPosition().lat();
+					    var lon = marker.getPosition().lng();
+
+					    $scope.marker.options = {
+					    	labelClass: "marker-labels",
+					      content: "<img class='map-info-pic' ng-src='" + $scope.photosUrl.profile + "'>",
+					      zIndex: 99999
+					    };
+					  }
+					}
+				}
 		})
 	
-	console.log($scope.mapData);
 	$scope.options = {scrollwheel: false};
-	$scope.map = {center: {latitude: $scope.mapData.lat,
-     					   longitude: $scope.mapData.lng }, zoom: 14 };
-	$scope.marker = {
-		id: 0,
-		coords: {
-		  latitude: $scope.mapData.lat,
-		  longitude: $scope.mapData.lng
-		},
-		options: { draggable: false },
-		events: {
-		  click: function (marker, eventName, args) {
-		    var lat = marker.getPosition().lat();
-		    var lon = marker.getPosition().lng();
 
-		    $scope.marker.options = {
-		    	labelClass: "marker-labels",
-		      content: "<img class='map-info-pic' ng-src='" + $scope.photosUrl.profile + "'>",
-		      zIndex: 99999
-		    };
-		  }
-		}
-	}
+
 
 	$scope.editHome = function(){
 		$state.go('listHome.address');
