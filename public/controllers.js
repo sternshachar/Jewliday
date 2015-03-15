@@ -22,8 +22,8 @@ angular.module("jewApp")
  			$scope.unread.num = result.unread;
  		});
 
- 	$timeout(function() { 
- 	$scope.warning = ''; }, 10000);	
+ 	// $timeout(function() { 
+ 	// $scope.warning = ''; }, 10000);	
 
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){
