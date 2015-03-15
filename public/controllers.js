@@ -4,7 +4,8 @@ angular.module("jewApp")
 	$scope.userLog = {};					//user data for LOGIN up from form (signModal.html)
 	$scope.items = appData.dropdownUserMenu;//item for user dropdown menu
 	$scope.signMessage = "Enter email";  	//default text in email field in SIGNUP form
-	$scope.unread = {num: 0}
+	$scope.unread = {num: 0};
+	$scope.warning = '';
 
 
 					//indicates number of unread messages
@@ -20,6 +21,9 @@ angular.module("jewApp")
  		.then(function(result){
  			$scope.unread.num = result.unread;
  		});
+
+ 	$timeout(function() { 
+ 	$scope.warning = ''; }, 10000);	
 
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){
@@ -218,6 +222,8 @@ angular.module("jewApp")
 })
 .controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,userService,addressData){
 	if(!$scope.userData.isAuth)
+		if(!$scope.userData.isListed)
+			$scope.warning = 'Your home is not listed. Please list your home.';
 		$state.go('home');
 
 	$scope.browseMode = false;
