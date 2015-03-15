@@ -255,6 +255,7 @@ angular.module("jewApp")
 	}
 
 	$scope.mapData = userService.getData().homeData;
+	console.log($scope.mapData);
 	$scope.options = {scrollwheel: false};
 	$scope.map = {center: {latitude: $scope.mapData.lat,
      					   longitude: $scope.mapData.lng }, zoom: 14 };
