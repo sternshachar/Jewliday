@@ -33,7 +33,9 @@
 					<img ng-src="images/{{logo}}" alt="Jewliday">
 				</a>
 			</div>
-
+			<ul>
+				<li><h3 class="warning-message" >{{warning.message}}</h3></li>
+			</ul>
 			<ul class="nav navbar-nav pull-right" ng-if="!userData.isAuth">
 				<li>
 					<a href ng-click="openModal('login')" >
