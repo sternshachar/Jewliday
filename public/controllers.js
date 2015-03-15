@@ -5,7 +5,7 @@ angular.module("jewApp")
 	$scope.items = appData.dropdownUserMenu;//item for user dropdown menu
 	$scope.signMessage = "Enter email";  	//default text in email field in SIGNUP form
 	$scope.unread = {num: 0};
-	$scope.warning = '';
+	$scope.warning = {message: ''};
 
 
 					//indicates number of unread messages
@@ -225,7 +225,7 @@ angular.module("jewApp")
 		$state.go('home');
 	} else {
 		if(!$scope.userData.isListed){
-			$scope.warning = 'Your home is not listed. Please list your home.';
+			$scope.warning.message = 'Your home is not listed. Please list your home.';
 			$state.go('home');
 		}
 	}
