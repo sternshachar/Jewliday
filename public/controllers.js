@@ -260,7 +260,7 @@ angular.module("jewApp")
 	userService.getData()
 		.then(function(data){
 			console.log(data);
-			$scope.mapData = data.homeData;
+			$scope.mapData = data.homeData.location;
 		})
 	
 	console.log($scope.mapData);
