@@ -23,6 +23,10 @@
 .label-as-badge {
     border-radius: 1em;
 }
+.warning-message{
+	border-radius: 6px;
+	background-color: lightpink;
+}
 /* ------ end navbar -----*/
 
 	</style>
@@ -33,8 +37,8 @@
 					<img ng-src="images/{{logo}}" alt="Jewliday">
 				</a>
 			</div>
-			<ul class="nav navbar-nav">
-				<li><h3 class="warning-message" >{{warning.message}}</h3></li>
+			<ul class="nav navbar-nav pull-center">
+				<li><h4 class="warning-message" >{{warning.message}}</h4></li>
 			</ul>
 			<ul class="nav navbar-nav pull-right" ng-if="!userData.isAuth">
 				<li>
