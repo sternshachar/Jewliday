@@ -1,5 +1,5 @@
 angular.module("jewApp")
-.controller("mainCtrl",function($scope,$interval,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope,userService,inboxService){
+.controller("mainCtrl",function($scope,$interval,$timeout,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope,userService,inboxService){
 	$scope.user = {};						// user data for SINGUP from form (logModal.html)
 	$scope.userLog = {};					//user data for LOGIN up from form (signModal.html)
 	$scope.items = appData.dropdownUserMenu;//item for user dropdown menu
