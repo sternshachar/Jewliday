@@ -220,7 +220,7 @@ angular.module("jewApp")
         }
     };
 })
-.controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,userService,addressData){
+.controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,userService){
 	if(!$scope.userData.isAuth)
 		if(!$scope.userData.isListed)
 			$scope.warning = 'Your home is not listed. Please list your home.';
@@ -254,7 +254,7 @@ angular.module("jewApp")
 		}
 	}
 
-	$scope.mapData = addressData;
+	$scope.mapData = userService.getData().homeData;
 	$scope.options = {scrollwheel: false};
 	$scope.map = {center: {latitude: $scope.mapData.lat,
      					   longitude: $scope.mapData.lng }, zoom: 14 };
