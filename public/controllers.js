@@ -226,6 +226,7 @@ angular.module("jewApp")
 	} else {
 		if(!$scope.userData.isListed){
 			$scope.warning.message = 'Your home is not listed. Please list your home.';
+			console.log($scope.warning.message);
 			$state.go('home');
 		}
 	}
