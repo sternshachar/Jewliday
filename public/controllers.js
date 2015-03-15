@@ -258,7 +258,7 @@ angular.module("jewApp")
 			}
 		}
 	}
-	if(!$scope.userData.isListed)
+	if($scope.userData.isListed)
 		userService.getData()
 			.then(function(data){
 				console.log(data);
