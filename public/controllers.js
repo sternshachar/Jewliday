@@ -154,6 +154,7 @@ angular.module("jewApp")
     			return userService.saveHome($scope.home,data)
     		})
     		.then(function(data){
+    			$scope.userData.isListed = true;
     			console.log(data);
     		},function(err){
     			console.error(err);
