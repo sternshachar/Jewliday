@@ -96,11 +96,11 @@ angular.module("jewApp")
 })
 
 .controller("inboxCtrl",function($scope,$http,$state,$filter,appData,inboxService,getInbox,userService){
+	$scope.warning.message = '';
 	if(!$scope.userData.isAuth){
 		$scope.warning.message = 'Please Log in ';
 		$state.go('home');
 	}
-	$scope.warning.message = '';
 	var orderBy = $filter('orderBy');
 	$scope.messageData = {
 					uid: $scope.userData.id,
@@ -299,8 +299,10 @@ angular.module("jewApp")
 	}
 })
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData,searchService){
-	if(!$scope.userData.isAuth)
+	if(!$scope.userData.isAuth){
+		$scope.warning.message = 'Please Log in ';
 		$state.go('home');
+	}
 	$scope.warning.message = '';
 	$scope.homeFilter = {kosher: null, synagouge: 0, beds: 0, bedrooms:0};
 	$scope.amenities = {TV: false, wifi: false, AirCondition: false,Dryer: false,
