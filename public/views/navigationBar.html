@@ -30,8 +30,8 @@
 	margin-left: 24em;
 }
 
-.warning-message.ng-leave { transition:1s linear all; opacity: 1;}        /* starting animations for leave */
-.warning-message.ng-leave.ng-leave-active {opacity: 0;} /* terminal animations for leave */
+.warning-div.ng-leave { transition:1s linear all; opacity: 1;}        /* starting animations for leave */
+.warning-div.ng-leave.ng-leave-active {opacity: 0;} /* terminal animations for leave */
 /* ------ end navbar -----*/
 
 	</style>
@@ -42,7 +42,7 @@
 					<img ng-src="images/{{logo}}" alt="Jewliday">
 				</a>
 			</div>
-			<ul class="nav navbar-nav pull-center" ng-if="warning.message != ''">
+			<ul class="nav navbar-nav pull-center warning-div" ng-if="warning.message != ''">
 				<li><h4 class="warning-message" >{{warning.message}}<span class="glyphicon glyphicon-arrow-right"></span></h4></li>
 			</ul>
 			<ul class="nav navbar-nav pull-right" ng-if="!userData.isAuth">
