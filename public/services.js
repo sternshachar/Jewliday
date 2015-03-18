@@ -259,7 +259,7 @@ angular.module("jewApp")
 		    	home.location = coords;
 		    	$http.put(appData.url + '/listHome/' + userData.id,home)
 				    .success(function(data){
-				    	userData.homeData.location = coords;
+				    	homeData.location = coords;
 				    	userData.isListed = true;
 				    	deferred.resolve(data);
 					})
