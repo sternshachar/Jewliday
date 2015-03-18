@@ -113,7 +113,7 @@ app.get("/logout" ,function(req,res){
 app.put('/listHome/:id', function(req,res){
 	var id = req.params.id;
 	var house = req.body;
-
+	console.log(house);
 	var User = mongoose.model('users');
 	User.update({_id: id},{$set: {house: house}}, function(){
 		User.findById(id, function(err,user){
