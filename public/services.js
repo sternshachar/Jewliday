@@ -254,25 +254,20 @@ angular.module("jewApp")
 				return deferred.promise;
 			}
 			
-			// saveHome : function(){
-    	
-		 //    	var locationPromise = appData.addressData(appData.url)
-		 //    		.then(function(result){
-		 //    			$scope.home.location = result;
-		 //    			console.log(result);
-		 //    			console.log($scope.home.location);
-		 //    			$http.put(appData.url + '/listHome/' + $scope.userData.id,$scope.home)
-			// 	    		.success(function(data){
-			// 	    			$scope.listHomeMessage = data;
-			// 	    					$http.get(appData.url + '/login').
-			// 								success(function(data){
-			// 									$scope.userData.isListed = data.user.house.listed;
-			// 								});
-											
-			// 					$state.go('listHome.photos');
-			// 	    		})
-		 //    		});
-		 //    }
+			saveHome : function(coords,home){
+    			var deferred = $q.defer();
+		    	home.location = coords;
+		    	$http.put(appData.url + '/listHome/' + userData.id,home)
+				    .success(function(data){
+				    	userData.homeData.location = coords;
+				    	userData.isListed = true;
+				    	deferred.resolve(data);
+					})
+					.error(function(err){
+						deferred.reject(err);
+					})
+				return deferred.promise;
+		    }
 		
 		}
 })

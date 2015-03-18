@@ -151,7 +151,12 @@ angular.module("jewApp")
     $scope.saveHome = function(){
     	userService.getCoord($scope.home)
     		.then(function(data){
+    			return userService.saveHome($scope.home,data)
+    		})
+    		.then(function(data){
     			console.log(data);
+    		},function(err){
+    			console.error(err);
     		})
     	// var locationPromise = appData.addressData(appData.url)
     	// 	.then(function(result){
