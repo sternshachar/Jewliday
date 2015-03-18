@@ -254,12 +254,11 @@ angular.module("jewApp")
 				return deferred.promise;
 			},
 			
-			saveHome : function(coords,home){
+			saveHome : function(home){
     			var deferred = $q.defer();
 		    	home.location = coords;
 		    	$http.put(appData.url + '/listHome/' + userData.id,home)
 				    .success(function(data){
-				    	homeData.location = coords;
 				    	userData.isListed = true;
 				    	deferred.resolve(data);
 					})
