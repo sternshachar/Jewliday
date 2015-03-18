@@ -260,6 +260,7 @@ angular.module("jewApp")
 		    	$http.put(appData.url + '/listHome/' + userData.id,home)
 				    .success(function(data){
 				    	userData.isListed = true;
+				    	homeData = home;
 				    	deferred.resolve(data);
 					})
 					.error(function(err){
