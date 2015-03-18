@@ -8,18 +8,19 @@ angular.module("jewApp")
 	$scope.warning = {message: ''};
 
 					//indicates number of unread messages
-
-	userService.getUserData()				//gets user datails
-		.then(function(result){
-			return userService.getData();		
-		})
-		.then(function(result){
-			$scope.userData = result.userData;
-			return inboxService.getInbox($scope.userData.id)
-		})
- 		.then(function(result){
- 			$scope.unread.num = result.unread;
- 		});
+	if(!$scope.userData){ 
+		userService.getUserData()				//gets user datails
+			.then(function(result){
+				return userService.getData();		
+			})
+			.then(function(result){
+				$scope.userData = result.userData;
+				return inboxService.getInbox($scope.userData.id)
+			})
+	 		.then(function(result){
+	 			$scope.unread.num = result.unread;
+	 		});
+ 	}
 
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){
