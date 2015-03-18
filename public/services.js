@@ -254,7 +254,7 @@ angular.module("jewApp")
 				return deferred.promise;
 			},
 			
-			saveHome : function(home){
+			saveHome : function(coords,home){
     			var deferred = $q.defer();
 		    	home.location = coords;
 		    	$http.put(appData.url + '/listHome/' + userData.id,home)
