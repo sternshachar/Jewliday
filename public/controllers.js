@@ -8,7 +8,7 @@ angular.module("jewApp")
 	$scope.warning = {message: ''};
 
 					//indicates number of unread messages
-	if($scope.userData.isAuth){ 
+	if($scope.userData){ 
 		userService.getUserData()				//gets user datails
 			.then(function(result){
 				return userService.getData();		
