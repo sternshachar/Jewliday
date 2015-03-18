@@ -68,6 +68,7 @@ angular.module("jewApp")
 				$scope.closeModal();
 				$scope.userLog = {};
 				$scope.message = '';
+				$scope.warning.message = '';
 				return inboxService.getInbox($scope.userData.id)
 			})
 			.then(function(result){
