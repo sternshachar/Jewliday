@@ -7,7 +7,6 @@ angular.module("jewApp")
 	$scope.unread = {num: 0};
 	$scope.warning = {message: ''};
 
-
 					//indicates number of unread messages
 
 	userService.getUserData()				//gets user datails
@@ -96,12 +95,14 @@ angular.module("jewApp")
 
 })
 
-.controller("inboxCtrl",function($scope,$http,$state,$filter,appData,inboxService,getInbox,userService){
+.controller("inboxCtrl",function($scope,$http,$state,$filter,$timeout,appData,inboxService,getInbox,userService){
 	$scope.warning.message = '';
 	if(!$scope.userData.isAuth){
+		$timeout(function(){$scope.warning.message = ''}, 3000);
 		$scope.warning.message = 'Please Log in ';
 		$state.go('home');
 	}
+
 	var orderBy = $filter('orderBy');
 	$scope.messageData = {
 					uid: $scope.userData.id,
