@@ -129,8 +129,9 @@ angular.module("jewApp")
 		return unreadMessage ? 'unread' : '';
 	}
 })
-.controller("newHomeCtrl",function($scope,$http, appData,$upload,$state,homeData,userService){
+.controller("newHomeCtrl",function($scope,$http, appData,$upload,$state,$timeout,homeData,userService){
 	if(!$scope.userData.isAuth){
+		$timeout(function(){$scope.warning.message = ''}, 3000);
 		$scope.warning.message = 'Please Log in ';
 		$state.go('home');
 	}
@@ -223,9 +224,10 @@ angular.module("jewApp")
         }
     };
 })
-.controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,userService){
+.controller('homeCtrl', function($scope,$http,$state,$timeout,uiGmapGoogleMapApi,appData,userService){
 	$scope.warning.message = '';
 	if(!$scope.userData.isAuth){
+		$timeout(function(){$scope.warning.message = ''}, 3000);
 		$scope.warning.message = 'Please Log in ';
 		$state.go('home');
 	} else {
@@ -300,9 +302,10 @@ angular.module("jewApp")
 		$state.go('listHome.address');
 	}
 })
-.controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,uiGmapGoogleMapApi,appData,searchService){
+.controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,$timeout,uiGmapGoogleMapApi,appData,searchService){
 	$scope.warning.message = '';
 	if(!$scope.userData.isAuth){
+		$timeout(function(){$scope.warning.message = ''}, 3000);
 		$scope.warning.message = 'Please Log in ';
 		$state.go('home');
 	}

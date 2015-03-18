@@ -28,11 +28,10 @@
 	padding: 5px;
 	background-color: rgb(180, 189, 152);
 	margin-left: 24em;
-	-webkit-animation: fadeOut 3s linear forwards;
-    animation: fadeOut 3s linear forwards;
-	-webkit-animation-delay: 3s; /* Chrome, Safari, Opera */
-    animation-delay: 3s;
 }
+
+.warning-message.ng-leave { transition:2s linear all; opacity: 1;}        /* starting animations for leave */
+.warning-message.ng-leave.ng-leave-active {opacity: 0;} /* terminal animations for leave */
 /* ------ end navbar -----*/
 
 	</style>
