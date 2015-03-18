@@ -252,7 +252,7 @@ angular.module("jewApp")
 											deferred.reject(err);
 										})
 				return deferred.promise;
-			}
+			},
 			
 			saveHome : function(coords,home){
     			var deferred = $q.defer();
