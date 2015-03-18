@@ -239,8 +239,41 @@ angular.module("jewApp")
 						}
 					})
 				return deferred.promise;
+			},
+
+			getCoord: function(home){
+				var deferred = $q.defer();
+				var city = home.city.split(", ").join("+");
+				var address =   home.homeNumber + '+' + home.street +',' + '+' + city;
+				var location = $http.get('http://maps.google.com/maps/api/geocode/json?address='+ address +'&sensor=false')
+										.then(function(result){
+											deferred.resolve(result.data.results[0].geometry.location);
+										},function(err){
+											deferred.reject(err);
+										})
+				return deferred.promise;
 			}
 			
+			// saveHome : function(){
+    	
+		 //    	var locationPromise = appData.addressData(appData.url)
+		 //    		.then(function(result){
+		 //    			$scope.home.location = result;
+		 //    			console.log(result);
+		 //    			console.log($scope.home.location);
+		 //    			$http.put(appData.url + '/listHome/' + $scope.userData.id,$scope.home)
+			// 	    		.success(function(data){
+			// 	    			$scope.listHomeMessage = data;
+			// 	    					$http.get(appData.url + '/login').
+			// 								success(function(data){
+			// 									$scope.userData.isListed = data.user.house.listed;
+			// 								});
+											
+			// 					$state.go('listHome.photos');
+			// 	    		})
+		 //    		});
+		 //    }
+		
 		}
 })
 
