@@ -22,9 +22,6 @@ angular.module("jewApp")
  			$scope.unread.num = result.unread;
  		});
 
- 	// $timeout(function() { 
- 	// $scope.warning = ''; }, 10000);	
-
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){
 		$state.go('usersArea.search.list');
@@ -99,8 +96,10 @@ angular.module("jewApp")
 })
 
 .controller("inboxCtrl",function($scope,$http,$state,$filter,appData,inboxService,getInbox,userService){
-	if(!$scope.userData.isAuth)
+	if(!$scope.userData.isAuth){
+		$scope.warning.message = 'Please Log in ';
 		$state.go('home');
+	}
 	$scope.warning.message = '';
 	var orderBy = $filter('orderBy');
 	$scope.messageData = {
@@ -129,8 +128,10 @@ angular.module("jewApp")
 	}
 })
 .controller("newHomeCtrl",function($scope,$http, appData,$upload,$state,homeData,userService){
-	if(!$scope.userData.isAuth)
+	if(!$scope.userData.isAuth){
+		$scope.warning.message = 'Please Log in ';
 		$state.go('home');
+	}
 	$scope.warning.message = '';
 	if($scope.userData.isListed){
 		$scope.home = homeData;
@@ -223,10 +224,11 @@ angular.module("jewApp")
 .controller('homeCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData,userService){
 	$scope.warning.message = '';
 	if(!$scope.userData.isAuth){
+		$scope.warning.message = 'Please Log in ';
 		$state.go('home');
 	} else {
 		if(!$scope.userData.isListed){
-			$scope.warning.message = 'Your home is not listed. Please list your home';
+			$scope.warning.message = 'Your home is not listed. Please list your home ';
 			console.log($scope.warning.message);
 			$state.go('home');
 		}
