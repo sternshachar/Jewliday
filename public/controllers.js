@@ -153,7 +153,7 @@ angular.module("jewApp")
     	userService.getCoord($scope.home)
     		.then(function(data){
     			$scope.home.location = data;
-    			return userService.saveHome(coords,$scope.home)
+    			return userService.saveHome(data,$scope.home)
     		})
     		.then(function(data){
     			$scope.userData.isListed = true;
