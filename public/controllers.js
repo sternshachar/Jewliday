@@ -154,15 +154,11 @@ angular.module("jewApp")
     			return userService.saveHome(data,$scope.home)
     		})
     		.then(function(data){
-    			userService.getUserData()
-    			return 'userData updated';
-    		})				//gets user datails
-			.then(function(result){
-				return userService.getData();		
-			})
-			.then(function(result){
-				$scope.userData = result.userData;
-			})
+    			$scope.userData.isListed = true;
+    			console.log(data);
+    		},function(err){
+    			console.error(err);
+    		})
     	// var locationPromise = appData.addressData(appData.url)
     	// 	.then(function(result){
     	// 		$scope.home.location = result;
@@ -190,8 +186,10 @@ angular.module("jewApp")
     }
 
     $scope.goHome = function(){
-    	userService.getUserData();
-    	$state.go('usersArea.home.photos');
+    	userService.getUserData()
+    	.then(function(){
+    		$state.go('usersArea.home.photos');
+    	});
     }
 
     $scope.limit = 3;
