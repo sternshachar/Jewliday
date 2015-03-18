@@ -8,7 +8,6 @@ angular.module("jewApp")
 	$scope.warning = {message: ''};
 
 					//indicates number of unread messages
-	if($scope.userData){ 
 		userService.getUserData()				//gets user datails
 			.then(function(result){
 				return userService.getData();		
@@ -20,7 +19,6 @@ angular.module("jewApp")
 	 		.then(function(result){
 	 			$scope.unread.num = result.unread;
 	 		});
- 	}
 
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){
