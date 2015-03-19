@@ -1,11 +1,11 @@
 <style>
 .pic-upload-Square{
-	padding: 5px;
+	/*padding: 5px;*/
 	border-radius: 4px;
-	height: 50px;
-	font-weight: bold;
+	/*height: 50px;*/
+	/*font-weight: bold;*/
 	font-size: 13px;
-	text-align: center;
+	/*text-align: center;*/
 }
 
 button{
@@ -39,17 +39,19 @@ iframe{
 	<ul class="list-group">
 		<li class="list-group-item" ng-show="$index < limit" ng-repeat="pic in photos">
 		    <form class="row">
-		    	<div class="col-sm-4">
+		    	<div class="col-sm-5">
 		            <div class="pic-upload-Square">
 		            	<h3>{{pic.name}}</h3>
 		            	<p>{{pic.text}}</p>
 		            </div>
 		        </div>
-		        <div class="col-sm-4">
+		        <div class="col-sm-2">
 		            <div class="button btn btn-primary btn-block" ng-file-select ng-file-change="upload($files,pic.type,$index)">Choose file</div>
 		            <br>
 		        </div>
 		        <div class="col-sm-4">
+		        </div>
+		        <div class="col-sm-1">
 		            <span class="glyphicon glyphicon-ok text-success" ng-show="pic.done" style="font-size: 30px;"></span>
 		        </div>
 		    </form> 
