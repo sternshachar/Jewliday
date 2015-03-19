@@ -251,8 +251,7 @@ angular.module("jewApp")
 	var amenities = {};
 	userService.getData().then(function(result){
 			amenities = result.homeData.amenities;
-			$scope.home = result.homeData.house;
-			console.log($scope.home)
+			$scope.home = result.homeData;
 			$scope.photosUrl = result.photosUrl;
 			$scope.homeImage = {
 		    	background: 'url(' + $scope.photosUrl.cover + ')'
