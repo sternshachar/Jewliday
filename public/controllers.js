@@ -154,8 +154,8 @@ angular.module("jewApp")
 	$scope.amenities = appData.amenitiesListHome;
 	$scope.files = {};
 	$scope.progress = [0,0,0,0,0,0,0,0];
-	$scope.bar = [{width: 0 + '%'},{width: 0 + '%'},{width: 0 + '%'},{width: progressPercentage + '%'},
-				  {width: 0 + '%'},{width: 0 + '%'},{width: 0 + '%'},{width: progressPercentage + '%'}]
+	$scope.bar = [{width: 0 + '%'},{width: 0 + '%'},{width: 0 + '%'},{width: 0 + '%'},
+				  {width: 0 + '%'},{width: 0 + '%'},{width: 0 + '%'},{width: 0 + '%'}]
 	$scope.details = "";
 
     $scope.saveHome = function(){
