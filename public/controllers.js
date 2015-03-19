@@ -221,7 +221,8 @@ angular.module("jewApp")
                     console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
                 }).success(function (data, status, headers, config) {
                     console.log('file ' + config.file.name + 'uploaded. Response: uploaded');
-                    console.log(data.type);
+                    console.log(data);
+                    console.log(type);
                      $scope.photos[picIndex].done = true;
                      $scope.photos[picIndex].url = data.type;
                 });
