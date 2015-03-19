@@ -319,9 +319,11 @@ angular.module("jewApp")
 		var url = $state.href('browse', {parameter: data});
 		console.log(url)
 		if(data){
+			console.log(data)
 			var selectedHome = searchService.homeSelect(data); 
 		} else {
 			var selectedHome = searchService.homeSelect($scope.chosen); 
+			console.log($scope.chosen)
 		}
 		$state.go('browse.photos');
 	}

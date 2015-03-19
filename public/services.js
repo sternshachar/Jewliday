@@ -118,6 +118,18 @@ angular.module("jewApp")
 						});
 					return deferred.promise;
 			},
+			searchHomeById: function(id){
+					var deferred = $q.defer();
+					$http.get(appData.url + '/search/id/' + id)//asks express for homes
+						.success(function(result){
+							homeSelected = result;
+							deferred.resolve(result)
+						})
+						.error(function(err){
+							deferred.reject(err);
+						});
+					return deferred.promise;
+			},
 
 			filterSearchResults: function(amenities,others){
 				var deferred = $q.defer();

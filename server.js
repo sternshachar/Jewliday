@@ -198,6 +198,18 @@ app.get('/search/:place',function(req,res){
 	})
 })
 
+app.get('/search/id/:id',function(req,res){
+	var id = req.params.id;
+	var User = mongoose.model('users');
+	var User = mongoose.model('users');
+	var query = User.findOne({_id: id}).select('house photos');
+
+	query.exec(function(err,house){
+			if(err) return console.error(err);
+			res.json(house);
+		})
+})
+
 app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist createnew one
 	var Inbox = mongoose.model('inboxes');
 	var User = mongoose.model('users');
