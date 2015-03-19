@@ -57,31 +57,6 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 						url:'/home',
 						templateUrl:'views/users.home.html',
 						controller: 'homeCtrl'
-						// resolve: {
-						// 	addressData : function($http,$state,appData){
-						// 		var promise = $http.get(appData.url + '/login')								
-						// 			.then(function(result){
-						// 				if(result.data.user.house.city ||  result.data.user.house != undefined){
-						// 					var city = result.data.user.house.city.split(", ").join("+");
-						// 					var address =   result.data.user.house.homeNumber + '+' + result.data.user.house.street +',' + '+' + city;
-						// 					return address;
-						// 				}
-						// 				$state.go('home');
-						// 				throw 'Not listed properly';
-
-						// 			})
-						// 			.then(function(result){
-						// 				var location = $http.get('http://maps.google.com/maps/api/geocode/json?address='+ result +'&sensor=false')
-						// 				.then(function(result){
-						// 					return result.data.results[0].geometry.location;
-						// 				},function(err){
-						// 					console.error(err);
-						// 				})
-						// 				return location;
-						// 			})
-						// 			return promise;
-						// 	}
-						// } 
 					})
 					.state('usersArea.search',{
 						url:'/search',

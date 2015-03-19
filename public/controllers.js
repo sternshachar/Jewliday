@@ -42,6 +42,7 @@ angular.module("jewApp")
 		userService.logOut()
 			.then(function(data){
 				$scope.userData = {isAuth: data};
+				$scope.searchTerm.search = '';
 				$location.path('/');
 			},function(err){
 				console.log(err);
@@ -162,6 +163,7 @@ angular.module("jewApp")
     		})
     		.then(function(data){
     			$scope.userData.isListed = true;
+    			$state.go('listHome.photos');
     			console.log(data);
     		},function(err){
     			console.error(err);
@@ -323,8 +325,7 @@ angular.module("jewApp")
 	$scope.options = {scrollwheel: false};
 
 	$scope.openHome = function(data){//data is the house only in list
-		var url = $state.href('browse', {parameter: data});
-		console.log(url)
+
 		if(data){		
 			var selectedHome = searchService.homeSelect(data); 
 			$window.open(appData.url + '/#/search?id=' + data._id, '_blank');
