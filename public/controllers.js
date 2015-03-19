@@ -410,9 +410,10 @@ angular.module("jewApp")
 	}
 })
 
-.controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData, searchService){
+.controller('browseCtrl', function($scope,$http,$state,$location,uiGmapGoogleMapApi,appData, searchService){
 	if(!$scope.userData || !$scope.userData.isAuth)
 		$state.go('home');
+	console.log($location.path());
 	$scope.warning.message = '';
 	$scope.browseMode = true;
 	$scope.messageModal = {isOpen: false};
