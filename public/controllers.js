@@ -187,14 +187,14 @@ angular.module("jewApp")
 
     $scope.limit = 3;
     $scope.photos = [
-			{ type: 'profile' , name: 'Profile' 	 ,done: false, show: true},
-			{ type: 'cover'   , name: 'Cover Photo'	 ,done: false, show: true},
-			{ type: 'pic1' 	  , name: 'Another Photo',done: false, show: true},
-			{ type: 'pic2' 	  , name: 'Another Photo',done: false, show: false},
-			{ type: 'pic3' 	  , name: 'Another Photo',done: false, show: false},
-			{ type: 'pic4'    , name: 'Another Photo',done: false, show: false},
-			{ type: 'pic5'    , name: 'Another Photo',done: false, show: false},
-			{ type: 'pic6'    , name: 'Another Photo',done: false, show: false}
+			{ type: 'profile' , name: 'Profile' 	 ,text:'We recommend to use a picture of the front of the house or building.',done: false, show: true},
+			{ type: 'cover'   , name: 'Cover Photo'	 ,text:'We recommend to use a picture of the surroundings of your home or a picture of the living room',done: false, show: true},
+			{ type: 'pic1' 	  , name: 'Another Photo',text:'What ever you like',done: false, show: true},
+			{ type: 'pic2' 	  , name: 'Another Photo',text:'What ever you like',done: false, show: false},
+			{ type: 'pic3' 	  , name: 'Another Photo',text:'What ever you like',done: false, show: false},
+			{ type: 'pic4'    , name: 'Another Photo',text:'What ever you like',done: false, show: false},
+			{ type: 'pic5'    , name: 'Another Photo',text:'What ever you like',done: false, show: false},
+			{ type: 'pic6'    , name: 'Another Photo',text:'What ever you like',done: false, show: false}
 	];
 	$scope.anotherPic = function(){
 		if($scope.limit < 8)
