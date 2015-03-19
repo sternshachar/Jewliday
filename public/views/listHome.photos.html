@@ -30,6 +30,13 @@ iframe{
 .btn-success{
 	margin-bottom: 10px;
 }
+.thumb-div{
+
+}
+.thumbnail{
+	width: 200px;
+	padding-left: 2em;
+}
 </style>
 
 <div ui-view></div>
@@ -49,7 +56,7 @@ iframe{
 		            <div class="button btn btn-primary btn-block" ng-file-select ng-file-change="upload($files,pic.type,$index)">Upload</div>
 		            <br>
 		        </div>
-		        <div class="col-sm-4">
+		        <div class="col-sm-4 thumb-div">
 		        	<img src="{{pic.url}}" class="thumbnail">
 		        </div>
 		        <div class="col-sm-1">
