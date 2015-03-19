@@ -154,6 +154,8 @@ angular.module("jewApp")
 	$scope.amenities = appData.amenitiesListHome;
 	$scope.files = {};
 	$scope.progress = [0,0,0,0,0,0,0,0];
+	$scope.bar = [{width: 0 + '%'},{width: 0 + '%'},{width: 0 + '%'},{width: progressPercentage + '%'},
+				  {width: 0 + '%'},{width: 0 + '%'},{width: 0 + '%'},{width: progressPercentage + '%'}]
 	$scope.details = "";
 
     $scope.saveHome = function(){
@@ -218,7 +220,7 @@ angular.module("jewApp")
                 }).progress(function (evt) {
                     var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                     $scope.progress[index] = progressPercentage;
-                    $scope.bar = {width: progressPercentage + '%'};
+                    $scope.bar[index] = {width: progressPercentage + '%'};
                     console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
                 }).success(function (data, status, headers, config) {
                     console.log('file ' + config.file.name + 'uploaded. Response: uploaded');
