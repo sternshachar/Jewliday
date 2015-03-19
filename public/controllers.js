@@ -433,7 +433,9 @@ angular.module("jewApp")
 	$scope.messageModal = {isOpen: false};
 
 	var home = searchService.getHomeSelect();
+	console.log(home)
 	$scope.photosUrl = home.photos;
+	$scope.home = home;
 	var amenities = home.house.amenities;
 
 
