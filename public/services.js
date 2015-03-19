@@ -123,6 +123,7 @@ angular.module("jewApp")
 					$http.get(appData.url + '/search/id/' + id)//asks express for homes
 						.success(function(result){
 							homeSelected = result;
+							console.log(homeSelected);
 							deferred.resolve(result)
 						})
 						.error(function(err){
