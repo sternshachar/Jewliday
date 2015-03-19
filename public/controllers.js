@@ -320,10 +320,10 @@ angular.module("jewApp")
 		console.log(url)
 		if(data){		
 			var selectedHome = searchService.homeSelect(data); 
-			$window.open(appData.url + '/search/id/' + data._id, '_blank');
+			$window.open(appData.url + '/#/search/id/' + data._id, '_blank');
 		} else {
 			var selectedHome = searchService.homeSelect($scope.chosen); 
-			$window.open(appData.url + '/search/id/' + $scope.chosen._id, '_blank');
+			$window.open(appData.url + '/#/search/id/' + $scope.chosen._id, '_blank');
 		}
 		$state.go('browse.photos');
 	}
