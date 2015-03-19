@@ -1,12 +1,12 @@
 angular.module("jewApp")
-.controller("mainCtrl",function($scope,$interval,$timeout,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope,userService,inboxService){
+.controller("mainCtrl",function($scope,$interval,$timeout,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope,userService,inboxService,searchService){
 	$scope.user = {};						// user data for SINGUP from form (logModal.html)
 	$scope.userLog = {};					//user data for LOGIN up from form (signModal.html)
 	$scope.items = appData.dropdownUserMenu;//item for user dropdown menu
 	$scope.signMessage = "Enter email";  	//default text in email field in SIGNUP form
 	$scope.unread = {num: 0};
 	$scope.warning = {message: ''};
-	console.log($location.search());
+	
 					//indicates number of unread messages
 		userService.getUserData()				//gets user datails
 			.then(function(result){
@@ -18,6 +18,10 @@ angular.module("jewApp")
 			})
 	 		.then(function(result){
 	 			$scope.unread.num = result.unread;
+	 			if ($location.search()!= {}) {
+	 				searchService.searchHomeById($location.search().id);
+	 				$state.go('browse.photos');
+	 			};
 	 		});
 
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
@@ -416,7 +420,7 @@ angular.module("jewApp")
 .controller('browseCtrl', function($scope,$http,$state,$location,uiGmapGoogleMapApi,appData, searchService){
 	if(!$scope.userData || !$scope.userData.isAuth)
 		$state.go('home');
-	console.log($location.search());
+
 	$scope.warning.message = '';
 	$scope.browseMode = true;
 	$scope.messageModal = {isOpen: false};
