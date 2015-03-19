@@ -149,7 +149,7 @@ function uploadFile(remoteFilename, file, id) {
 					);
 				user.save(function(err,user){
 					if(err) return console.error(err);
-					console.log(user.photos);
+					return user.photos;
 				})
 				
 			});
@@ -177,9 +177,9 @@ app.post('/upload/:type', function(req, res) {
                         res.status(500);
                         res.json({'success': false});
                     } else {
-                    	uploadFile( type  +'.' + file_ext,data,id);
+                    	var photos = uploadFile( type  +'.' + file_ext,data,id);
                         res.status(200);
-                        res.send('uploaded');
+                        res.json(photos);
                     }
                 });
             });

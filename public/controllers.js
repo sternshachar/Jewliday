@@ -152,7 +152,7 @@ angular.module("jewApp")
 
 	$scope.options = {types: '(cities)'};
 	$scope.amenities = appData.amenitiesListHome;
-
+	$scope.files = {};
 	$scope.details = "";
 
     $scope.saveHome = function(){
@@ -187,14 +187,14 @@ angular.module("jewApp")
 
     $scope.limit = 3;
     $scope.photos = [
-			{ type: 'profile' , name: 'Profile' 	 ,text:'We recommend to use a picture of the front of the house or building.',done: false, show: true},
-			{ type: 'cover'   , name: 'Cover Photo'	 ,text:'We recommend to use a picture of the surroundings of your home or a picture of the living room',done: false, show: true},
-			{ type: 'pic1' 	  , name: 'Another Photo',text:'What ever you like',done: false, show: true},
-			{ type: 'pic2' 	  , name: 'Another Photo',text:'What ever you like',done: false, show: false},
-			{ type: 'pic3' 	  , name: 'Another Photo',text:'What ever you like',done: false, show: false},
-			{ type: 'pic4'    , name: 'Another Photo',text:'What ever you like',done: false, show: false},
-			{ type: 'pic5'    , name: 'Another Photo',text:'What ever you like',done: false, show: false},
-			{ type: 'pic6'    , name: 'Another Photo',text:'What ever you like',done: false, show: false}
+			{ url:'',type: 'profile' , name: 'Profile' 	 ,text:'We recommend to use a picture of the front of the house or building.',done: false, show: true},
+			{ url:'',type: 'cover'   , name: 'Cover Photo'	 ,text:'We recommend to use a picture of the surroundings of your home or a picture of the living room',done: false, show: true},
+			{ url:'',type: 'pic1' 	  , name: 'Another Photo',text:'What ever you like',done: false, show: true},
+			{ url:'',type: 'pic2' 	  , name: 'Another Photo',text:'What ever you like',done: false, show: false},
+			{ url:'',type: 'pic3' 	  , name: 'Another Photo',text:'What ever you like',done: false, show: false},
+			{ url:'',type: 'pic4'    , name: 'Another Photo',text:'What ever you like',done: false, show: false},
+			{ url:'',type: 'pic5'    , name: 'Another Photo',text:'What ever you like',done: false, show: false},
+			{ url:'',type: 'pic6'    , name: 'Another Photo',text:'What ever you like',done: false, show: false}
 	];
 	$scope.anotherPic = function(){
 		if($scope.limit < 8)
@@ -220,8 +220,10 @@ angular.module("jewApp")
                     $scope.bar = {width: progressPercentage + '%'};
                     console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
                 }).success(function (data, status, headers, config) {
-                    console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
+                    console.log('file ' + config.file.name + 'uploaded. Response: uploaded');
+                    console.log(data);
                      $scope.photos[picIndex].done = true;
+                     $scope.photos[picIndex].url = data;
                 });
             }
             
