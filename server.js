@@ -177,9 +177,9 @@ app.post('/upload/:type', function(req, res) {
                         res.status(500);
                         res.json({'success': false});
                     } else {
-                    	var photos = uploadFile( type  +'.' + file_ext,data,id);
-                        res.status(200);
-                        res.json(photos);
+                    	res.status(200);
+                    	res.json(uploadFile( type  +'.' + file_ext,data,id));
+                        
                     }
                 });
             });
