@@ -96,7 +96,7 @@ angular.module("jewApp")
 
 .controller("inboxCtrl",function($scope,$http,$state,$filter,$timeout,appData,inboxService,getInbox,userService){
 	$scope.warning.message = '';
-	if(!$scope.userData.isAuth){
+	if(!$scope.userData || !$scope.userData.isAuth){
 		$timeout(function(){$scope.warning.message = ''}, 3000);
 		$scope.warning.message = 'Please Log in ';
 		$state.go('home');
@@ -129,7 +129,7 @@ angular.module("jewApp")
 	}
 })
 .controller("newHomeCtrl",function($scope,$http, appData,$upload,$state,$timeout,homeData,userService){
-	if(!$scope.userData.isAuth){
+	if(!$scope.userData || !$scope.userData.isAuth){
 		$timeout(function(){$scope.warning.message = ''}, 3000);
 		$scope.warning.message = 'Please Log in ';
 		$state.go('home');
@@ -159,22 +159,6 @@ angular.module("jewApp")
     		},function(err){
     			console.error(err);
     		})
-    	// var locationPromise = appData.addressData(appData.url)
-    	// 	.then(function(result){
-    	// 		$scope.home.location = result;
-    	// 		console.log(result);
-    	// 		console.log($scope.home.location);
-    	// 		$http.put(appData.url + '/listHome/' + $scope.userData.id,$scope.home)
-		   //  		.success(function(data){
-		   //  			$scope.listHomeMessage = data;
-		   //  					$http.get(appData.url + '/login').
-					// 				success(function(data){
-					// 					$scope.userData.isListed = data.user.house.listed;
-					// 				});
-									
-					// 	$state.go('listHome.photos');
-		   //  		})
-    	// 	});
     }
 
     $scope.goToDetails = function(){
@@ -237,7 +221,7 @@ angular.module("jewApp")
 })
 .controller('homeCtrl', function($scope,$http,$state,$timeout,uiGmapGoogleMapApi,appData,userService){
 	$scope.warning.message = '';
-	if(!$scope.userData.isAuth){
+	if(!$scope.userData || !$scope.userData.isAuth){
 		$timeout(function(){$scope.warning.message = ''}, 3000);
 		$scope.warning.message = 'Please Log in ';
 		$state.go('home');
@@ -315,7 +299,7 @@ angular.module("jewApp")
 })
 .controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,$timeout,uiGmapGoogleMapApi,appData,searchService){
 	$scope.warning.message = '';
-	if(!$scope.userData.isAuth){
+	if(!$scope.userData || !$scope.userData.isAuth){
 		$timeout(function(){$scope.warning.message = ''}, 3000);
 		$scope.warning.message = 'Please Log in ';
 		$state.go('home');
@@ -427,7 +411,7 @@ angular.module("jewApp")
 })
 
 .controller('browseCtrl', function($scope,$http,$state,uiGmapGoogleMapApi,appData, searchService){
-	if(!$scope.userData.isAuth)
+	if(!$scope.userData || !$scope.userData.isAuth)
 		$state.go('home');
 	$scope.warning.message = '';
 	$scope.browseMode = true;
