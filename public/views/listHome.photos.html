@@ -42,7 +42,6 @@ iframe{
 <div ui-view></div>
 
 <div class="well pic-well">
-	<h1>Pictures Of your Home</h1>
 	<ul class="list-group">
 		<li class="list-group-item" ng-show="$index < limit" ng-repeat="pic in photos">
 		    <form class="row">
@@ -57,7 +56,7 @@ iframe{
 		            <br>
 		        </div>
 		        <div class="col-sm-4 thumb-div">
-		        	<img src="{{pic.url}}" class="thumbnail">
+		        	<img ng-src="{{pic.url}}" class="thumbnail">
 		        </div>
 		        <div class="col-sm-1">
 		            <span class="glyphicon glyphicon-ok text-success" ng-show="pic.done" style="font-size: 30px;"></span>
