@@ -435,7 +435,7 @@ angular.module("jewApp")
 	var home = searchService.getHomeSelect();
 	console.log(home)
 	$scope.photosUrl = home.photos;
-	$scope.home = home;
+	$scope.home = home.house;
 	var amenities = home.house.amenities;
 
 
