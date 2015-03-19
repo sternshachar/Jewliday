@@ -224,7 +224,7 @@ angular.module("jewApp")
                     console.log(data);
                     console.log(type);
                      $scope.photos[picIndex].done = true;
-                     $scope.photos[picIndex].url = data.type;
+                     $scope.photos[picIndex].url = data[type];
                 });
             }
             
