@@ -317,6 +317,7 @@ angular.module("jewApp")
 
 	$scope.openHome = function(data){//data is the house only in list
 		var url = $state.href('browse', {parameter: data});
+		console.log(url)
 		if(data){
 			var selectedHome = searchService.homeSelect(data); 
 		} else {
@@ -413,7 +414,7 @@ angular.module("jewApp")
 .controller('browseCtrl', function($scope,$http,$state,$location,uiGmapGoogleMapApi,appData, searchService){
 	if(!$scope.userData || !$scope.userData.isAuth)
 		$state.go('home');
-	console.log($location.path());
+	console.log($location.search());
 	$scope.warning.message = '';
 	$scope.browseMode = true;
 	$scope.messageModal = {isOpen: false};
