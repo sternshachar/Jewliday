@@ -125,7 +125,7 @@ app.put('/listHome/:id', function(req,res){
 	res.send('Home saved!');
 })
 
-function uploadFile(remoteFilename, file, id) {
+function uploadFile(remoteFilename, file, id,res) {
   var s3bucket = new AWS.S3({ params: {Bucket: 'jewliday'} });
   var fileBuffer = file;
   var date = new Date;
@@ -179,7 +179,7 @@ app.post('/upload/:type', function(req, res) {
                         res.status(500);
                         res.json({'success': false});
                     } else {
-                    	uploadFile( type  +'.' + file_ext,data,id);
+                    	uploadFile( type  +'.' + file_ext,data,id,res);
                         
                     }
                 });
