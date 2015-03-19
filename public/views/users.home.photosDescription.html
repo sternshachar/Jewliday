@@ -1,6 +1,6 @@
 <style type="text/css">
 .my-carousel{
-	height: 400px;
+	height: 300px;
 }
 
 </style>
@@ -15,4 +15,18 @@
 		<my-carousel photos="photosUrl" interval='5000'></my-carousel>
 	</div>
 </div>
-
+<hr>
+<div class="row">
+	<div class="col-sm-3">
+		<p>Amenities</p>
+	</div>
+	<div class="col-sm-9">
+		<table class="table">
+			<tr ng-repeat="amenity in amenitiesOrdered">
+				<td ng-repeat="a in amenity">
+					<span ng-class="amenityCheck(a.dbName)"></span> {{a.name}}
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
