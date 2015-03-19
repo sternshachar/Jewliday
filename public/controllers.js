@@ -6,7 +6,7 @@ angular.module("jewApp")
 	$scope.signMessage = "Enter email";  	//default text in email field in SIGNUP form
 	$scope.unread = {num: 0};
 	$scope.warning = {message: ''};
-
+	console.log($location.path());
 					//indicates number of unread messages
 		userService.getUserData()				//gets user datails
 			.then(function(result){
@@ -297,7 +297,7 @@ angular.module("jewApp")
 		$state.go('listHome.address');
 	}
 })
-.controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,$timeout,uiGmapGoogleMapApi,appData,searchService){
+.controller('searchCtrl',function($scope,$http,$rootScope,$state,$filter,$timeout,$window,uiGmapGoogleMapApi,appData,searchService){
 	$scope.warning.message = '';
 	if(!$scope.userData || !$scope.userData.isAuth){
 		$timeout(function(){$scope.warning.message = ''}, 3000);
@@ -318,12 +318,12 @@ angular.module("jewApp")
 	$scope.openHome = function(data){//data is the house only in list
 		var url = $state.href('browse', {parameter: data});
 		console.log(url)
-		if(data){
-			console.log(data)
+		if(data){		
 			var selectedHome = searchService.homeSelect(data); 
+			$window.open(appData.url + '/id/' + data._id, '_blank');
 		} else {
 			var selectedHome = searchService.homeSelect($scope.chosen); 
-			console.log($scope.chosen)
+			$window.open(appData.url + '/id/' + $scope.chosen._id, '_blank');
 		}
 		$state.go('browse.photos');
 	}
