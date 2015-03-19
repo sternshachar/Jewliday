@@ -19,12 +19,13 @@ angular.module("jewApp")
 	 		.then(function(result){
 	 			$scope.unread.num = result.unread;
 	 			if ($location.search()!= {}) {
-	 				searchService.searchHomeById($location.search().id);
+	 				searchService.searchHomeById($location.search().id)
+	 					.then(function(){
+				 			$state.go('browse.photos');
+				 		});
 	 			};
 	 		})
-	 		.then(function(){
-	 			$state.go('browse.photos');
-	 		});
+
 
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){
