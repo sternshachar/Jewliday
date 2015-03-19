@@ -332,7 +332,6 @@ angular.module("jewApp")
 			var selectedHome = searchService.homeSelect($scope.chosen); 
 			$window.open(appData.url + '/#/search?id=' + $scope.chosen._id, '_blank');
 		}
-		$state.go('browse.photos');
 	}
 
 	$scope.searchMode =	$state.includes('usersArea.search');
