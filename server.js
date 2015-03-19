@@ -151,7 +151,7 @@ function uploadFile(remoteFilename, file, id,res) {
 					if(err) return console.error(err);
 					console.log(user.photos);
 					res.status(200);
-                    res.json(user.photos.type);
+                    res.json(user.photos);
 				})
 				
 			});

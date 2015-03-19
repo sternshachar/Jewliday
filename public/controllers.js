@@ -223,7 +223,7 @@ angular.module("jewApp")
                     console.log('file ' + config.file.name + 'uploaded. Response: uploaded');
                     console.log(data);
                      $scope.photos[picIndex].done = true;
-                     $scope.photos[picIndex].url = data;
+                     $scope.photos[picIndex].url = data.type;
                 });
             }
             
