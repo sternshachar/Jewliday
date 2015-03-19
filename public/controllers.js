@@ -153,6 +153,7 @@ angular.module("jewApp")
 	$scope.options = {types: '(cities)'};
 	$scope.amenities = appData.amenitiesListHome;
 	$scope.files = {};
+	$scope.progress = [0,0,0,0,0,0,0,0];
 	$scope.details = "";
 
     $scope.saveHome = function(){
@@ -216,13 +217,11 @@ angular.module("jewApp")
                     file: file
                 }).progress(function (evt) {
                     var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                    $scope.progress = progressPercentage;
+                    $scope.progress[index] = progressPercentage;
                     $scope.bar = {width: progressPercentage + '%'};
                     console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
                 }).success(function (data, status, headers, config) {
                     console.log('file ' + config.file.name + 'uploaded. Response: uploaded');
-                    console.log(data);
-                    console.log(type);
                      $scope.photos[picIndex].done = true;
                      $scope.photos[picIndex].url = data[type];
                 });
