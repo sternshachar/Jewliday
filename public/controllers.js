@@ -6,7 +6,7 @@ angular.module("jewApp")
 	$scope.signMessage = "Enter email";  	//default text in email field in SIGNUP form
 	$scope.unread = {num: 0};
 	$scope.warning = {message: ''};
-	console.log($location.path());
+	console.log($location.search());
 					//indicates number of unread messages
 		userService.getUserData()				//gets user datails
 			.then(function(result){
@@ -320,10 +320,10 @@ angular.module("jewApp")
 		console.log(url)
 		if(data){		
 			var selectedHome = searchService.homeSelect(data); 
-			$window.open(appData.url + '/#/search/id/' + data._id, '_blank');
+			$window.open(appData.url + '/#/search?id=' + data._id, '_blank');
 		} else {
 			var selectedHome = searchService.homeSelect($scope.chosen); 
-			$window.open(appData.url + '/#/search/id/' + $scope.chosen._id, '_blank');
+			$window.open(appData.url + '/#/search?id=' + $scope.chosen._id, '_blank');
 		}
 		$state.go('browse.photos');
 	}
