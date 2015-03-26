@@ -171,7 +171,7 @@ angular.module("jewApp")
 			
 		}
 })
-.factory('userService',function($http,appData,$q){
+.factory('userService',function($http,appData,$q,socket){
 		var userData = {
 				id : {},
 			 	isAuth :false,
@@ -327,7 +327,7 @@ angular.module("jewApp")
 		}
 	}
 })
-.factory('socket',function(appData,userService){
+.factory('socket',function(appData){
 	var socket = io.connect(appData.url);
 
 	return socket; 
