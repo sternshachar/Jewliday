@@ -60,6 +60,7 @@ io.on('connection', function (socket) {
     // ++numUsers;
     addedUser = true;
     console.log(username + ' connected');
+	})
 });
 
 app.post('/signup',function(req,res){
