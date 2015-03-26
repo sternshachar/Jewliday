@@ -322,8 +322,8 @@ angular.module("jewApp")
 		}
 	}
 })
-.factory('socket',function(){
-	var socket = io.connect('http://localhost:8080');
+.factory('socket',function(appData){
+	var socket = io.connect(appData.url);
 	return socket; 
 })
 
