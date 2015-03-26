@@ -107,7 +107,8 @@ angular.module("jewApp")
 	}
 
 	socket.on("new_msg", function(data) {
-		$scope.unread.num += 1;
+		if(data.id == $scope.userData.id)
+			$scope.unread.num += 1;
 	})
 
 })
