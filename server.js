@@ -266,7 +266,7 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 		inbox.save(function (err) {
 		  if (err) return console.error(err)
 		  	console.log(io);
-		  // io.socket.in(id).emit('new_msg', {msg: 'hello'});
+		   io.sockets.in(id).emit('new_msg', {msg: 'hello'});
 		  // res.json(message);
 		});
 		
