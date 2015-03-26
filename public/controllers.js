@@ -44,7 +44,7 @@ angular.module("jewApp")
 				$scope.searchTerm.search = '';
 				$location.path('/');
 				socket.emit('leave', {
-					id:result.userData.id
+					id:$scope.userData.id
 				});
 			},function(err){
 				console.log(err);

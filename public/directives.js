@@ -210,7 +210,7 @@ angular.module('jewApp')
 							$scope.$emit('refresh inbox',{})
 							currentIndex = 0;
 							$scope.messageData.content = "";
-							socket.emit('leave',{id: recipientId});
+							socket.emit('leave',{id: $scope.conversation.uid});
 						},function(err){
 							console.error(err);
 						})
