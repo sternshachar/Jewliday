@@ -323,12 +323,9 @@ angular.module("jewApp")
 		}
 	}
 })
-.factory('socket',function($rootScope,appData){
+.factory('socket',function(appData){
 	var socket = io.connect(appData.url);
-	socket.on("new_msg", function(data) {
-		console.log('new message')
-		$rootScope.$broadcast('refresh inbox',{});
-	})
+
 	return socket; 
 })
 
