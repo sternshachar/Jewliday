@@ -7,6 +7,7 @@ var express = require('express'),
     path = require('path');
 
 var app = express();
+var io = require('socket.io');
 var mongoose = require('./mongo');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
@@ -14,7 +15,8 @@ var expressSession = require('express-session');
 var passport = require('./auth');
 var AWS = require('aws-sdk'); 
 app.use(express.static('public'));
-app.listen(8080);
+var server = app.listen(8080);
+io.listen(server);
 /* --- express server setup --- */
 
 app.use(bodyParser());
