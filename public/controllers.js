@@ -130,9 +130,9 @@ angular.module("jewApp")
 	socket.on("new_msg", function(data) {
 	   inboxData = inboxService.getInbox($scope.userData.id)
 			.then(function(result){
-				console.log(result)
 				$scope.conversations = result.conversations;
 				$scope.unread.num = result.unread;
+				console.log($scope.unread.num)
 				$scope.$broadcast('inbox refreshed',$scope.conversations);
 			})
 	})
