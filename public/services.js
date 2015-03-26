@@ -217,6 +217,10 @@ angular.module("jewApp")
 						if(data.message)
 							deferred.reject(data.message);
 						else{
+							socket.emit('add user',{
+								id:userData.id,
+								name: userData.firstName + ' ' + userData.lastName
+							});
 							deferred.resolve(true);
 						}
 					})
@@ -323,8 +327,9 @@ angular.module("jewApp")
 		}
 	}
 })
-.factory('socket',function(appData){
+.factory('socket',function(appData,userService){
 	var socket = io.connect(appData.url);
+
 	return socket; 
 })
 

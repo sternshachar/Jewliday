@@ -41,6 +41,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+var usernames = {};
+// var numUsers = 0;
+
 io.on('connection', function (socket) {
   var addedUser = false;
 
@@ -48,6 +51,15 @@ io.on('connection', function (socket) {
   socket.on('new message', function (data) {
   	console.log(data);
   });
+
+  socket.on('add user', function (username) {
+    // we store the username in the socket session for this client
+    socket.username = username;
+    // add the client's username to the global list
+    usernames[username] = username;
+    // ++numUsers;
+    addedUser = true;
+    console.log(username + ' connected');
 });
 
 app.post('/signup',function(req,res){
