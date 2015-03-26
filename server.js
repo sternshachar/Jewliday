@@ -53,6 +53,7 @@ io.on('connection', function (socket) {
   });
 
   socket.on('add user', function (username) {
+  	console.log(username);
     // we store the username in the socket session for this client
     socket.username = username.id;
     // add the client's username to the global list
