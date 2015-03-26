@@ -18,8 +18,8 @@ app.use(express.static('public'));
 var server = app.listen(8080);
 io.listen(server);
 
-io.sockets.on('connection',function(){
-	console.log('working');
+io.on('connection',function(socket){
+	console.log(socket);
 })
 /* --- express server setup --- */
 
