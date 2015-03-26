@@ -74,6 +74,10 @@ angular.module("jewApp")
 				$scope.userLog = {};
 				$scope.message = '';
 				$scope.warning.message = '';
+				socket.emit('add user',{ //change place maybe in ctrl
+					id:result.userData.id,
+					name: result.userData.firstName + ' ' + result.userData.lastName
+				});
 				return inboxService.getInbox($scope.userData.id)
 			})
 			.then(function(result){

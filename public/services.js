@@ -217,10 +217,6 @@ angular.module("jewApp")
 						if(data.message)
 							deferred.reject(data.message);
 						else{
-							socket.emit('add user',{
-								id:userData.id,
-								name: userData.firstName + ' ' + userData.lastName
-							});
 							deferred.resolve(true);
 						}
 					})
