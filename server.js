@@ -41,27 +41,20 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-var usernames = {};
-// var numUsers = 0;
 
 io.on('connection', function (socket) {
-  var addedUser = false;
-
+  
+  socket.on('join', function (data) {
+    socket.join(data.id); // We are using room of socket io
+  });
+  socket.on('leave', function (data) {
+    socket.leave(data.id); // We are using room of socket io
+  });
   // when the client emits 'new message', this listens and executes
   socket.on('new message', function (data) {
   	console.log(data);
   });
 
-  socket.on('add user', function (username) {
-  	console.log(username);
-    // we store the username in the socket session for this client
-    socket.username = username.id;
-    // add the client's username to the global list
-    usernames[username] = username.id;
-    // ++numUsers;
-    addedUser = true;
-    console.log(username.id + ' connected');
-	})
 });
 
 app.post('/signup',function(req,res){
@@ -248,12 +241,10 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 	var id = req.params.id;
 	var message = req.body;
 	Inbox.findOne({"ownerId" : id},function(err,inbox){ //send the message
-		console.log(inbox)
 		var conversation = inbox.conversations.filter(function (conv) {
 	   		 return conv.uid == message.uid;
 	 	 }).pop();
 		if(conversation == undefined){
-			console.log('1');
 			var last = inbox.conversations.push({
 				uid: message.uid,
 				uName: message.sender,
@@ -265,7 +256,6 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 				});
 			inbox.conversations[last - 1].unreadMessage = true;
 		}else {
-			console.log('2');
 			conversation.lastMessage = Date.now();
 			conversation.unreadMessage = true;
 			conversation.messages.push({
@@ -275,6 +265,7 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 		}
 		inbox.save(function (err) {
 		  if (err) return console.error(err)
+		  io.socket.in(id).emit('new_msg', {msg: 'hello'});
 		  // res.json(message);
 		});
 		

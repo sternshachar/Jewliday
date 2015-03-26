@@ -160,6 +160,7 @@ angular.module('jewApp')
 					inboxService.sendMessage(searchService.getHomeSelect()._id,$scope.messageData)
 						.then(function(data){
 							console.log('Message sent!');
+							socket.emit('leave',{id: recipientId});
 							$scope.closeModal();
 
 						},
@@ -209,6 +210,7 @@ angular.module('jewApp')
 							$scope.$emit('refresh inbox',{})
 							currentIndex = 0;
 							$scope.messageData.content = "";
+							socket.emit('leave',{id: recipientId});
 						},function(err){
 							console.error(err);
 						})

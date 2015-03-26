@@ -311,9 +311,9 @@ angular.module("jewApp")
 		},
 		sendMessage: function(recipientId,messageData){//messageData: sender's id & name, content
 			var deferred = $q.defer();
+			socket.emit('join',{id: recipientId});
 			$http.post(appData.url + '/inbox/' + recipientId,messageData)
 				.success(function(data){
-					socket.emit('new message','socket message');
 					deferred.resolve('Sent')
 				})
 				.error(function(error){
@@ -325,7 +325,9 @@ angular.module("jewApp")
 })
 .factory('socket',function(appData){
 	var socket = io.connect(appData.url);
-
+	socket.on("new_msg", function(data) {
+	    alert(data.msg);
+	}
 	return socket; 
 })
 

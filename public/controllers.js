@@ -43,6 +43,9 @@ angular.module("jewApp")
 				$scope.userData = {isAuth: data};
 				$scope.searchTerm.search = '';
 				$location.path('/');
+				socket.emit('leave', {
+					id:result.userData.id
+				});
 			},function(err){
 				console.log(err);
 			})
@@ -74,7 +77,7 @@ angular.module("jewApp")
 				$scope.userLog = {};
 				$scope.message = '';
 				$scope.warning.message = '';
-				socket.emit('add user',{ //change place maybe in ctrl
+				socket.emit('join', {
 					id:result.userData.id,
 					name: result.userData.firstName + ' ' + result.userData.lastName
 				});
