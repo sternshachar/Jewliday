@@ -1,5 +1,5 @@
 angular.module("jewApp")
-.controller("mainCtrl",function($scope,$interval,$timeout,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope,userService,inboxService,searchService,socket){
+.controller("mainCtrl",function($scope,$interval,$timeout,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope,userService,inboxService,searchService){
 	$scope.user = {};						// user data for SINGUP from form (logModal.html)
 	$scope.userLog = {};					//user data for LOGIN up from form (signModal.html)
 	$scope.items = appData.dropdownUserMenu;//item for user dropdown menu
@@ -25,11 +25,6 @@ angular.module("jewApp")
 				 		});
 	 			};
 	 		})
-
-	 $scope.sndMssg = function(){
-	 	socket.emit('new message','socket message');
-	 }
-
 
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){

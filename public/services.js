@@ -283,7 +283,7 @@ angular.module("jewApp")
 		}
 })
 
-.factory("inboxService", function($http,$filter,$q,appData){
+.factory("inboxService", function($http,$filter,$q,appData,socket){
 	var inbox = {conversations:{},unread: 0};
 	var orderBy = $filter('orderBy');
 	return {
@@ -313,6 +313,7 @@ angular.module("jewApp")
 			var deferred = $q.defer();
 			$http.post(appData.url + '/inbox/' + recipientId,messageData)
 				.success(function(data){
+					socket.emit('new message','socket message');
 					deferred.resolve('Sent')
 				})
 				.error(function(error){
