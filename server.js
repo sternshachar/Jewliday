@@ -7,20 +7,22 @@ var express = require('express'),
     path = require('path');
 
 var app = express();
-var io = require('socket.io');
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+var port = 8080;
+app.use(express.static('public'));
+server.listen(port, function () {
+  console.log('Server listening at port %d', port);
+});
+
 var mongoose = require('./mongo');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
 var passport = require('./auth');
 var AWS = require('aws-sdk'); 
-app.use(express.static('public'));
-var server = app.listen(8080);
-io.listen(server);
 
-io.on('connection',function(socket){
-	console.log(socket);
-})
+// app.listen(8080);
 /* --- express server setup --- */
 
 app.use(bodyParser());
