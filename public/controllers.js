@@ -108,7 +108,7 @@ angular.module("jewApp")
 
 })
 
-.controller("inboxCtrl",function($scope,$http,$state,$filter,$timeout,appData,inboxService,getInbox,userService){
+.controller("inboxCtrl",function($scope,$http,$state,$filter,$timeout,appData,inboxService,getInbox,userService,socket){
 	$scope.warning.message = '';
 	if(!$scope.userData || !$scope.userData.isAuth){
 		$timeout(function(){$scope.warning.message = ''}, 3000);
@@ -136,7 +136,7 @@ angular.module("jewApp")
 				$scope.$broadcast('inbox refreshed',$scope.conversations);
 			})
 	})
-	
+
 	$scope.$on('refresh inbox', function(data){
 		inboxData = inboxService.getInbox($scope.userData.id)
 			.then(function(result){
