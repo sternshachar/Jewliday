@@ -54,12 +54,12 @@ io.on('connection', function (socket) {
 
   socket.on('add user', function (username) {
     // we store the username in the socket session for this client
-    socket.username = username;
+    socket.username = username.id;
     // add the client's username to the global list
-    usernames[username] = username;
+    usernames[username] = username.id;
     // ++numUsers;
     addedUser = true;
-    console.log(username + ' connected');
+    console.log(username.id + ' connected');
 	})
 });
 
