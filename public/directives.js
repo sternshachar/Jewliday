@@ -215,7 +215,7 @@ angular.module('jewApp')
 							console.error(err);
 						})
 				}
-				$interval(function(){$scope.$emit('refresh inbox',{})},60000);
+				// $interval(function(){$scope.$emit('refresh inbox',{})},60000);
 				$scope.$on('inbox refreshed',function(conversations){
 					$scope.conversation = $scope.conversations[currentIndex];
 				})
