@@ -178,7 +178,7 @@ angular.module('jewApp')
 
 		templateUrl: 'views/messageContent.html',
 
-		controller: function($scope,$http,$interval,$location, $anchorScroll,appData,searchService,inboxService){
+		controller: function($scope,$http,$interval,$location, $anchorScroll,appData,searchService,inboxService,socket){
 				$scope.messageData = {
 					uid: $scope.userData.id,
 					sender: $scope.userData.firstName + ' ' + $scope.userData.lastName,
