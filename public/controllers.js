@@ -26,6 +26,10 @@ angular.module("jewApp")
 	 			};
 	 		})
 
+	 $scope.sndMssg = function(){
+	 	socket.emit('new message','socket message');
+	 }
+
 
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){

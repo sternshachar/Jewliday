@@ -41,6 +41,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+io.on('connection', function (socket) {
+  var addedUser = false;
+
+  // when the client emits 'new message', this listens and executes
+  socket.on('new message', function (data) {
+  	console.log('message');
+  });
+});
+
 app.post('/signup',function(req,res){
 	var user = req.body;
 	console.log('Recieved ' + user.firstName);
