@@ -327,7 +327,7 @@ angular.module("jewApp")
 	var socket = io.connect(appData.url);
 	socket.on("new_msg", function(data) {
 	    alert(data.msg);
-	}
+	})
 	return socket; 
 })
 
