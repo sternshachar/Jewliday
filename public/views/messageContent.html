@@ -12,7 +12,7 @@
 			</div>
 			<hr>
 			<div class="message-body" ng-repeat="message in conversation.messages | orderBy:'-sent'">
-				<div id="{{$last ?'bottom' : ''}}">
+				<div>
 					<p>{{message.content}}</p>
 				</div>
 				<div class="message-date">
