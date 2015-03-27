@@ -1,9 +1,17 @@
+		<style type="text/css">
+			.reply-btn{
+				margin: 1em 0 1em 8em;
+			}
+			.text-box{
+				margin-left: 8em;
+			}
+		</style>
 		<div class="message"> <!-- recieve converstaiont and ng-repeat -->
 			<div class="message-header">
 				<p>Conversation with {{conversation.uName}}</p>
 			</div>
 			<hr>
-			<div class="message-body" ng-repeat="message in conversation.messages">
+			<div class="message-body" ng-repeat="message in conversation.messages | orderBy:'-sent'">
 				<div id="{{$last ?'bottom' : ''}}">
 					<p>{{message.content}}</p>
 				</div>
@@ -13,7 +21,8 @@
 				<hr>
 			</div>
 		</div>
-			<textarea rows="5" cols="90" ng-model="messageData.content" placeholder="Write your message here ..."></textarea>
+
+			<textarea rows="5" cols="90" ng-model="messageData.content" placeholder="Write your message here ..." class="text-box"></textarea>
 			<br>
-			<button class="btn btn-primary" ng-click="replyMessage()">Reply</button>
+			<button class="btn btn-primary reply-btn" ng-click="replyMessage()">Reply</button>
 			<br>
