@@ -14,6 +14,7 @@ angular.module("jewApp")
 			})
 			.then(function(result){
 				$scope.userData = result.userData;
+				console.log($scope.userData.id);
 				return inboxService.getInbox($scope.userData.id)
 			})
 	 		.then(function(result){
