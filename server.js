@@ -44,7 +44,6 @@ app.use(flash());
 
 io.on('connection', function (socket) {
   
-
   // when the client emits 'new message', this listens and executes
   socket.on('new message', function (data) {
   	console.log(data);
