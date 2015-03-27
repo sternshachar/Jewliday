@@ -44,12 +44,7 @@ app.use(flash());
 
 io.on('connection', function (socket) {
   
-  socket.on('join', function (data) {
-    socket.join(data.id); // We are using room of socket io
-  });
-  socket.on('leave', function (data) {
-    socket.leave(data.id); // We are using room of socket io
-  });
+
   // when the client emits 'new message', this listens and executes
   socket.on('new message', function (data) {
   	console.log(data);
@@ -265,7 +260,7 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 		}
 		inbox.save(function (err) {
 		  if (err) return console.error(err);
-		   io.sockets.in(id).emit('new_msg', {id: id});
+		   io.sockets.to(id).emit('new_msg', {id: id});
 		  // res.json(message);
 		});
 		
