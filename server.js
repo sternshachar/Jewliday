@@ -47,7 +47,12 @@ io.on('connection', function (socket) {
   // when the client emits 'new message', this listens and executes
   socket.on('new message', function (data) {
   	console.log(data);
+  	console.log('broadcasting to id: ' + data.id);
+  	socket.broadcast.to(data.id).emit('new_msg', {id: data.id});
   });
+
+  
+	
 
 });
 
@@ -259,8 +264,6 @@ app.post('/inbox/:id',function(req,res){ //condtion if no conversation exist cre
 		}
 		inbox.save(function (err) {
 		  if (err) return console.error(err);
-		  console.log('broadcasting to id: ' + id);
-		   io.socket.broadcast.to(id).emit('new_msg', {id: id});
 		  // res.json(message);
 		});
 		

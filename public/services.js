@@ -313,7 +313,8 @@ angular.module("jewApp")
 			var deferred = $q.defer();
 			$http.post(appData.url + '/inbox/' + recipientId,messageData)
 				.success(function(data){
-					deferred.resolve('Sent')
+					socket.emit('new message',{id: recipientId});
+					deferred.resolve('Sent');
 				})
 				.error(function(error){
 					deferred.reject(error);
