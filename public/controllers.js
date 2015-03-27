@@ -14,7 +14,6 @@ angular.module("jewApp")
 			})
 			.then(function(result){
 				$scope.userData = result.userData;
-				console.log($scope.userData.id);
 				return inboxService.getInbox($scope.userData.id)
 			})
 	 		.then(function(result){
@@ -44,7 +43,6 @@ angular.module("jewApp")
 				$scope.userData = {isAuth: data};
 				$scope.searchTerm.search = '';
 				$location.path('/');
-
 			},function(err){
 				console.log(err);
 			})
@@ -76,7 +74,10 @@ angular.module("jewApp")
 				$scope.userLog = {};
 				$scope.message = '';
 				$scope.warning.message = '';
-
+				socket.emit('join', {
+					id:result.userData.id,
+					name: result.userData.firstName + ' ' + result.userData.lastName
+				});
 				return inboxService.getInbox($scope.userData.id)
 			})
 			.then(function(result){

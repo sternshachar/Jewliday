@@ -45,6 +45,9 @@ app.use(flash());
 io.on('connection', function (socket) {
   
   // when the client emits 'new message', this listens and executes
+  socket.on('join', function (data) {
+    socket.join(data.id); // We are using room of socket io
+  });
   socket.on('new message', function (data) {
   	console.log(data);
   	console.log('broadcasting to id: ' + data.id);
