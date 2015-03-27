@@ -128,9 +128,9 @@ angular.module("jewApp")
 	$scope.unread.num = inboxData.unread;
 
 	socket.on("new_msg", function(data) {
+		console.log('new message event');
 	   inboxData = inboxService.getInbox($scope.userData.id)
 			.then(function(result){
-				console.log('new message');
 				$scope.conversations = result.conversations;
 				$scope.unread.num = result.unread;
 				console.log($scope.unread.num)
