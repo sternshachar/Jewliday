@@ -10,7 +10,9 @@
 				border: 1px solid #dce0e3;
 				padding: 1em 1em 0 1em;
 				margin-bottom: 1em;
-				/*background: aliceblue;*/
+			}
+			.message-body.recieve{
+				background: aliceblue;
 			}
 			.message-body:after 
 			{
@@ -39,13 +41,40 @@
 			left: -16px;
 			top: 20px;
 			}
+			.message-body.recieve:after 
+			{
+			content: '';
+			position: absolute;
+			border-style: solid;
+			border-width: 15px 0 15px 15px;
+			border-color: transparent #FFFFFF;
+			display: block;
+			width: 0;
+			z-index: 1;
+			right: -15px;
+			top: 20px;
+			}
+
+			.message-body.recieve:before 
+			{
+			content: '';
+			position: absolute;
+			border-style: solid;
+			border-width: 15px 0 15px 15px;
+			border-color: transparent #dce0e3;
+			display: block;
+			width: 0;
+			z-index: 0;
+			right: -16px;
+			top: 20px;
+			}
 		</style>
 		<div class="message"> <!-- recieve converstaiont and ng-repeat -->
 			<div class="message-header">
 				<p>Conversation with {{conversation.uName}}</p>
 			</div>
 			<hr>
-			<div class="message-body" ng-repeat="message in conversation.messages | orderBy:'-sent'">
+			<div class="message-body" ng-class="message.iSent ? '':'recieve' "ng-repeat="message in conversation.messages | orderBy:'-sent'">
 				<div>
 					<p>{{message.content}}</p>
 					<div class="message-date">
