@@ -5,6 +5,12 @@
 			.text-box{
 				margin-left: 8em;
 			}
+			.message-body{
+				border: 1px solid #dce0e3;
+				padding: 1em;
+				background: aliceblue;
+				background: rgb(219, 255, 243);
+			}
 		</style>
 		<div class="message"> <!-- recieve converstaiont and ng-repeat -->
 			<div class="message-header">
@@ -14,11 +20,10 @@
 			<div class="message-body" ng-repeat="message in conversation.messages | orderBy:'-sent'">
 				<div>
 					<p>{{message.content}}</p>
+					<div class="message-date">
+						<p class="text-muted">{{message.sent | date:"MM/dd/yyyy 'at' h:mma"}}</p>
+					</div>
 				</div>
-				<div class="message-date">
-					<p class="text-muted">{{message.sent | date:"MM/dd/yyyy 'at' h:mma"}}</p>
-				</div>
-				<hr>
 			</div>
 		</div>
 
