@@ -7,6 +7,7 @@
 			}
 			.message-body{
 				position: relative;
+				display: block;
 				border: 1px solid #dce0e3;
 				padding: 1em 1em 0 1em;
 				margin-bottom: 1em;
@@ -75,7 +76,7 @@
 				<p>Conversation with {{conversation.uName}}</p>
 			</div>
 			<hr>
-			<div class="message-body" ng-class="message.iSent ? '':'recieve pull-right' "ng-repeat="message in conversation.messages | orderBy:'-sent'">
+			<div class="message-body" ng-class="message.iSent ? '':'recieve' "ng-repeat="message in conversation.messages | orderBy:'-sent'">
 				<div>
 					<p>{{message.content}}</p>
 					<div class="message-date">
