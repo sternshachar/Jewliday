@@ -35,7 +35,6 @@ hr{
 	background-image: none;
 }
 .load{
-	width: 100px;
 	margin-left: 17em;
 	margin-right: 17em;
 }
@@ -48,7 +47,7 @@ hr{
 		<div ui-view></div>
 	</div>
 	<div class="col-sm-9 side-bar well">
-		<img src="images/ajax-loader.gif" ng-show="loading" class="load pull-center">
+		<h2 ng-show="loading" class="load">Loading ...</h2>
 		<message-content></message-content>
 	</div><!-- end col-sm-2 --> 
 </div><!-- end row -->
