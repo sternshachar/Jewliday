@@ -13,6 +13,7 @@
 				margin-left: 1em;
 				margin-right: 4em;
 				border-radius: 5px;
+				white-space:pre-wrap;
 			}
 			.recieve{
 				position: relative;
@@ -23,6 +24,7 @@
 				margin-left: 4em;
 				margin-right: 0.5em;
 				border-radius: 5px;
+				white-space:pre-wrap;
 			}
 			.message-body:after 
 			{
@@ -78,6 +80,9 @@
 			right: -16px;
 			top: 20px;
 			}
+			.message-text{
+				white-space:pre-wrap;
+			}
 		</style>
 		<div class="message"> <!-- recieve converstaiont and ng-repeat -->
 			<div class="message-header">
@@ -86,7 +91,7 @@
 			<hr>
 			<div ng-class="message.iSent ? 'message-body':'recieve' "ng-repeat="message in conversation.messages | orderBy:'-sent'">
 				<div>
-					<p>{{message.content}}</p>
+					<p class="message-text">{{message.content}}</p>
 					<div class="message-date">
 						<p class="text-muted">{{message.sent | date:"MM/dd/yyyy 'at' h:mma"}}</p>
 					</div>
