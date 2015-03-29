@@ -125,7 +125,7 @@ angular.module("jewApp")
 					content: ""
 				};
 
-	var inboxData = getInbox; 
+	var inboxData = inboxService.getInbox($scope.userData.id); 
 	$scope.loading = false;
 	$scope.conversations = inboxData.conversations;
 	$scope.unread.num = inboxData.unread;
