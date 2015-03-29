@@ -31,7 +31,7 @@ app.use(expressSession({
  	secret: process.env.SESSION_SECRET || 'secret',
  	resave: false,
  	cookie: { 
- 		secure: false, maxAge: new Date(Date.now() + 3600000) 
+ 		secure: false, maxAge: new Date(Date.now() + 99999999999999) 
  		},
  	key:'connect.sid' ,
  	saveUninitialized: false
