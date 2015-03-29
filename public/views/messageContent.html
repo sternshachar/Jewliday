@@ -87,10 +87,10 @@
 			}
 		</style>
 		<div class="message"> <!-- recieve converstaiont and ng-repeat -->
-			<div class="message-header">
+<!-- 			<div class="message-header">
 				<h4 ng-show ="!loading">Conversation with {{conversation.uName}}</h4>
-			</div>
-			<hr>
+			</div> -->
+			<!-- <hr> -->
 			<div ng-class="message.iSent ? 'message-body':'recieve' "ng-repeat="message in conversation.messages | orderBy:'-sent'">
 				<div>
 					<p class="message-text">{{message.content}}</p>
