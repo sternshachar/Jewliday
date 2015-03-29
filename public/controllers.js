@@ -125,7 +125,7 @@ angular.module("jewApp")
 					content: ""
 				};
 
-	var inboxData = inboxService.getInbox($scope.userData.id)
+	inboxService.getInbox($scope.userData.id)
 		.then(function(data){
 			$scope.conversations = data.conversations;
 			$scope.unread.num = data.unread;
@@ -137,7 +137,7 @@ angular.module("jewApp")
 
 	socket.on("new_msg", function(data) { //load just message
 		console.log('new message event');
-	   inboxData = inboxService.getInbox($scope.userData.id)
+	    inboxService.getInbox($scope.userData.id)
 			.then(function(result){
 				$scope.conversations = result.conversations;
 				$scope.unread.num = result.unread;
@@ -147,7 +147,7 @@ angular.module("jewApp")
 	})
 
 	$scope.$on('refresh inbox', function(data){
-		inboxData = inboxService.getInbox($scope.userData.id)
+		 inboxService.getInbox($scope.userData.id)
 			.then(function(result){
 				console.log(result)
 				$scope.conversations = result.conversations;
