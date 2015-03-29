@@ -110,7 +110,7 @@ angular.module("jewApp")
 
 })
 
-.controller("inboxCtrl",function($scope,$http,$state,$filter,$timeout,appData,inboxService,getInbox,userService,socket){
+.controller("inboxCtrl",function($scope,$http,$state,$filter,$timeout,appData,inboxService,userService,socket){
 	$scope.warning.message = '';
 	if(!$scope.userData || !$scope.userData.isAuth){
 		$timeout(function(){$scope.warning.message = ''}, 3000);
