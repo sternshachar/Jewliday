@@ -192,7 +192,7 @@ angular.module('jewApp')
 						.then(function(result){
 							$scope.unread.num -= result.data.read;
 						})
-						$scope.$emit('refresh inbox',{})
+						$scope.$emit('refresh inbox',{index:index})
 						$scope.conversation = $scope.conversations[index];
 				};
 									
