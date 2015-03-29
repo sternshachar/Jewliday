@@ -286,6 +286,7 @@ angular.module("jewApp")
 .factory("inboxService", function($http,$filter,$q,appData,socket){
 	var inbox = {conversations:{},unread: 0};
 	var orderBy = $filter('orderBy');
+	var loading = true;
 	return {
 		getInbox: function(inboxOwnerId){
 			console.log('Loading inbox');	
@@ -320,6 +321,12 @@ angular.module("jewApp")
 					deferred.reject(error);
 				});
 			return deferred.promise;
+		},
+		loadingState: function(state){
+			if(state){
+				loading = state;
+			} 
+			return loading;
 		}
 	}
 })
