@@ -154,7 +154,6 @@ angular.module("jewApp")
 				$scope.unread.num = result.unread;
 				$scope.$broadcast('inbox refreshed',$scope.conversations);
 			})
-
 	})
 
 	$scope.unreadMessage = function(unreadMessage){

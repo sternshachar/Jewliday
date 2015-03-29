@@ -183,7 +183,7 @@ angular.module('jewApp')
 					sender: $scope.userData.firstName + ' ' + $scope.userData.lastName,
 					content: ""
 				};
-				$scope.$emit('refresh inbox',{})
+				// $scope.$emit('refresh inbox',{})
 				var currentIndex = 0;
 				$scope.openMessageContent = function(index){
 					currentIndex = index;
