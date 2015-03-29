@@ -321,12 +321,6 @@ angular.module("jewApp")
 					deferred.reject(error);
 				});
 			return deferred.promise;
-		},
-		loadingState: function(state){
-			if(state){
-				loading = state;
-			} 
-			return loading;
 		}
 	}
 })

@@ -117,7 +117,7 @@ angular.module("jewApp")
 		$scope.warning.message = 'Please Log in ';
 		$state.go('home');
 	}
-	$scope.loading = inboxService.loadingState();
+	$scope.loading = true;
 	var orderBy = $filter('orderBy');
 	$scope.messageData = {
 					uid: $scope.userData.id,
@@ -126,7 +126,7 @@ angular.module("jewApp")
 				};
 
 	var inboxData = getInbox; 
-	$scope.loading = inboxService.loadingState(false);
+	$scope.loading = false;
 	$scope.conversations = inboxData.conversations;
 	$scope.unread.num = inboxData.unread;
 
@@ -142,14 +142,14 @@ angular.module("jewApp")
 	})
 
 	$scope.$on('refresh inbox', function(data){
-		$scope.loading = inboxService.loadingState(true);
+		$scope.loading = true;
 		inboxData = inboxService.getInbox($scope.userData.id)
 			.then(function(result){
 				console.log(result)
 				$scope.conversations = result.conversations;
 				$scope.unread.num = result.unread;
 				$scope.$broadcast('inbox refreshed',$scope.conversations);
-				$scope.loading = inboxService.loadingState(false);
+				$scope.loading = false;
 			})
 
 	})
