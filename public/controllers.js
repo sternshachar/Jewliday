@@ -125,8 +125,11 @@ angular.module("jewApp")
 					content: ""
 				};
 
-	var inboxData = inboxService.getInbox($scope.userData.id); 
-	$scope.loading = false;
+	var inboxData = inboxService.getInbox($scope.userData.id)
+		.then(function(){
+			$scope.loading = false;
+		}); 
+	
 	$scope.conversations = inboxData.conversations;
 	$scope.unread.num = inboxData.unread;
 
@@ -142,14 +145,12 @@ angular.module("jewApp")
 	})
 
 	$scope.$on('refresh inbox', function(data){
-		$scope.loading = true;
 		inboxData = inboxService.getInbox($scope.userData.id)
 			.then(function(result){
 				console.log(result)
 				$scope.conversations = result.conversations;
 				$scope.unread.num = result.unread;
 				$scope.$broadcast('inbox refreshed',$scope.conversations);
-				$scope.loading = false;
 			})
 
 	})

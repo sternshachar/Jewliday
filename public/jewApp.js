@@ -34,24 +34,24 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 					.state('usersArea.inbox',{
 						url:'/inbox',
 						templateUrl:'views/users.inbox.html',
-						controller: 'inboxCtrl',
-						resolve: {
-							getInbox: function(inboxService,userService){ 
-								var user = userService.getUserData()
-											.then(function(result){
-												var inbox = userService.getData()
-																.then(function(result){
-																	return inboxService.getInbox(result.userData.id);
-																})
-																.then(function(result){
-																	return result;
-																})
-												return inbox;
-											})
+						controller: 'inboxCtrl'
+						// resolve: {
+						// 	getInbox: function(inboxService,userService){ 
+						// 		var user = userService.getUserData()
+						// 					.then(function(result){
+						// 						var inbox = userService.getData()
+						// 										.then(function(result){
+						// 											return inboxService.getInbox(result.userData.id);
+						// 										})
+						// 										.then(function(result){
+						// 											return result;
+						// 										})
+						// 						return inbox;
+						// 					})
 
-								return user;
-							}
-						}
+						// 		return user;
+						// 	}
+						// }
 					})
 					.state('usersArea.home',{
 						url:'/home',
