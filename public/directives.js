@@ -219,7 +219,7 @@ angular.module('jewApp')
 
 				$scope.$on('new message',function(event,data){
 					console.log(data.message); //add if to see if the conversation is relevant
-					$scope.$apply(function(){$scope.conversation.messages.push({content: data.message.content, sent: new Date(), iSent: false});});
+					$scope.conversation.messages.push({content: data.message.content, sent: new Date(), iSent: false});
 				
 				})
 
