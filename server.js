@@ -51,7 +51,7 @@ io.on('connection', function (socket) {
   socket.on('new message', function (data) {
   	console.log(data);
   	console.log('broadcasting to id: ' + data.id);
-  	socket.broadcast.to(data.id).emit('new_msg', {message: data.message, sent: new Date.now()});
+  	socket.broadcast.to(data.id).emit('new_msg', {message: data.message});
   });
 
   
