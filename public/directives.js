@@ -211,9 +211,13 @@ angular.module('jewApp')
 							console.error(err);
 						})
 				}
-				
+
 				$scope.$on('inbox refreshed',function(conversations){
 					$scope.conversation = $scope.conversations[currentIndex];
+				})
+
+				$scope.$on('new message',function(data){
+					console.log(data);
 				})
 
 
