@@ -49,9 +49,7 @@ io.on('connection', function (socket) {
     socket.join(data.id); // We are using room of socket io
   });
   socket.on('new message', function (data) {
-  	console.log(data);
-  	console.log('broadcasting to id: ' + data.id);
-  	socket.broadcast.to(data.id).emit('new_msg', {id: data.id});
+  	socket.broadcast.to(data.id).emit('new_msg', data.message);
   });
 
   

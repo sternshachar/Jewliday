@@ -211,11 +211,14 @@ angular.module('jewApp')
 							console.error(err);
 						})
 				}
-				
+
 				$scope.$on('inbox refreshed',function(conversations){
 					$scope.conversation = $scope.conversations[currentIndex];
 				})
 
+				socket.on("new_msg", function(data) { //load just message
+					$scope.conversation.push(data);
+				})
 
 			}
 	}

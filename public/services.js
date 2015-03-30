@@ -314,7 +314,7 @@ angular.module("jewApp")
 			var deferred = $q.defer();
 			$http.post(appData.url + '/inbox/' + recipientId,messageData)
 				.success(function(data){
-					socket.emit('new message',{id: recipientId});
+					socket.emit('new message',{id: recipientId,message: messageData});
 					deferred.resolve('Sent');
 				})
 				.error(function(error){
