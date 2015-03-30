@@ -204,7 +204,7 @@ angular.module('jewApp')
 					inboxService.sendMessage($scope.conversation.uid,$scope.messageData)
 						.then(function(data){
 							$scope.closeModal();
-							$scope.$emit('refresh inbox',{})
+							// $scope.$emit('refresh inbox',{})
 							currentIndex = 0;
 							$scope.messageData.content = "";
 						},function(err){
