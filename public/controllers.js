@@ -50,6 +50,7 @@ angular.module("jewApp")
 		userService.logOut()
 			.then(function(data){
 				$scope.userData = {isAuth: data};
+				favicoService.reset();
 				$scope.searchTerm.search = '';
 				$location.path('/');
 			},function(err){
@@ -113,7 +114,6 @@ angular.module("jewApp")
 	}
 
 	socket.on("new_msg", function(data) {
-		if(data.message.id == $scope.userData.id)
 			$scope.unread.num += 1;
 	})
 
