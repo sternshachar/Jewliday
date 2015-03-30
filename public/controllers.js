@@ -146,7 +146,6 @@ angular.module("jewApp")
 
 	socket.on("new_msg", function(data) { //load just message
 		console.log('new message event');
-		console.log(data);
 	  //   inboxService.getInbox($scope.userData.id)
 			// .then(function(result){
 			// 	$scope.conversations = result.conversations;
