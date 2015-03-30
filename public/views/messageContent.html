@@ -91,7 +91,7 @@
 				<h4 ng-if ="!loading">{{'Conversation with ' + conversation.uName}}</h4>
 			</div>
 			<hr>
-			<div ng-class="message.iSent ? 'message-body':'recieve' "ng-repeat="message in conversation.messages | orderBy:'-sent'">
+			<div ng-class="message.iSent ? 'message-body':'recieve' "ng-repeat="message in conversation.messages track by $index | orderBy:'-sent'">
 				<div>
 					<p class="message-text">{{message.content}}</p>
 					<div class="message-date">
