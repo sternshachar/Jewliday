@@ -216,7 +216,7 @@ angular.module('jewApp')
 					$scope.conversation = $scope.conversations[currentIndex];
 				})
 
-				$scope.$on('new message',function(data){
+				$scope.$on('new message',function(event,data){
 					console.log(data.message);
 				})
 
