@@ -216,7 +216,7 @@ angular.module('jewApp')
 					$scope.conversation = $scope.conversations[currentIndex];
 				})
 
-				socket.on("new_msg", function(data) { //load just message
+				$scope.$on("new_msg", function(data) { //load just message
 					console.log(data);
 					$scope.conversation.push(data);
 				})
