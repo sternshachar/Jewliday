@@ -217,6 +217,7 @@ angular.module('jewApp')
 				})
 
 				socket.on("new_msg", function(data) { //load just message
+					console.log(data);
 					$scope.conversation.push(data);
 				})
 
