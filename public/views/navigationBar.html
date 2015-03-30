@@ -75,7 +75,7 @@
 				    </li>
 				<li>
 					<a href="#/users/inbox/incoming" > <!-- link to inbox -->
-						<span class="glyphicon glyphicon-envelope" ></span><span class="label label-danger label-as-badge" ng-hide="unread.num == 0">{{unread.num}}</span>
+						<span class="glyphicon glyphicon-envelope" ></span><span class="label label-danger label-as-badge" ng-hide="unread.num == 0 || $state.current.name == 'usersArea.inbox.incoming'">{{unread.num}}</span>
 					</a>
 				</li>
 				<li>
@@ -100,7 +100,7 @@
 				</li>
 				<li  ng-class="inboxActive()">
 					<a href="#/users/inbox/incoming" >
-						<span class="glyphicon glyphicon-envelope"></span> Inbox <span class="badge" ng-hide="unread.num == 0">{{unread.num}}</span>
+						<span class="glyphicon glyphicon-envelope"></span> Inbox <span class="badge" ng-hide="unread.num == 0 || $state.current.name == 'usersArea.inbox.incoming'">{{unread.num}}</span>
 					</a>
 				</li>
 				<li ng-class="searchActive()">

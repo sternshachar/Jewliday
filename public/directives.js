@@ -177,7 +177,7 @@ angular.module('jewApp')
 
 		templateUrl: 'views/messageContent.html',
 
-		controller: function($scope,$http,$interval,$location, $anchorScroll,appData,searchService,inboxService,socket){
+		controller: function($scope,$http,$interval,appData,searchService,inboxService,socket){
 				$scope.messageData = {
 					uid: $scope.userData.id,
 					sender: $scope.userData.firstName + ' ' + $scope.userData.lastName,
@@ -190,7 +190,8 @@ angular.module('jewApp')
 					$scope.conversation = $scope.conversations[index]
 					$http.put(appData.url + '/inbox/' + $scope.userData.id, {uid: $scope.conversation.uid})//promise in inbox servcie
 						.then(function(result){
-							$scope.unread.num -= result.data.read;
+							if($scope.unread.num >= result.data.read)
+								$scope.unread.num -= result.data.read;
 						})
 						$scope.$emit('refresh inbox',{})
 						$scope.conversation = $scope.conversations[index];

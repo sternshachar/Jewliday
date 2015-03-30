@@ -1,4 +1,7 @@
 angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","ui.router",'uiGmapgoogle-maps','angularFileUpload'])
+			.run(function ($state,$rootScope) {
+			    $rootScope.$state = $state;
+			})
 			.config(function($stateProvider,$urlRouterProvider,uiGmapGoogleMapApiProvider){
 				    uiGmapGoogleMapApiProvider.configure({
 				        //    key: 'your api key',
