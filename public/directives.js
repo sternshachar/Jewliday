@@ -218,9 +218,8 @@ angular.module('jewApp')
 
 				$scope.$on('new message',function(event,data){
 					console.log(data.message);
-					$scope.conversation.messages.push({content: data.message.content, sent: new Date(), iSent: false});
-					$scope.$apply();
-					console.log($scope.conversation.messages);
+					$scope.$apply($scope.conversation.messages.push({content: data.message.content, sent: new Date(), iSent: false}););
+				
 				})
 
 
