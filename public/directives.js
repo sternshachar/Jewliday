@@ -205,7 +205,9 @@ angular.module('jewApp')
 						.then(function(data){
 							$scope.closeModal();
 							// $scope.$emit('refresh inbox',{})
-							$scope.conversation.messages.push({content: $scope.messageData.content, sent: new Date(), iSent: true});
+							var collectionDate = new Date();
+							var date = new Date(collectionDate);
+							$scope.conversation.messages.push({content: $scope.messageData.content, sent: date, iSent: true});
 							currentIndex = 0;
 							$scope.messageData.content = "";
 						},function(err){
