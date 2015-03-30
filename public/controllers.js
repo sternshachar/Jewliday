@@ -1,5 +1,5 @@
 angular.module("jewApp")
-.controller("mainCtrl",function($scope,$interval,$timeout,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope,userService,inboxService,searchService,socket){
+.controller("mainCtrl",function($scope,$interval,$timeout,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope,userService,inboxService,searchService,socket,favicoService){
 	$scope.user = {};						// user data for SINGUP from form (logModal.html)
 	$scope.userLog = {};					//user data for LOGIN up from form (signModal.html)
 	$scope.items = appData.dropdownUserMenu;//item for user dropdown menu
@@ -7,6 +7,7 @@ angular.module("jewApp")
 	$scope.unread = {num: 0};
 	$scope.warning = {message: ''};
 	
+
 					//indicates number of unread messages
 		userService.getUserData()				//gets user datails
 			.then(function(result){
@@ -40,6 +41,11 @@ angular.module("jewApp")
 		console.log(args);
 		$scope.markers = args;
 	});
+
+	$scope.$watch('unread', function () {
+		console.log('not');
+       favicoService.badge($scope.unread.num);
+    });
 
 	$scope.logOut = function(){
 		userService.logOut()
