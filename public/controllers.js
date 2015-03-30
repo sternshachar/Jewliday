@@ -139,7 +139,10 @@ angular.module("jewApp")
 		.then(function(data){
 			$scope.conversations = data.conversations;
 			$scope.unread.num = data.unread;
-			$scope.loading = false;
+			return false;
+		})
+		.then(function(data){
+			$scope.loading = data;
 		}); 
 	
 	
