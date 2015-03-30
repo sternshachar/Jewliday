@@ -42,7 +42,7 @@ angular.module("jewApp")
 		$scope.markers = args;
 	});
 
-	$scope.$watch('unread', function () {
+	$scope.$watch('unread.num', function () {
 		console.log('not');
        favicoService.badge($scope.unread.num);
     });
