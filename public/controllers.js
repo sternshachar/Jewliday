@@ -157,8 +157,7 @@ angular.module("jewApp")
 
 	socket.on("new_msg", function(data) { //load just message
 		console.log('new message event');
-				$scope.$broadcast('new_msg',data);
-			})
+		$scope.$broadcast('new_msg',data);
 	})
 
 	$scope.$on('refresh inbox', function(data){
