@@ -154,7 +154,7 @@ angular.module("jewApp")
 			// 	console.log($scope.unread.num)
 			// 	$scope.$broadcast('inbox refreshed',$scope.conversations);
 			// })
-		$scope.$broadcast('new message',data);
+		$scope.$broadcast('new message',{message: data});
 	})
 
 	$scope.$on('refresh inbox', function(data){

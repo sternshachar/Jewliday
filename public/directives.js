@@ -217,7 +217,7 @@ angular.module('jewApp')
 				})
 
 				$scope.$on('new message',function(data){
-					console.log(data);
+					console.log(data.message);
 				})
 
 
