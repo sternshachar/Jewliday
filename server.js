@@ -50,6 +50,7 @@ io.on('connection', function (socket) {
   });
   socket.on('new message', function (data) {
   	console.log('sending to ' + data.id)
+  	console.log(data.message);
   	socket.broadcast.to(data.id).emit('new_msg', {message: data.message});
   });
 
