@@ -204,22 +204,18 @@ angular.module('jewApp')
 					inboxService.sendMessage($scope.conversation.uid,$scope.messageData)
 						.then(function(data){
 							$scope.closeModal();
-							// $scope.$emit('refresh inbox',{})
+							$scope.$emit('refresh inbox',{})
 							currentIndex = 0;
 							$scope.messageData.content = "";
 						},function(err){
 							console.error(err);
 						})
 				}
-
+				
 				$scope.$on('inbox refreshed',function(conversations){
 					$scope.conversation = $scope.conversations[currentIndex];
 				})
 
-				$scope.$on("new_msg", function(data) { //load just message
-					console.log(data);
-					$scope.conversation.push(data);
-				})
 
 			}
 	}

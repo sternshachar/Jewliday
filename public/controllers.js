@@ -43,6 +43,7 @@ angular.module("jewApp")
 	});
 
 	$scope.$watch('unread.num', function () {
+		console.log('not');
        favicoService.badge($scope.unread.num);
     });
 
@@ -144,20 +145,15 @@ angular.module("jewApp")
 	
 	
 
-	// socket.on("new_msg", function(data) { //load just message
-	// 	console.log('new message event');
-	//     inboxService.getInbox($scope.userData.id)
-	// 		.then(function(result){
-	// 			$scope.conversations = result.conversations;
-	// 			$scope.unread.num = result.unread;
-	// 			console.log($scope.unread.num)
-	// 			$scope.$broadcast('inbox refreshed',$scope.conversations);
-	// 		})
-	// })
-
 	socket.on("new_msg", function(data) { //load just message
 		console.log('new message event');
-		$scope.$broadcast('new_msg',data);
+	    inboxService.getInbox($scope.userData.id)
+			.then(function(result){
+				$scope.conversations = result.conversations;
+				$scope.unread.num = result.unread;
+				console.log($scope.unread.num)
+				$scope.$broadcast('inbox refreshed',$scope.conversations);
+			})
 	})
 
 	$scope.$on('refresh inbox', function(data){
