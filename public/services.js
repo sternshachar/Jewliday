@@ -332,7 +332,7 @@ angular.module("jewApp")
 .factory('favicoService', [
 function() {
     var favico = new Favico({
-        animation : 'fade'
+        animation:'popFade'
     });
 
     var badge = function(num) {
