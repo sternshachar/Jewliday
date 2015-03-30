@@ -205,7 +205,7 @@ angular.module('jewApp')
 						.then(function(data){
 							$scope.closeModal();
 							// $scope.$emit('refresh inbox',{})
-							$scope.conversation.messages.splice(0,0,{content: $scope.messageData.content, sent: new Date(), iSent: true});
+							$scope.conversation.messages.push({content: $scope.messageData.content, sent: new Date(), iSent: true});
 							currentIndex = 0;
 							$scope.messageData.content = "";
 						},function(err){
@@ -219,7 +219,7 @@ angular.module('jewApp')
 
 				$scope.$on('new message',function(event,data){
 					console.log(data.message); //add if to see if the conversation is relevant
-					$scope.$apply(function(){$scope.conversation.messages.splice(0,0,{content: data.message.content, sent: new Date(), iSent: false});});
+					$scope.$apply(function(){$scope.conversation.messages.push({content: data.message.content, sent: new Date(), iSent: false});});
 				
 				})
 
