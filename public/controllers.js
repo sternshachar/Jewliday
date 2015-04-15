@@ -15,7 +15,7 @@ angular.module("jewApp")
 			})
 			.then(function(result){
 				$scope.userData = result.userData;
-				console.log($scope.userData);
+				$scope.destinations = result.homeData.destinations;
 				socket.emit('join', {
 					id:result.userData.id,
 					name: result.userData.firstName + ' ' + result.userData.lastName

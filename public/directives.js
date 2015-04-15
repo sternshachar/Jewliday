@@ -232,10 +232,13 @@ angular.module('jewApp')
 	return{
 		restrict: 'E',
 
-		templateUrl: 'views/houseSuggest.html',
+		templateUrl: 'views/main.html',
 
-		controller: function($scope,$http,appData,searchService){
-			// $scope.destinations = 
+		controller: function($scope,$http,appData,searchService,userService){
+			userService.getData()
+			.then(function(data){
+				$scope.destinations = data.homeData.destinations;
+			})
 		}
 	}
 })
