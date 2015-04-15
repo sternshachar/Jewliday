@@ -26,6 +26,14 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 						url:'/',
 						templateUrl: "views/main.html"
 					})
+					.state('home.panel',{
+						url:'/',
+						templateUrl: "views/main.panel.html"
+					})
+					.state('home.map',{
+						url:'/',
+						templateUrl: "views/main.map.html"
+					})
 					.state('usersArea',{
 						url:'/users',
 						templateUrl: "views/user.html"
@@ -38,23 +46,6 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 						url:'/inbox',
 						templateUrl:'views/users.inbox.html',
 						controller: 'inboxCtrl'
-						// resolve: {
-						// 	getInbox: function(inboxService,userService){ 
-						// 		var user = userService.getUserData()
-						// 					.then(function(result){
-						// 						var inbox = userService.getData()
-						// 										.then(function(result){
-						// 											return inboxService.getInbox(result.userData.id);
-						// 										})
-						// 										.then(function(result){
-						// 											return result;
-						// 										})
-						// 						return inbox;
-						// 					})
-
-						// 		return user;
-						// 	}
-						// }
 					})
 					.state('usersArea.home',{
 						url:'/home',

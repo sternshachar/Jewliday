@@ -228,3 +228,14 @@ angular.module('jewApp')
 			}
 	}
 })
+.directive("houseSuggest",function(){
+	return{
+		restrict: 'E',
+
+		templateUrl: 'views/houseSuggest.html',
+		
+		controller: function($scope,$http,appData,searchService){
+
+		}
+	}
+})
