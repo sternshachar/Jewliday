@@ -92,7 +92,7 @@
 			</div>
 			<hr>
 			<div ng-class="message.iSent ? 'message-body':'recieve' "ng-repeat="message in conversation.messages | reverse">
-				<div>
+				<div ng-hide = "message.deleted">
 					<p class="message-text">{{message.content}}</p>
 					<div class="message-date">
 						<p class="text-muted">{{message.sent | date:"MM/dd/yyyy 'at' h:mma"}}</p>

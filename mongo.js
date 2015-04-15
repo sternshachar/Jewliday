@@ -33,6 +33,7 @@ db.once('open',function(callback){
 			description: String,
 			kosher : String,
 			synagouge : Number ,
+			floor: Number,
 			amenities : {
 				TV : Boolean,
 				wifi : Boolean,
@@ -64,6 +65,11 @@ db.once('open',function(callback){
 				pic4: String,
 				pic5: String,
 				pic6: String
+		},
+		destinations:{
+			first: {type: String, default: ''},
+			second: {type: String, default: ''},
+			third: {type: String, default: ''}
 		}
 
 	},
@@ -75,7 +81,8 @@ db.once('open',function(callback){
 			iSent: {type: Boolean, default: true},
 			content: String ,
 			read: {type: Boolean, default: false},
-			sent: {type: Date, default: Date.now}
+			sent: {type: Date, default: Date.now},
+			deleted: {type: Boolean, default: false}
 		});
 
 	var conversationSchema = mongoose.Schema({

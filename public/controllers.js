@@ -178,6 +178,7 @@ angular.module("jewApp")
 	}
 
 	$scope.options = {types: '(cities)'};
+	$scope.options2 = null;
 	$scope.amenities = appData.amenitiesListHome;
 	$scope.files = {};
 	$scope.progress = [0,0,0,0,0,0,0,0];

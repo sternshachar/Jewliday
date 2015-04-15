@@ -18,5 +18,11 @@
 											<option value="">Select</option>
 										</select>
 									</div>
+									<div class="form-group">
+								        <label for="Autocomplete">Place I would love to visit soon:</label>
+								        <input type="text" id="Autocomplete" class="form-control" ng-autocomplete options="options2" ng-model="home.destinations.first" details="details" style="color: black;"/>
+								        <input type="text" id="Autocomplete" class="form-control" ng-autocomplete options="options2" ng-model="home.destinations.second" details="details" style="color: black;"/>
+								        <input type="text" id="Autocomplete" class="form-control" ng-autocomplete options="options2" ng-model="home.destinations.third" details="details" style="color: black;"/>
+								    </div>
 								</form>
 								<button class="btn btn-primary btn-block" ng-click="goToDetails()">Continue</button>
