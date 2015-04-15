@@ -131,8 +131,20 @@ angular.module("jewApp")
     }
   };
 });
-
-
+.filter('randomHome',function(){
+	return function(items){
+		if(items){
+			var randNum = [0, 0 ,0];
+			for (var i = 0; i < randNum.length; i++) {
+				randNum[i] = Math.floor((Math.random() * items.length) + 1);
+			};
+			console.log(randNum);
+			return [items[randNum[0]],items[randNum[1]],items[randNum[2]]];
+		}
+		else
+			return null;
+	}
+})
 
 
 
