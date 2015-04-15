@@ -1,11 +1,13 @@
 <div class="panel-container row panel-row">
-  <div ng-repeat="home in randomHomes" class="panel panel-default home-panel col-sm-4">
-    <div class="panel-heading">
-      <h3 class="panel-title">{{home.house.city}}</h3>
-    </div>
-    <div class="panel-body">
-      <img ng-src="{{home.photos.profile}}" class="panel-pic">
-      <p>{{home.house.description}}</p>
+  <div class="col-sm-4" ng-repeat="home in randomHomes">
+    <div  class="panel panel-default home-panel">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{home.house.city}}</h3>
+      </div>
+      <div class="panel-body">
+        <img ng-src="{{home.photos.profile}}" class="panel-pic">
+        <p>{{home.house.description}}</p>
+      </div>
     </div>
   </div>
 </div>
