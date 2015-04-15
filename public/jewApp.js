@@ -9,7 +9,7 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 				        libraries: 'weather,geometry,visualization'
 				    });
 				    $urlRouterProvider
-				      .when('/', ['$state', function ($state) {
+				      .when('', ['$state', function ($state) {
 				            $state.go('home.panel');
 				    }])
 				    $urlRouterProvider
