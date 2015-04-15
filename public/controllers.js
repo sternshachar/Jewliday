@@ -16,6 +16,10 @@ angular.module("jewApp")
 			.then(function(result){
 				$scope.userData = result.userData;
 				$scope.destinations = result.homeData.destinations;
+				searchService.searchHomes($scope.destinations.first)
+				.then(function(result){
+					$scope.suggestions = result;
+				});
 				socket.emit('join', {
 					id:result.userData.id,
 					name: result.userData.firstName + ' ' + result.userData.lastName
@@ -85,7 +89,6 @@ angular.module("jewApp")
 				searchService.searchHomes($scope.destinations.first)
 				.then(function(result){
 					$scope.suggestions = result;
-					console.log(result);
 				});
 				$scope.closeModal();
 				$scope.userLog = {};
