@@ -81,6 +81,7 @@ angular.module("jewApp")
 			})
 			.then(function(result){
 				$scope.userData = result.userData;
+				$scope.destinations = result.homeData.destinations;
 				$scope.closeModal();
 				$scope.userLog = {};
 				$scope.message = '';
