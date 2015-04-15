@@ -233,9 +233,9 @@ angular.module('jewApp')
 		restrict: 'E',
 
 		templateUrl: 'views/houseSuggest.html',
-		
-		controller: function($scope,$http,appData,searchService){
 
+		controller: function($scope,$http,appData,searchService){
+			// $scope.destinations = 
 		}
 	}
 })
