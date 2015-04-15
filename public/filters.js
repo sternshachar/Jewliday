@@ -130,7 +130,7 @@ angular.module("jewApp")
     	return null;
     }
   };
-});
+})
 .filter('randomHome',function(){
 	return function(items){
 		if(items){
