@@ -7,7 +7,7 @@ angular.module("jewApp")
 	$scope.unread = {num: 0};
 	$scope.warning = {message: ''};
 	
-
+	var randHomeFilter = $filter('randomHome');
 					//indicates number of unread messages
 		userService.getUserData()				//gets user datails
 			.then(function(result){
@@ -19,6 +19,7 @@ angular.module("jewApp")
 				searchService.searchHomes($scope.destinations.first)
 				.then(function(result){
 					$scope.suggestions = result;
+					$scope.randonHomes = randHomeFilter(suggestions);
 				});
 				socket.emit('join', {
 					id:result.userData.id,
