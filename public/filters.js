@@ -137,7 +137,7 @@ angular.module("jewApp")
 			var randNum = [-1, -1 ,-1];
 			for (var i = 0; i < randNum.length; i++) {
 				randNum[i] = Math.floor((Math.random() * items.length));
-				while(randNum.indexOf(randNum[i]) != -1){
+				if(randNum.indexOf(randNum[i]) != -1){
 					randNum[i] = Math.floor((Math.random() * items.length));
 				}
 			};
