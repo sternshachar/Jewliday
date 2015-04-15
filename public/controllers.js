@@ -91,6 +91,7 @@ angular.module("jewApp")
 				.then(function(result){
 					$scope.suggestions = result;
 					$scope.randomHomes = randHomeFilter($scope.suggestions);
+					console.log($scope.randomHomes);
 				});
 				$scope.closeModal();
 				$scope.userLog = {};
