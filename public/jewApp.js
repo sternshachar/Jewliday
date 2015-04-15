@@ -9,7 +9,7 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 				        libraries: 'weather,geometry,visualization'
 				    });
 				    $urlRouterProvider
-				      .when('', ['$state', function ($state) {
+				      .when('/', ['$state', function ($state) {
 				            $state.go('home.panel');
 				    }])
 				    $urlRouterProvider
@@ -31,11 +31,11 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 						templateUrl: "views/main.html"
 					})
 					.state('home.panel',{
-						url:'/',
+						url:'',
 						templateUrl: "views/main.panel.html"
 					})
 					.state('home.map',{
-						url:'/',
+						url:'',
 						templateUrl: "views/main.map.html"
 					})
 					.state('usersArea',{
