@@ -82,7 +82,7 @@ angular.module("jewApp")
 			.then(function(result){
 				$scope.userData = result.userData;
 				$scope.destinations = result.homeData.destinations;
-				$scope.suggestions = searchService.searchHomes(destinations.first);
+				$scope.suggestions = searchService.searchHomes($scope.destinations.first);
 				$scope.closeModal();
 				$scope.userLog = {};
 				$scope.message = '';
