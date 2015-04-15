@@ -54,6 +54,11 @@ db.once('open',function(callback){
 			location:{
 				lat: Number,
 				lng: Number
+			},
+			destinations:{
+				first: {type: String, default: ''},
+				second: {type: String, default: ''},
+				third: {type: String, default: ''}
 			}
 		},
 		photos:{
@@ -65,11 +70,6 @@ db.once('open',function(callback){
 				pic4: String,
 				pic5: String,
 				pic6: String
-		},
-		destinations:{
-			first: {type: String, default: ''},
-			second: {type: String, default: ''},
-			third: {type: String, default: ''}
 		}
 
 	},
