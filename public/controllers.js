@@ -19,7 +19,7 @@ angular.module("jewApp")
 				searchService.searchHomes($scope.destinations.first)
 				.then(function(result){
 					$scope.suggestions = result;
-					$scope.randonHomes = randHomeFilter(suggestions);
+					$scope.randomHomes = randHomeFilter($scope.suggestions);
 				});
 				socket.emit('join', {
 					id:result.userData.id,
@@ -90,6 +90,7 @@ angular.module("jewApp")
 				searchService.searchHomes($scope.destinations.first)
 				.then(function(result){
 					$scope.suggestions = result;
+					$scope.randomHomes = randHomeFilter($scope.suggestions);
 				});
 				$scope.closeModal();
 				$scope.userLog = {};
