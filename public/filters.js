@@ -141,7 +141,7 @@ angular.module("jewApp")
 					randNum[i] = Math.floor((Math.random() * items.length));
 				}
 			};
-			console.log(randNum);
+			console.log([items[randNum[0]],items[randNum[1]],items[randNum[2]]]);
 			return [items[randNum[0]],items[randNum[1]],items[randNum[2]]];
 		}
 		else
