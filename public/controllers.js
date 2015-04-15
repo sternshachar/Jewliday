@@ -85,6 +85,7 @@ angular.module("jewApp")
 				searchService.searchHomes($scope.destinations.first)
 				.then(function(result){
 					$scope.suggestions = result;
+					console.log(result);
 				});
 				$scope.closeModal();
 				$scope.userLog = {};
