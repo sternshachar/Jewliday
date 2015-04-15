@@ -10,7 +10,7 @@ angular.module("jewApp",["ngAnimate","ui.bootstrap","ngRoute","ngAutocomplete","
 				    });
 				    $urlRouterProvider
 				      .when('/', ['$state', function ($state) {
-				            $state.go('main.panel');
+				            $state.go('home.panel');
 				    }])
 				    $urlRouterProvider
 				      .when('/users/inbox', ['$state', function ($state) {
