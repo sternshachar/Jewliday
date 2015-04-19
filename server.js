@@ -1,4 +1,5 @@
 /* --- setting up an express server --- */
+var bcrypt = require('bcryptjs');
 var flash = require('connect-flash');
 var express = require('express'),
 	http = require('http'),
@@ -74,22 +75,28 @@ app.post('/signup',function(req,res){
 			);
 		} else {
 			var User = mongoose.model('users');
-			var newUser = new User(user);
-			newUser.save(function(err,newUser){
-				if(err) return console.error(err);
+			bcrypt.genSalt(10, function(err, salt) {
+			    bcrypt.hash(user.password, salt, function(err, hash) {
+			    	user.password = hash;
+			        var newUser = new User(user);
+					newUser.save(function(err,newUser){
+						if(err) return console.error(err);
 
-				var Inbox = mongoose.model('inboxes');
-				var newInbox = new Inbox({ownerId: newUser._id});
-				newInbox.save(function(err,newInbox){
-					if(err) return console.error(err);
-					console.log(newInbox);
-				})
+						var Inbox = mongoose.model('inboxes');
+						var newInbox = new Inbox({ownerId: newUser._id});
+						newInbox.save(function(err,newInbox){
+							if(err) return console.error(err);
+							console.log(newInbox);
+						})
 
-				console.log(newUser);
+						console.log(newUser);
+					});
+
+
+					res.status(201).json('added to DB ' + newUser); 
+			    });
 			});
 
-
-			res.status(201).json('added to DB ' + newUser);
 		}
 	});
 
