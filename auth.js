@@ -8,7 +8,7 @@ passport.use(new passportLocal(function(username,password,done){
 		// console.log(user);
 		if(err) return console.error(err);
 		if(!user) return done(null, false, { message: 'Wrong E-mail' });
-		if(!(user == undefined){
+		if(!(user == undefined)){
 			bcrypt.compare(user.password, hash, function(err, res) {
 			    if(res){
 					console.log('found');
