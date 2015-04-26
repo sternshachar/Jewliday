@@ -20,6 +20,15 @@ angular.module("jewApp")
 				.then(function(result){
 					$scope.suggestions = result;
 					$scope.randomHomes = randHomeFilter($scope.suggestions);
+					searchService.setFilteredResult($scope.randomHomes);
+					searchService.mapDataPrepare()
+						.then(function(mapData){
+							$scope.markers = mapData.markers;
+							$scope.map = mapData.mapView;
+							console.log(mapData);
+						},function(err){
+							console.error(err);
+						});	
 				});
 				socket.emit('join', {
 					id:result.userData.id,
