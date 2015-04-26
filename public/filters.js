@@ -143,7 +143,7 @@ angular.module("jewApp")
 				randNum[i] = temp;
 			};
 			console.log([items[randNum[0]],items[randNum[1]],items[randNum[2]]]);
-			return [items[randNum[0]],items[randNum[1]],items[randNum[2],items[randNum[3]];
+			return [items[randNum[0]],items[randNum[1]],items[randNum[2]],items[randNum[3]]];
 		}
 		else
 			return null;
