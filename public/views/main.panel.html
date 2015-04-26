@@ -1,6 +1,6 @@
 <div class="panel-container row panel-row">
   <div class="col-sm-3 col-sm-3-panel" ng-repeat="home in randomHomes">
-    <div  class="panel panel-default home-panel">
+    <div  class="panel panel-default home-panel" ng-click="openHome(home)">
       <div class="panel-body">
         <img ng-src="{{home.photos.profile}}" class="panel-pic">
         <br>

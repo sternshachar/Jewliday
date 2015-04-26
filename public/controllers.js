@@ -126,6 +126,17 @@ angular.module("jewApp")
 	  	{return 'active';} else {return '';}
 	}
 
+	$scope.openHome = function(data){//data is the house only in list
+
+		if(data){		
+			var selectedHome = searchService.homeSelect(data); 
+			$window.open(appData.url + '/#/search?id=' + data._id, '_blank');
+		} else {
+			var selectedHome = searchService.homeSelect($scope.chosen); 
+			$window.open(appData.url + '/#/search?id=' + $scope.chosen._id, '_blank');
+		}
+	}
+
 	socket.on("new_msg", function(data) {
 			$scope.unread.num += 1;
 	})
