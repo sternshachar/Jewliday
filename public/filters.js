@@ -136,10 +136,11 @@ angular.module("jewApp")
 		if(items){
 			var randNum = [-1, -1 ,-1];
 			for (var i = 0; i < randNum.length; i++) {
-				randNum[i] = Math.floor((Math.random() * items.length));
-				if(randNum.indexOf(randNum[i]) != -1){
-					randNum[i] = Math.floor((Math.random() * items.length));
+				temp = Math.floor((Math.random() * items.length));
+				while(randNum.indexOf(randNum[i]) != -1){
+					temp = Math.floor((Math.random() * items.length));
 				}
+				randNum[i] = temp;
 			};
 			console.log([items[randNum[0]],items[randNum[1]],items[randNum[2]]]);
 			return [items[randNum[0]],items[randNum[1]],items[randNum[2]]];
