@@ -380,16 +380,16 @@ angular.module("jewApp")
 
 	$scope.options = {scrollwheel: false};
 
-	$scope.openHome = function(data){//data is the house only in list
+	// $scope.openHome = function(data){//data is the house only in list
 
-		if(data){		
-			var selectedHome = searchService.homeSelect(data); 
-			$window.open(appData.url + '/#/search?id=' + data._id, '_blank');
-		} else {
-			var selectedHome = searchService.homeSelect($scope.chosen); 
-			$window.open(appData.url + '/#/search?id=' + $scope.chosen._id, '_blank');
-		}
-	}
+	// 	if(data){		
+	// 		var selectedHome = searchService.homeSelect(data); 
+	// 		$window.open(appData.url + '/#/search?id=' + data._id, '_blank');
+	// 	} else {
+	// 		var selectedHome = searchService.homeSelect($scope.chosen); 
+	// 		$window.open(appData.url + '/#/search?id=' + $scope.chosen._id, '_blank');
+	// 	}
+	// }
 
 	$scope.searchMode =	$state.includes('usersArea.search');
 	var filter = $filter('amenFilter')
