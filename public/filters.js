@@ -134,7 +134,7 @@ angular.module("jewApp")
 .filter('randomHome',function(){
 	return function(items){
 		if(items){
-			var randNum = [-1, -1 ,-1];
+			var randNum = [-1, -1 ,-1, -1];
 			for (var i = 0; i < randNum.length; i++) {
 				temp = Math.floor((Math.random() * items.length));
 				while(randNum.indexOf(temp) != -1){
@@ -143,7 +143,7 @@ angular.module("jewApp")
 				randNum[i] = temp;
 			};
 			console.log([items[randNum[0]],items[randNum[1]],items[randNum[2]]]);
-			return [items[randNum[0]],items[randNum[1]],items[randNum[2]]];
+			return [items[randNum[0]],items[randNum[1]],items[randNum[2],items[randNum[3]]];
 		}
 		else
 			return null;
