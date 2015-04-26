@@ -1,13 +1,19 @@
 <style type="text/css">
-        #map_canvas {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
+#map_canvas {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.angular-google-map-container {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
 </style>
-<h1>MAP</h1>
-		<div id="map_canvas">
-			    <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options" >
-			    	<ui-gmap-markers models="markers" coords="'self'" icon="'icon'" fit="markers.length > 1" click="onClick">
-				</ui-gmap-google-map>
-		</div>
+<div id="map_canvas">
+	<ui-gmap-google-map center="map.center" zoom="map.zoom" options="options" >
+    	<ui-gmap-markers models="markers" coords="'self'" icon="'icon'" fit="markers.length > 1" click="onClick">
+	</ui-gmap-google-map>
+</div>
