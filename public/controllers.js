@@ -98,10 +98,10 @@ angular.module("jewApp")
 						.then(function(mapData){
 							$scope.markers = mapData.markers;
 							$scope.map = mapData.mapView;
+							console.log(mapData);
 						},function(err){
 							console.error(err);
 						});	
-					console.log($scope.randomHomes);
 				});
 				$scope.closeModal();
 				$scope.userLog = {};
