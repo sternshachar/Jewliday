@@ -167,6 +167,9 @@ angular.module("jewApp")
 
 				deferred.resolve({markers: markersCoord, mapView: mapView});
 				return deferred.promise;
+			},
+			setFilteredResult: function(items){
+				filteredResult = items;
 			}
 			
 		}

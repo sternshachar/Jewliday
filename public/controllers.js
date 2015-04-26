@@ -37,6 +37,8 @@ angular.module("jewApp")
 	 			};
 	 		})
 
+
+
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){
 		$state.go('usersArea.search.list');
@@ -91,6 +93,14 @@ angular.module("jewApp")
 				.then(function(result){
 					$scope.suggestions = result;
 					$scope.randomHomes = randHomeFilter($scope.suggestions);
+					searchService.setFilteredResult();
+					searchService.mapDataPrepare()
+						.then(function(mapData){
+							$scope.markers = mapData.markers;
+							$scope.map = mapData.mapView;
+						},function(err){
+							console.error(err);
+						});	
 					console.log($scope.randomHomes);
 				});
 				$scope.closeModal();
@@ -379,17 +389,6 @@ angular.module("jewApp")
 	var filterResult = [];
 
 	$scope.options = {scrollwheel: false};
-
-	// $scope.openHome = function(data){//data is the house only in list
-
-	// 	if(data){		
-	// 		var selectedHome = searchService.homeSelect(data); 
-	// 		$window.open(appData.url + '/#/search?id=' + data._id, '_blank');
-	// 	} else {
-	// 		var selectedHome = searchService.homeSelect($scope.chosen); 
-	// 		$window.open(appData.url + '/#/search?id=' + $scope.chosen._id, '_blank');
-	// 	}
-	// }
 
 	$scope.searchMode =	$state.includes('usersArea.search');
 	var filter = $filter('amenFilter')

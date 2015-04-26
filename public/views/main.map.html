@@ -1,1 +1,13 @@
+<style type="text/css">
+        #map_canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+</style>
 <h1>MAP</h1>
+		<div id="map_canvas">
+			    <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options" >
+			    	<ui-gmap-markers models="markers" coords="'self'" icon="'icon'" fit="markers.length > 1" click="onClick">
+				</ui-gmap-google-map>
+		</div>
