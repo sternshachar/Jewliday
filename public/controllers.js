@@ -93,7 +93,7 @@ angular.module("jewApp")
 				.then(function(result){
 					$scope.suggestions = result;
 					$scope.randomHomes = randHomeFilter($scope.suggestions);
-					searchService.setFilteredResult();
+					searchService.setFilteredResult($scope.randomHomes);
 					searchService.mapDataPrepare()
 						.then(function(mapData){
 							$scope.markers = mapData.markers;
