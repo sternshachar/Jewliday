@@ -11,9 +11,12 @@
 	right: 0;
 	left: 0;
 }
+
 </style>
-<div id="map_canvas">
-	<ui-gmap-google-map center="map.center" zoom="map.zoom" options="options" >
-    	<ui-gmap-markers models="markers" coords="'self'" icon="'icon'" fit="markers.length > 1" click="onClick">
-	</ui-gmap-google-map>
+<div class="col-sm-12">
+	<div id="map_canvas">
+		<ui-gmap-google-map center="map.center" zoom="map.zoom" options="options" >
+	    	<ui-gmap-markers models="markers" coords="'self'" icon="'icon'" fit="markers.length > 1" click="onClick">
+		</ui-gmap-google-map>
+	</div>
 </div>
