@@ -156,6 +156,11 @@ angular.module("jewApp")
 		}
 	}
 
+	$scope.onClick = function(data) {
+		console.log(data.key);
+	    $scope.chosenKey = data.key;
+	};
+
 	socket.on("new_msg", function(data) {
 			$scope.unread.num += 1;
 	})
