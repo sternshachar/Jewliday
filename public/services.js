@@ -362,7 +362,7 @@ function() {
 		 })
 		$(document).on("mouseenter mouseleave",'.home-panel',function(e){
 			if (e.type == "mouseenter") {
-				$(this).css('background','#337ab7');
+				$(this).css('background','rgb(244, 241, 241)');
 			} else {
 			 	$(this).css('background','white');
 			}
