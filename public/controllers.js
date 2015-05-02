@@ -45,10 +45,6 @@ angular.module("jewApp")
 				 		});
 	 			};
 	 		})
-	 $(document).ready(function(){
-	 	$('jumbotron').fadeTo(3000,0);
-	 });
-
 
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
 	$scope.search = function(){
