@@ -177,7 +177,7 @@ angular.module('jewApp')
 
 		templateUrl: 'views/messageContent.html',
 
-		controller: function($scope,$http,$interval,appData,searchService,inboxService,socket){
+		controller: function($scope,$http,$interval,appData,searchService,inboxService,socket,jqueryService){
 				$scope.messageData = {
 					uid: $scope.userData.id,
 					sender: $scope.userData.firstName + ' ' + $scope.userData.lastName,
@@ -195,6 +195,7 @@ angular.module('jewApp')
 						})
 						$scope.$emit('refresh inbox',{})
 						$scope.conversation = $scope.conversations[index];
+						jqueryService.selected.addClass('active');
 				};
 									
 				$scope.replyMessage = function(){
@@ -223,10 +224,6 @@ angular.module('jewApp')
 						$scope.$apply(function(){$scope.conversation.messages.push({content: data.message.content, sent: new Date(), iSent: false});});
 				
 				})
-						$(document).on("click",'.recipient-btn',function(e){
-			$('.recipient').removeClass('active');
-			$(this).parent().addClass('active');
-		 })
 
 
 			}
