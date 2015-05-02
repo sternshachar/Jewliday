@@ -195,7 +195,7 @@ angular.module('jewApp')
 						})
 						$scope.$emit('refresh inbox',{})
 						$scope.conversation = $scope.conversations[index];
-						jqueryService.selected().addClass('active');
+						
 				};
 									
 				$scope.replyMessage = function(){
