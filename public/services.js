@@ -371,6 +371,7 @@ function() {
 		$(document).on("click",'.recipient-btn',function(e){
 			$('.recipient').removeClass('active');
 			selected = $(this).parent();
+			console.log(selected);
 		 })
 
 	});	
