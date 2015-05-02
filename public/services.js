@@ -351,8 +351,8 @@ function() {
     };
 }])
 .factory('jqueryService',function(){
-	var selected;
 	$(document).ready(function(){
+		console.log(';;')
 		$(document).on('click','#home',function(){
 			if($(this).css('font-size') == '30px'){
 				$(this).animate({'font-size':'70px'},400);
@@ -369,14 +369,10 @@ function() {
 		 })
 		$(document).on("click",'.recipient-btn',function(e){
 			$('.recipient').removeClass('active');
-			selected = $(this).parent();
+			$(this).parent().addClass('active');
 		 })
 
 	});	
 
-	return {
-		selected: function(){
-			return selected;
-		}
-	};
+	return $;
 })
