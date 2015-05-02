@@ -367,9 +367,9 @@ function() {
 			 	$(this).css('background','white');
 			}	
 		 })
-		$(document).on("click",'.recipient',function(e){
+		$(document).on("click",'.recipient-btn',function(e){
 			$('.recipient').removeClass('active');
-			$(this).addClass('active');
+			$(this).parent().addClass('active');
 		 })
 
 	});	
