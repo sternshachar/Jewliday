@@ -354,7 +354,11 @@ function() {
 	$(document).ready(function(){
 		console.log(';;')
 		$(document).on('click','#home',function(){
-			$(this).animate({'font-size':'toggle'},400);
+			if($(this).css('font-size') == '30px'){
+				$(this).animate({'font-size':'30px'},400);
+			} else {
+				$(this).animate({'font-size':'60px'},400);
+			}
 		 })
 	});	
 
