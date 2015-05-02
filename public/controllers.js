@@ -45,8 +45,8 @@ angular.module("jewApp")
 				 		});
 	 			};
 	 		})
-	 angular.element(document).ready(function(){
-	 	angular.element('jumbotron').fadeTo(3000,0);
+	 $(document).ready(function(){
+	 	$('jumbotron').fadeTo(3000,0);
 	 });
 
 
