@@ -28,11 +28,12 @@
 	<link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
 	<script type="text/javascript">
 	
-	 
-	 	console.log($('jumbotron'));
-	 	$('div').click(function(){
-	 		alert('jquery!!!!');
-	 	});
+	 	$(document).ready(function(){
+		 	$('div').on('click','#home',function(){
+		 		alert('jQuery!!')
+		 	})
+	 	});	
+
 	 	</script>
 </head>
 <body ng-controller="mainCtrl">
