@@ -369,7 +369,7 @@ function() {
 		 })
 		$(document).on("click",'.recipient-btn',function(e){
 			$('.recipient').width(293);
-			$(this).parent().width(303);
+			$(this).parent().css('width','304px');
 		 })
 
 	});	
