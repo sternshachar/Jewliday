@@ -355,9 +355,9 @@ function() {
 		console.log(';;')
 		$(document).on('click','#home',function(){
 			if($(this).css('font-size') == '30px'){
-				$(this).animate({'font-size':'30px'},400);
+				$(this).animate({'font-size':'70px'},400);
 			} else {
-				$(this).animate({'font-size':'60px'},400);
+				$(this).animate({'font-size':'30px'},400);
 			}
 		 })
 	});	
