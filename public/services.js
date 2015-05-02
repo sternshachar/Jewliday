@@ -365,9 +365,14 @@ function() {
 				$(this).css('background','rgb(244, 241, 241)');
 			} else {
 			 	$(this).css('background','white');
-			}
-		
+			}	
 		 })
+		$(document).on("click",'.recipient',function(e){
+			$('.recipient').css('background','white');
+			$(this).css('background','rgb(236, 236, 236)');
+
+		 })
+
 	});	
 
 	return $;
