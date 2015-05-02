@@ -357,4 +357,6 @@ function() {
 		 	alert('jQuery!!')
 		 })
 	});	
+
+	return $;
 })
