@@ -352,6 +352,7 @@ function() {
 }])
 .factory('jqueryService',function(){
 	$(document).ready(function(){
+		console.log(';;')
 		$(document).on('click','#home',function(){
 		 	alert('jQuery!!')
 		 })
