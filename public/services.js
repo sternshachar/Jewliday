@@ -360,7 +360,7 @@ function() {
 				$(this).animate({'font-size':'30px'},400);
 			}
 		 })
-		$(document).on('hover','.home-panel',function(e){
+		$(document).on("mouseenter mouseleave",'.home-panel',function(e){
 			if (e.type == "mouseenter") {
 				console.log('asd');
 				$(this).css('background','blue');
