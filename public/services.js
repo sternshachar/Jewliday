@@ -362,8 +362,7 @@ function() {
 		 })
 		$(document).on("mouseenter mouseleave",'.home-panel',function(e){
 			if (e.type == "mouseenter") {
-				console.log('asd');
-				$(this).css('background','blue');
+				$(this).css('background','#337ab7');
 			} else {
 			 	$(this).css('background','white');
 			}
