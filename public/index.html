@@ -26,17 +26,18 @@
 	<script src='favico.min.js'></script>
 	<script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
 	<link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
-	<script type="text/javascript">
-	 jQuery(document).ready(function(){
-	 	jQuery('.col-sm-2').fadeTo(3000,0);
-	 });
-	</script>
+
 </head>
 <body ng-controller="mainCtrl">
 
 	<div ui-view></div>
 	<log-modal ng-attr-modal="sign" ng-show="sign" class="sign"></log-modal>
 	<log-modal ng-attr-modal="log" ng-show="login" class="login"></log-modal>
-
+		<script type="text/javascript">
+		console.log(jQuery);
+	 jQuery(document).ready(function(){
+	 	jQuery('.col-sm-2').fadeTo(3000,0);
+	 });
+	</script>
 </body>
 </html>
