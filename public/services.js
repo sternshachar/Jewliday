@@ -350,3 +350,10 @@ function() {
         reset : reset
     };
 }]);
+.factory('jqueryService',function(){
+	$(document).ready(function(){
+		$(document).on('click','#home',function(){
+		 	alert('jQuery!!')
+		 })
+	});	
+})
