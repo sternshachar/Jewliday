@@ -223,6 +223,10 @@ angular.module('jewApp')
 						$scope.$apply(function(){$scope.conversation.messages.push({content: data.message.content, sent: new Date(), iSent: false});});
 				
 				})
+						$(document).on("click",'.recipient-btn',function(e){
+			$('.recipient').removeClass('active');
+			$(this).parent().addClass('active');
+		 })
 
 
 			}

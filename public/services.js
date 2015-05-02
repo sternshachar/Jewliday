@@ -367,10 +367,10 @@ function() {
 			 	$(this).css('background','white');
 			}	
 		 })
-		$(document).on("click",'.recipient-btn',function(e){
-			// $('.recipient').removeClass('active');
-			$(this).parent().addClass('active');
-		 })
+		// $(document).on("click",'.recipient-btn',function(e){
+		// 	$('.recipient').removeClass('active');
+		// 	$(this).parent().addClass('active');
+		//  })
 
 	});	
 
