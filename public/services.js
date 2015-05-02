@@ -360,7 +360,7 @@ function() {
 				$(this).animate({'font-size':'30px'},400);
 			}
 		 })
-		$(document).on('hover','#home',function(){
+		$(document).on('hover','.home-panel',function(){
 			$(this).css('background','blue');
 		 },function(){
 		 	$(this).css('background','white');
