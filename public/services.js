@@ -354,7 +354,7 @@ function() {
 	$(document).ready(function(){
 		console.log(';;')
 		$(document).on('click','#home',function(){
-		 	alert('jQuery!!')
+			$(this).css('font-size','25px');
 		 })
 	});	
 
