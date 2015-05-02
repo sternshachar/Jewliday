@@ -376,6 +376,8 @@ function() {
 	});	
 
 	return {
-		selected: selected
+		selected: function(){
+			return selected;
+		}
 	};
 })
