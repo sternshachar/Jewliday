@@ -376,6 +376,6 @@ function() {
 	});	
 
 	return {
-		selected: selected;
+		selected: selected
 	};
 })
