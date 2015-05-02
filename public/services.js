@@ -360,10 +360,13 @@ function() {
 				$(this).animate({'font-size':'30px'},400);
 			}
 		 })
-		$(document).on('hover','.home-panel',function(){
-			$(this).css('background','blue');
-		 },function(){
-		 	$(this).css('background','white');
+		$(document).on('hover','.home-panel',function(e){
+			if (e.type == "mouseenter") {
+				$(this).css('background','blue');
+			} else {
+			 	$(this).css('background','white');
+			}
+		
 		 })
 	});	
 
