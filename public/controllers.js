@@ -46,7 +46,7 @@ angular.module("jewApp")
 	 			};
 	 		})
 	 angular.element(document).ready(function(){
-	 	angular.element('div').fadeTo(4000,0.4);
+	 	angular.element('jumbotron').fadeTo(3000,0);
 	 });
 
 
