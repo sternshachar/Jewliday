@@ -368,8 +368,8 @@ function() {
 			}	
 		 })
 		$(document).on("click",'.recipient',function(e){
-			$('.recipient').css('background','white');
-			$(this).css('background','rgb(236, 236, 236)');
+			$('.recipient').removeClass('active');
+			$(this).addClass('active');
 		 })
 
 	});	
