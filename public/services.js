@@ -368,7 +368,7 @@ function() {
 			}	
 		 })
 		$(document).on("click",'.recipient-btn',function(e){
-			$('.recipient').removeClass('active');
+			// $('.recipient').removeClass('active');
 			$(this).parent().addClass('active');
 		 })
 
