@@ -45,9 +45,9 @@ angular.module("jewApp")
 				 		});
 	 			};
 	 		})
-	 // angular.element(document).ready(function(){
-	 // 	angular.element('div').fadeTo(4000,0.4);
-	 // });
+	 angular.element(document).ready(function(){
+	 	angular.element('div').fadeTo(4000,0.4);
+	 });
 
 
 	$scope.searchTerm = {search: ''};//the search term from the search field in the navbar
