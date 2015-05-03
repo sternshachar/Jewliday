@@ -369,7 +369,7 @@ function() {
 		 })
 		$(document).on("click",'.recipient-btn',function(e){
 			console.log($(this).width());
-			$('.recipient').width(293);
+			$('.recipient').width(500);
 			$(this).parent().css('width','304px');
 		 })
 
