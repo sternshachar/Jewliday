@@ -368,8 +368,9 @@ function() {
 			}	
 		 })
 		$(document).on("click",'.recipient-btn',function(e){
+			console.log(e);
 			$('.recipient').animate({'background':'rgb(244, 241, 241)'},500);
-			$(this).parent().animate({'background':'white'},500);
+			$(this).animate({'background':'white'},500);
 		 })
 
 	});	
