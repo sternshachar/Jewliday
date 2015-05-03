@@ -368,7 +368,7 @@ function() {
 			}	
 		 })
 		$(document).on("click",'.recipient-btn',function(e){
-			(console.log($(this).width());
+			console.log($(this).width());
 			$('.recipient').width(293);
 			$(this).parent().css('width','304px');
 		 })
