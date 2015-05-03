@@ -200,7 +200,7 @@ angular.module("jewApp")
 									homeData = result.data.user.house;
 									photosUrl = result.data.user.photos;
 								}
-								console.log('userData Loaded');
+								// console.log('userData Loaded');
 							}
 							return userData;
 					});
@@ -216,7 +216,7 @@ angular.module("jewApp")
 				var deferred = $q.defer();
 				$http.post(appData.url + "/login",credntials)
 					.success(function(data){
-						console.log(data);
+						// console.log(data);
 						if(data.message)
 							deferred.reject(data.message);
 						else{
@@ -352,7 +352,6 @@ function() {
 }])
 .factory('jqueryService',function(){
 	$(document).ready(function(){
-		console.log(';;')
 		$(document).on('click','#home',function(){
 			if($(this).css('font-size') == '30px'){
 				$(this).animate({'font-size':'70px'},400);
@@ -370,7 +369,7 @@ function() {
 		$(document).on("click",'.recipient-btn',function(e){
 			console.log(e);
 			$('.recipient').animate({'background':'rgb(244, 241, 241)'},500);
-			$(this).animate({'background':'white'},500);
+			$(this).animate({'background':'blue'},500);
 		 })
 
 	});	

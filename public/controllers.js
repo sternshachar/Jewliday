@@ -105,7 +105,7 @@ angular.module("jewApp")
 						.then(function(mapData){
 							$scope.markers = mapData.markers;
 							$scope.map = mapData.mapView;
-							console.log(mapData);
+							// console.log(mapData);
 						},function(err){
 							console.error(err);
 						});	
