@@ -369,7 +369,7 @@ function() {
 		$(document).on("click",'.recipient-btn',function(e){
 			console.log(e);
 			$('.recipient').animate({'background':'rgb(244, 241, 241)'},500);
-			$(this).animate({'background':'blue'},500);
+			$(this).css('background','rgb(244, 241, 241)');
 		 })
 
 	});	
