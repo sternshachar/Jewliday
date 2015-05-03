@@ -368,7 +368,7 @@ function() {
 		 })
 		$(document).on("click",'.recipient-btn',function(e){
 			console.log(e);
-			$('.recipient').css('background','white');
+			// $('.recipient').css('background','white');
 			$(this).parent().css('background','rgb(244, 241, 241)');
 		 })
 
