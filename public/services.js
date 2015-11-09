@@ -350,29 +350,29 @@ function() {
         reset : reset
     };
 }])
-.factory('jqueryService',function(){
-	$(document).ready(function(){
-		$(document).on('click','#home',function(){
-			if($(this).css('font-size') == '30px'){
-				$(this).animate({'font-size':'70px'},400);
-			} else {
-				$(this).animate({'font-size':'30px'},400);
-			}
-		 })
-		$(document).on("mouseenter mouseleave",'.home-panel',function(e){
-			if (e.type == "mouseenter") {
-				$(this).css('background','rgb(244, 241, 241)');
-			} else {
-			 	$(this).css('background','white');
-			}	
-		 })
-		$(document).on("click",'.recipient-btn',function(e){
-			console.log(e);
-			// $('.recipient').css('background','white');
-			$(this).parent().css('background','rgb(244, 241, 241)');
-		 })
+// .factory('jqueryService',function(){
+// 	$(document).ready(function(){
+// 		$(document).on('click','#home',function(){
+// 			if($(this).css('font-size') == '30px'){
+// 				$(this).animate({'font-size':'70px'},400);
+// 			} else {
+// 				$(this).animate({'font-size':'30px'},400);
+// 			}
+// 		 })
+// 		$(document).on("mouseenter mouseleave",'.home-panel',function(e){
+// 			if (e.type == "mouseenter") {
+// 				$(this).css('background','rgb(244, 241, 241)');
+// 			} else {
+// 			 	$(this).css('background','white');
+// 			}	
+// 		 })
+// 		$(document).on("click",'.recipient-btn',function(e){
+// 			console.log(e);
+// 			// $('.recipient').css('background','white');
+// 			$(this).parent().css('background','rgb(244, 241, 241)');
+// 		 })
 
-	});	
+// 	});	
 
-	return $;
-})
+// 	return $;
+// })
