@@ -16,7 +16,7 @@ angular.module("jewApp")
 			.then(function(result){
 				$scope.userData = result.userData;
 				$scope.destinations = result.homeData.destinations;
-				searchService.searchHomes($scope.destinations.first)
+				// searchService.searchHomes($scope.destinations.first)
 				.then(function(result){
 					$scope.suggestions = result;
 					$scope.randomHomes = randHomeFilter($scope.suggestions);
