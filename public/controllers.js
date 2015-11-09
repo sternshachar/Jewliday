@@ -1,6 +1,6 @@
 angular.module("jewApp")
-.controller("mainCtrl",function($scope,$interval,$timeout,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope,userService,inboxService,searchService,socket,favicoService,$window){
-	$scope.user = {};						// user data for SINGUP from form (logModal.html)		jqueryService
+.controller("mainCtrl",function($scope,$interval,$timeout,$http,$location,$state,appData,uiGmapGoogleMapApi,$filter,$rootScope,userService,inboxService,searchService,socket,favicoService,$window,jqueryService){
+	$scope.user = {};						// user data for SINGUP from form (logModal.html)
 	$scope.userLog = {};					//user data for LOGIN up from form (signModal.html)
 	$scope.items = appData.dropdownUserMenu;//item for user dropdown menu
 	$scope.signMessage = "Enter email";  	//default text in email field in SIGNUP form
