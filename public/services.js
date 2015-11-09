@@ -201,6 +201,8 @@ angular.module("jewApp")
 									photosUrl = result.data.user.photos;
 								}
 								// console.log('userData Loaded');
+							} else {
+								console.log("User Not Logged In!")
 							}
 							return userData;
 					});
